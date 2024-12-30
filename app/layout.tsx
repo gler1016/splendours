@@ -76,6 +76,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import Providers from "./providers"; // Import the ThemeProvider component
+import { ModelProvider } from "./context/ModelContext";
 
 // Define Montserrat
 const montserrat = Montserrat({
@@ -131,7 +132,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${chronicleDisplay.variable}`}
       >
-        <Providers>{children}</Providers>
+        <ModelProvider><Providers>{children}</Providers></ModelProvider>
       </body>
     </html>
   );

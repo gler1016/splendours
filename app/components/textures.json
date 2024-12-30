@@ -1,0 +1,178 @@
+[
+  {
+    "name": "beachport",
+    "thumbnail": "/Project_textures/01_beachport/textures/beachport_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/01_beachport/textures/beachport_basecolor.jpg",
+    "textureArmPath": "/Project_textures/01_beachport/textures/beachport_arm.jpg",
+    "textureHeightPath": "/Project_textures/01_beachport/textures/beachport_height.jpg",
+    "textureNormalPath": "/Project_textures/01_beachport/textures/beachport_normal.jpg"
+  },
+  {
+    "name": "Atlantic_marble_french",
+    "thumbnail": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_basecolor.jpg",
+    "textureArmPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_arm.jpg",
+    "textureHeightPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_height.jpg",
+    "textureNormalPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_normal.jpg"
+  },
+  {
+    "name": "beloka",
+    "thumbnail": "/Project_textures/03_beloka/textures/beloka_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/03_beloka/textures/beloka_basecolor.jpg",
+    "textureArmPath": "/Project_textures/03_beloka/textures/beloka_arm.jpg",
+    "textureHeightPath": "/Project_textures/03_beloka/textures/beloka_height.jpg",
+    "textureNormalPath": "/Project_textures/03_beloka/textures/beloka_normal.jpg"
+  },
+  {
+    "name": "blanco",
+    "thumbnail": "/Project_textures/04_blanco/textures/blanco_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/04_blanco/textures/blanco_basecolor.jpg",
+    "textureArmPath": "/Project_textures/04_blanco/textures/blanco_arm.jpg",
+    "textureHeightPath": "/Project_textures/04_blanco/textures/blanco_height.jpg",
+    "textureNormalPath": "/Project_textures/04_blanco/textures/blanco_normal.jpg"
+  },
+  {
+    "name": "bluestone_flamed",
+    "thumbnail": "/Project_textures/06_bluestone_flamed/textures/bluestone1_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_basecolor.jpg",
+    "textureArmPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_arm.jpg",
+    "textureHeightPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_height.jpg",
+    "textureNormalPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_normal.jpg"
+  },
+  {
+    "name": "bluestone_sawn",
+    "thumbnail": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_basecolor.jpg",
+    "textureArmPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_arm.jpg",
+    "textureHeightPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_height.jpg",
+    "textureNormalPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_normal.jpg"
+  },
+  {
+    "name": "buffalo",
+    "thumbnail": "/Project_textures/08_buffalo/textures/buffalo_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/08_buffalo/textures/buffalo_basecolor.jpg",
+    "textureArmPath": "/Project_textures/08_buffalo/textures/buffalo_arm.jpg",
+    "textureHeightPath": "/Project_textures/08_buffalo/textures/buffalo_height.jpg",
+    "textureNormalPath": "/Project_textures/08_buffalo/textures/buffalo_normal.jpg"
+  },
+  {
+    "name": "charlotte",
+    "thumbnail": "/Project_textures/09_charlotte/textures/Charlotte_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/09_charlotte/textures/Charlotte_basecolor.jpg",
+    "textureArmPath": "/Project_textures/09_charlotte/textures/Charlotte_arm.jpg",
+    "textureHeightPath": "/Project_textures/09_charlotte/textures/Charlotte_height.jpg",
+    "textureNormalPath": "/Project_textures/09_charlotte/textures/Charlotte_normal.jpg"
+  },
+  {
+    "name": "10_grange",
+    "thumbnail": "/Project_textures/10_grange/textures/grange_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/10_grange/textures/grange_basecolor.jpg",
+    "textureArmPath": "/Project_textures/10_grange/textures/grange_arm.jpg",
+    "textureHeightPath": "/Project_textures/10_grange/textures/grange_height.jpg",
+    "textureNormalPath": "/Project_textures/10_grange/textures/grange_normal.jpg"
+  },
+  {
+    "name": "grange",
+    "thumbnail": "/Project_textures/08_buffalo/textures/buffalo_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/08_buffalo/textures/buffalo_basecolor.jpg",
+    "textureArmPath": "/Project_textures/08_buffalo/textures/buffalo_arm.jpg",
+    "textureHeightPath": "/Project_textures/08_buffalo/textures/buffalo_height.jpg",
+    "textureNormalPath": "/Project_textures/08_buffalo/textures/buffalo_normal.jpg"
+  },
+  {
+    "name": "jamieson",
+    "thumbnail": "/Project_textures/12_jamieson/textures/jamieson_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/12_jamieson/textures/jamieson_basecolor.jpg",
+    "textureArmPath": "/Project_textures/12_jamieson/textures/jamieson_arm.jpg",
+    "textureHeightPath": "/Project_textures/12_jamieson/textures/jamieson_height.jpg",
+    "textureNormalPath": "/Project_textures/12_jamieson/textures/jamieson_normal.jpg"
+  },
+  {
+    "name": "jasper",
+    "thumbnail": "/Project_textures/13_jasper/textures/jasper_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/13_jasper/textures/jasper_basecolor.jpg",
+    "textureArmPath": "/Project_textures/13_jasper/textures/jasper_arm.jpg",
+    "textureHeightPath": "/Project_textures/13_jasper/textures/jasper_height.jpg",
+    "textureNormalPath": "/Project_textures/13_jasper/textures/jasper_normal.jpg"
+  },
+  {
+    "name": "marakesh",
+    "thumbnail": "/Project_textures/14_marakesh/textures/marakesh_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/14_marakesh/textures/marakesh_basecolor.jpg",
+    "textureArmPath": "/Project_textures/14_marakesh/textures/marakesh_arm.jpg",
+    "textureHeightPath": "/Project_textures/14_marakesh/textures/marakesh_height.jpg",
+    "textureNormalPath": "/Project_textures/14_marakesh/textures/marakesh_normal.jpg"
+  },
+  {
+    "name": "15_porphyry_crazy",
+    "thumbnail": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_basecolor.jpg",
+    "textureArmPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_arm.jpg",
+    "textureHeightPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_height.jpg",
+    "textureNormalPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_normal.jpg"
+  },
+  {
+    "name": "quartz",
+    "thumbnail": "/Project_textures/16_quartz/textures/quartz_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/16_quartz/textures/quartz_basecolor.jpg",
+    "textureArmPath": "/Project_textures/16_quartz/textures/quartz_arm.jpg",
+    "textureHeightPath": "/Project_textures/16_quartz/textures/quartz_height.jpg",
+    "textureNormalPath": "/Project_textures/16_quartz/textures/quartz_normal.jpg"
+  },
+  {
+    "name": "roman",
+    "thumbnail": "/Project_textures/17_roman/textures/roman_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/17_roman/textures/roman_basecolor.jpg",
+    "textureArmPath": "/Project_textures/17_roman/textures/roman_arm.jpg",
+    "textureHeightPath": "/Project_textures/17_roman/textures/roman_height.jpg",
+    "textureNormalPath": "/Project_textures/17_roman/textures/roman_normal.jpg"
+  },
+  {
+    "name": "shoreham",
+    "thumbnail": "/Project_textures/18_shoreham/textures/shoreham_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/18_shoreham/textures/shoreham_basecolor.jpg",
+    "textureArmPath": "/Project_textures/18_shoreham/textures/shoreham_arm.jpg",
+    "textureHeightPath": "/Project_textures/18_shoreham/textures/shoreham_height.jpg",
+    "textureNormalPath": "/Project_textures/18_shoreham/textures/shoreham_normal.jpg"
+  },
+  {
+    "name": "sienna_crazy",
+    "thumbnail": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_basecolor.jpg",
+    "textureArmPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_arm.jpg",
+    "textureHeightPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_height.jpg",
+    "textureNormalPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_normal.jpg"
+  },
+  {
+    "name": "sienna_sandblast",
+    "thumbnail": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_basecolor.jpg",
+    "textureArmPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_arm.jpg",
+    "textureHeightPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_height.jpg",
+    "textureNormalPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_normal.jpg"
+  },
+  {
+    "name": "stirling",
+    "thumbnail": "/Project_textures/21_stirling/textures/stirling_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/21_stirling/textures/stirling_basecolor.jpg",
+    "textureArmPath": "/Project_textures/21_stirling/textures/stirling_arm.jpg",
+    "textureHeightPath": "/Project_textures/21_stirling/textures/stirling_height.jpg",
+    "textureNormalPath": "/Project_textures/21_stirling/textures/stirling_normal.jpg"
+  },
+  {
+    "name": "travertine_ivory",
+    "thumbnail": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_basecolor.jpg",
+    "textureArmPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_arm.jpg",
+    "textureHeightPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_height.jpg",
+    "textureNormalPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_normal.jpg"
+  },
+  {
+    "name": "tuscano",
+    "thumbnail": "/Project_textures/23_tuscano/textures/tuscano_basecolor.jpg",
+    "textureBaseColorPath": "/Project_textures/23_tuscano/textures/tuscano_basecolor.jpg",
+    "textureArmPath": "/Project_textures/23_tuscano/textures/tuscano_arm.jpg",
+    "textureHeightPath": "/Project_textures/23_tuscano/textures/tuscano_height.jpg",
+    "textureNormalPath": "/Project_textures/23_tuscano/textures/tuscano_normal.jpg"
+  }
+]

@@ -45,6 +45,7 @@
     "react-reconciler": "^0.29.2",
     "react-responsive": "^10.0.0",
     "sass": "^1.81.0",
+    "swiper": "^11.1.15",
     "three": "^0.170.0"
   },
   "devDependencies": {

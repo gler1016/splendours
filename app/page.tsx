@@ -383,7 +383,7 @@ const HomePage = () => {
                         </Box>
                         <Box className="flex w-full justify-between">
                             <Box className="flex">
-                                <WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                <Link href={'/allvisualizers'}><WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} /></Link>
                             </Box>
                             <Box className="flex">
                                 <Link href={'/visualizer'}><WhiteCustomButton label={'Try Now!'} iconSrc={'/images/icons/Vector.svg'} /></Link>
@@ -411,7 +411,7 @@ const HomePage = () => {
                             </Typography>
                         </Box>
                         <Box>
-                            <WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                            <Link href={'/allvisualizers'}><WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} /></Link>
                         </Box>
 
                     </Box>}

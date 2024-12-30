@@ -35,3 +35,51 @@ body {
   padding-left:120px!important ;
   padding-right:120px!important;
 }
+
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  z-index: 10;
+  width: 50px; /* Adjust button size */
+  height: 50px;
+  margin-top: -25px; /* Center align */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* background: linear-gradient(135deg, #6a11cb, #2575fc); Beautiful gradient */
+  color: white; /* Icon color */
+  font-size: 18px; /* Adjust font/icon size */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Stunning shadow */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.mySwiper .swiper-button-next:hover,
+.mySwiper .swiper-button-prev:hover {
+  transform: scale(1.15); /* Subtle hover scale effect */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+  /* background: linear-gradient(135deg, #2575fc, #6a11cb); Reverse gradient on hover */
+}
+
+.mySwiper .swiper-button-next:active,
+.mySwiper .swiper-button-prev:active {
+  transform: scale(1); /* Slight shrink on click */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Softer shadow on click */
+}
+
+.mySwiper .swiper-button-next {
+  right: 10px; /* Adjust distance from edge */
+}
+
+.mySwiper .swiper-button-prev {
+  left: 10px; /* Adjust distance from edge */
+}
+
+.mySwiper .swiper-button-next::after,
+.mySwiper .swiper-button-prev::after {
+  font-size: 24px; /* Adjust arrow size */
+  font-weight: bold;
+}
