@@ -68,7 +68,8 @@ export default async function handler(
 
       const mailOptions = {
         from: "mailer@splendourinstone.com.au",
-        to: "sherehiyandriy@gmail.com",
+        // to: "sherehiyandriy@gmail.com",
+        to: "info@splendourinstone.com",
         replyTo: email,
         subject: "New Booking Submission",
         text: `
