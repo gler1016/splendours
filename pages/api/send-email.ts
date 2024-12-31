@@ -13,11 +13,7 @@ export default async function handler(
 
   try {
 
-    const name = req.body.name;
     const email = req.body.email;
-    const phone = req.body.phone;
-    const specialRequests = req.body.enquiry
-
 
     // if (!name || !email || !phone) {
     //   return res.status(400).json({ error: "Missing required fields" });
@@ -27,11 +23,8 @@ export default async function handler(
     const db = await connectToDatabase();
     const collection = db.collection("formSubmissions");
     await collection.insertOne({
-      name,
       email,
-      phone,
-      specialRequests,
-      role: "5",
+      role: "6",
       createdAt: new Date(),
     });
 
@@ -49,13 +42,8 @@ export default async function handler(
       from: "mailer@splendourinstone.com.au",
       to: "sherehiyandriy@gmail.com",
       replyTo: email,
-      subject: "New Booking Form Submission",
-      text: `
-                  Name: ${name}
-                  Email: ${email}
-                  Phone: ${phone}
-                  Special Requests: ${specialRequests}
-              `,
+      subject: "New Gmail Submission",
+      text: `Email: ${email}`,
     };
     
     await transporter.sendMail(mailOptions);

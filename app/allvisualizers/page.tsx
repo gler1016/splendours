@@ -92,26 +92,9 @@ export default function ActionAreaCard() {
                       alt={item.name}
                     />
                     <CardContent>
-                      <Typography gutterBottom variant="h5" color="#283C28" component="div" sx={{ fontFamily: 'Chronicle Display',fontStyle:'italic' }}>
+                      <Typography gutterBottom variant="h6" color="#283C28" component="div" sx={{ fontFamily: 'Chronicle Display',fontStyle:'italic' }}>
                         {item.name}
                       </Typography>
-                      {/* <Typography
-                                variant="h3"
-                                color="#283C28"
-                                sx={{
-                                    fontWeight: 400,
-                                    alignContent: 'flex-start',
-                                    fontFamily: 'Chronicle Display',
-                                    fontSize: {
-                                        xs: "10px",
-                                        sm: "15px",  // Small screens
-                                        md: "25px",  // Medium screens
-                                        lg: "25px"
-                                    }
-                                }}
-                            >
-                                CHARLOTTE
-                            </Typography> */}
                     </CardContent>
                   </CardActionArea>
                 </Card>

@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, Snackbar, Alert } from "@mui/material";
 import Link from "next/link";
 import { useMediaQuery } from '@mui/material';
+import axios from "axios";
 import Home from "./components/Home";
 import Splendours_header_level from "./components/Splendours_header_level";
 import SplenderoursProductsCarousel from "./components/SplenderoursProductsCarousel";
@@ -14,9 +15,7 @@ import CarouselPart from "./components/CarouselPart";
 import WhiteCustomButton from "./components/WhiteButton";
 import GreenCustomButton from "./components/GreenCustomButton";
 import CustomTextField from "./components/CustomTextField";
-
 import Booking from "./components/Home/Booking/Booking";
-
 import MeasurementAccordion from "./components/MeasurementAccordion";
 import MeasurementAccordionMobile from "./components/Home/Services/MeasurementAccordion";
 import TechnicalAccordion from "./components/Home/Accordion/TechnicalAccordion";
@@ -81,13 +80,35 @@ const HomePage = () => {
 
     const isMobile = useMediaQuery('(max-width: 768px)'); // Media query for mobile
     const [showFullText, setShowFullText] = useState(false); // State to toggle text display
-
+    const [email, setEmail] = useState("");
+    const [successAlert, setSuccessAlert] = useState(false);
+    const [errorAlert, setErrorAlert] = useState(false);
     const handleToggle = () => {
         setShowFullText(!showFullText);
     };
-
     const shortText = `We offer a wide range of services that focus on the use of stone materials. Our clients can expect top-notch service that includes design, manufacturing, delivery, and assembly.`;
     const fullText = `We offer a wide range of services that focus on the use of stone materials. Our clients can expect top-notch service that includes design, manufacturing, delivery, and assembly. Our team of experts use state-of-the-art technology and equipment to ensure that every project is built to the highest quality standards. The client's experience is at the heart of our motivation. We provide support throughout the entire project. Our products are unique and adapted to the specifics of each client, and our clients can choose from a wide range of materials and colors. Also, our clients can rely on our support and advice throughout the process to ensure that their projects are successfully implemented. Our goal is to create products that will not only meet, but also exceed the expectations of our customers.`;
+
+    const handleSubmit = async () => {
+        if (!email) {
+            setErrorAlert(true);
+            return;
+        }
+
+        try {
+            const response = await axios.post("/api/send-email", { email });
+            setSuccessAlert(true); // Show success alert
+            setEmail(""); // Clear the email field
+        } catch (error) {
+            console.error("Error sending email:", error);
+            setErrorAlert(true); // Show error alert
+        }
+    };
+
+    const handleAlertClose = () => {
+        setSuccessAlert(false);
+        setErrorAlert(false);
+    };
 
     return (
         <Box
@@ -805,11 +826,24 @@ const HomePage = () => {
                     </Typography>
                 </Box>
                 <Box className="flex w-full">
-                    <CustomTextField />
+                    <CustomTextField value={email} onChange={(e) => setEmail(e.target.value)} />
                 </Box>
                 <Box className="flex w-full justify-center">
-                    <WhiteCustomButton label={'Send'} iconSrc={'/images/icons/Vector.svg'} />
+                    <WhiteCustomButton label={'Send'} iconSrc={'/images/icons/Vector.svg'} onClick={handleSubmit} />
                 </Box>
+                {/* Success Alert */}
+                <Snackbar open={successAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+                    <Alert onClose={handleAlertClose} severity="success" sx={{ width: "100%" }}>
+                        Email sent successfully!
+                    </Alert>
+                </Snackbar>
+
+                {/* Error Alert */}
+                <Snackbar open={errorAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+                    <Alert onClose={handleAlertClose} severity="error" sx={{ width: "100%" }}>
+                        Failed to send email. Please try again.
+                    </Alert>
+                </Snackbar>
             </Box> : <Box className="flex items-end justify-between w-full px-16">
                 <Box className="flex flex-col justify-end w-1/4">
                     <Typography
@@ -850,11 +884,24 @@ const HomePage = () => {
                     </Typography>
                 </Box>
                 <Box className="w-1/2">
-                    <CustomTextField />
+                    <CustomTextField value={email} onChange={(e) => setEmail(e.target.value)} />
                 </Box>
                 <Box className="flex justify-end w-1/4">
-                    <WhiteCustomButton label={'Send'} iconSrc={'/images/icons/Vector.svg'} />
+                    <WhiteCustomButton label={'Send'} iconSrc={'/images/icons/Vector.svg'} onClick={handleSubmit} />
                 </Box>
+                {/* Success Alert */}
+                <Snackbar open={successAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+                    <Alert onClose={handleAlertClose} severity="success" sx={{ width: "100%" }}>
+                        Email sent successfully!
+                    </Alert>
+                </Snackbar>
+
+                {/* Error Alert */}
+                <Snackbar open={errorAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+                    <Alert onClose={handleAlertClose} severity="error" sx={{ width: "100%" }}>
+                        Failed to send email. Please try again.
+                    </Alert>
+                </Snackbar>
             </Box>}
 
             <ShortCustomBrownDivider />

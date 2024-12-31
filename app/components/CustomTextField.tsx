@@ -2,7 +2,12 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import { useMediaQuery } from '@mui/material';
 
-export default function CustomTextField() {
+interface CustomTextFieldProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function CustomTextField({ value, onChange }: CustomTextFieldProps) {
   const isMobile = useMediaQuery('(max-width: 768px)'); // Define mobile breakpoint
   return (
     <TextField
@@ -10,6 +15,8 @@ export default function CustomTextField() {
       label="EMAIL"
       variant="standard"
       className="flex w-full"
+      value={value}
+      onChange={onChange}
       sx={{
         input: {
           color: "white",

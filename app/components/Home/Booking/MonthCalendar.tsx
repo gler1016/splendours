@@ -19,22 +19,15 @@ const MonthYearPicker: React.FC<MonthYearPickerProps> = ({ initialMonth, initial
     const [selectedMonth, setSelectedMonth] = useState<number>(initialMonth-1);
     const [selectedYear, setSelectedYear] = useState<number>(initialYear);
 
-    useEffect(() => {
-        console.log("initialMonth:", initialMonth, selectedMonth, "initialYear", initialYear, selectedYear)
-    }, []);
-
 
     const handleMonthChange = (event: SelectChangeEvent<number>) => {
         const month = Number(event.target.value);
-        console.log("selectedMonthBoxValue->", month);
-
         setSelectedMonth(month);
         onMonthYearChange(month, selectedYear);
     };
 
     const handleYearChange = (event: SelectChangeEvent<number>) => {
         const year = Number(event.target.value);
-        console.log("selectedYearBoxValue->", year);
         setSelectedYear(year);
         onMonthYearChange(selectedMonth, year);
     };

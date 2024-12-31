@@ -769,7 +769,7 @@ const Header: React.FC = () => {
                                 Paving
                             </Typography>
                         </Link>
-                        <Link href="/about">
+                        <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -789,7 +789,7 @@ const Header: React.FC = () => {
                                 Bricks
                             </Typography>
                         </Link>
-                        <Link href="/services">
+                        <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -807,6 +807,46 @@ const Header: React.FC = () => {
                                 }}
                             >
                                 Cobblestone
+                            </Typography>
+                        </Link>
+                        <Link href="/about">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                About
+                            </Typography>
+                        </Link>
+                        <Link href="/services">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                Service
                             </Typography>
                         </Link>
                         <Link href="/portfolio">

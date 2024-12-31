@@ -10,7 +10,8 @@ import {
     DialogContent,
     DialogTitle,
     TextField,
-    Button,
+    Snackbar,
+    Alert
 } from "@mui/material";
 import GreenCustomButton from "../../GreenCustomButton";
 import GreenCustomMobileButton from "../../Buttons/GreenCustomMobileButton";
@@ -24,12 +25,9 @@ import PhaseCarousel from "../../PhaseCarousel";
 import CalendarControl from "../../CalendarControl";
 import MonthYearPicker from "./MonthCalendar";
 
-// import MonthCalendar from './MonthCalendar';
-
 const Booking: React.FC = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-    // const inputRef = useRef<HTMLInputElement | null>(null); // Create a ref for the input element
     const [resources, setResources] = useState<{ date: string; day: string }[]>(
         []
     ); // State for resources
@@ -51,6 +49,8 @@ const Booking: React.FC = () => {
     const [nameError, setNameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [phoneError, setPhoneError] = useState("");
+    const [successAlert, setSuccessAlert] = useState(false);
+    const [errorAlert, setErrorAlert] = useState(false);
 
     // For Dialog state
     const [openDialog, setOpenDialog] = useState(false);
@@ -94,16 +94,6 @@ const Booking: React.FC = () => {
         return newResources;
     };
 
-    // Function to handle the click on the CalendarControl
-    // const handleCalendarControlClick = () => {
-    //     console.log("click---->0");
-    //     if (inputRef.current) {
-    //         console.log("click---->1");
-
-    //         inputRef.current.showPicker(); // Trigger the click event on the inputi
-    //     }
-    // };
-
     const handleCalendarControlClick = () => {
         setOpenCalendarDialog(true);
     };
@@ -111,18 +101,6 @@ const Booking: React.FC = () => {
     const handleCloseCalendarDialog = () => {
         setOpenCalendarDialog(false);
     };
-
-    // Handle month input change
-    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     const value = e.target.value; // e.g., "2024-05"
-    //     const [year, month] = value.split('-').map(Number); // Split into year and month
-    //     setSelectedYear(year);
-    //     setSelectedMonth(month);
-
-    //     const newResources = generateResources(year, month);
-    //     setResources(newResources); // Update the resources state
-
-    // };
 
     // Initialize with current month and year resources
     useEffect(() => {
@@ -146,10 +124,6 @@ const Booking: React.FC = () => {
         specialRequests: "",
         role: ''
     });
-
-    useEffect(() => {
-        console.log("formData when carousel changed", formData);
-    }, [formData]);
 
     // Validation function for name
     const validateName = (name: string) => {
@@ -214,16 +188,20 @@ const Booking: React.FC = () => {
         const sendData = { ...formData, role: "1" };
 
         try {
-            console.log("formdata-book", sendData);
             const response = await axios.post("/api/submit-form", sendData);
             handleCloseDialog();
-            console.log(response.data); // Log the success message from the server
-            alert("Form submitted successfully!");
+            setSuccessAlert(true); // Show success alert
         } catch (error) {
             handleCloseDialog();
             console.error("Error submitting form:", error);
-            alert("Failed to submit form. Please try again later.");
+            setErrorAlert(true); // Show error alert
         }
+    };
+
+
+    const handleAlertClose = () => {
+        setSuccessAlert(false);
+        setErrorAlert(false);
     };
 
     const handleVideoCallSubmit = async () => {
@@ -244,12 +222,10 @@ const Booking: React.FC = () => {
         try {
             const response = await axios.post("/api/submit-form", sendData);
             handleCloseDialog();
-            console.log(response.data); // Log the success message from the server
-            alert("Form submitted successfully!");
+            setSuccessAlert(true); // Show success alert
         } catch (error) {
             handleCloseDialog();
-            console.error("Error submitting form:", error);
-            alert("Failed to submit form. Please try again later.");
+            setErrorAlert(true); // Show error alert
         }
     };
 
@@ -269,12 +245,10 @@ const Booking: React.FC = () => {
         try {
             const response = await axios.post("/api/submit-form", sendData);
             handleCloseDialog();
-            console.log(response.data); // Log the success message from the server
-            alert("Form submitted successfully!");
+            setSuccessAlert(true); // Show success alert
         } catch (error) {
             handleCloseDialog();
-            console.error("Error submitting form:", error);
-            alert("Failed to submit form. Please try again later.");
+            setErrorAlert(true); // Show error alert
         }
     };
 
@@ -282,15 +256,12 @@ const Booking: React.FC = () => {
         const sendData = { ...formData, role: "4" };
 
         try {
-            console.log("input value array : ", sendData);
             const response = await axios.post("/api/submit-form", sendData);
             handleCloseDialog();
-            console.log(response.data); // Log the success message from the server
-            alert("Form submitted successfully!");
+            setSuccessAlert(true); // Show success alert
         } catch (error) {
             handleCloseDialog();
-            console.error("Error submitting form:", error);
-            alert("Failed to submit form. Please try again later.");
+            setErrorAlert(true); // Show error alert
         }
     };
 
@@ -320,7 +291,6 @@ const Booking: React.FC = () => {
 
     const handleOpenDialog = () => {
         setIsBookNow(true);
-        // console.log("handleOpenDialog-->>", formData);
 
         setFormData({
             ...formData,
@@ -375,7 +345,6 @@ const Booking: React.FC = () => {
         setIsVideoCall(false);
         setIsEmail(false);
         setOpenDialog(false);
-        // console.log("handleCloseDialog", openDialog)
     };
 
     return (
@@ -662,6 +631,19 @@ const Booking: React.FC = () => {
                             </form>
                         </DialogContent>
                     </Dialog>
+                    {/* Success Alert */}
+                    <Snackbar open={successAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+                        <Alert onClose={handleAlertClose} severity="success" sx={{ width: "100%" }}>
+                            Form sent successfully!
+                        </Alert>
+                    </Snackbar>
+
+                    {/* Error Alert */}
+                    <Snackbar open={errorAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+                        <Alert onClose={handleAlertClose} severity="error" sx={{ width: "100%" }}>
+                            Failed to send form. Please try again.
+                        </Alert>
+                    </Snackbar>
                 </Box>
             ) : (
                 <Box
@@ -711,24 +693,7 @@ const Booking: React.FC = () => {
                                         onMonthYearChange={handleMonthYearChange}
                                     />
                                 </DialogContent>
-                                {/* <DialogActions>
-                                <Button onClick={handleCloseCalendarDialog} color="primary">
-                                    Cancel
-                                </Button>
-                                <Button onClick={handleCloseCalendarDialog} color="primary">
-                                    OK
-                                </Button>
-                            </DialogActions> */}
                             </Dialog>
-                            {/* <input
-                            ref={inputRef} // Attach the ref to the input
-                            type="month" // Specify the type
-                            id="id"
-                            name="name"
-                            placeholder="placeholder"
-                            className="opacity-0 bg-inherit text-inherit"
-                            onChange={handleChange} //Handle date change
-                        /> */}
                         </Box>
                         <Box className="flex flex-col justify-around w-5/12">
                             <Box className="flex justify-end w-full">
@@ -960,18 +925,6 @@ const Booking: React.FC = () => {
                                         // px: 1,
                                     }}
                                 >
-                                    {/* <Button
-                                    onClick={handleCloseDialog}
-                                    sx={{
-                                        backgroundColor: '#283C28',
-                                        color: '#F44336',
-                                        textTransform: 'capitalize',
-                                        fontWeight: 600,
-                                        fontFamily: 'Arial',
-                                    }}
-                                >
-                                    Cancel
-                                </Button> */}
                                     <Box className="flex w-full justify-center">
                                         {isBookNow && (
                                             <GreenCustomBookButton
@@ -1002,23 +955,23 @@ const Booking: React.FC = () => {
                                             />
                                         )}
                                     </Box>
-                                    {/* <Button
-                                    type="submit"
-                                    sx={{
-                                        backgroundColor: '#283C28',
-                                        color: '#FFF',
-                                        textTransform: 'capitalize',
-                                        fontWeight: 600,
-                                        fontFamily: 'Arial',
-                                        '&:hover': { backgroundColor: '#3A5240' },
-                                    }}
-                                >
-                                    Submit
-                                </Button> */}
                                 </DialogActions>
                             </form>
                         </DialogContent>
                     </Dialog>
+                    {/* Success Alert */}
+                    <Snackbar open={successAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+                        <Alert onClose={handleAlertClose} severity="success" sx={{ width: "100%" }}>
+                            Form sent successfully!
+                        </Alert>
+                    </Snackbar>
+
+                    {/* Error Alert */}
+                    <Snackbar open={errorAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+                        <Alert onClose={handleAlertClose} severity="error" sx={{ width: "100%" }}>
+                            Failed to send form. Please try again.
+                        </Alert>
+                    </Snackbar>
                 </Box>
             )}
         </Box>

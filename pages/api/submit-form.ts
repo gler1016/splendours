@@ -23,8 +23,6 @@ export default async function handler(
       role,
     } = req.body;
 
-    console.log("req.body-1----->", req.body);
-
     // if (!name || !email || !phone) {
     //   return res.status(400).json({ error: "Missing required fields" });
     // }
@@ -56,11 +54,8 @@ export default async function handler(
     //     },
     // });
 
-    console.log(req.body);
 
     if (req.body.role == "4") {
-      console.log("req.body-2---->", req.body);
-
       const transporter = nodemailer.createTransport({
         host: "smtp.hostinger.com",
         port: 465,
@@ -87,8 +82,6 @@ export default async function handler(
                   Special Requests: ${specialRequests}
               `,
       };
-      console.log("mailoptions:-->", mailOptions);
-
       await transporter.sendMail(mailOptions);
     }
 
