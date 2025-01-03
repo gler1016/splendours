@@ -1,5 +1,6 @@
 'use client'
 import * as React from 'react';
+import Link from 'next/link';
 import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -11,61 +12,62 @@ import Footer from '../components/Footer';
 import FooterMobile from '../components/FooterMobile';
 import Grid from '@mui/material/Grid';
 import { useMediaQuery } from 'react-responsive';
-import Link from 'next/link'; // Import Link for navigation
 
 
 export default function ActionAreaCard() {
 
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
+
   const modelList = [
     {
-      name: "Table",
-      url: "images/modelImgs/table.jpg"
+      name: "Chimney",
+      url: "images/modelImgs/Chimney.png"
+    },
+    {
+      name: "House",
+      url: "images/modelImgs/House.png"
+    },
+    {
+      name: "Kitchen-Splashback",
+      url: "images/modelImgs/Kitchen-Splashback.png"
+    },
+    {
+      name: "Vertical-Wall-Bar",
+      url: "images/modelImgs/Vertical-Wall-Bar.png"
+    },
+    {
+      name: "Patios-Pergolas",
+      url: "images/modelImgs/Patios-Pergolas.png"
     },
     {
       name: "Bathroom",
-      url: "images/modelImgs/bathroom.png"
+      url: "images/modelImgs/Bathroom.png"
     },
     {
-      name: "Entry wall",
-      url: "images/modelImgs/fire.jpg"
-    },
-    {
-      name: "Fireplaces",
-      url: "images/modelImgs/firewall.png"
-    },
-    {
-      name: "Kitchen",
-      url: "images/modelImgs/kitchen.png"
-    },
-    {
-      name: "Outside Chimney",
-      url: "images/modelImgs/outside.png"
-    },
-    {
-      name: "Patios Pergolas",
-      url: "images/modelImgs/patio.png"
-    },
-    {
-      name: "Retaining Wall",
-      url: "images/modelImgs/retain.png"
+      name: "Outside-Chimney",
+      url: "images/modelImgs/Outside-Chimney.png"
     },
     {
       name: "Shower",
-      url: "images/modelImgs/shower.png"
+      url: "images/modelImgs/Shower.png"
     },
     {
-      name: "Virtical Wall",
-      url: "images/modelImgs/virtual.png"
-    },
-    {
-      name: "Wall",
-      url: "images/modelImgs/wall.png"
+      name: "Entry-Wall",
+      url: "images/modelImgs/Entry-Wall.png"
     },
     {
       name: "Stones",
-      url: "images/modelImgs/textures.png"
+      url: "images/modelImgs/Stones.png"
     }
+    // {
+    //   name: "Fireplaces",
+    //   url: "images/modelImgs/firewall.png"
+    // },
+    // {
+    //   name: "Retaining-Wall",
+    //   url: "images/modelImgs/retain.png"
+    // },
   ]
 
   return (
@@ -81,9 +83,9 @@ export default function ActionAreaCard() {
       <Box sx={{ flexGrow: 1, paddingBottom: isMobile ? "30px" : '0px' }} className="w-full lg:p-24 md:p-12 sm:p-8">
         <Grid container spacing={2}>
           {modelList.map((item, index) => (
-            <Grid item lg={2} md={3} sm={6} xs={8} style={{ margin: "auto" }}>
-              <Link href={`/visualizer`} passHref>
-                <Card className="bg-[#DCC5BD] rounded-lg">
+            <Grid item lg={2.4} md={3} sm={6} xs={8} style={{ margin: "auto" }} key={index}>
+              <Link href={`/visualizer/${item.name}`} passHref>
+                <Card className="bg-[#DCC5BD] rounded-lg" style={{border:'3px solid #DCC5BD'}}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -92,7 +94,7 @@ export default function ActionAreaCard() {
                       alt={item.name}
                     />
                     <CardContent>
-                      <Typography gutterBottom variant="h6" color="#283C28" component="div" sx={{ fontFamily: 'Chronicle Display',fontStyle:'italic' }}>
+                      <Typography gutterBottom variant="h6" color="#283C28" component="div" sx={{ fontFamily: 'Chronicle Display', fontStyle: 'italic' }}>
                         {item.name}
                       </Typography>
                     </CardContent>

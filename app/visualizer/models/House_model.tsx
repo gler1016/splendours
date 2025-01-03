@@ -78,20 +78,22 @@ const House = ({
   };
 
   // Determine settings based on modelPath
-  const settings1: CameraSettings =
-  {
-    cameraPosition: [0, -1, -1],
-    primitivePosition: [0, -1.5, 0],
-    orbitTarget: [3, -0.5, -2],
-    backgroundColor: '#FFFFFF',
-  };
-  const settings2: CameraSettings =
-  {
-    cameraPosition: [0, 0.4, 0.8],
-    primitivePosition: [0, -1.5, 0],
-    orbitTarget: [0, 0, 0],
-    backgroundColor: '#FFFFFF',
-  };
+  const [settings1, setSettings1] = useState<CameraSettings>(() => {
+    return {
+      cameraPosition: [0, -1, -1],
+      primitivePosition: [0, -1.5, 0],
+      orbitTarget: [3, -0.5, -2],
+      backgroundColor: '#FFFFFF',
+    }
+  })
+  const [settings2, setSettings2] = useState<CameraSettings>(() => {
+    return {
+      cameraPosition: [0, 0.4, 0.8],
+      primitivePosition: [0, -1.5, 0],
+      orbitTarget: [0, 0, 0],
+      backgroundColor: '#FFFFFF',
+    }
+  })
 
   useEffect(() => {
     if (gltf && textures.baseColor) {
