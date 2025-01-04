@@ -58,7 +58,7 @@ const Scene = ({
   selectedNormal: string | null;
   selectedHeight: string | null;
   isZoomPlus: boolean | false;
-  rotateStatus: Number | 0;
+  rotateStatus: number | 0;
 }) => {
   return (
     <Suspense fallback={<Loader />}>
@@ -80,6 +80,8 @@ const Scene = ({
             selectedArm={selectedArm}
             selectedNormal={selectedNormal}
             selectedHeight={selectedHeight}
+            zoomStatus={isZoomPlus}
+            rotateStatus={rotateStatus}
           />
         ) : modelPath === '/models/Kitchen-Splashback.glb' ? (
           <Kitchen_splashback
@@ -88,6 +90,8 @@ const Scene = ({
             selectedArm={selectedArm}
             selectedNormal={selectedNormal}
             selectedHeight={selectedHeight}
+            zoomStatus={isZoomPlus}
+            rotateStatus={rotateStatus}
           />
         ) : modelPath === '/models/Vertical-Wall-Bar.glb' ? (
           <Vertical_wall_bar
@@ -96,6 +100,8 @@ const Scene = ({
             selectedArm={selectedArm}
             selectedNormal={selectedNormal}
             selectedHeight={selectedHeight}
+            zoomStatus={isZoomPlus}
+            rotateStatus={rotateStatus}
           />
         )
           // : modelPath === '/models/retaining_wall.glb' ? (
@@ -114,6 +120,8 @@ const Scene = ({
               selectedArm={selectedArm}
               selectedNormal={selectedNormal}
               selectedHeight={selectedHeight}
+              zoomStatus={isZoomPlus}
+              rotateStatus={rotateStatus}
             />
           ) : modelPath === '/models/Bathroom.glb' ? (
             <Bathroom
@@ -122,6 +130,8 @@ const Scene = ({
               selectedArm={selectedArm}
               selectedNormal={selectedNormal}
               selectedHeight={selectedHeight}
+              zoomStatus={isZoomPlus}
+              rotateStatus={rotateStatus}
             />
           ) : modelPath === '/models/Outside-Chimney.glb' ? (
             <Outside_Chimney
@@ -130,6 +140,8 @@ const Scene = ({
               selectedArm={selectedArm}
               selectedNormal={selectedNormal}
               selectedHeight={selectedHeight}
+              zoomStatus={isZoomPlus}
+              rotateStatus={rotateStatus}
             />
           ) : modelPath === '/models/Shower.glb' ? (
             <Shower
@@ -138,6 +150,8 @@ const Scene = ({
               selectedArm={selectedArm}
               selectedNormal={selectedNormal}
               selectedHeight={selectedHeight}
+              zoomStatus={isZoomPlus}
+              rotateStatus={rotateStatus}
             />
           ) : modelPath === '/models/Entry-Wall.glb' ? (
             <Entry_wall
@@ -146,6 +160,8 @@ const Scene = ({
               selectedArm={selectedArm}
               selectedNormal={selectedNormal}
               selectedHeight={selectedHeight}
+              zoomStatus={isZoomPlus}
+              rotateStatus={rotateStatus}
             />
           ) : modelPath === '/models/Stones.glb' ? (
             <Beachport
@@ -154,6 +170,8 @@ const Scene = ({
               selectedArm={selectedArm}
               selectedNormal={selectedNormal}
               selectedHeight={selectedHeight}
+              zoomStatus={isZoomPlus}
+              rotateStatus={rotateStatus}
             />
           ) : (
             <></>
@@ -206,7 +224,7 @@ const App = ({ params }: {
 
   const handlePrevClick = () => {
     setCurrentModelIndex((prevIndex) => {
-      let newIndex = (prevIndex - 1 + models.length) % models.length; // Calculate new index
+      const newIndex = (prevIndex - 1 + models.length) % models.length; // Calculate new index
       console.log('model name :', models[newIndex])
       if (models[newIndex]) { // Check if the model exists
         router.push(`/visualizer/${models[newIndex].split('/').pop()?.split('.')[0]}`); // Use optional chaining
@@ -221,7 +239,7 @@ const App = ({ params }: {
 
   const handleNextClick = () => {
     setCurrentModelIndex((prevIndex) => {
-      let newIndex = (prevIndex + 1) % models.length; // Calculate new index
+      const newIndex = (prevIndex + 1) % models.length; // Calculate new index
       console.log('model name :', models[newIndex])
       if (models[newIndex]) { // Check if the model exists
         router.push(`/visualizer/${models[newIndex].split('/').pop()?.split('.')[0]}`); // Use optional chaining

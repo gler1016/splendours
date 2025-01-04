@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
 const months = [

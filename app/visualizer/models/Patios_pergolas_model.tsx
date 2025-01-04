@@ -1,9 +1,10 @@
 'use client';
 import * as THREE from 'three'; // Ensure to import THREE if not already imported
-import React, { useState, Suspense, useEffect } from 'react';
+import {Camera} from 'three';
+import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
-import { OrbitControls, useProgress } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
@@ -15,7 +16,7 @@ const loadTexture = (path: string): THREE.Texture => {
   const texture = new THREE.TextureLoader().load(path);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(4, 4);
+  texture.repeat.set(1.4, 1.4);
   texture.offset.set(0.1, 0.1);
   textureCache[path] = texture;
   return texture;
@@ -28,21 +29,21 @@ const Patios_pergolas = ({
   selectedArm,
   selectedNormal,
   selectedHeight,
+  zoomStatus,
+  rotateStatus
 }: {
   modelPath: string;
   selectedBaseColor: string | null;
   selectedArm: string | null;
   selectedNormal: string | null;
   selectedHeight: string | null;
+  zoomStatus: boolean | false;
+  rotateStatus: number | 0;
 }) => {
   const [gltf, setGltf] = useState<THREE.Group | null>(null);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  // const [value] = React.useState<number | null>(5);
-  const [minAzimuthAngle, setMinAzimuthAngle] = useState<number>(-Math.PI / 4);
-  const [maxAzimuthAngle, setMaxAzimuthAngle] = useState<number>(Math.PI / 4);
-  const [minPolarAngle, setMinPolarAngle] = useState<number>(Math.PI / 4);
-  const [maxPolarAngle, setMaxPolarAngle] = useState<number>(Math.PI / 1.5);
-  const [intensity, setIntensity] = useState<number>(2.5);
+  const [intensity, setIntensity] = useState<number>(1);
+  const [lightPoses, setLightPoses] = useState<[number, number, number]>([1, 1, 1]);
 
   const [textures, setTextures] = useState<{
     baseColor: THREE.Texture;
@@ -64,21 +65,22 @@ const Patios_pergolas = ({
   };
 
   // Determine settings based on modelPath
-  const settings1: CameraSettings =
-  {
-    cameraPosition: [0, 0, 5],
-    primitivePosition: [0, -1.5, 0],
-    orbitTarget: [0, 0, 0],
-    backgroundColor: '#283C28',
-  }
-
-  const settings2: CameraSettings =
-  {
-    cameraPosition: [0, 0, 3.5],
-    primitivePosition: [0, -0.8, 0],
-    orbitTarget: [0, 0, 0],
-    backgroundColor: '#283C28',
-  }
+  const [settings1, setSettings1] = useState<CameraSettings>(() => {
+    return {
+      cameraPosition: [0, 0, 5],
+      primitivePosition: [0, -1.5, 0],
+      orbitTarget: [0, 0, 0],
+      backgroundColor: '#283C28',
+    }
+  })
+  const [settings2, setSettings2] = useState<CameraSettings>(() => {
+    return {
+      cameraPosition: [0, 0, 3.5],
+      primitivePosition: [0, -0.8, 0],
+      orbitTarget: [0, 0, 0],
+      backgroundColor: '#283C28',
+    }
+  })
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -111,10 +113,12 @@ const Patios_pergolas = ({
     }
   }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight]);
 
+  const cameraRef = useRef<Camera | null>(null);
+
   useEffect(() => {
     if (gltf) {
-      gltf.traverse((child: any) => {
-        if (child.isMesh && child.name.startsWith('main_change')) {
+      gltf.traverse((child: THREE.Object3D) => {
+        if (child instanceof THREE.Mesh && child.name.startsWith('main_change')) {
           const material = child.material as THREE.MeshStandardMaterial;
           material.map = textures.baseColor;
           material.normalMap = textures.normal;
@@ -127,14 +131,45 @@ const Patios_pergolas = ({
         }
       });
 
-      // Apply model-specific transformations if needed
-      setMinAzimuthAngle(-Math.PI);
-      setMaxAzimuthAngle(0);
-      setMinPolarAngle(Math.PI / 3);
-      setMaxPolarAngle(Math.PI / 2);
+      console.log("rotateStatus :", rotateStatus)
+
+      if (rotateStatus == 0) {
+        gltf.rotation.y = 0; // Rotate 90 degrees
+        setLightPoses([1, 1, 1]);
+      }
+      if (rotateStatus == 1) {
+        gltf.rotation.y = Math.PI / 3.5;
+        setLightPoses([0, 1, 1]);
+      }
+      if (rotateStatus == 2) {
+        gltf.rotation.y = - Math.PI / 3.5;
+        setLightPoses([0, 1, 1]);
+      }
+
       setIntensity(1);
+
+      setSettings1((prevSet) => ({
+        ...prevSet,
+        cameraPosition: [0, 0, zoomStatus ? 2.0 : 5]
+      }));
+      setSettings2((prevSet) => ({
+        ...prevSet,
+        cameraPosition: [0, 0, zoomStatus ? 1.5 : 3.5]
+      }));
     }
-  }, [gltf, textures.baseColor, modelPath]);
+  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus]);
+
+  useEffect(() => {
+    if (isMobile) {
+      if (cameraRef.current) {
+        cameraRef.current.position.set(...settings1.cameraPosition);
+      }
+    } else {
+      if (cameraRef.current) {
+        cameraRef.current.position.set(...settings2.cameraPosition);
+      }
+    }
+  }, [settings1.cameraPosition, settings2.cameraPosition, isMobile]);
 
   return (
     <>
@@ -144,13 +179,14 @@ const Patios_pergolas = ({
           key={modelPath} // Add this line to force re-mounting
           camera={{ position: settings1.cameraPosition }}
           shadows
-          onCreated={({ gl }) => {
+          onCreated={({ gl, camera }) => {
             gl.setClearColor(settings1.backgroundColor); // Set background color dynamically
+            cameraRef.current = camera;
           }}
           className='relativeScene'
         >
           <ambientLight intensity={0.5} color='green' />
-          <directionalLight position={[1, 1, 1]} intensity={intensity} castShadow />
+          <directionalLight position={lightPoses} intensity={intensity} castShadow />
           <directionalLight position={[-1, -1, -1]} intensity={intensity} />
           {gltf && <primitive object={gltf} position={settings1.primitivePosition} castShadow />}
           {/* <Sphere position={[0, 0, 0]} args={[0.1, 32, 32]} castShadow>
@@ -188,12 +224,13 @@ const Patios_pergolas = ({
             key={modelPath} // Add this line to force re-mounting
             camera={{ position: settings2.cameraPosition }}
             shadows
-            onCreated={({ gl }) => {
+            onCreated={({ gl, camera }) => {
               gl.setClearColor(settings2.backgroundColor); // Set background color dynamically
+              cameraRef.current = camera;
             }}
             className='relativeScene'
           >
-            <directionalLight position={[1, 1, 1]} intensity={intensity} castShadow />
+            <directionalLight position={lightPoses} intensity={intensity} castShadow />
             <directionalLight position={[-1, -1, -1]} intensity={intensity} />
             {gltf && <primitive object={gltf} position={settings2.primitivePosition} castShadow />}
             {/* <OrbitControls target={settings.orbitTarget} /> */}

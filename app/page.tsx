@@ -96,7 +96,7 @@ const HomePage = () => {
         }
 
         try {
-            const response = await axios.post("/api/send-email", { email });
+            await axios.post("/api/send-email", { email });
             setSuccessAlert(true); // Show success alert
             setEmail(""); // Clear the email field
         } catch (error) {
@@ -407,7 +407,7 @@ const HomePage = () => {
                                 <Link href={'/allvisualizers'}><WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} /></Link>
                             </Box>
                             <Box className="flex">
-                                <Link href={'/visualizer/chimney'}><WhiteCustomButton label={'Try Now!'} iconSrc={'/images/icons/Vector.svg'} /></Link>
+                                <Link href={'/visualizer/Chimney'}><WhiteCustomButton label={'Try Now!'} iconSrc={'/images/icons/Vector.svg'} /></Link>
                             </Box>
                         </Box>
 
@@ -511,7 +511,7 @@ const HomePage = () => {
                             }}>Tag:  Exclusive</Typography>
                         </Box>
                         <Box>
-                            <Link href={'/visualizer/chimney'}><GreenCustomButton label={'Try Now!'} iconSrc={'/images/icons/Vector.svg'} /></Link>
+                            <Link href={'/visualizer/Chimney'}><GreenCustomButton label={'Try Now!'} iconSrc={'/images/icons/Vector.svg'} /></Link>
                         </Box>
                     </Box>
                 </Box>}

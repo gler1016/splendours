@@ -11,7 +11,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
-  position: 'absolute' as 'absolute',
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -21,7 +21,7 @@ const style = {
   borderRadius: '10px',
   boxShadow: 24,
   p: 4,
-};
+} as const;
 
 const EnquiryForm: React.FC = () => {
   const [open, setOpen] = useState(false);

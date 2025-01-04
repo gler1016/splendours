@@ -15,7 +15,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
-  position: 'absolute' as 'absolute',
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -25,7 +25,7 @@ const style = {
   borderRadius: '10px',
   boxShadow: 24,
   p: 4,
-};
+} as const;
 
 interface EnquiryFormProps {
   open: boolean;
@@ -63,7 +63,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
       return;
     }
     try {
-      const response = await axios.post("/api/submit-enquire-form", formData);
+      await axios.post("/api/submit-enquire-form", formData);
       setFormData({ name: '', email: '', phone: '', enquiry: '' });
       setSuccessAlert(true); // Show success alert
       handleClose();

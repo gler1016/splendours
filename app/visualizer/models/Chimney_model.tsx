@@ -1,9 +1,9 @@
 'use client';
 import * as THREE from 'three'; // Ensure to import THREE if not already imported
-import React, { useState, Suspense, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
-import { OrbitControls, useProgress } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
 
@@ -22,7 +22,7 @@ const Chimney = ({
   selectedNormal: string | null;
   selectedHeight: string | null;
   zoomStatus: boolean | false;
-  rotateStatus: Number | 0;
+  rotateStatus: number | 0;
 }) => {
   const gltf = useLoader(GLTFLoader, modelPath);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -34,45 +34,36 @@ const Chimney = ({
   const [intensity, setIntensity] = useState<number>(2.5);
   const [lightPoses, setLightPoses] = useState<[number, number, number]>([1, 1, 1]);
 
+  // Load all potential textures at the top level
+  const defaultBaseColor = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.jpg');
+  const defaultArm = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_arm.jpg');
+  const defaultNormal = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_normal.jpg');
+  const defaultHeight = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_height.jpg');
+
+  // Manage the current textures
   const [textures, setTextures] = useState<{
     baseColor: THREE.Texture;
     arm: THREE.Texture;
     normal: THREE.Texture;
     height: THREE.Texture;
   }>({
-    baseColor: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.jpg'),
-    arm: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_arm.jpg'),
-    normal: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_height.jpg'),
-    height: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_normal.jpg'),
+    baseColor: defaultBaseColor,
+    arm: defaultArm,
+    normal: defaultNormal,
+    height: defaultHeight,
   });
 
+
+  // Update textures based on the selected paths
   useEffect(() => {
-    // Update textures based on the selected paths
-    if (selectedBaseColor) {
-      setTextures(prevState => ({
-        ...prevState,
-        baseColor: useLoader(TextureLoader, selectedBaseColor),
-      }));
-    }
-    if (selectedArm) {
-      setTextures(prevState => ({
-        ...prevState,
-        arm: useLoader(TextureLoader, selectedArm),
-      }));
-    }
-    if (selectedNormal) {
-      setTextures(prevState => ({
-        ...prevState,
-        normal: useLoader(TextureLoader, selectedNormal),
-      }));
-    }
-    if (selectedHeight) {
-      setTextures(prevState => ({
-        ...prevState,
-        height: useLoader(TextureLoader, selectedHeight),
-      }));
-    }
-  }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight]);
+    setTextures({
+      baseColor: selectedBaseColor ? new THREE.TextureLoader().load(selectedBaseColor) : defaultBaseColor,
+      arm: selectedArm ? new THREE.TextureLoader().load(selectedArm) : defaultArm,
+      normal: selectedNormal ? new THREE.TextureLoader().load(selectedNormal) : defaultNormal,
+      height: selectedHeight ? new THREE.TextureLoader().load(selectedHeight) : defaultHeight,
+    });
+  }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight, defaultBaseColor, defaultArm, defaultNormal, defaultHeight]);
+
 
   // Define type for settings
   type CameraSettings = {
@@ -99,12 +90,12 @@ const Chimney = ({
     }
   })
 
-  const cameraRef = useRef<any>(null);
+  const cameraRef = useRef<THREE.Camera | null>(null);
 
   useEffect(() => {
     if (gltf && textures.baseColor) {
-      gltf.scene.traverse((child: any) => {
-        if (child.isMesh && child.name === 'main_change') {
+      gltf.scene.traverse((child: THREE.Object3D) => {
+        if (child instanceof THREE.Mesh && child.name === 'main_change') {
           child.material = new THREE.MeshStandardMaterial({
             map: textures.baseColor,
             normalMap: textures.normal,

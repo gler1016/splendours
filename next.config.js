@@ -24,12 +24,13 @@ module.exports = withBundleAnalyzer({
     return config;
   },
   images: {
-    // Enabling automatic image optimization with Next.js Image component
-    domains: ['your-cdn-domain.com'], // Add your CDN domain for optimized image loading
-  },
-  experimental: {
-    // Enable Rust compiler for faster builds (useful for large projects)
-    rustCompiler: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'example.com',
+        pathname: '/**',
+      },
+    ],
   },
   reactStrictMode: true, // Enable React Strict Mode for improved error handling and performance
 });

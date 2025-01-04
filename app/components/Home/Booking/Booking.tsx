@@ -188,7 +188,7 @@ const Booking: React.FC = () => {
         const sendData = { ...formData, role: "1" };
 
         try {
-            const response = await axios.post("/api/submit-form", sendData);
+            await axios.post("/api/submit-form", sendData);
             handleCloseDialog();
             setSuccessAlert(true); // Show success alert
         } catch (error) {
@@ -220,12 +220,13 @@ const Booking: React.FC = () => {
         }
 
         try {
-            const response = await axios.post("/api/submit-form", sendData);
+            await axios.post("/api/submit-form", sendData);
             handleCloseDialog();
             setSuccessAlert(true); // Show success alert
         } catch (error) {
             handleCloseDialog();
             setErrorAlert(true); // Show error alert
+            console.error(error)
         }
     };
 
@@ -243,12 +244,13 @@ const Booking: React.FC = () => {
         }
 
         try {
-            const response = await axios.post("/api/submit-form", sendData);
+            await axios.post("/api/submit-form", sendData);
             handleCloseDialog();
             setSuccessAlert(true); // Show success alert
         } catch (error) {
             handleCloseDialog();
             setErrorAlert(true); // Show error alert
+            console.error(error)
         }
     };
 
@@ -256,12 +258,13 @@ const Booking: React.FC = () => {
         const sendData = { ...formData, role: "4" };
 
         try {
-            const response = await axios.post("/api/submit-form", sendData);
+            await axios.post("/api/submit-form", sendData);
             handleCloseDialog();
             setSuccessAlert(true); // Show success alert
         } catch (error) {
             handleCloseDialog();
             setErrorAlert(true); // Show error alert
+            console.error(error)
         }
     };
 

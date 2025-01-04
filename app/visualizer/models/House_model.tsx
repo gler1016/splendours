@@ -1,9 +1,10 @@
 'use client';
 import * as THREE from 'three'; // Ensure to import THREE if not already imported
-import React, { useState, Suspense, useEffect } from 'react';
+import { Camera } from 'three'
+import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
-import { OrbitControls, useProgress } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
 
@@ -13,61 +14,55 @@ const House = ({
   selectedArm,
   selectedNormal,
   selectedHeight,
+  zoomStatus,
+  rotateStatus
 }: {
   modelPath: string;
   selectedBaseColor: string | null;
   selectedArm: string | null;
   selectedNormal: string | null;
   selectedHeight: string | null;
+  zoomStatus: boolean | false;
+  rotateStatus: number | 0;
 }) => {
   const gltf = useLoader(GLTFLoader, modelPath);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  // const [value] = React.useState<number | null>(5);
   const [minAzimuthAngle, setMinAzimuthAngle] = useState<number>(-Math.PI / 4);
   const [maxAzimuthAngle, setMaxAzimuthAngle] = useState<number>(Math.PI / 4);
   const [minPolarAngle, setMinPolarAngle] = useState<number>(Math.PI / 4);
   const [maxPolarAngle, setMaxPolarAngle] = useState<number>(Math.PI / 1.5);
   const [intensity, setIntensity] = useState<number>(2.5);
+  const [lightPoses, setLightPoses] = useState<[number, number, number]>([1, 1, 1]);
 
+  // Load all potential textures at the top level
+  const defaultBaseColor = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.jpg');
+  const defaultArm = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_arm.jpg');
+  const defaultNormal = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_normal.jpg');
+  const defaultHeight = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_height.jpg');
+
+  // Manage the current textures
   const [textures, setTextures] = useState<{
     baseColor: THREE.Texture;
     arm: THREE.Texture;
     normal: THREE.Texture;
     height: THREE.Texture;
   }>({
-    baseColor: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.jpg'),
-    arm: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_arm.jpg'),
-    normal: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_height.jpg'),
-    height: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_normal.jpg'),
+    baseColor: defaultBaseColor,
+    arm: defaultArm,
+    normal: defaultNormal,
+    height: defaultHeight,
   });
-
+  
+  // Update textures based on the selected paths
   useEffect(() => {
-    // Update textures based on the selected paths
-    if (selectedBaseColor) {
-      setTextures(prevState => ({
-        ...prevState,
-        baseColor: useLoader(TextureLoader, selectedBaseColor),
-      }));
-    }
-    if (selectedArm) {
-      setTextures(prevState => ({
-        ...prevState,
-        arm: useLoader(TextureLoader, selectedArm),
-      }));
-    }
-    if (selectedNormal) {
-      setTextures(prevState => ({
-        ...prevState,
-        normal: useLoader(TextureLoader, selectedNormal),
-      }));
-    }
-    if (selectedHeight) {
-      setTextures(prevState => ({
-        ...prevState,
-        height: useLoader(TextureLoader, selectedHeight),
-      }));
-    }
-  }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight]);
+    setTextures({
+      baseColor: selectedBaseColor ? new THREE.TextureLoader().load(selectedBaseColor) : defaultBaseColor,
+      arm: selectedArm ? new THREE.TextureLoader().load(selectedArm) : defaultArm,
+      normal: selectedNormal ? new THREE.TextureLoader().load(selectedNormal) : defaultNormal,
+      height: selectedHeight ? new THREE.TextureLoader().load(selectedHeight) : defaultHeight,
+    });
+  }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight, defaultBaseColor, defaultArm, defaultNormal, defaultHeight]);
+
 
   // Define type for settings
   type CameraSettings = {
@@ -95,10 +90,12 @@ const House = ({
     }
   })
 
+  const cameraRef = useRef<Camera | null>(null);
+
   useEffect(() => {
     if (gltf && textures.baseColor) {
-      gltf.scene.traverse((child: any) => {
-        if (child.isMesh && child.name === 'main_change') {
+      gltf.scene.traverse((child: THREE.Object3D) => {
+        if (child instanceof THREE.Mesh && child.name === 'main_change') {
           child.material = new THREE.MeshStandardMaterial({
             map: textures.baseColor,
             normalMap: textures.normal,
@@ -112,14 +109,49 @@ const House = ({
         }
       });
 
+      if (rotateStatus == 0) {
+        gltf.scene.rotation.y = 0; // Rotate 90 degrees
+        setLightPoses([1, 1, 1]);
+      }
+      if (rotateStatus == 1) {
+        gltf.scene.rotation.y = Math.PI / 3.5;
+        setLightPoses([0, 1, 1]);
+      }
+      if (rotateStatus == 2) {
+        gltf.scene.rotation.y = - Math.PI / 3.5;
+        setLightPoses([0, 1, 1]);
+      }
+
+
       // Apply model-specific transformations if needed
       setMinAzimuthAngle(-Math.PI);
       setMaxAzimuthAngle(0);
       setMinPolarAngle(Math.PI / 3);
       setMaxPolarAngle(Math.PI / 2);
       setIntensity(1);
+
+      setSettings1((prevSet) => ({
+        ...prevSet,
+        cameraPosition: [0, -1, zoomStatus ? 2.0 : -1]
+      }));
+      setSettings2((prevSet) => ({
+        ...prevSet,
+        cameraPosition: [0, 0.4, zoomStatus ? 1.5 : 0.8]
+      }));
     }
-  }, [gltf, textures.baseColor, modelPath]);
+  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus]);
+
+  useEffect(() => {
+    if (isMobile) {
+      if (cameraRef.current) {
+        cameraRef.current.position.set(...settings1.cameraPosition);
+      }
+    } else {
+      if (cameraRef.current) {
+        cameraRef.current.position.set(...settings2.cameraPosition);
+      }
+    }
+  }, [settings1.cameraPosition, settings2.cameraPosition, isMobile]);
 
   return (
     <>
@@ -129,13 +161,14 @@ const House = ({
           key={modelPath} // Add this line to force re-mounting
           camera={{ position: settings1.cameraPosition }}
           shadows
-          onCreated={({ gl }) => {
+          onCreated={({ gl, camera }) => {
             gl.setClearColor(settings1.backgroundColor); // Set background color dynamically
+            cameraRef.current = camera;
           }}
           className='relativeScene'
         >
           <ambientLight intensity={0.5} color='green' />
-          <directionalLight position={[1, 1, 1]} intensity={intensity} castShadow />
+          <directionalLight position={lightPoses} intensity={intensity} castShadow />
           <directionalLight position={[-1, -1, -1]} intensity={intensity} />
           <primitive object={gltf.scene} position={settings1.primitivePosition} castShadow />
           {/* <Sphere position={[0, 0, 0]} args={[0.1, 32, 32]} castShadow>
@@ -173,12 +206,13 @@ const House = ({
             key={modelPath} // Add this line to force re-mounting
             camera={{ position: settings2.cameraPosition }}
             shadows
-            onCreated={({ gl }) => {
+            onCreated={({ gl, camera }) => {
               gl.setClearColor(settings2.backgroundColor); // Set background color dynamically
+              cameraRef.current = camera;
             }}
             className='relativeScene'
           >
-            <directionalLight position={[1, 1, 1]} intensity={intensity} castShadow />
+            <directionalLight position={lightPoses} intensity={intensity} castShadow />
             <directionalLight position={[-1, -1, -1]} intensity={intensity} />
             <primitive object={gltf.scene} position={settings2.primitivePosition} castShadow />
             {/* <OrbitControls target={settings.orbitTarget} /> */}
