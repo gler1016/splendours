@@ -421,7 +421,7 @@ const HomePage = () => {
                                         color="#DBC6BC"
                                         sx={{
                                             textAlign: 'start',
-                                            lineHeight: '1.2', // Adjust line height to match the image exactly
+                                            lineHeight: '1', // Adjust line height to match the image exactly
                                             fontWeight: 500,
                                             fontFamily: 'Chronicle Display',
                                             fontSize: '120px',
@@ -435,7 +435,7 @@ const HomePage = () => {
                                         color="#DBC6BC"
                                         sx={{
                                             textAlign: 'start',
-                                            lineHeight: '1.2',
+                                            lineHeight: '0.8',
                                             fontWeight: 500,
                                             fontFamily: 'Chronicle Display',
                                             fontSize: '120px',

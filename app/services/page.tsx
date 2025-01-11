@@ -31,7 +31,6 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 const ServicesPage = () => {
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-    const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
     const [value] = React.useState<number | null>(5);
     // State management for the EnquiryForm modal
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
