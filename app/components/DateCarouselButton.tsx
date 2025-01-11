@@ -41,7 +41,7 @@ const DateCarouselButton: React.FC<DateCarouselButtonProps> = ({ date, day, onCl
         sx={{
           fontWeight: 600,
           fontFamily: 'Chronicle Display',
-          fontSize: isMobile ? '30px' : '60px',
+          fontSize: isMobile ? '35px' : '60px',
         }}
       >
         {date}

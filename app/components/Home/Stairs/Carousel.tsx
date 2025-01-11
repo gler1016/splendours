@@ -24,9 +24,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
 
 
     return (
-        <Box className="w-full flex flex-col aspect-[1/1] min-w-1 bg-[#DBC6BC] rounded-[20px] px-8 py-8" style={{ marginTop: '270px' }}>
-            {/* // <div className="relative w-full max-w-4xl mx-auto"> */}
-            {/* Image Display */}
+        <Box className="w-full flex flex-col aspect-[1/1] sm:aspect-[7/1] min-w-1 bg-[#DBC6BC] rounded-[20px] px-8 py-8" style={{ marginTop: '270px' }}>
+
             <div className="relative h-44">
                 {images.map((image, index) => (
                     <div
@@ -37,7 +36,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                         <img
                             src={image.src}
                             alt="images"
-                            className="object-cover w-full mt-[-150px]"
+                            className="object-cover w-[300px] mt-[-150px]"
+                            style={{position:"absolute", left:"calc(50% - 150px)"}}
                         />
                     </div>
                 ))}

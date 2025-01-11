@@ -14,7 +14,7 @@ interface PhaseCarouselButtonProps {
 const PhaseCarouselButton: React.FC<PhaseCarouselButtonProps> = ({ phase, onClick, isSelected }) => {
     const isMobile = useMediaQuery('(max-width: 768px)'); // Media query for mobile
     return (
-        <Box className="flex flex-col rounded-lg aspect-[7/1] justify-center items-center" sx={{
+        <Box className="flex flex-col rounded-lg aspect-[7/1] lg:h-[60px] md:h-[40px] justify-center items-center" sx={{
             border: '1px solid #283C28', minWidth: isMobile ? '45%' : '30%', backgroundColor: isSelected ? '#283C28' : 'transparent', // Apply the background color if selected
             borderColor: isSelected ? '#DBC6BC' : '#283C28', // Apply border color if selected
             transition: 'all 0.3s ease',
@@ -35,7 +35,7 @@ const PhaseCarouselButton: React.FC<PhaseCarouselButtonProps> = ({ phase, onClic
                 sx={{
                     fontWeight: 800,
                     fontFamily: 'var(--font-chronicle-display)',
-                    fontSize: isMobile ? '15px' : '40px',
+                    fontSize: isMobile ? '15px' : '20px',
                     fontStyle: 'normal'
                 }}
             >

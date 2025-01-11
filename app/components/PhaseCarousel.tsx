@@ -136,7 +136,7 @@ const PhaseCarousel: React.FC<PhaseCarouselProps> = ({ onPhaseSelect }) => {
             <Box className="flex w-full justify-between">
                 <Typography
                     className="flex"
-                    variant="h3"
+                    variant="h4"
                     color="#283C28"
                     sx={{
                         fontWeight: 500,

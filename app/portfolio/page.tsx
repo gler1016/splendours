@@ -35,6 +35,7 @@ const PortfolioPage = () => {
 
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1024px)' });
     // State management for the EnquiryForm modal
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
@@ -50,10 +51,48 @@ const PortfolioPage = () => {
 
                 <Box className="flex flex-col w-full gap-y-12">
 
-                    {isMobile ? <Box className="px-3"><ProductsCarousel /></Box> :
-                        <Box className="flex w-full px-20">
-                            <Box className="flex w-1/3">
+                    {isMobile ? (
+                        <Box className="px-3">
+                            <ProductsCarousel />
+                        </Box>
+                    ) : isTablet ? (
+                        <Box className="flex w-full px-10 space-x-4 justify-center">
+                            <Box className="flex justify-center w-1/4">
+                                <Image
+                                    src="/images/Portfolio/products/product1.png"
+                                    alt="Stone1"
+                                    width={150} // Smaller image size for tablets
+                                    height={150}
+                                />
                             </Box>
+                            <Box className="flex justify-center w-1/4">
+                                <Image
+                                    src="/images/Portfolio/products/product2.png"
+                                    alt="Stone2"
+                                    width={150}
+                                    height={150}
+                                />
+                            </Box>
+                            <Box className="flex justify-center w-1/4">
+                                <Image
+                                    src="/images/Portfolio/products/product3.png"
+                                    alt="Stone3"
+                                    width={150}
+                                    height={150}
+                                />
+                            </Box>
+                            <Box className="flex justify-center w-1/4">
+                                <Image
+                                    src="/images/Portfolio/products/product4.png"
+                                    alt="Stone4"
+                                    width={150}
+                                    height={150}
+                                />
+                            </Box>
+                        </Box>
+                    ) : (
+                        <Box className="flex w-full px-20">
+                            <Box className="flex w-1/3"></Box>
                             <Box className="flex w-2/3 justify-between">
                                 <Box className="flex justify-end w-1/4">
                                     <Image
@@ -63,38 +102,33 @@ const PortfolioPage = () => {
                                         height={200}
                                     />
                                 </Box>
-
                                 <Box className="flex justify-end w-1/4">
                                     <Image
                                         src="/images/Portfolio/products/product2.png"
-                                        alt="Stone1"
+                                        alt="Stone2"
                                         width={200}
                                         height={200}
                                     />
                                 </Box>
-
                                 <Box className="flex justify-end w-1/4">
-
                                     <Image
                                         src="/images/Portfolio/products/product3.png"
-                                        alt="Stone1"
+                                        alt="Stone3"
                                         width={200}
                                         height={200}
                                     />
                                 </Box>
-
                                 <Box className="flex justify-end w-1/4">
                                     <Image
                                         src="/images/Portfolio/products/product4.png"
-                                        alt="Stone1"
+                                        alt="Stone4"
                                         width={200}
                                         height={200}
                                     />
                                 </Box>
-
-
                             </Box>
-                        </Box>}
+                        </Box>
+                    )}
 
                     {isMobile ? <Box className="px-3">
                         <Box className="flex flex-col w-full gap-y-5">
@@ -244,6 +278,7 @@ const PortfolioPage = () => {
                             </Box>
 
                             <Image
+                                className='hidden lg:flex'
                                 src="/images/Portfolio/Vector.svg"
                                 alt="Vector"
                                 width={130}
@@ -253,8 +288,13 @@ const PortfolioPage = () => {
 
                         <FullCustomBrownDivider />
 
-                        <Box className="flex w-full justify-between">
-                            <Box className="w-1/4">
+                        <Box
+                            className={`flex w-full ${isMobile ? 'flex-col space-y-4 px-4' : isTablet ? 'justify-between' : 'justify-between'
+                                }`}
+                            sx={{ gap: isTablet ? '12px' : '' }}
+                        >
+                            {/* Left Typography Box */}
+                            <Box className={isMobile ? "w-full" : isTablet ? "w-2/5" : "w-1/4"}>
                                 <Typography
                                     variant="h3"
                                     color="#FFFFFF"
@@ -262,19 +302,21 @@ const PortfolioPage = () => {
                                         fontWeight: 300,
                                         alignContent: 'flex-start',
                                         fontFamily: 'var(--font-montserrat)',
+                                        textAlign: isMobile ? 'center' : 'left',
                                         fontSize: {
-                                            xs: "8px",
-                                            sm: "12px",  // Small screens
-                                            md: "15px",  // Medium screens
-                                            lg: "20px"
-                                        }
+                                            xs: '10px', // Extra small screens
+                                            sm: '12px', // Small screens
+                                            md: isTablet ? '14px' : '15px', // Medium screens
+                                            lg: '20px', // Large screens
+                                        },
                                     }}
                                 >
-                                    we create experiences. Our portfolio showcases a captivating collection of projects where natural stone has breathed life into Melbourne homes and businesses.
+                                    We create experiences. Our portfolio showcases a captivating collection of projects where natural stone has breathed life into Melbourne homes and businesses.
                                 </Typography>
-
                             </Box>
-                            <Box className="flex w-2/5">
+
+                            {/* Right Typography Box */}
+                            <Box className={isMobile ? "w-full" : isTablet ? "w-3/5" : "flex w-2/5"}>
                                 <Typography
                                     variant="h3"
                                     color="#FFFFFF"
@@ -282,12 +324,13 @@ const PortfolioPage = () => {
                                         fontWeight: 300,
                                         alignContent: 'flex-start',
                                         fontFamily: 'var(--font-montserrat)',
+                                        textAlign: isMobile ? 'center' : 'left',
                                         fontSize: {
-                                            xs: "8px",
-                                            sm: "12px",  // Small screens
-                                            md: "15px",  // Medium screens
-                                            lg: "20px"
-                                        }
+                                            xs: '10px', // Extra small screens
+                                            sm: '12px', // Small screens
+                                            md: isTablet ? '14px' : '15px', // Medium screens
+                                            lg: '20px', // Large screens
+                                        },
                                     }}
                                 >
                                     Explore a curated selection of projects, each a testament to natural stone's enduring beauty and versatility. From modern kitchen renovations featuring captivating stone splashbacks to stunning outdoor living spaces paved with timeless elegance, discover how we've collaborated with clients to translate their visions into reality.
@@ -444,170 +487,213 @@ const PortfolioPage = () => {
 
                     <CustomPartDivider />
 
-                    {isMobile ? <Box className="flex flex-col w-full gap-y-6 px-3">
-                        <Box className="flex flex-col items-center w-full gap-y-3">
-                            <Box className="flex w-1/2 justify-center">
-                                <Typography
-                                    variant="h3"
-                                    color="#DCC5BD"
-                                    sx={{
-                                        fontWeight: 300,
-                                        textAlign: 'center',
-                                        lineHeight: '0.8',
-                                        fontFamily: 'Chronicle Display',
-                                        fontSize: 'center'
-                                    }}
-                                >
-                                    PROJECT TYPE
-                                </Typography>
+                    {isMobile ? (
+                        <Box className="flex flex-col w-full gap-y-6 px-3">
+                            {/* Mobile View */}
+                            <Box className="flex flex-col items-center w-full gap-y-3">
+                                <Box className="flex w-1/2 justify-center">
+                                    <Typography
+                                        variant="h3"
+                                        color="#DCC5BD"
+                                        sx={{
+                                            fontWeight: 300,
+                                            textAlign: "center",
+                                            lineHeight: "0.8",
+                                            fontFamily: "Chronicle Display",
+                                            fontSize: "18px", // Smaller font for mobile
+                                        }}
+                                    >
+                                        PROJECT TYPE
+                                    </Typography>
+                                </Box>
+                                <Box className="flex w-[65%] items-center">
+                                    <Typography
+                                        variant="h3"
+                                        color="#FFFFFF"
+                                        sx={{
+                                            fontWeight: 300,
+                                            textAlign: "center",
+                                            fontFamily: "var(--font-montserrat)",
+                                            fontSize: "12px", // Smaller font for mobile
+                                        }}
+                                    >
+                                        Narrow your search by exploring projects categorised by
+                                        application, such as kitchens, bathrooms, or outdoor spaces.
+                                    </Typography>
+                                </Box>
                             </Box>
-                            <Box className="flex w-[65%] items-center">
-                                <Typography
-                                    variant="h3"
-                                    color="#FFFFFF"
-                                    sx={{
-                                        fontWeight: 300,
-                                        textAlign: 'center',
-                                        fontFamily: 'var(--font-montserrat)',
-                                        fontSize: '15px'
-                                    }}
+                            <ProjectTypeCarousel />
+                        </Box>
+                    ) : (
+                        <Box className={`${isTablet ? "px-12" : "px-20"}`}>
+                            {/* Tablet and Desktop View */}
+                            <Box
+                                className={`flex ${isTablet ? "flex-col items-center gap-y-8" : "w-full justify-between"
+                                    }`}
+                            >
+                                {/* Title Section */}
+                                <Box
+                                    className={`${isTablet ? "flex w-full justify-center" : "flex w-1/2 items-center"
+                                        }`}
                                 >
-                                    Narrow your search by exploring projects categorised by application, such as kitchens, bathrooms, or outdoor spaces.
-                                </Typography>
-                            </Box>
-                        </Box>
-                        <ProjectTypeCarousel />
-                    </Box> : <Box className="px-20"><Box className="flex w-full justify-between">
-                        <Box className="flex w-1/2 items-center">
-                            <Typography
-                                variant="h3"
-                                color="#DCC5BD"
-                                sx={{
-                                    fontWeight: 300,
-                                    alignContent: 'flex-start',
-                                    fontFamily: 'Chronicle Display',
-                                    fontSize: {
-                                        xs: "20px",
-                                        sm: "30px",  // Small screens
-                                        md: "45px",  // Medium screens
-                                        lg: "100px"
-                                    }
-                                }}
-                            >
-                                PROJECT TYPE
-                            </Typography>
-                        </Box>
-                        <Box className="flex w-1/3 items-center">
-                            <Typography
-                                variant="h3"
-                                color="#ffffff"
-                                sx={{
-                                    fontWeight: 300,
-                                    alignContent: 'flex-start',
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: "8px",
-                                        sm: "10px",  // Small screens
-                                        md: "12px",  // Medium screens
-                                        lg: "20px"
-                                    }
-                                }}
-                            >
-                                Narrow your search by exploring projects categorised by application, such as kitchens, bathrooms, or outdoor spaces.
-                            </Typography>
-                        </Box>
-                    </Box>
+                                    <Typography
+                                        variant="h3"
+                                        color="#DCC5BD"
+                                        sx={{
+                                            fontWeight: 300,
+                                            textAlign: isTablet ? "center" : "left",
+                                            fontFamily: "Chronicle Display",
+                                            fontSize: {
+                                                xs: "20px",
+                                                sm: "30px", // Small screens
+                                                md: isTablet ? "35px" : "45px", // Adjusted for tablets
+                                                lg: "100px",
+                                            },
+                                        }}
+                                    >
+                                        PROJECT TYPE
+                                    </Typography>
+                                </Box>
 
-                        <ProjectCarousel /></Box>}
+                                {/* Description Section */}
+                                <Box
+                                    className={`${isTablet
+                                        ? "flex w-full justify-center px-6"
+                                        : "flex w-1/3 items-center"
+                                        }`}
+                                >
+                                    <Typography
+                                        variant="h3"
+                                        color="#FFFFFF"
+                                        sx={{
+                                            fontWeight: 300,
+                                            textAlign: isTablet ? "center" : "left",
+                                            fontFamily: "var(--font-montserrat)",
+                                            fontSize: {
+                                                xs: "8px",
+                                                sm: "10px", // Small screens
+                                                md: isTablet ? "14px" : "12px", // Adjusted for tablets
+                                                lg: "20px",
+                                            },
+                                        }}
+                                    >
+                                        Narrow your search by exploring projects categorised by
+                                        application, such as kitchens, bathrooms, or outdoor spaces.
+                                    </Typography>
+                                </Box>
+                            </Box>
+
+                            <ProjectCarousel />
+                        </Box>
+                    )}
 
                     <CustomPartDivider />
 
-                    {isMobile ? <Box
-                        className="relative flex flex-col w-full px-3 py-12 gap-x-12 gap-y-6 rounded-[20px]"
-                        sx={{
-                            backgroundImage: 'url(images/Portfolio/Inspiration/Mobile/background-mobile.svg)', // Add your image path here
-                            backgroundSize: 'cover', // Ensures the background image covers the entire area
-                            backgroundPosition: 'center', // Centers the background image
-                            backgroundRepeat: 'no-repeat', // Prevents repeating the background image
-                        }}
-                    >
-                        <Box className="flex w-full">
-                            <Box className="flex flex-col w-full items-center justify-center">
-                                <Typography variant="h2" className="mb-4 font-light text-center" color='#283C28' sx={{
-                                    fontFamily: 'Chronicle Display',
-                                    lineHeight: '0.9',
-                                    fontStyle: 'italic',
-                                    fontSize: '40px',
-                                    fontWeight: 300,
-                                }}>
-                                    EXPLORE THE MATERIALS
-                                </Typography>
+                    {isMobile ? (
+                        <Box
+                            className="relative flex flex-col w-full px-3 py-12 gap-x-12 gap-y-6 rounded-[20px]"
+                            sx={{
+                                backgroundImage: 'url(images/Portfolio/Inspiration/Mobile/background-mobile.svg)',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat',
+                            }}
+                        >
+                            <Box className="flex w-full">
+                                <Box className="flex flex-col w-full items-center justify-center">
+                                    <Typography
+                                        variant="h2"
+                                        className="mb-4 font-light text-center"
+                                        color="#283C28"
+                                        sx={{
+                                            fontFamily: 'Chronicle Display',
+                                            lineHeight: '0.9',
+                                            fontStyle: 'italic',
+                                            fontSize: '40px',
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        EXPLORE THE MATERIALS
+                                    </Typography>
 
-                                <Typography variant="h5" className="text-center" color='#283C28' sx={{
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '15px',
-                                    fontWeight: 300,
-                                }}>
-                                    Delve deeper into the specific stones used in each project, allowing you to discover the unique textures and colours each natural stone offers.
-                                </Typography>
+                                    <Typography
+                                        variant="h5"
+                                        className="text-center"
+                                        color="#283C28"
+                                        sx={{
+                                            fontFamily: 'var(--font-montserrat)',
+                                            fontSize: '15px',
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        Delve deeper into the specific stones used in each project, allowing you to discover the unique textures and colours each natural stone offers.
+                                    </Typography>
+                                </Box>
+                            </Box>
+                            <Box className="flex w-full justify-center">
+                                <MaterialMobileCarousel />
                             </Box>
                         </Box>
-                        <Box className="flex w-full justify-center">
-                            <MaterialMobileCarousel />
-                        </Box>
-
-                    </Box> : <Box
-                        className="relative flex-col w-full px-20 py-24 gap-x-12 rounded-[20px]"
-                        sx={{
-                            backgroundImage: 'url(images/Portfolio/materials/background.jpg)', // Add your image path here
-                            backgroundSize: 'cover', // Ensures the background image covers the entire area
-                            backgroundPosition: 'center', // Centers the background image
-                            backgroundRepeat: 'no-repeat', // Prevents repeating the background image
-                        }}
-                    ><Box className="flex w-full justify-between">
-                            <Box className="flex w-1/3 items-start mt-5 justify-center">
-                                <Typography
-                                    variant="h3"
-                                    color="#000000"
-                                    sx={{
-                                        fontWeight: 400,
-                                        alignContent: 'flex-start',
-                                        fontFamily: 'var(--font-montserrat)',
-                                        fontSize: {
-                                            xs: "8px",
-                                            sm: "10px",  // Small screens
-                                            md: "12px",  // Medium screens
-                                            lg: "20px"
-                                        }
-                                    }}
-                                >
-                                    Delve deeper into the specific stones used in each project, allowing you to discover the unique textures and colours each natural stone offers.
-                                </Typography>
+                    ) : (
+                        <Box
+                            className="relative flex flex-col w-full px-8 lg:px-20 py-16 lg:py-24 gap-x-12 rounded-[20px]"
+                            sx={{
+                                backgroundImage: 'url(images/Portfolio/materials/background.jpg)',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat',
+                            }}
+                        >
+                            <Box className="flex flex-col md:flex-row w-full justify-between">
+                                {/* Left Section for Description */}
+                                <Box className="flex w-full md:w-1/3 items-start justify-center mt-5">
+                                    <Typography
+                                        variant="h5"
+                                        color="#000000"
+                                        sx={{
+                                            fontWeight: 400,
+                                            fontFamily: 'var(--font-montserrat)',
+                                            textAlign: 'center',
+                                            fontSize: {
+                                                xs: '12px', // Mobile
+                                                sm: '14px', // Small screens
+                                                md: '16px', // Tablets
+                                                lg: '18px', // Large screens
+                                            },
+                                        }}
+                                    >
+                                        Delve deeper into the specific stones used in each project, allowing you to discover the unique textures and colours each natural stone offers.
+                                    </Typography>
+                                </Box>
+                                {/* Right Section for Header */}
+                                <Box className="flex w-full md:w-1/2 justify-center items-center">
+                                    <Typography
+                                        variant="h3"
+                                        color="#283C28"
+                                        sx={{
+                                            fontWeight: 300,
+                                            fontFamily: 'Chronicle Display',
+                                            lineHeight: '0.8',
+                                            fontSize: {
+                                                xs: '24px', // Mobile
+                                                sm: '32px', // Small screens
+                                                md: '48px', // Tablets
+                                                lg: '80px', // Large screens
+                                            },
+                                        }}
+                                    >
+                                        EXPLORE THE MATERIALS
+                                    </Typography>
+                                </Box>
                             </Box>
-                            <Box className="flex w-1/2 justify-center items-center">
-                                <Typography
-                                    variant="h3"
-                                    color="#283C28"
-                                    sx={{
-                                        fontWeight: 300,
-                                        alignContent: 'flex-start',
-                                        fontFamily: 'Chronicle Display',
-                                        lineHeight: '0.8',
-                                        fontSize: {
-                                            xs: "20px",
-                                            sm: "30px",  // Small screens
-                                            md: "45px",  // Medium screens
-                                            lg: "100px"
-                                        }
-                                    }}
-                                >
-                                    EXPLORE THE MATERIALS
-                                </Typography>
+
+                            {/* Carousel Section */}
+                            <Box className="mt-10">
+                                <MaterialCarousel />
                             </Box>
                         </Box>
+                    )}
 
-                        <MaterialCarousel />
-                    </Box>}
 
                     <CustomPartDivider />
 
@@ -653,12 +739,12 @@ const PortfolioPage = () => {
                                     fontWeight: 300,
                                     alignContent: 'flex-start',
                                     fontFamily: 'Chronicle Display',
-                                    fontSize: {
+                                    fontSize: !isTablet ? {
                                         xs: "40px",
                                         sm: "60px",  // Small screens
                                         md: "75px",  // Medium screens
                                         lg: "100px"
-                                    },
+                                    } : '60px',
                                     lineHeight: '0.8'
                                 }}
                             >
@@ -695,138 +781,131 @@ const PortfolioPage = () => {
 
                     <CustomPartDivider />
 
-                    {isMobile ? <Box
-                        className="relative flex flex-col w-full px-3 py-12 gap-x-12 gap-y-6 rounded-[20px]"
-                        sx={{
-                            backgroundImage: 'url(images/Portfolio/Inspiration/Mobile/background-mobile.svg)', // Add your image path here
-                            backgroundSize: 'cover', // Ensures the background image covers the entire area
-                            backgroundPosition: 'center', // Centers the background image
-                            backgroundRepeat: 'no-repeat', // Prevents repeating the background image
-                        }}
-                    >
-                        <JourneyCarousel />
-                        <Box className="flex flex-col w-full gap-y-6">
-                            <Box>
-                                <Typography
-                                    variant="h3"
-                                    color="#283C28"
-                                    sx={{
-                                        fontWeight: 300,
-                                        textAlign: 'center',
-                                        fontFamily: 'Chronicle Display',
-                                        fontStyle: 'italic',
-                                        lineHeight: 0.8,
-                                        fontSize: '40px'
-                                    }}
-                                >
-                                    READY TO START YOUR STONE JOURNEY?
-                                </Typography></Box>
-                            <Box className="flex w-full flex-col items-center justify-between gap-4">
-                                <GreenCustomButton label={'Enquire now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                                <Link href="/contact">
-                                    <GreenCustomButton label={'Contact Us!'} iconSrc={'/images/icons/Vector.svg'} />
-                                </Link>
-                            </Box>
-                        </Box>
-                    </Box> : <Box
-                        className="relative flex-col w-full px-20 py-24 gap-y-12 space-y-12 rounded-[20px]"
-                        sx={{
-                            backgroundImage: 'url(images/Portfolio/Journey/background.jpg)', // Add your image path here
-                            backgroundSize: 'cover', // Ensures the background image covers the entire area
-                            backgroundPosition: 'center', // Centers the background image
-                            backgroundRepeat: 'no-repeat', // Prevents repeating the background image
-                        }}
-                    >
-                        <Box className="flex w-full gap-6">
-                            <Box className="flex justify-center w-1/4">
-                                <Image
-                                    src="/images/Portfolio/products/product1.png"
-                                    alt="Stone1"
-                                    width={250}
-                                    height={250}
-                                />
-                            </Box>
-
-                            <Box className="flex justify-center w-1/4">
-                                <Image
-                                    src="/images/Portfolio/products/product2.png"
-                                    alt="Stone1"
-                                    width={250}
-                                    height={250}
-                                />
-                            </Box>
-
-                            <Box className="flex justify-center w-1/4">
-
-                                <Image
-                                    src="/images/Portfolio/products/product3.png"
-                                    alt="Stone1"
-                                    width={250}
-                                    height={250}
-                                />
-                            </Box>
-
-                            <Box className="flex justify-center w-1/4">
-                                <Image
-                                    src="/images/Portfolio/products/product4.png"
-                                    alt="Stone1"
-                                    width={250}
-                                    height={250}
-                                />
-                            </Box>
-                        </Box>
-
-                        <FullCustomGreenDivider />
-
-                        <Box className="flex w-full justify-between">
-                            <Box className="flex w-2/3 items-center">
-                                <Typography
-                                    variant="h3"
-                                    color="#283C28"
-                                    sx={{
-                                        fontWeight: 300,
-                                        alignContent: 'flex-start',
-                                        fontFamily: 'Chronicle Display',
-                                        fontStyle: 'italic',
-                                        lineHeight: 0.8,
-                                        fontSize: {
-                                            xs: "30px",
-                                            sm: "40px",  // Small screens
-                                            md: "65px",  // Medium screens
-                                            lg: "100px"
-                                        }
-                                    }}
-                                >
-                                    READY TO START YOUR STONE JOURNEY?
-                                </Typography>
-                            </Box>
-                            <Box className="flex flex-col w-1/3 items-center gap-3">
-                                <Typography
-                                    variant="h3"
-                                    color="#000000"
-                                    sx={{
-                                        fontWeight: 400,
-                                        alignContent: 'flex-start',
-                                        fontFamily: 'var(--font-montserrat)',
-                                        fontSize: {
-                                            xs: "8px",
-                                            sm: "10px",  // Small screens
-                                            md: "12px",  // Medium screens
-                                            lg: "20px"
-                                        }
-                                    }}
-                                >
-                                    Beyond the visual appeal, each project description highlights the practical benefits of using natural stone. Discover how stone's durability enhances functionality, its timeless style adds lasting value, and its sustainable nature creates an eco-conscious space.
-                                </Typography>
-
-                                <Box className="flex w-full justify-between gap-4">
+                    {isMobile ? (
+                        <Box
+                            className="relative flex flex-col w-full px-4 py-10 gap-y-8 rounded-[20px]"
+                            sx={{
+                                backgroundImage: 'url(images/Portfolio/Inspiration/Mobile/background-mobile.svg)',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat',
+                            }}
+                        >
+                            <JourneyCarousel />
+                            <Box className="flex flex-col w-full gap-y-6">
+                                <Box>
+                                    <Typography
+                                        variant="h3"
+                                        color="#283C28"
+                                        sx={{
+                                            fontWeight: 300,
+                                            textAlign: 'center',
+                                            fontFamily: 'Chronicle Display',
+                                            fontStyle: 'italic',
+                                            lineHeight: 0.8,
+                                            fontSize: '40px'
+                                        }}
+                                    >
+                                        READY TO START YOUR STONE JOURNEY?
+                                    </Typography></Box>
+                                <Box className="flex w-full flex-col items-center justify-between gap-4">
                                     <GreenCustomButton label={'Enquire now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                                    <Link href="/contact"><GreenCustomButton label={'Contact Us!'} iconSrc={'/images/icons/Vector.svg'} /></Link>
+                                    <Link href="/contact">
+                                        <GreenCustomButton label={'Contact Us!'} iconSrc={'/images/icons/Vector.svg'} />
+                                    </Link>
                                 </Box>
                             </Box>
                         </Box>
-                    </Box>
-                    }
+                    ) : (
+                        <Box
+                            className="relative flex flex-col w-full px-20 py-24 gap-y-12 rounded-[20px]"
+                            sx={{
+                                backgroundImage: 'url(images/Portfolio/Journey/background.jpg)',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat',
+                            }}
+                        >
+                            <Box className="flex w-full justify-between gap-6">
+                                {['product1.png', 'product2.png', 'product3.png', 'product4.png'].map((product, index) => (
+                                    <Box key={index} className="flex justify-center w-1/4">
+                                        <Image
+                                            src={`/images/Portfolio/products/${product}`}
+                                            alt={`Stone${index + 1}`}
+                                            width={250}
+                                            height={250}
+                                        />
+                                    </Box>
+                                ))}
+                            </Box>
+
+                            <FullCustomGreenDivider />
+
+                            <Box className="flex w-full justify-between">
+                                <Box className="flex w-2/3 items-center">
+                                    <Typography
+                                        variant="h3"
+                                        color="#283C28"
+                                        sx={{
+                                            fontWeight: 300,
+                                            alignContent: 'flex-start',
+                                            fontFamily: 'Chronicle Display',
+                                            fontStyle: 'italic',
+                                            lineHeight: 0.8,
+                                            fontSize: {
+                                                xs: "30px",
+                                                sm: "40px",  // Small screens
+                                                md: "65px",  // Medium screens
+                                                lg: "100px"
+                                            }
+                                        }}
+                                    >
+                                        READY TO START YOUR STONE JOURNEY?
+                                    </Typography>
+                                </Box>
+                                <Box className="flex flex-col w-1/3 items-center gap-3">
+                                    <Typography
+                                        variant="h3"
+                                        color="#000000"
+                                        sx={{
+                                            fontWeight: 400,
+                                            alignContent: 'flex-start',
+                                            fontFamily: 'var(--font-montserrat)',
+                                            fontSize: {
+                                                xs: "8px",
+                                                sm: "10px",  // Small screens
+                                                md: "12px",  // Medium screens
+                                                lg: "20px"
+                                            }
+                                        }}
+                                    >
+                                        Beyond the visual appeal, each project description highlights the practical benefits of using natural stone. Discover how stone's durability enhances functionality, its timeless style adds lasting value, and its sustainable nature creates an eco-conscious space.
+                                    </Typography>
+                                    {isTablet ?
+                                        <Box className="flex w-full justify-between gap-4">
+                                            <Box className="flex w-1/2">
+                                                <GreenCustomButton label={'Enquire now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                                            </Box>
+                                            <Box className="flex w-1/2">
+                                                <Link href="/contact">
+                                                    <GreenCustomButton label={'Contact Us!'} iconSrc={'/images/icons/Vector.svg'} />
+                                                </Link>
+                                            </Box>
+                                        </Box> :
+                                        <Box className="flex w-full justify-between gap-4">
+                                            <Box>
+                                                <GreenCustomButton label={'Enquire now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                                            </Box>
+                                            <Link href="/contact">
+                                                <GreenCustomButton label={'Contact Us!'} iconSrc={'/images/icons/Vector.svg'} />
+                                            </Link>
+                                        </Box>}
+                                </Box>
+                            </Box>
+                        </Box>
+                    )}
+
+
 
                     {isMobile ? <CustomPartDivider /> : <></>}
 
@@ -884,12 +963,12 @@ const PortfolioPage = () => {
                         <Box className="absolute z-10 text-center p-8 w-full flex flex-col justify-center items-center">
                             <Typography variant="h2" className="mb-4 font-semibold" color='#DCC5BD' sx={{
                                 fontFamily: 'Chronicle Display',
-                                fontSize: {
+                                fontSize: !isTablet ? {
                                     xs: '45px', // Font size for extra small screens
                                     sm: '65px', // Font size for small screens
                                     md: '85px', // Font size for medium screens
                                     lg: '100px', // Font size for large screens
-                                },
+                                } : '70px',
                                 fontWeight: 300,
                                 width: '70%',
                                 lineHeight: '0.8'

@@ -1,7 +1,7 @@
 // app/about/page.tsx
 'use client'
 
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Box, Typography } from '@mui/material';
@@ -25,6 +25,7 @@ const AboutPage = () => {
 
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
     // State management for the EnquiryForm modal
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
@@ -51,233 +52,171 @@ const AboutPage = () => {
                     }}
                 >
 
-                    {isMobile ? <Box className="flex w-full flex-col px-3 justify-center items-center gap-y-5">
-                        <Box className="flex w-full justify-center">
-                            <Box className="flex flex-col w-1/3 gap-y-3 items-center">
-                                <Box>
-                                    <Image
-                                        src="/images/About/Products/Mobile/product1.jpg"
-                                        alt="Logo"
-                                        width={115}
-                                        height={125}
-                                        className='rounded-xl'
-                                    />
+                    {isMobile ? (
+                        <Box className="flex w-full flex-col px-2 justify-center items-center gap-y-4">
+                            <Box className="flex w-full justify-center">
+                                <Box className="flex flex-col w-1/3 gap-y-2 items-center">
+                                    <Box>
+                                        <Image
+                                            src="/images/About/Products/Mobile/product1.jpg"
+                                            alt="Logo"
+                                            width={115}
+                                            height={125}
+                                            className="rounded-xl"
+                                        />
+                                    </Box>
+                                    <Box>
+                                        <Image
+                                            src="/images/About/Products/Mobile/product2.jpg"
+                                            alt="Logo"
+                                            width={115}
+                                            height={195}
+                                            className="rounded-xl"
+                                        />
+                                    </Box>
                                 </Box>
-
-                                <Box>
+                                <Box className="flex flex-col w-1/3 items-center">
                                     <Image
-                                        src="/images/About/Products/Mobile/product2.jpg"
-                                        alt="Logo"
-                                        width={115}
-                                        height={195}
-                                        className='rounded-xl'
-                                    />
-                                </Box>
-                            </Box>
-                            <Box className="flex flex-col w-1/3 items-center">
-                                <Image
-                                    src="/images/About/Products/Mobile/product3.jpg"
-                                    alt="Logo"
-                                    width={114}
-                                    height={330}
-                                    className='rounded-xl'
-                                />
-                            </Box>
-                            <Box className="flex flex-col w-1/3 gap-y-3 items-center">
-                                <Box className="">
-                                    <Image
-                                        src="/images/About/Products/Mobile/product4.jpg"
+                                        src="/images/About/Products/Mobile/product3.jpg"
                                         alt="Logo"
                                         width={114}
-                                        height={116}
-                                        className='rounded-xl'
+                                        height={330}
+                                        className="rounded-xl"
                                     />
                                 </Box>
-                                <Box className="">
-                                    <Image
-                                        src="/images/About/Products/Mobile/product5.jpg"
-                                        alt="Logo"
-                                        width={114}
-                                        height={205}
-                                        className='rounded-xl'
-                                    />
+                                <Box className="flex flex-col w-1/3 gap-y-2 items-center">
+                                    <Box>
+                                        <Image
+                                            src="/images/About/Products/Mobile/product4.jpg"
+                                            alt="Logo"
+                                            width={114}
+                                            height={116}
+                                            className="rounded-xl"
+                                        />
+                                    </Box>
+                                    <Box>
+                                        <Image
+                                            src="/images/About/Products/Mobile/product5.jpg"
+                                            alt="Logo"
+                                            width={114}
+                                            height={205}
+                                            className="rounded-xl"
+                                        />
+                                    </Box>
                                 </Box>
                             </Box>
-                        </Box>
-                        <Box className="flex flex-col w-full gap-y-5 items-center" >
-                            <Box>
+                            <Box className="flex flex-col w-full gap-y-4 items-center">
                                 <Typography
                                     variant="h4"
                                     color="#DBC6BC"
                                     className="text-center"
                                     sx={{
-                                        fontFamily: 'Raleway',
-                                        fontSize: '40px',
-                                        lineHeight: 1,
+                                        fontFamily: "Raleway",
+                                        fontSize: "32px",
+                                        lineHeight: 1.2,
                                         fontWeight: 300,
                                     }}
                                 >
-                                    Unearth the
+                                    Unearth the Enduring Beauty of Stone with Splendour in Stone,{" "}
+                                    <span style={{ fontWeight: 600 }}>Australia’s</span>{" "}
+                                    <span style={{ fontWeight: 600 }}>No. 1 High-end Stone Supplier</span>
                                 </Typography>
                                 <Typography
-                                    variant="h4"
-                                    color="#DBC6BC"
+                                    variant="h6"
+                                    color="white"
                                     className="text-center"
                                     sx={{
-                                        fontFamily: 'Raleway',
-                                        fontSize: '40px',
-                                        lineHeight: 1,
+                                        fontFamily: "var(--font-montserrat)",
+                                        fontSize: "12px",
+                                        lineHeight: 1.4,
+                                        width: "90%",
                                         fontWeight: 300,
                                     }}
                                 >
-                                    Enduring Beauty of
-                                </Typography>
-                                <Typography
-                                    variant="h4"
-                                    color="#DBC6BC"
-                                    className="text-center"
-                                    sx={{
-                                        fontFamily: 'Raleway',
-                                        fontSize: '40px',
-                                        lineHeight: 1,
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    Stone with Splendour
-                                </Typography>
-                                <Typography
-                                    variant="h4"
-                                    color="#DBC6BC"
-                                    className="text-center"
-                                    sx={{
-                                        fontFamily: 'Raleway',
-                                        fontSize: '40px',
-                                        lineHeight: 1,
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    in Stone, <span style={{ fontWeight: 600 }}>Australia’s </span>
-                                </Typography>
-                                <Typography
-                                    variant="h4"
-                                    color="#DBC6BC"
-                                    className="text-center"
-                                    sx={{
-                                        fontFamily: 'Raleway',
-                                        fontSize: '40px',
-                                        lineHeight: 1,
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    <span style={{ fontWeight: 600 }}>No. 1 High-end</span>
-                                </Typography>
-                                <Typography
-                                    variant="h4"
-                                    color="#DBC6BC"
-                                    className="text-center"
-                                    sx={{
-                                        fontFamily: 'Raleway',
-                                        fontSize: '40px',
-                                        lineHeight: 1,
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    <span style={{ fontWeight: 600 }}>Stone Supplier</span>
+                                    At Splendour in Stone, we believe natural stone is an unparalleled
+                                    design element, capable of injecting timeless beauty and undeniable
+                                    character into any space.
                                 </Typography>
                             </Box>
-
-                            <Typography
-                                variant="h4"
-                                color="white"
-                                className="text-center"
-                                sx={{
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px',
-                                    lineHeight: '1.2',
-                                    width: '90%',
-                                    fontWeight: 300,
-                                }}
-                            >
-                                At Splendour in Stone, we believe natural stone is an unparalleled design element, capable of injecting timeless beauty and undeniable character into any space.
-                            </Typography>
                         </Box>
-                    </Box>
-                        : <Box className="flex w-full px-20 gap-x-6 py-2">
-                            <Box className="flex flex-col w-1/2 justify-between">
+                    ) : (
+                        <Box className="flex w-full px-10 gap-x-4 py-4">
+                            <Box className="flex flex-col w-1/2 gap-y-4 justify-between">
                                 <Box className="flex w-full">
                                     <Box className="w-1/2"></Box>
-                                    <Box className="w-1/2">
+                                    <Box className="md:w-56 lg:w-1/2">
                                         <Image
                                             src="/images/About/Products/product1.jpg"
                                             alt="Logo"
                                             width={510}
                                             height={355}
-                                            className='rounded-[20px]'
+                                            className="rounded-[20px]"
                                         />
                                     </Box>
                                 </Box>
-                                <Box className="w-4/5 h-1/2">
+                                <Box className="w-4/5">
                                     <Typography
                                         variant="h4"
                                         color="#DBC6BC"
                                         sx={{
-                                            fontFamily: 'Raleway',
-                                            lineHeight: '1',
+                                            fontFamily: "Raleway",
+                                            lineHeight: "1.2",
                                             fontSize: {
-                                                xs: '20px',  // Font size for extra small screens
-                                                sm: '25px',  // Font size for small screens
-                                                md: '25px',  // Font size for medium screens
-                                                lg: '58px',  // Font size for large screens
+                                                xs: "18px",
+                                                sm: "24px",
+                                                md: "36px",
+                                                lg: "48px",
                                             },
                                             fontWeight: 300,
                                         }}
                                     >
-                                        Unearth the Enduring Beauty of Stone with Splendour in Stone, <span style={{ fontWeight: 600, color: '#DBC6BC' }}>Australia’s No. 1 High-end Stone Supplier</span>
+                                        Unearth the Enduring Beauty of Stone with Splendour in Stone,{" "}
+                                        <span style={{ fontWeight: 600 }}>Australia’s No. 1 High-end Stone Supplier</span>
                                     </Typography>
                                 </Box>
                             </Box>
-                            <Box className="flex flex-col w-1/4 gap-y-6 h-full">
+                            <Box className="flex flex-col w-1/4 gap-y-4">
                                 <Image
                                     src="/images/About/Products/product2.jpg"
                                     alt="Logo"
                                     width={510}
                                     height={457}
-                                    className='rounded-[20px]'
+                                    className="rounded-[20px]"
                                 />
                                 <Image
                                     src="/images/About/Products/product4.jpg"
                                     alt="Logo"
                                     width={510}
                                     height={327}
-                                    className='rounded-[20px]'
+                                    className="rounded-[20px]"
                                 />
                             </Box>
-                            <Box className="flex flex-col w-1/4 gap-y-6 h-full">
+                            <Box className="flex flex-col w-1/4 gap-y-4">
                                 <Image
                                     src="/images/About/Products/product3.jpg"
                                     alt="Logo"
                                     width={510}
                                     height={276}
-                                    className='rounded-[20px]'
+                                    className="rounded-[20px]"
                                 />
                                 <Image
                                     src="/images/About/Products/product5.jpg"
                                     alt="Logo"
                                     width={510}
                                     height={276}
-                                    className='rounded-[20px]'
+                                    className="rounded-[20px]"
                                 />
                                 <Typography
-                                    variant="h4"
+                                    variant="h6"
                                     color="white"
                                     sx={{
-                                        fontFamily: 'var(--font-montserrat)',
-                                        lineHeight: '1',
+                                        fontFamily: "var(--font-montserrat)",
+                                        lineHeight: "1.4",
                                         fontSize: {
-                                            xs: '7px',  // Font size for extra small screens
-                                            sm: '12px',  // Font size for small screens
-                                            md: '15px',  // Font size for medium screens
-                                            lg: '18px',  // Font size for large screens
+                                            xs: "10px",
+                                            sm: "14px",
+                                            md: "16px",
+                                            lg: "18px",
                                         },
                                         fontWeight: 300,
                                     }}
@@ -285,7 +224,9 @@ const AboutPage = () => {
                                     At Splendour in Stone, we believe natural stone is an unparalleled design element, capable of injecting timeless beauty and undeniable character into any space.
                                 </Typography>
                             </Box>
-                        </Box>}
+                        </Box>
+                    )}
+
 
                     {isMobile ? <Box
                         className="relative flex flex-col w-full px-3 py-12 gap-x-12 gap-y-6 rounded-[20px]"
@@ -444,7 +385,7 @@ const AboutPage = () => {
                             <Box className="absolute z-10 text-center p-8 w-3/4 flex flex-col gap-y-6">
                                 <Typography variant="h2" className="font-semibold" color="#DBC6BC" sx={{
                                     fontFamily: 'Chronicle Display',
-                                    lineHeight: '0.8',
+                                    lineHeight: {lg: '0.8',xs: '0.95'},
                                     fontSize: {
                                         xs: '40px', // Font size for extra small screens
                                         sm: '60px', // Font size for small screens
@@ -730,7 +671,7 @@ const AboutPage = () => {
                                     color='#283C28'
                                     sx={{
                                         fontFamily: 'Chronicle Display',
-                                        lineHeight: '0.8',
+                                        lineHeight: isTablet ? '1' : '0.8',
                                         fontSize: {
                                             xs: '15px', // Font size for extra small screens
                                             sm: '30px', // Font size for small screens
@@ -786,7 +727,7 @@ const AboutPage = () => {
                                     color='#283C28'
                                     sx={{
                                         fontFamily: 'Chronicle Display',
-                                        lineHeight: '0.8',
+                                        lineHeight: isTablet? '1' : '0.8',
                                         fontSize: {
                                             xs: '15px', // Font size for extra small screens
                                             sm: '30px', // Font size for small screens
@@ -1136,7 +1077,7 @@ const AboutPage = () => {
                             <Typography variant="h2" color="#283C28" className="mb-4 font-normal" sx={{
                                 fontFamily: 'Chronicle Display',
                                 fontStyle: 'italic',
-                                lineHeight: '0.8',
+                                lineHeight: isTablet? '1' : '0.8',
                                 fontSize: {
                                     xs: '30px', // Font size for extra small screens
                                     sm: '40px', // Font size for small screens
@@ -1168,7 +1109,7 @@ const AboutPage = () => {
 
 
                         </Box>
-                        <Box className="w-[35%]" >
+                        <Box className="w-[35%]" sx={{display:'flex', alignItems:'center'}}>
                             <Image
                                 src="/images/About/Achievements/man.jpg" // Ensure this image is in the public/images folder
                                 alt="Background"
@@ -2085,7 +2026,17 @@ const AboutPage = () => {
 
                     {isMobile ? <></> : <Box className="px-16"><FullCustomBrownDivider /></Box>}
 
-                    {isMobile ? <LivingMobileCarousel /> : <Box className="w-full flex justify-between gap-x-8 px-16">
+                    {isMobile ? <LivingMobileCarousel /> : isTablet ? <Box className="w-full flex justify-between gap-x-8 px-16">
+                        <Box className="w-1/3">
+                            <StoneProductCard product_image_src='images/About/Living/image1.jpg' product_name='DURABILITY AND LONGEVITY' product_subname='' />
+                        </Box>
+                        <Box className="w-1/3">
+                            <StoneProductCard product_image_src='images/About/Living/image2.jpg' product_name='EFFORTLESS ELEGANCE' product_subname='' />
+                        </Box>
+                        <Box className="w-1/3">
+                            <StoneProductCard product_image_src='images/About/Living/image3.jpg' product_name='SUSTAINABLE CHOICE' product_subname='' />
+                        </Box>
+                        </Box> : <Box className="w-full flex justify-between gap-x-8 px-16">
                         <Box className="w-1/3">
                             <StoneProductCard product_image_src='images/About/Living/image1.jpg' product_name='DURABILITY AND LONGEVITY' product_subname='Are you tired of chipped floors or walls that show every mark? Stone offers unmatched resilience, built to endure daily wear and tear, saving you time and money on replacements.' />
                         </Box>
@@ -2126,7 +2077,7 @@ const AboutPage = () => {
                         {/* Main content */}
                         <Box
                             className="flex h-full flex-col w-full justify-between px-3"
-                            sx={{ position: 'relative', zIndex: 2 }} // Ensure content stays above the blurred background
+                            sx={{ position: 'relative', zIndex: 2, bottom:'20px' }} // Ensure content stays above the blurred background
                         >
                             <Box className="flex flex-col w-full gap-y-5">
                                 <Box className="flex flex-col">
@@ -2136,7 +2087,7 @@ const AboutPage = () => {
                                             sx={{
                                                 fontFamily: 'Chronicle Display',
                                                 fontStyle: 'italic',
-                                                lineHeight: '1',
+                                               
                                                 fontSize: '40px',
                                                 fontWeight: 300,
                                                 color: 'white', // Set text color
@@ -2153,7 +2104,7 @@ const AboutPage = () => {
                                         sx={{
                                             fontFamily: 'var(--font-montserrat)',
                                             lineHeight: '1',
-                                            fontSize: '16px',
+                                            fontSize: '26px',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
@@ -2216,7 +2167,7 @@ const AboutPage = () => {
                                         sx={{
                                             fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
-                                            lineHeight: '0.8',
+                                          
                                             fontSize: {
                                                 xs: '20px', // Font size for extra small screens
                                                 sm: '25px', // Font size for small screens
@@ -2229,14 +2180,14 @@ const AboutPage = () => {
                                     >
                                         A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
                                     </Typography>
-                                    <Box className="mt-5">
-                                        <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm}/>
+                                    <Box className="mt-5" sx={{paddingBottom:'50px'}}>
+                                        <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
                                     </Box>
 
                                 </Box>
                             </Box>
 
-                            <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2 }}>
+                            <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom:'50px' }}>
                                 <Box className="flex w-full h-1/2"></Box>
                                 <Box className="flex w-full flex-col h-1/2 justify-center items-center">
                                     <Typography
@@ -2248,8 +2199,8 @@ const AboutPage = () => {
                                             fontSize: {
                                                 xs: '10px', // Font size for extra small screens
                                                 sm: '12px', // Font size for small screens
-                                                md: '15px', // Font size for medium screens
-                                                lg: '18px', // Font size for large screens
+                                                md: '20px', // Font size for medium screens
+                                                lg: '28px', // Font size for large screens
                                             },
                                             fontWeight: 300,
                                             textAlign: 'start',
@@ -2437,7 +2388,7 @@ const AboutPage = () => {
                         </Box>
 
                         <Box className="flex w-full justify-around">
-                            <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm}/>
+                            <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
                             <Link href="/contact"><WhiteCustomButton label={'Contact Us'} iconSrc={'/images/icons/Vector.svg'} /></Link>
                         </Box>
 
@@ -2458,21 +2409,21 @@ const AboutPage = () => {
                             }}>
                                 READY TO CRAFT YOUR STONE MASTERPIECE?
                             </Typography>
-                            <Box className="flex w-full justify-start gap-6">
-                                <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm}/>
+                            <Box className="flex w-full justify-start  gap-6">
+                                <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
                                 <Link href="/contact"><WhiteCustomButton label={'Contact Us'} iconSrc={'/images/icons/Vector.svg'} /></Link>
                             </Box>
                         </Box>
 
-                        <Box className="flex lg:w-1/4">
+                        <Box className="flex lg:w-1/4 mt-10">
                             <Typography variant="h1" className="mb-8" sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 color: 'white',
                                 fontSize: {
                                     xs: '12px', // Font size for extra small screens
                                     sm: '14px', // Font size for small screens
-                                    md: '16px', // Font size for medium screens
-                                    lg: '18px', // Font size for large screens
+                                    md: '20px', // Font size for medium screens
+                                    lg: '28px', // Font size for large screens
                                 },
                                 fontWeight: 300,
                             }}>

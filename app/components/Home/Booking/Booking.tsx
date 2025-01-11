@@ -1,7 +1,7 @@
 // pages/index.tsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useTheme, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from 'react-responsive';
 import {
     Box,
     Typography,
@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import GreenCustomButton from "../../GreenCustomButton";
 import GreenCustomMobileButton from "../../Buttons/GreenCustomMobileButton";
-import GreenCustomCallIconButton from "../../GreenCustomCallIconButton";
 import GreenCustomBookButton from "../../GreenBookButton";
 import DateCarousel from "../../DateCarousel";
 import TimeCarousel from "../../TimeCarousel";
@@ -26,8 +25,8 @@ import CalendarControl from "../../CalendarControl";
 import MonthYearPicker from "./MonthCalendar";
 
 const Booking: React.FC = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1024px)' });
     const [resources, setResources] = useState<{ date: string; day: string }[]>(
         []
     ); // State for resources
@@ -352,7 +351,7 @@ const Booking: React.FC = () => {
 
     return (
         <Box>
-            {isMobile ? (
+            {isMobile || isTablet ? (
                 <Box
                     className="relative flex flex-col w-full py-10 gap-y-8 rounded-[20px]"
                     sx={{
@@ -380,7 +379,7 @@ const Booking: React.FC = () => {
                         <Box className="flex w-full justify-center">
                             <Box
                                 className="flex w-[160px] h-[42px] justify-center"
-                                sx={{ border: "1px solid #283C28", borderRadius: "20px" }}
+                                sx={{ borderRadius: "20px" }}
                             >
                                 {/* <CalendarControl onClick={handleCalendarControlClick} month={getMonthAbbreviation(selectedMonth)} year={selectedYear} /> */}
                                 <CalendarControl
@@ -650,7 +649,7 @@ const Booking: React.FC = () => {
                 </Box>
             ) : (
                 <Box
-                    className="relative flex flex-col w-full px-20 py-20 gap-y-8 rounded-[40px]"
+                    className="relative flex flex-col w-full px-10 py-20 gap-y-8 rounded-[40px]"
                     sx={{
                         backgroundImage: "url(images/Home/Booking/background.jpg)", // Add your image path here
                         backgroundSize: "cover", // Ensures the background image covers the entire area
@@ -658,8 +657,24 @@ const Booking: React.FC = () => {
                         backgroundRepeat: "no-repeat", // Prevents repeating the background image
                     }}
                 >
-                    <Box className="flex justify-between w-full gap-x-16">
-                        <Box className="flex flex-col justify-around w-1/2">
+                    <Box
+                        className="flex w-full gap-x-16"
+                        sx={{
+                            flexDirection: {
+                                xs: "column", // Mobile: Stack vertically
+                                sm: "column", // Small devices: Stack vertically
+                                md: "row",    // Tablet and up: Row layout
+                            },
+                        }}
+                    >
+                        {/* Left Section */}
+                        <Box
+                            className="flex flex-col justify-around w-full"
+                            sx={{
+                                width: { xs: "100%", md: "50%" }, // Full width on mobile, 50% on tablets and up
+                                gap: { xs: "16px", md: "32px" }, // Adjust spacing
+                            }}
+                        >
                             <Typography
                                 variant="h3"
                                 color="#283C28"
@@ -667,11 +682,12 @@ const Booking: React.FC = () => {
                                     fontWeight: 300,
                                     alignContent: "flex-start",
                                     fontFamily: "Chronicle Display",
+                                    textAlign: { xs: "center", md: "left" }, // Centered on mobile, left-aligned on tablets
                                     fontSize: {
-                                        xs: "30px",
-                                        sm: "50px", // Small screens
-                                        md: "65px", // Medium screens
-                                        lg: "100px",
+                                        xs: "30px", // Mobile
+                                        sm: "40px", // Small screens
+                                        md: "56px", // Tablet
+                                        lg: "120px", // Larger screens
                                     },
                                 }}
                             >
@@ -698,33 +714,112 @@ const Booking: React.FC = () => {
                                 </DialogContent>
                             </Dialog>
                         </Box>
-                        <Box className="flex flex-col justify-around w-5/12">
-                            <Box className="flex justify-end w-full">
-                                <GreenCustomButton
-                                    label={"Book"}
-                                    iconSrc="/images/icons/Vector.svg"
+
+                        {/* Right Section */}
+                        <Box
+                            className="flex flex-col justify-around"
+                            sx={{
+                                width: { xs: "100%", md: "40%" }, // Full width on mobile, 40% on tablets
+                                marginTop: { xs: "16px", md: "0px" }, // Add spacing on mobile
+                                gap: "16px", // Consistent spacing for all devices
+                            }}
+                        >
+                            {/* Book Button */}
+                            <Box
+                                className="flex justify-center md:justify-end"
+                                sx={{
+                                    width: "100%",
+                                }}
+                            >
+                                <button
+                                    style={{
+                                        padding: "10px 20px",
+                                        backgroundColor: "#283C28",
+                                        color: "#DCC5BD",
+                                        border: "none",
+                                        borderRadius: "50px",
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                    }}
+                                    className="lg:w-[260px] lg:h-[60px] lg:justify-between lg:text-[15px]"
                                     onClick={handleOpenDialog}
-                                />
+                                >
+                                    Book
+                                    <img src="/images/icons/Vector.svg" alt="Book" />
+                                </button>
                             </Box>
-                            <Box className="flex justify-between w-full gap-x-3">
-                                <GreenCustomButton
-                                    label={"Video Call"}
-                                    iconSrc="/images/icons/VideoCall.svg"
+
+                            {/* Action Buttons */}
+                            <Box
+                                className="flex flex-col md:flex-row gap-3"
+                                sx={{
+                                    justifyContent: { xs: "center", md: "space-between" },
+                                    alignItems: { xs: "center", md: "flex-start" },
+                                }}
+                            >
+                                <button
+                                    style={{
+                                        padding: "10px 20px",
+                                        backgroundColor: "#283C28",
+                                        color: "#DCC5BD",
+                                        border: "none",
+                                        borderRadius: "50px",
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                    }}
+                                    className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
                                     onClick={handleOpenDialog_VideoCall}
-                                />
-                                <GreenCustomCallIconButton
-                                    label={"Call"}
-                                    iconSrc="/images/icons/Call.svg"
+                                >
+
+                                    Video Call
+                                    <img src="/images/icons/VideoCall.svg" alt="Video Call" />
+                                </button>
+
+                                <button
+                                    style={{
+                                        padding: "10px 20px",
+                                        backgroundColor: "#283C28",
+                                        color: "#DCC5BD",
+                                        border: "none",
+                                        borderRadius: "50px",
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                    }}
+                                    className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
                                     onClick={handleOpenDialog_Call}
-                                />
-                                <GreenCustomButton
-                                    label={"Email"}
-                                    iconSrc="/images/icons/Email.svg"
+                                >   Call
+                                    <img src="/images/icons/Call.svg" alt="Call" />
+
+                                </button>
+
+                                <button
+                                    style={{
+                                        padding: "10px 20px",
+                                        backgroundColor: "#283C28",
+                                        color: "#DCC5BD",
+                                        border: "none",
+                                        borderRadius: "50px",
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                    }}
+                                    className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
                                     onClick={handleOpenDialog_Email}
-                                />
+                                > Email
+                                    <img src="/images/icons/Email.svg" alt="Email" />
+
+                                </button>
                             </Box>
                         </Box>
                     </Box>
+
 
                     <Box className="flex flex-col w-full space-y-3">
                         <DateCarousel
@@ -977,6 +1072,8 @@ const Booking: React.FC = () => {
                     </Snackbar>
                 </Box>
             )}
+
+
         </Box>
     );
 };

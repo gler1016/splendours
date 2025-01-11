@@ -23,6 +23,7 @@ const ServicesPage = () => {
 
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    const isLeastMobile = useMediaQuery({ query: '(max-width: 420px)' });
 
     return (
         <Box>
@@ -341,7 +342,7 @@ const ServicesPage = () => {
                     </Box>
                 }
 
-                {isMobile ? <Box className="flex w-full flex-col px-4 gap-y-3" sx={{ border: isMobile ? '1px solid #000000' : 'none' }} >
+                {isLeastMobile ? <Box className="flex w-full flex-col px-4 gap-y-3" sx={{ border: isMobile ? '1px solid #000000' : 'none' }} >
                     <Box className="flex w-full gap-x-2">
                         <Box className="flex w-1/3">
                             <Image
@@ -407,7 +408,7 @@ const ServicesPage = () => {
                                 alt="main"
                                 width={552}
                                 height={395}
-                                className="rounded-[25px] h-[95%]"
+                                className="md:rounded-[25px] h-[100%] rounded-[5px]"
                             />
                         </Box>
                         <Box className="w-2/3">
@@ -416,7 +417,7 @@ const ServicesPage = () => {
                                 alt="main"
                                 width={1136}
                                 height={395}
-                                className="rounded-[25px]"
+                                className="md:rounded-[25px] rounded-[5px]"
                             />
                         </Box>
                     </Box>
@@ -428,7 +429,7 @@ const ServicesPage = () => {
                                     alt="main"
                                     width={844}
                                     height={252}
-                                    className="rounded-[25px]"
+                                    className="md:rounded-[25px] rounded-[5px]"
                                 />
                             </Box>
                             <Box className="flex w-full">
@@ -437,10 +438,9 @@ const ServicesPage = () => {
                                     alt="main"
                                     width={844}
                                     height={127}
-                                    className="rounded-[25px]"
+                                    className="md:rounded-[25px] rounded-[5px]"
                                 />
                             </Box>
-
                         </Box>
                         <Box className="w-1/6">
                             <Image
@@ -448,7 +448,7 @@ const ServicesPage = () => {
                                 alt="main"
                                 width={262}
                                 height={395}
-                                className="rounded-[25px] h-[95%]"
+                                className="md:rounded-[25px] h-[100%] rounded-[5px]"
                             />
                         </Box>
                         <Box className="w-1/3">
@@ -457,11 +457,10 @@ const ServicesPage = () => {
                                 alt="main"
                                 width={552}
                                 height={395}
-                                className="rounded-[25px]"
+                                className="md:rounded-[25px] h-[100%] rounded-[5px]"
                             />
                         </Box>
                     </Box>
-
                 </Box>}
 
                 {isMobile ? <Box className="py-3">

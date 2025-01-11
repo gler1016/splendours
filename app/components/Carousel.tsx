@@ -35,7 +35,7 @@ const Carousel = ({
     return (
         <div>
             {/* Carousel container */}
-            <div className="relative flex aspect-[1/1] max-w-1/2 min-w-1/4 w-[30vw] mt-[-44vh] overflow-hidden rounded-md" style={{ top: "-45px" }}>
+            <div className="relative flex aspect-[1/1] xl:w-[500px] lg:w-[320px]  mt-[-44vh] overflow-hidden rounded-md xl:top-[-45px] md:top-[50px]">
                 {/* Image container */}
                 <div
                     ref={carouselRef}
@@ -58,7 +58,7 @@ const Carousel = ({
                 </div>
             </div>
             {/* Navigation buttons */}
-            <div className="flex justify-between w-full">
+            <div className="flex justify-between w-full lg:mt-[70px] xl:mt-[0px]">
                 <button
                     disabled={currentImg === 0}
                     onClick={() => setCurrentImg((prev) => prev - 1)}

@@ -23,7 +23,7 @@ const GreenCustomBookButton: React.FC<CustomButtonProps> = ({ label, iconSrc, on
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                width: { xs: "160px", sm: "20vw", md: "13vw", lg: "13vw" }, // Responsive width
+                width: { xs: "160px", sm: "20vw", md: "200px"}, // Responsive width
                 height: { xs: "42px", sm: "4.5vw", md: "3.1vw" , lg: "3.1vw"}, // Responsive height
                 borderRadius: '50px',
                 color: '#DCC5BD',
