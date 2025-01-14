@@ -295,7 +295,7 @@ const Header: React.FC = () => {
                             </Typography>
                         </Link>
                     </Box>
-                    <Box className=" text-center">
+                    {/* <Box className=" text-center">
                         <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
                             <Typography
                                 variant="h3"
@@ -319,7 +319,7 @@ const Header: React.FC = () => {
                                 Bricks
                             </Typography>
                         </Link>
-                    </Box>
+                    </Box> */}
                     <Box className=" text-center">
                         <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
                             <Typography
@@ -370,31 +370,7 @@ const Header: React.FC = () => {
                             </Typography>
                         </Link>
                     </Box>
-                    <Box className=" text-center">
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: "10px",
-                                        sm: "12px",
-                                        md: "15px",
-                                        lg: '20px',
-                                    },
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                About
-                            </Typography>
-                        </Link>
-                    </Box>
+
                     <Box className=" text-center">
                         <Link href="/services">
                             <Typography
@@ -442,6 +418,31 @@ const Header: React.FC = () => {
                                 }}
                             >
                                 Projects
+                            </Typography>
+                        </Link>
+                    </Box>
+                    <Box className=" text-center">
+                        <Link href="/about">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: {
+                                        xs: "10px",
+                                        sm: "12px",
+                                        md: "15px",
+                                        lg: '20px',
+                                    },
+                                    transition: 'all 0.3s ease',
+                                    '&:hover': {
+                                        transform: 'scale(1.05)',
+                                        color: '#FFD700', // Gold color on hover
+                                    }
+                                }}
+                            >
+                                About
                             </Typography>
                         </Link>
                     </Box>
@@ -599,7 +600,7 @@ const Header: React.FC = () => {
                             </Typography>
                         </Link>
                     </Box>
-                    <Box className=" text-center">
+                    {/* <Box className=" text-center">
                         <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
                             <Typography
                                 variant="h3"
@@ -618,7 +619,7 @@ const Header: React.FC = () => {
                                 Bricks
                             </Typography>
                         </Link>
-                    </Box>
+                    </Box> */}
                     <Box className=" text-center">
                         <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
                             <Typography
@@ -639,26 +640,7 @@ const Header: React.FC = () => {
                             </Typography>
                         </Link>
                     </Box>
-                    <Box className=" text-center">
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '1.2vw',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                About
-                            </Typography>
-                        </Link>
-                    </Box>
+
                     <Box className=" text-center">
                         <Link href="/services">
                             <Typography
@@ -696,6 +678,26 @@ const Header: React.FC = () => {
                                 }}
                             >
                                 Projects
+                            </Typography>
+                        </Link>
+                    </Box>
+                    <Box className=" text-center">
+                        <Link href="/about">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: '1.2vw',
+                                    transition: 'all 0.3s ease',
+                                    '&:hover': {
+                                        transform: 'scale(1.05)',
+                                        color: '#FFD700', // Gold color on hover
+                                    }
+                                }}
+                            >
+                                About
                             </Typography>
                         </Link>
                     </Box>
@@ -784,7 +786,7 @@ const Header: React.FC = () => {
             </Box>}
 
             {/* Mobile Menu Overlay */}
-            {isMobile  && isMenuOpen && (
+            {isMobile && isMenuOpen && (
                 <Box
                     className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-70"
                     onClick={handleMenuToggle}
@@ -855,7 +857,7 @@ const Header: React.FC = () => {
                                 Paving
                             </Typography>
                         </Link>
-                        <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
+                        {/* <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -874,7 +876,7 @@ const Header: React.FC = () => {
                             >
                                 Bricks
                             </Typography>
-                        </Link>
+                        </Link> */}
                         <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
                             <Typography
                                 variant="h3"
@@ -895,26 +897,7 @@ const Header: React.FC = () => {
                                 Cobblestone
                             </Typography>
                         </Link>
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: "18px",
-                                    marginBottom: '20px',
-                                    padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
-                                }}
-                            >
-                                About
-                            </Typography>
-                        </Link>
+
                         <Link href="/services">
                             <Typography
                                 variant="h3"
@@ -953,6 +936,26 @@ const Header: React.FC = () => {
                                 }}
                             >
                                 Projects
+                            </Typography>
+                        </Link>
+                        <Link href="/about">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                About
                             </Typography>
                         </Link>
                         <Link href="/contact">
@@ -1070,7 +1073,7 @@ const Header: React.FC = () => {
                                 Paving
                             </Typography>
                         </Link>
-                        <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
+                        {/* <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -1089,7 +1092,7 @@ const Header: React.FC = () => {
                             >
                                 Bricks
                             </Typography>
-                        </Link>
+                        </Link> */}
                         <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
                             <Typography
                                 variant="h3"
@@ -1110,26 +1113,7 @@ const Header: React.FC = () => {
                                 Cobblestone
                             </Typography>
                         </Link>
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: "18px",
-                                    marginBottom: '20px',
-                                    padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
-                                }}
-                            >
-                                About
-                            </Typography>
-                        </Link>
+
                         <Link href="/services">
                             <Typography
                                 variant="h3"
@@ -1168,6 +1152,26 @@ const Header: React.FC = () => {
                                 }}
                             >
                                 Projects
+                            </Typography>
+                        </Link>
+                        <Link href="/about">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                About
                             </Typography>
                         </Link>
                         <Link href="/contact">

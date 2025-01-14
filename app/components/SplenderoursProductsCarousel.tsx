@@ -67,7 +67,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
     }, []);
 
     return (
-        <div className="mx-auto my-12 carousel" style={{ marginTop: "0px" }}>
+        <div className="mx-auto my-12 carousel" style={{ marginTop: "0px",pointerEvents:"auto" }}>
             <div className="relative overflow-hidden">
                 <div className="absolute top-0 left-0 flex justify-between w-full h-full items-center ">
                     <button
@@ -128,7 +128,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
                 </div>
                 <div
                     ref={carousel}
-                    className="relative z-0 flex overflow-hidden carousel-container gap-x-6 scroll-smooth snap-x snap-mandatory touch-pan-x"
+                    className="relative z-0 flex overflow-hidden carousel-container gap-x-6 scroll-smooth snap-x snap-mandatory"
                 >
                     {data.resources.map((resource: Resource, index: number) => (
                         <Box

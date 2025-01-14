@@ -26,8 +26,8 @@ const Home = () => {
                 sx={{
                     width: '100%',
                     backgroundImage: 'url(/images/Home/background.jpg)', // Default desktop background
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundSize: '100% 100%',
+                    backgroundPosition: '100% 100%',
                     display: 'flex',
                     flexDirection: 'column',
                     height: '100vh',
@@ -92,48 +92,44 @@ const Home = () => {
                     </Box>
                 </Box>
 
-                {isMobile ? (
-                    <Box
-                        className="flex flex-col w-full"
-                        sx={{ paddingX: '4vw', height: '30vh' }}
-                    >
-                        <Box className="flex items-center justify-center">
-                            <Box>
-                                <Typography
-                                    variant="h3"
-                                    sx={{
-                                        fontSize:  '28px',
-                                        fontWeight: 400,
-                                        color: '#DBC6BC',
-                                    }}
-                                >
-                                    STONE BY SPLENDOUR
-                                </Typography>
-                                <Typography
-                                    variant="h3"
-                                    sx={{
-                                        fontSize: '28px',
-                                        fontWeight: 400,
-                                        color: '#FFFFFF',
-                                    }}
-                                >
-                                    IN STONE
-                                </Typography>
-                            </Box>
-                        </Box>
+                {isMobile ? (<Box className="flex flex-col w-full" sx={{ paddingX: '4vw', height: '30vh' }}>
 
-                        <Box className="flex items-center justify-between gap-x-[10px] w-full">
-                            <WhiteCustomButton
-                                label={'Enquire now!'}
-                                iconSrc={'images/Vector.svg'}
-                                onClick={handleOpenEnquiryForm}
-                            />
-                            <Link href="/contact">
-                                <WhiteCustomButton label={'Contact Us'} iconSrc={'images/Vector.svg'} />
-                            </Link>
+                    <Box className="flex items-center justify-center">
+                        <Box
+
+                        >
+                            {/** Mobile-specific coloring for "STONE BY SPLENDOUR" */}
+                            <Typography
+                                variant='h3'
+                                sx={{
+                                    fontSize: '40px',
+                                    fontWeight: 400,
+                                    color: { xs: '#DBC6BC', sm: '#FFFFFF' }, // Change color for mobile only
+
+                                }}
+                            >
+                                STONE BY SPLENDOUR
+                            </Typography>
+                            <Typography
+                                variant='h3'
+                                sx={{
+                                    fontSize: '40px',
+                                    fontWeight: 400,
+                                    color: { xs: '#FFFFFF', sm: '#FFFFFF' }, // Keep "IN STONE" color unchanged
+                                }}
+                            >
+                                IN STONE
+                            </Typography>
                         </Box>
                     </Box>
-                ) : isTablet ? (
+
+                    <Box className="flex items-center justify-between gap-x-[10px] w-full">
+                        <WhiteCustomButton label={'Enquire now!'} iconSrc={'images/Vector.svg'} />
+                        <Link href="/contact"><WhiteCustomButton label={'Contact Us'} iconSrc={'images/Vector.svg'} /></Link>
+
+                    </Box>
+
+                </Box>) : isTablet ? (
                     <Box
                         className="flex flex-col w-full"
                         sx={{ paddingX: '6vw', height: '25vh' }}
