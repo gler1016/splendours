@@ -10,7 +10,7 @@ import { useMediaQuery } from '@mui/material';
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const isMobile = useMediaQuery('(max-width: 768px)'); // Media query for mobile
-    const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)'); 
+    const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)');
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -20,21 +20,6 @@ const Header: React.FC = () => {
             <Box className="flex w-1/2 md:w-1/3 lg:w-1/3">
                 <Box>
                     <Link href={'/'} >
-                        {/* <Box
-                            component="div"
-                            sx={{
-                                width: { xs: 151, sm: 250, md: 300 },
-                                height: { xs: 47, sm: 60, md: 70 },
-                                backgroundImage: {
-                                    xs: 'url(/images/Header/mobile-main-logo.png)', // Mobile image
-                                    sm: 'url(/images/Header/main-common-logo.svg)', // Desktop image
-                                },
-                                backgroundSize: 'contain',
-                                backgroundRepeat: 'no-repeat',
-                            }}
-                            role="img"
-                            aria-label="Logo"
-                        /> */}
                         <Image
                             src={isMobile ? '/images/Header/mobile-main-logo.png' : '/images/Header/main-common-logo.svg'}
                             alt="Logo"
@@ -132,8 +117,8 @@ const Header: React.FC = () => {
 
             )}
 
-             {/* Mobile Hamburger Menu Button */}
-             {isTablet && (
+            {/* Mobile Hamburger Menu Button */}
+            {isTablet && (
                 <Box className="flex items-center justify-center gap-x-2">
                     <Box className="flex items-end w-1/7">
                         <Link href="/visualizer">
@@ -295,56 +280,6 @@ const Header: React.FC = () => {
                             </Typography>
                         </Link>
                     </Box>
-                    {/* <Box className=" text-center">
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: "10px",
-                                        sm: "12px",
-                                        md: "15px",
-                                        lg: '20px',
-                                    },
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                Bricks
-                            </Typography>
-                        </Link>
-                    </Box>
-                    <Box className=" text-center">
-                        <Link href="/services">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: "10px",
-                                        sm: "12px",
-                                        md: "15px",
-                                        lg: '20px',
-                                    },
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                CobbleStone
-                            </Typography>
-                        </Link>
-                    </Box> */}
                     <Box className=" text-center">
                         <Link href="/portfolio">
                             <Typography
@@ -524,46 +459,6 @@ const Header: React.FC = () => {
                             </Typography>
                         </Link>
                     </Box>
-                    {/* <Box className=" text-center">
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '1.2vw',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                Bricks
-                            </Typography>
-                        </Link>
-                    </Box>
-                    <Box className=" text-center">
-                        <Link href="/services">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '1.2vw',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                CobbleStone
-                            </Typography>
-                        </Link>
-                    </Box> */}
                     <Box className=" text-center">
                         <Link href="/portfolio">
                             <Typography
@@ -781,26 +676,7 @@ const Header: React.FC = () => {
                                 Cobblestone
                             </Typography>
                         </Link>
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: "18px",
-                                    marginBottom: '20px',
-                                    padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
-                                }}
-                            >
-                                About
-                            </Typography>
-                        </Link>
+
                         <Link href="/services">
                             <Typography
                                 variant="h3"
@@ -839,6 +715,26 @@ const Header: React.FC = () => {
                                 }}
                             >
                                 Projects
+                            </Typography>
+                        </Link>
+                        <Link href="/about">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                About
                             </Typography>
                         </Link>
                         <Link href="/contact">
@@ -885,8 +781,8 @@ const Header: React.FC = () => {
                 </Box>
             )}
 
-              {/* Mobile Menu Overlay */}
-              {isTablet  && isMenuOpen && (
+            {/* Mobile Menu Overlay */}
+            {isTablet && isMenuOpen && (
                 <Box
                     className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-70"
                     onClick={handleMenuToggle}
@@ -997,26 +893,7 @@ const Header: React.FC = () => {
                                 Cobblestone
                             </Typography>
                         </Link>
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: "18px",
-                                    marginBottom: '20px',
-                                    padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
-                                }}
-                            >
-                                About
-                            </Typography>
-                        </Link>
+
                         <Link href="/services">
                             <Typography
                                 variant="h3"
@@ -1055,6 +932,26 @@ const Header: React.FC = () => {
                                 }}
                             >
                                 Projects
+                            </Typography>
+                        </Link>
+                        <Link href="/about">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                About
                             </Typography>
                         </Link>
                         <Link href="/contact">
