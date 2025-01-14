@@ -67,7 +67,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
     }, []);
 
     return (
-        <div className="mx-auto my-12 carousel" style={{ marginTop: "0px",pointerEvents:"auto" }}>
+        <div className="mx-auto my-12 carousel" style={{ marginTop: "0px" }}>
             <div className="relative overflow-hidden">
                 <div className="absolute top-0 left-0 flex justify-between w-full h-full items-center ">
                     <button
