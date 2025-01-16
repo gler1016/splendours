@@ -36,8 +36,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                         <img
                             src={image.src}
                             alt="images"
-                            className="object-cover w-[300px] mt-[-150px]"
-                            style={{position:"absolute", left:"calc(50% - 150px)"}}
+                            className="object-cover w-[300px] mt-[-150px] mx-auto"
                         />
                     </div>
                 ))}

@@ -158,7 +158,9 @@ const HomePage = () => {
                         </Typography>
                     </Box>
                     <Box sx={{ marginTop: isMobile ? '30px' : '0px' }}>
-                        <WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                        <Link href={'/allProjectViews'}>
+                            <WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                        </Link>
                     </Box>
                 </Box>
 
@@ -224,7 +226,9 @@ const HomePage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex justify-center w-full">
-                            <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                            <Link href={'/allWallingViews'}>
+                                <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                            </Link>
                         </Box>
                     </Box>
                     <Box className="flex w-full">
@@ -276,19 +280,21 @@ const HomePage = () => {
                             We believe that in a new age world filled with gadgets, noise and pace that a moment to stop, reflect and connect with something pure
                         </Typography>
                         <Box className="flex justify-center mt-6">
-                            <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                            <Link href={'/allWallingViews'}>
+                                <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                            </Link>
                         </Box>
                     </Box>
 
                     <Box className="flex justify-between gap-7 w-full mt-10 flex-wrap">
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product1.jpg" product_subname="CHARLOTTE" />
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product2.jpg" product_subname="JAMIESON" />
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product3.jpg" product_subname="BUFFALO" />
+                        <CustomWallCard product_image_src="images/Home/WallingRange/product1.png" product_subname="CHARLOTTE" />
+                        <CustomWallCard product_image_src="images/Home/WallingRange/product2.png" product_subname="JAMIESON" />
+                        <CustomWallCard product_image_src="images/Home/WallingRange/product3.png" product_subname="BUFFALO" />
                     </Box>
                     <Box className="flex justify-between gap-7 w-full mt-6 flex-wrap">
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product4.jpg" product_subname="BELOKA" />
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product5.jpg" product_subname="SHOREHAM" />
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product6.jpg" product_subname="BEACHPORT" />
+                        <CustomWallCard product_image_src="images/Home/WallingRange/product4.png" product_subname="BELOKA" />
+                        <CustomWallCard product_image_src="images/Home/WallingRange/product5.png" product_subname="SHOREHAM" />
+                        <CustomWallCard product_image_src="images/Home/WallingRange/product6.png" product_subname="BEACHPORT" />
                     </Box>
                 </Box>
             ) : (
@@ -345,21 +351,23 @@ const HomePage = () => {
                                 </Typography>
                             </Box>
                             <Box>
-                                <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                <Link href={'/allWallingViews'}>
+                                    <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                </Link>
                             </Box>
                         </Box>
                     </Box>
 
                     <Box className="flex flex-col w-full gap-y-7">
                         <Box className="flex justify-between w-full gap-7">
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product1.jpg" product_subname="CHARLOTTE" />
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product2.jpg" product_subname="JAMIESON" />
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product3.jpg" product_subname="BUFFALO" />
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product1.png" product_subname="CHARLOTTE" />
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product2.png" product_subname="JAMIESON" />
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product3.png" product_subname="BUFFALO" />
                         </Box>
                         <Box className="flex justify-between w-full gap-7">
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product4.jpg" product_subname="BELOKA" />
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product5.jpg" product_subname="SHOREHAM" />
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product6.jpg" product_subname="BEACHPORT" />
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product4.png" product_subname="BELOKA" />
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product5.png" product_subname="SHOREHAM" />
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product6.png" product_subname="BEACHPORT" />
                         </Box>
                     </Box>
                 </Box>
@@ -653,7 +661,9 @@ const HomePage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex justify-center w-full">
-                            <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                            <Link href={'/allPavingViews'}>
+                                <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                            </Link>
                         </Box>
                     </Box>
 
@@ -695,7 +705,9 @@ const HomePage = () => {
                                 </Typography>
                             </Box>
                             <Box className="mt-5">
-                                <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                <Link href={'/allPavingViews'}>
+                                    <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                </Link>
                             </Box>
                         </Box>
 
@@ -723,14 +735,14 @@ const HomePage = () => {
 
                     <Box className="flex flex-col w-full gap-y-7">
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product1.jpg" product_subname="PORPHYRY" />
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product2.jpg" product_subname="QUARTZITE" />
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product3.jpg" product_subname="MARBLE" />
+                            <CustomWallCard product_image_src="images/Home/PavingRange/product1.png" product_subname="PORPHYRY" />
+                            <CustomWallCard product_image_src="images/Home/PavingRange/product2.png" product_subname="QUARTZITE" />
+                            <CustomWallCard product_image_src="images/Home/PavingRange/product3.png" product_subname="MARBLE" />
                         </Box>
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product4.jpg" product_subname="LIMESTONE" />
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product5.jpg" product_subname="GRANITE" />
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product6.jpg" product_subname="BLUESTONE" />
+                            <CustomWallCard product_image_src="images/Home/PavingRange/product4.png" product_subname="LIMESTONE" />
+                            <CustomWallCard product_image_src="images/Home/PavingRange/product5.png" product_subname="GRANITE" />
+                            <CustomWallCard product_image_src="images/Home/PavingRange/product6.png" product_subname="BLUESTONE" />
                         </Box>
                     </Box>
                 </Box>

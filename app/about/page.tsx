@@ -385,7 +385,7 @@ const AboutPage = () => {
                             <Box className="absolute z-10 text-center p-8 w-3/4 flex flex-col gap-y-6">
                                 <Typography variant="h2" className="font-semibold" color="#DBC6BC" sx={{
                                     fontFamily: 'Chronicle Display',
-                                    lineHeight: {lg: '0.8',xs: '0.95'},
+                                    lineHeight: { lg: '0.8', xs: '0.95' },
                                     fontSize: {
                                         xs: '40px', // Font size for extra small screens
                                         sm: '60px', // Font size for small screens
@@ -727,7 +727,7 @@ const AboutPage = () => {
                                     color='#283C28'
                                     sx={{
                                         fontFamily: 'Chronicle Display',
-                                        lineHeight: isTablet? '1' : '0.8',
+                                        lineHeight: isTablet ? '1' : '0.8',
                                         fontSize: {
                                             xs: '15px', // Font size for extra small screens
                                             sm: '30px', // Font size for small screens
@@ -1077,7 +1077,7 @@ const AboutPage = () => {
                             <Typography variant="h2" color="#283C28" className="mb-4 font-normal" sx={{
                                 fontFamily: 'Chronicle Display',
                                 fontStyle: 'italic',
-                                lineHeight: isTablet? '1' : '0.8',
+                                lineHeight: isTablet ? '1' : '0.8',
                                 fontSize: {
                                     xs: '30px', // Font size for extra small screens
                                     sm: '40px', // Font size for small screens
@@ -1109,7 +1109,7 @@ const AboutPage = () => {
 
 
                         </Box>
-                        <Box className="w-[35%]" sx={{display:'flex', alignItems:'center'}}>
+                        <Box className="w-[35%]" sx={{ display: 'flex', alignItems: 'center' }}>
                             <Image
                                 src="/images/About/Achievements/man.jpg" // Ensure this image is in the public/images folder
                                 alt="Background"
@@ -2036,7 +2036,7 @@ const AboutPage = () => {
                         <Box className="w-1/3">
                             <StoneProductCard product_image_src='images/About/Living/image3.jpg' product_name='SUSTAINABLE CHOICE' product_subname='' />
                         </Box>
-                        </Box> : <Box className="w-full flex justify-between gap-x-8 px-16">
+                    </Box> : <Box className="w-full flex justify-between gap-x-8 px-16">
                         <Box className="w-1/3">
                             <StoneProductCard product_image_src='images/About/Living/image1.jpg' product_name='DURABILITY AND LONGEVITY' product_subname='Are you tired of chipped floors or walls that show every mark? Stone offers unmatched resilience, built to endure daily wear and tear, saving you time and money on replacements.' />
                         </Box>
@@ -2077,26 +2077,66 @@ const AboutPage = () => {
                         {/* Main content */}
                         <Box
                             className="flex h-full flex-col w-full justify-between px-3"
-                            sx={{ position: 'relative', zIndex: 2, bottom:'20px' }} // Ensure content stays above the blurred background
+                            sx={{ position: 'relative', zIndex: 2, bottom: '20px' }} // Ensure content stays above the blurred background
                         >
                             <Box className="flex flex-col w-full gap-y-5">
-                                <Box className="flex flex-col">
-                                    <Box>
-                                        <Typography
-                                            component="span"
-                                            sx={{
-                                                fontFamily: 'Chronicle Display',
-                                                fontStyle: 'italic',
-                                               
-                                                fontSize: '40px',
-                                                fontWeight: 300,
-                                                color: 'white', // Set text color
-                                                textAlign: 'start',
-                                            }}
-                                        >
-                                            A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
-                                        </Typography>
-                                    </Box>
+                                <Box className="flex flex-col pt-9">
+                                    <Typography
+                                        component="span"
+                                        sx={{
+                                            fontFamily: 'Chronicle Display',
+                                            fontStyle: 'italic',
+                                            fontSize: '40px',
+                                            lineHeight:'1',
+                                            fontWeight: 300,
+                                            color: 'white', // Set text color
+                                            textAlign: 'start',
+                                        }}
+                                    >
+                                        A GALLERY OF
+                                    </Typography>
+                                    <Typography
+                                        component="span"
+                                        sx={{
+                                            fontFamily: 'Chronicle Display',
+                                            fontStyle: 'italic',
+                                            fontSize: '40px',
+                                            lineHeight:'1',
+                                            fontWeight: 300,
+                                            color: 'white', // Set text color
+                                            textAlign: 'start',
+                                        }}
+                                    >
+                                        SUCCESS: YOUR
+                                    </Typography>
+                                    <Typography
+                                        component="span"
+                                        sx={{
+                                            fontFamily: 'Chronicle Display',
+                                            fontStyle: 'italic',
+                                            fontSize: '40px',
+                                            lineHeight:'1',
+                                            fontWeight: 300,
+                                            color: 'white', // Set text color
+                                            textAlign: 'start',
+                                        }}
+                                    >
+                                        INSPIRATION
+                                    </Typography>
+                                    <Typography
+                                        component="span"
+                                        sx={{
+                                            fontFamily: 'Chronicle Display',
+                                            fontStyle: 'italic',
+                                            fontSize: '40px',
+                                            lineHeight:'1',
+                                            fontWeight: 300,
+                                            color: 'white', // Set text color
+                                            textAlign: 'start',
+                                        }}
+                                    >
+                                        AWAITS
+                                    </Typography>
                                 </Box>
                                 <Box>
                                     <Typography
@@ -2104,7 +2144,7 @@ const AboutPage = () => {
                                         sx={{
                                             fontFamily: 'var(--font-montserrat)',
                                             lineHeight: '1',
-                                            fontSize: '26px',
+                                            fontSize: '15px',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
@@ -2128,6 +2168,7 @@ const AboutPage = () => {
                                     className="opacity-100"
                                     width={80}
                                     height={80}
+                                    onClick={handleOpenEnquiryForm}
                                 />
                             </Box>
                         </Box>
@@ -2167,7 +2208,7 @@ const AboutPage = () => {
                                         sx={{
                                             fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
-                                          
+
                                             fontSize: {
                                                 xs: '20px', // Font size for extra small screens
                                                 sm: '25px', // Font size for small screens
@@ -2180,14 +2221,14 @@ const AboutPage = () => {
                                     >
                                         A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
                                     </Typography>
-                                    <Box className="mt-5" sx={{paddingBottom:'50px'}}>
+                                    <Box className="mt-5" sx={{ paddingBottom: '50px' }}>
                                         <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
                                     </Box>
 
                                 </Box>
                             </Box>
 
-                            <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom:'50px' }}>
+                            <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom: '50px' }}>
                                 <Box className="flex w-full h-1/2"></Box>
                                 <Box className="flex w-full flex-col h-1/2 justify-center items-center">
                                     <Typography

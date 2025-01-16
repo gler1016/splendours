@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { Box, Typography, IconButton } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -204,7 +205,9 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                         }}
                                         className={`icon-button ${hoveredIndex === index ? 'show' : ''}`}
                                     >
-                                        <SearchIcon sx={{ fontSize: '50px', color: 'white' }} />
+                                         <Link href={`${resource.imageUrl}`} passHref>
+                                            <SearchIcon sx={{ fontSize: '50px', color: 'white' }} />
+                                        </Link>
                                     </IconButton>
                                 </div>
 

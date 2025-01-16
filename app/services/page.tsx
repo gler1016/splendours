@@ -2,7 +2,7 @@
 "use client"
 // app/about/page.tsx
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
 import Header from '../components/Header';
@@ -22,20 +22,46 @@ import './embla.css';
 import FullCustomGreenDivider from '../components/Divider/FullCustomGreenDivider';
 import FooterMobile from '../components/FooterMobile';
 import EnquiryForm from '../components/EnquireFormModal';
+import "./page.module.css"
 
 
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true }
 const SLIDE_COUNT = 3
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
+
+const imageSets = [
+    ["/images/Service/House/Mobile/main1.png", "/images/Service/House/Mobile/image1_1.png", "/images/Service/House/Mobile/image2_1.png"],
+    ["/images/Service/House/Mobile/main2.png", "/images/Service/House/Mobile/image1_2.png", "/images/Service/House/Mobile/image2_2.png"],
+    ["/images/Service/House/Mobile/main3.png", "/images/Service/House/Mobile/image1_3.png", "/images/Service/House/Mobile/image2_3.png"],
+];
+
 const ServicesPage = () => {
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
+    const [currentSetIndex, setCurrentSetIndex] = useState(0);
+
+
+
     const [value] = React.useState<number | null>(5);
     // State management for the EnquiryForm modal
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
+    const [isResizing, setIsResizing] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsResizing(true); // Trigger resizing effect
+            setTimeout(() => {
+                setCurrentSetIndex((prevIndex) => (prevIndex + 1) % imageSets.length);
+                setIsResizing(false); // Reset resizing after image update
+            }, 500); // Match transition duration
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <>
@@ -50,40 +76,64 @@ const ServicesPage = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     width: '100%',
-                    gap: isMobile ? '1rem' : '4rem', // 6 times the default spacing unit (gap-y-6 in Tailwind)
+                    gap: isMobile ? '1rem' : '4rem',
+                    marginTop: isMobile ? '0px' : ' 20px'
                 }}>
 
                     {isMobile ? <Box className="flex w-full flex-col px-3 justify-center items-center gap-y-3">
-                        <Box className="flex w-full">
+                        <Box
+                            className="w-full"
+                            style={{
+                                transform: isResizing ? "scale(0.95)" : "scale(1)", // Dynamic width
+                                transition: "transform 1s ease-in-out", // Smooth transition
+                                overflow: "hidden",
+                            }}
+                        >
                             <Image
-                                src="/images/Service/House/Mobile/main.jpg"
+                                src={imageSets[currentSetIndex][0]} // First image in the current set
                                 alt="main"
                                 width={356}
                                 height={189}
-                                className='w-full rounded-[20px]'
+                                className='w-full h-[189px] rounded-[20px] zoom-image'
                             />
                         </Box>
                         <Box className="flex w-full justify-between gap-x-3">
-                            <Box className="w-1/2">
-                                <Image
-                                    src="/images/Service/House/Mobile/image1.jpg"
-                                    alt="main"
-                                    width={356}
-                                    height={189}
-                                    className='rounded-[20px]'
-                                />
+                            <Box className="w-1/2 zoom-effect">
+                                <Box
+                                    className="w-full h-[51px] rounded-[20px] zoom-image"
+                                    style={{
+                                        transform: isResizing ? "scale(0.95)" : "scale(1)", // Dynamic width
+                                        transition: "transform 1s ease-in-out", // Smooth transition
+                                        overflow: "hidden",
+                                    }}
+                                    sx={{
+                                        backgroundImage: `url(${imageSets[currentSetIndex][1]})`,
+                                        backgroundSize: "cover", // Ensures the image covers the box entirely
+                                        backgroundPosition: "center", // Centers the image within the box
+                                    }}
+                                >
+                                    {/* Additional content inside the Box, if needed */}
+                                </Box>
                             </Box>
-                            <Box className="w-1/2">
-                                <Image
-                                    src="/images/Service/House/Mobile/image2.jpg"
-                                    alt="main"
-                                    width={356}
-                                    height={189}
-                                    className='rounded-[20px]'
-                                />
+                            <Box className="w-1/2 zoom-effect">
+                                <Box
+                                    className="w-full h-[51px] rounded-[20px] zoom-image"
+                                    style={{
+                                        transform: isResizing ? "scale(0.95)" : "scale(1)", // Dynamic width
+                                        transition: "transform 1s ease-in-out", // Smooth transition
+                                        overflow: "hidden",
+                                    }}
+                                    sx={{
+                                        backgroundImage: `url(${imageSets[currentSetIndex][2]})`,
+                                        backgroundSize: "cover", // Ensures the image covers the box entirely
+                                        backgroundPosition: "center", // Centers the image within the box
+                                    }}
+                                >
+                                    {/* Additional content inside the Box, if needed */}
+                                </Box>
                             </Box>
                         </Box>
-                        <Box className="w-full flex flex-col">
+                        <Box className="w-full flex flex-col mt-3">
                             <Typography
                                 variant="h3"
                                 color="#DCC5BD"
@@ -225,7 +275,7 @@ const ServicesPage = () => {
                                                 xs: "15px",
                                                 sm: "30px",  // Small screens
                                                 md: "40px",  // Medium screens
-                                                lg: "65px"
+                                                lg: "57px"
                                             }
                                         }}
                                     >
@@ -243,7 +293,7 @@ const ServicesPage = () => {
                                                 xs: "15px",
                                                 sm: "30px",  // Small screens
                                                 md: "40px",  // Medium screens
-                                                lg: "65px"
+                                                lg: "57px"
                                             }
                                         }}
                                     >
@@ -261,7 +311,7 @@ const ServicesPage = () => {
                                                 xs: "15px",
                                                 sm: "30px",  // Small screens
                                                 md: "40px",  // Medium screens
-                                                lg: "65px"
+                                                lg: "57px"
                                             }
                                         }}
                                     >
@@ -279,7 +329,7 @@ const ServicesPage = () => {
                                                 xs: "15px",
                                                 sm: "30px",  // Small screens
                                                 md: "40px",  // Medium screens
-                                                lg: "65px"
+                                                lg: "57px"
                                             }
                                         }}
                                     >
@@ -467,6 +517,7 @@ const ServicesPage = () => {
                                     fontWeight: 300,
                                     alignContent: 'flex-start',
                                     fontFamily: 'Chronicle Display',
+                                    lineHeight: '1',
                                     fontSize: {
                                         xs: "20px",
                                         sm: "30px",  // Small screens
@@ -1132,7 +1183,21 @@ const ServicesPage = () => {
                                             textAlign: 'start',
                                         }}
                                     >
-                                        TRANSPARENCY YOU CAN TRUST:
+                                        TRANSPARENCY
+                                    </Typography>
+                                    <Typography
+                                        variant="h4"
+                                        color="white"
+                                        sx={{
+                                            fontFamily: 'Chronicle Display',
+                                            fontSize: '40px',
+                                            fontStyle: 'italic',
+                                            lineHeight: '1',
+                                            fontWeight: 300,
+                                            textAlign: 'start',
+                                        }}
+                                    >
+                                        YOU CAN TRUST:
                                     </Typography>
                                     <Typography
                                         variant="h4"
@@ -1146,7 +1211,21 @@ const ServicesPage = () => {
                                             textAlign: 'start',
                                         }}
                                     >
-                                        EXPLORING OUR PRICING
+                                        EXPLORING OUR
+                                    </Typography>
+                                    <Typography
+                                        variant="h4"
+                                        color="white"
+                                        sx={{
+                                            fontFamily: 'Chronicle Display',
+                                            fontSize: '40px',
+                                            lineHeight: '1',
+                                            fontStyle: 'italic',
+                                            fontWeight: 300,
+                                            textAlign: 'start',
+                                        }}
+                                    >
+                                        PRICING
                                     </Typography>
                                 </Box>
                                 <Box className="flex w-4/5">
@@ -1171,6 +1250,7 @@ const ServicesPage = () => {
                                     alt="check"
                                     width={80}
                                     height={80}
+                                    onClick={handleOpenEnquiryForm}
                                 />
                             </Box>
                         </Box>
@@ -1433,7 +1513,7 @@ const ServicesPage = () => {
                                 <Box className="flex w-1/3 items-center">
                                     <Typography
                                         variant="h3"
-                                        color="#ffffff"
+                                        color="#000000"
                                         sx={{
                                             fontWeight: 300,
                                             alignContent: 'flex-start',

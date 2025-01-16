@@ -124,7 +124,7 @@ const Home = () => {
                     </Box>
 
                     <Box className="flex items-center justify-between gap-x-[10px] w-full">
-                        <WhiteCustomButton label={'Enquire now!'} iconSrc={'images/Vector.svg'} />
+                        <WhiteCustomButton label={'Enquire now!'} iconSrc={'images/Vector.svg'} onClick={handleOpenEnquiryForm} />
                         <Link href="/contact"><WhiteCustomButton label={'Contact Us'} iconSrc={'images/Vector.svg'} /></Link>
 
                     </Box>

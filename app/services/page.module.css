@@ -1,0 +1,13 @@
+.zoom-effect {
+  overflow: hidden;
+  position: relative;
+}
+
+.zoom-image {
+  transition: transform 0.5s ease-in-out;
+}
+
+.zoom-effect:hover .zoom-image,
+.zoom-effect .zoom-image {
+  transform: scale(1.05); /* Slight enlargement */
+}
