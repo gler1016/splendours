@@ -1,6 +1,6 @@
 'use client';
 import * as THREE from 'three'; // Ensure to import THREE if not already imported
-import {Camera} from 'three';
+import { Camera } from 'three';
 import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';

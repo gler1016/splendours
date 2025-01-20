@@ -10,7 +10,7 @@ interface StoneProductCardProps {
 
 const StoneProductCard: React.FC<StoneProductCardProps> = ({ product_image_src, product_name, product_subname }) => {
     return (
-        <Card className='w-full rounded-[20px] aspect-[1.15/1]' style={{ backgroundImage: `url(${product_image_src})`}}>
+        <Card className='w-full rounded-[20px] aspect-[1.15/1]' style={{ backgroundImage: `url(${product_image_src})`,backgroundSize:"cover"}}>
             <CardContent sx={{
                 display: 'flex', alignContent: 'space-between', flexWrap: 'wrap', height: '100%', paddingY: '5%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8))',
                 borderRadius: 'inherit'

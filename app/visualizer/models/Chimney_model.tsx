@@ -31,7 +31,7 @@ const Chimney = ({
   const [maxAzimuthAngle, setMaxAzimuthAngle] = useState<number>(Math.PI / 4);
   const [minPolarAngle, setMinPolarAngle] = useState<number>(Math.PI / 4);
   const [maxPolarAngle, setMaxPolarAngle] = useState<number>(Math.PI / 1.5);
-  const [intensity, setIntensity] = useState<number>(2.5);
+  const [intensity, setIntensity] = useState<number>(5);
   const [lightPoses, setLightPoses] = useState<[number, number, number]>([1, 1, 1]);
 
   // Load all potential textures at the top level
@@ -104,6 +104,7 @@ const Chimney = ({
             roughnessMap: textures.arm,
             roughness: 0.8,
             metalness: 0.0,
+            aoMap: textures.baseColor,
           });
           child.material.needsUpdate = true;
         }
@@ -128,7 +129,7 @@ const Chimney = ({
       setMaxAzimuthAngle(Math.PI / 4);
       setMinPolarAngle(Math.PI / 4);
       setMaxPolarAngle(Math.PI / 1.5);
-      setIntensity(2.5);
+      setIntensity(5);
 
       setSettings1((prevSet) => ({
         ...prevSet,
@@ -160,6 +161,7 @@ const Chimney = ({
           style={{ height: '100%', width: '100%' }} // Make Canvas full screen
           key={modelPath} // Add this line to force re-mounting
           camera={{ position: settings1.cameraPosition }}
+          gl={{ antialias: true }} // Enable anti-aliasing
           shadows
           onCreated={({ gl, camera }) => {
             gl.setClearColor(settings1.backgroundColor); // Set background color dynamically
@@ -167,9 +169,11 @@ const Chimney = ({
           }}
           className='relativeScene'
         >
-          <ambientLight intensity={0.5} color='green' />
-          <directionalLight position={lightPoses} intensity={intensity} castShadow />
-          <directionalLight position={[-1, -1, -1]} intensity={intensity} />
+          <ambientLight intensity={10} color='white' />
+          <directionalLight position={lightPoses} intensity={intensity} castShadow shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024} />
+          <directionalLight position={[-1, -1, -1]} intensity={intensity} shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024} />
           <primitive object={gltf.scene} position={settings1.primitivePosition} castShadow />
           {/* <Sphere position={[0, 0, 0]} args={[0.1, 32, 32]} castShadow>
                   <meshStandardMaterial attach="material" color="blue" />
@@ -205,6 +209,7 @@ const Chimney = ({
             style={{ height: '100%', width: '100%' }} // Make Canvas full screen
             key={modelPath} // Add this line to force re-mounting
             camera={{ position: settings2.cameraPosition }}
+            gl={{ antialias: true }} // Enable anti-aliasing
             shadows
             onCreated={({ gl, camera }) => {
               gl.setClearColor(settings2.backgroundColor); // Set background color dynamically
@@ -212,7 +217,20 @@ const Chimney = ({
             }}
             className='relativeScene'
           >
-            <directionalLight position={lightPoses} intensity={intensity} castShadow />
+            <ambientLight intensity={0.5} color="#ffffff" />
+            <directionalLight
+              position={[5, 10, 7.5]}
+              intensity={1.0}
+              castShadow
+              shadow-mapSize={{ width: 2048, height: 2048 }} // Higher shadow resolution
+              shadow-camera-far={50}
+              shadow-camera-near={0.5}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
+            />
+            {/* <directionalLight position={lightPoses} intensity={intensity} castShadow /> */}
             <directionalLight position={[-1, -1, -1]} intensity={intensity} />
             <primitive object={gltf.scene} position={settings2.primitivePosition} castShadow />
             {/* <OrbitControls target={settings.orbitTarget} /> */}
@@ -229,6 +247,7 @@ const Chimney = ({
               enableDamping // Smooth the rotation for better UX
               dampingFactor={0.1}
             />
+            <pointLight position={[2, 3, 1]} intensity={0.7} />
           </Canvas>
         </>
       )}

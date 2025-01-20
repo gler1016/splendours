@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 import { LazyLoadImage } from './EmblaCarouselLazyLoadImage'
 import {
   NextButton,
@@ -22,7 +23,9 @@ type PropType = {
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { options } = props
-  const [emblaRed, emblaApi] = useEmblaCarousel(options)
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
+    Autoplay({ playOnInit: true, delay: 3000 })
+  ])
   const [slidesInView, setSlidesInView] = useState<number[]>([])
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -57,7 +60,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   return (
     <div className="embla">
-      <div className="embla__viewport" ref={emblaRed}>
+      <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {data.resources.filter((resource: Resource) => resource.imageUrl).map((resource: Resource, index: number) => (
             <LazyLoadImage

@@ -13,7 +13,7 @@ import { EmblaOptionsType } from 'embla-carousel'
 import FullCustomYellowDivider from '../components/Divider/FullCustomYellowDivider';
 import CustomPartDivider from '../components/CustomPartDivider';
 import FullCustomBlackDivider from '../components/Divider/FullCustomBlackDivider';
-import ServocesEmblaCarousel from '../components/Services/EmblaCarousel/EmblaCarousel';
+import ServicesEmblaCarousel from '../components/Services/EmblaCarousel/EmblaCarousel';
 import ServiceMobileCarousel from '../components/Services/ServiceMobileCarousel/ServiceMobileCarousel';
 import WhiteCustomButton from '../components/WhiteButton';
 // import GreenCustomButton from '../components/Buttons/GreenCustomButton';
@@ -35,12 +35,18 @@ const imageSets = [
     ["/images/Service/House/Mobile/main2.png", "/images/Service/House/Mobile/image1_2.png", "/images/Service/House/Mobile/image2_2.png"],
     ["/images/Service/House/Mobile/main3.png", "/images/Service/House/Mobile/image1_3.png", "/images/Service/House/Mobile/image2_3.png"],
 ];
+const imageSetsDeskTop = [
+    ["/images/Service/advertisement/main1.png", "/images/Service/advertisement/image1_1.png", "/images/Service/advertisement/image2_1.png"],
+    ["/images/Service/advertisement/main2.png", "/images/Service/advertisement/image1_2.png", "/images/Service/advertisement/image2_2.png"],
+    ["/images/Service/advertisement/main3.png", "/images/Service/advertisement/image1_3.png", "/images/Service/advertisement/image2_3.png"],
+];
 
 const ServicesPage = () => {
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
     const [currentSetIndex, setCurrentSetIndex] = useState(0);
+    const [currentSetIndexDeskTop, setCurrentSetIndexDeskTop] = useState(0);
 
 
 
@@ -50,13 +56,18 @@ const ServicesPage = () => {
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
     const [isResizing, setIsResizing] = useState(false);
+    const [isResizingDeskTop, setIsResizingDeskTop] = useState(false);
+
 
     useEffect(() => {
         const interval = setInterval(() => {
             setIsResizing(true); // Trigger resizing effect
+            setIsResizingDeskTop(true); // Trigger resizing effect
             setTimeout(() => {
                 setCurrentSetIndex((prevIndex) => (prevIndex + 1) % imageSets.length);
+                setCurrentSetIndexDeskTop((prevIndex) => (prevIndex + 1) % imageSetsDeskTop.length);
                 setIsResizing(false); // Reset resizing after image update
+                setIsResizingDeskTop(false); // Reset resizing after image update
             }, 500); // Match transition duration
         }, 3000);
 
@@ -90,7 +101,7 @@ const ServicesPage = () => {
                             }}
                         >
                             <Image
-                                src={imageSets[currentSetIndex][0]} // First image in the current set
+                                src={imageSets[currentSetIndexDeskTop][0]} // First image in the current set
                                 alt="main"
                                 width={356}
                                 height={189}
@@ -107,7 +118,7 @@ const ServicesPage = () => {
                                         overflow: "hidden",
                                     }}
                                     sx={{
-                                        backgroundImage: `url(${imageSets[currentSetIndex][1]})`,
+                                        backgroundImage: `url(${imageSets[currentSetIndexDeskTop][1]})`,
                                         backgroundSize: "cover", // Ensures the image covers the box entirely
                                         backgroundPosition: "center", // Centers the image within the box
                                     }}
@@ -124,7 +135,7 @@ const ServicesPage = () => {
                                         overflow: "hidden",
                                     }}
                                     sx={{
-                                        backgroundImage: `url(${imageSets[currentSetIndex][2]})`,
+                                        backgroundImage: `url(${imageSets[currentSetIndexDeskTop][2]})`,
                                         backgroundSize: "cover", // Ensures the image covers the box entirely
                                         backgroundPosition: "center", // Centers the image within the box
                                     }}
@@ -341,8 +352,9 @@ const ServicesPage = () => {
                                 </Box>
 
                             </Box>
+
                             <Box className="flex flex-col w-5/12">
-                                <Box className="w-full">
+                                {/* <Box className="w-full">
                                     <Image
                                         src="/images/Service/advertisement/main.png"
                                         alt="main"
@@ -350,6 +362,27 @@ const ServicesPage = () => {
                                         height={550}
                                         className='rounded-xl'
                                     />
+                                </Box> */}
+                                <Box
+                                    className="w-full h-[450px] rounded-[20px] zoom-image"
+                                    style={{
+                                        transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
+                                        transition: "transform 1s ease-in-out", // Smooth transition
+                                        overflow: "hidden",
+                                    }}
+                                    sx={{
+                                        backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][0]})`,
+                                        backgroundSize: "cover", // Ensures the image covers the box entirely
+                                        backgroundPosition: "center", // Centers the image within the box
+                                    }}
+                                >
+                                    {/* <Image
+                                        src={imageSetsDeskTop[currentSetIndex][0]} // First image in the current set
+                                        alt="main"
+                                        width={720}
+                                        height={550}
+                                        className='w-[720px] h-[450px] zoom-image'
+                                    /> */}
                                 </Box>
                             </Box>
                         </Box>
@@ -375,7 +408,7 @@ const ServicesPage = () => {
                                 </Typography>
                             </Box>
                             <Box className="flex w-5/12 gap-3">
-                                <Box className="flex w-1/2">
+                                {/* <Box className="flex w-1/2">
                                     <Image
                                         src="/images/Service/advertisement/image1.png"
                                         alt="main"
@@ -383,8 +416,42 @@ const ServicesPage = () => {
                                         height={148}
                                         className='rounded-xl'
                                     />
+                                </Box> */}
+                                <Box className="flex w-1/2 zoom-effect">
+                                    <Box
+                                        className="w-full h-[148px] rounded-[20px] zoom-image"
+                                        style={{
+                                            transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
+                                            transition: "transform 1s ease-in-out", // Smooth transition
+                                            overflow: "hidden",
+                                        }}
+                                        sx={{
+                                            backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][1]})`,
+                                            backgroundSize: "cover", // Ensures the image covers the box entirely
+                                            backgroundPosition: "center", // Centers the image within the box
+                                        }}
+                                    >
+                                        {/* Additional content inside the Box, if needed */}
+                                    </Box>
                                 </Box>
-                                <Box className="flex w-1/2">
+                                <Box className="flex w-1/2 zoom-effect">
+                                    <Box
+                                        className="w-full h-[148px] rounded-[20px] zoom-image"
+                                        style={{
+                                            transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
+                                            transition: "transform 1s ease-in-out", // Smooth transition
+                                            overflow: "hidden",
+                                        }}
+                                        sx={{
+                                            backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][2]})`,
+                                            backgroundSize: "cover", // Ensures the image covers the box entirely
+                                            backgroundPosition: "center", // Centers the image within the box
+                                        }}
+                                    >
+                                        {/* Additional content inside the Box, if needed */}
+                                    </Box>
+                                </Box>
+                                {/* <Box className="flex w-1/2">
                                     <Image
                                         src="/images/Service/advertisement/image2.png"
                                         alt="main"
@@ -392,7 +459,7 @@ const ServicesPage = () => {
                                         height={148}
                                         className='rounded-xl'
                                     />
-                                </Box>
+                                </Box> */}
                             </Box>
                         </Box>
                     </Box>}
@@ -466,7 +533,7 @@ const ServicesPage = () => {
                             </Box>
                         </Box>
 
-                        <ServocesEmblaCarousel slides={SLIDES} options={OPTIONS} /></Box>}
+                        <ServicesEmblaCarousel slides={SLIDES} options={OPTIONS} /></Box>}
 
                     {isMobile ? <Box className="py-12">
                         <CustomPartDivider />

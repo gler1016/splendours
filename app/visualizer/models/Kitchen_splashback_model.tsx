@@ -1,6 +1,6 @@
 'use client';
 import * as THREE from 'three'; // Ensure to import THREE if not already imported
-import {Camera} from 'three';
+import { Camera } from 'three';
 import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
@@ -11,16 +11,22 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 const textureCache: Record<string, THREE.Texture> = {};
 
-const loadTexture = (path: string): THREE.Texture => {
+const loadTexture = (path: string, callback?: () => void): THREE.Texture => {
   if (textureCache[path]) return textureCache[path];
-  const texture = new THREE.TextureLoader().load(path);
+  const texture = new THREE.TextureLoader().load(
+    path,
+    () => {
+      textureCache[path] = texture; // Cache after load
+      if (callback) callback(); // Notify load complete
+    }
+  );
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(1.4, 1.4);
   texture.offset.set(0.1, 0.1);
-  textureCache[path] = texture;
   return texture;
 };
+
 
 
 const Kitchen_splashback = ({
