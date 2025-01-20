@@ -4,10 +4,11 @@ import {Camera} from 'three'
 import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
-import { OrbitControls } from '@react-three/drei';
+import { Environment, OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+import { createColorTexture } from '@/lib/createColorTexture';
 
 const textureCache: Record<string, THREE.Texture> = {};
 
@@ -44,18 +45,27 @@ const Beachport = ({
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const [intensity, setIntensity] = useState<number>(1);
   const [lightPoses, setLightPoses] = useState<[number, number, number]>([1, 1, 1]);
+  const colorTexture = createColorTexture('#FFFF00');
 
+  // Load all potential textures at the top level
+  const defaultBaseColor = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.png');
+  const defaultArm = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_arm.png');
+  const defaultNormal = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_normal.png');
+  const defaultHeight = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_height.png');
+
+  // Manage the current textures
   const [textures, setTextures] = useState<{
     baseColor: THREE.Texture;
     arm: THREE.Texture;
     normal: THREE.Texture;
     height: THREE.Texture;
   }>({
-    baseColor: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.jpg'),
-    arm: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_arm.jpg'),
-    normal: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_height.jpg'),
-    height: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_normal.jpg'),
+    baseColor: defaultBaseColor,
+    arm: defaultArm,
+    normal: defaultNormal,
+    height: defaultHeight,
   });
+  
   // Define type for settings
   type CameraSettings = {
     cameraPosition: [number, number, number]; // Explicitly defined as a tuple
@@ -98,20 +108,15 @@ const Beachport = ({
   }, [modelPath]);
 
 
+  // Update textures based on the selected paths
   useEffect(() => {
-    if (selectedBaseColor) {
-      setTextures((prevState) => ({ ...prevState, baseColor: loadTexture(selectedBaseColor) }));
-    }
-    if (selectedArm) {
-      setTextures((prevState) => ({ ...prevState, arm: loadTexture(selectedArm) }));
-    }
-    if (selectedNormal) {
-      setTextures((prevState) => ({ ...prevState, normal: loadTexture(selectedNormal) }));
-    }
-    if (selectedHeight) {
-      setTextures((prevState) => ({ ...prevState, height: loadTexture(selectedHeight) }));
-    }
-  }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight]);
+    setTextures({
+      baseColor: selectedBaseColor ? new THREE.TextureLoader().load(selectedBaseColor) : defaultBaseColor,
+      arm: selectedArm ? new THREE.TextureLoader().load(selectedArm) : defaultArm,
+      normal: selectedNormal ? new THREE.TextureLoader().load(selectedNormal) : defaultNormal,
+      height: selectedHeight ? new THREE.TextureLoader().load(selectedHeight) : defaultHeight,
+    });
+  }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight, defaultBaseColor, defaultArm, defaultNormal, defaultHeight]);
 
   const cameraRef = useRef<Camera | null>(null);
 
@@ -119,15 +124,22 @@ const Beachport = ({
     if (gltf) {
       gltf.traverse((child: THREE.Object3D) => {
         if (child instanceof THREE.Mesh && child.name.startsWith('main_change')) {
-          const material = child.material as THREE.MeshStandardMaterial;
-          material.map = textures.baseColor;
-          material.normalMap = textures.normal;
-          material.displacementMap = textures.height;
-          material.roughnessMap = textures.arm;
-          material.displacementScale = 0;
-          material.roughness = 0.8;
-          material.metalness = 0.0;
-          material.needsUpdate = true;
+          child.material = new THREE.MeshStandardMaterial({
+            color: 0xffffff, // Set to white, but you can change it as needed
+            map: textures.baseColor,
+            lightMap: textures.baseColor,
+            normalMap: textures.normal,
+            metalnessMap: colorTexture,
+            roughnessMap: colorTexture,
+            // displacementMap: textures.height,
+            // roughnessMap: textures.arm,
+            // displacementScale: 0,
+            emissive: 0x000000,
+            emissiveIntensity: 1,
+            roughness: 1,
+            metalness: 1
+          });
+          child.material.needsUpdate = true;
         }
       });
 
@@ -147,7 +159,7 @@ const Beachport = ({
       }
 
       // Apply model-specific transformations if needed
-      setIntensity(1);
+      setIntensity(0.5);
 
       setSettings1((prevSet) => ({
         ...prevSet,
@@ -225,13 +237,17 @@ const Beachport = ({
             key={modelPath} // Add this line to force re-mounting
             camera={{ position: settings2.cameraPosition }}
             shadows
+            dpr={[2, 3]}
+            gl={{
+              antialias: true,         // Enable anti-aliasing for smoother edges
+            }}
             onCreated={({ gl, camera }) => {
               gl.setClearColor(settings2.backgroundColor); // Set background color dynamically
               cameraRef.current = camera;
             }}
             className='relativeScene'
           >
-            <directionalLight position={lightPoses} intensity={intensity} castShadow />
+            <ambientLight intensity={0.5} color="#ffffff" />
             <directionalLight position={[-1, -1, -1]} intensity={intensity} />
             {gltf && <primitive object={gltf} position={settings2.primitivePosition} castShadow />}
             {/* <OrbitControls target={settings.orbitTarget} /> */}

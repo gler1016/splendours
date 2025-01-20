@@ -23,8 +23,6 @@ import Entry_wall from '../models/Entry_wall_model';
 import Beachport from '../models/Beachport_model';
 import TextureCarousel from '../../components/TextureChangeCarousel';
 
-
-
 const Loader = () => {
   const { progress } = useProgress();
   return (

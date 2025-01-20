@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
+import { createColorTexture } from '@/lib/createColorTexture';
 
 const Chimney = ({
   modelPath,
@@ -33,6 +34,7 @@ const Chimney = ({
   const [maxPolarAngle, setMaxPolarAngle] = useState<number>(Math.PI / 1.5);
   const [intensity, setIntensity] = useState<number>(5);
   const [lightPoses, setLightPoses] = useState<[number, number, number]>([1, 1, 1]);
+  const colorTexture = createColorTexture('#FFFF00');
 
   // Load all potential textures at the top level
   const defaultBaseColor = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.jpg');
@@ -97,14 +99,19 @@ const Chimney = ({
       gltf.scene.traverse((child: THREE.Object3D) => {
         if (child instanceof THREE.Mesh && child.name === 'main_change') {
           child.material = new THREE.MeshStandardMaterial({
+            color: 0xffffff, // Set to white, but you can change it as needed
             map: textures.baseColor,
+            lightMap: textures.baseColor,
             normalMap: textures.normal,
-            displacementMap: textures.height,
-            displacementScale: 0,
-            roughnessMap: textures.arm,
-            roughness: 0.8,
-            metalness: 0.0,
-            aoMap: textures.baseColor,
+            metalnessMap: colorTexture,
+            roughnessMap: colorTexture,
+            // displacementMap: textures.height,
+            // roughnessMap: textures.arm,
+            // displacementScale: 0,
+            emissive: 0x000000,
+            emissiveIntensity: 1,
+            roughness: 1,
+            metalness: 1
           });
           child.material.needsUpdate = true;
         }
@@ -129,7 +136,7 @@ const Chimney = ({
       setMaxAzimuthAngle(Math.PI / 4);
       setMinPolarAngle(Math.PI / 4);
       setMaxPolarAngle(Math.PI / 1.5);
-      setIntensity(5);
+      setIntensity(0.5);
 
       setSettings1((prevSet) => ({
         ...prevSet,
@@ -209,6 +216,7 @@ const Chimney = ({
             style={{ height: '100%', width: '100%' }} // Make Canvas full screen
             key={modelPath} // Add this line to force re-mounting
             camera={{ position: settings2.cameraPosition }}
+            dpr={[2, 3]}
             gl={{ antialias: true }} // Enable anti-aliasing
             shadows
             onCreated={({ gl, camera }) => {
