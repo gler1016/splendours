@@ -10,26 +10,6 @@ import { TextureLoader } from 'three';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { createColorTexture } from '@/lib/createColorTexture';
 
-const textureCache: Record<string, THREE.Texture> = {};
-
-const loadTexture = (path: string, callback?: () => void): THREE.Texture => {
-  if (textureCache[path]) return textureCache[path];
-  const texture = new THREE.TextureLoader().load(
-    path,
-    () => {
-      textureCache[path] = texture; // Cache after load
-      if (callback) callback(); // Notify load complete
-    }
-  );
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(1.4, 1.4);
-  texture.offset.set(0.1, 0.1);
-  return texture;
-};
-
-
-
 const Kitchen_splashback = ({
   modelPath,
   selectedBaseColor,
