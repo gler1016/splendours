@@ -33,6 +33,9 @@ const TextureCarousel = ({ handleTextureChange }: { handleTextureChange: (baseCo
                 texture.textureHeightPath
               )}
             />
+            <div className="absolute bottom-0 left-0 right-0 text-white text-center text-xs py-1">
+              {texture.name}
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

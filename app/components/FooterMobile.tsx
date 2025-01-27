@@ -19,7 +19,7 @@ const FooterMobile = () => {
         >
             <Box className="flex w-full justify-center mt-6 mb-6">
                 <Image
-                    src="/images/Footer/footer-logo-mobile.svg"
+                    src="/images/Footer/Footer-logo-mobile.svg"
                     alt="Logo"
                     width={182}
                     height={166}

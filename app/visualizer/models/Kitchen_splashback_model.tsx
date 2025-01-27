@@ -66,7 +66,7 @@ const Kitchen_splashback = ({
       cameraPosition: [0, 0, 5],
       primitivePosition: [0, -1.5, 0],
       orbitTarget: [0, 0, 0],
-      backgroundColor: '#283C28',
+      backgroundColor: '#000000',
     }
   })
   const [settings2, setSettings2] = useState<CameraSettings>(() => {
@@ -74,7 +74,7 @@ const Kitchen_splashback = ({
       cameraPosition: [0, 0, 3.5],
       primitivePosition: [0, -0.8, 0],
       orbitTarget: [0, 0, 0],
-      backgroundColor: '#283C28',
+      backgroundColor: '#000000',
     }
   })
 
@@ -182,7 +182,7 @@ const Kitchen_splashback = ({
           }}
           className='relativeScene'
         >
-          <ambientLight intensity={0.5} color='green' />
+          <ambientLight intensity={0.5} color='#ffffff' />
           <directionalLight position={lightPoses} intensity={intensity} castShadow />
           <directionalLight position={[-1, -1, -1]} intensity={intensity} />
           {gltf && <primitive object={gltf} position={settings1.primitivePosition} castShadow />}

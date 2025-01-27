@@ -80,7 +80,7 @@ const Chimney = ({
       cameraPosition: [0, 0, 7.5],
       primitivePosition: [0, -1.5, 0],
       orbitTarget: [0, 0, 0],
-      backgroundColor: '#283C28',
+      backgroundColor: '#000000',
     }
   })
   const [settings2, setSettings2] = useState<CameraSettings>(() => {
@@ -88,7 +88,7 @@ const Chimney = ({
       cameraPosition: [0, 0, 3.5],
       primitivePosition: [0, -0.8, 0],
       orbitTarget: [0, 0, 0],
-      backgroundColor: '#283C28',
+      backgroundColor: '#000000',
     }
   })
 
@@ -176,7 +176,7 @@ const Chimney = ({
           }}
           className='relativeScene'
         >
-          <ambientLight intensity={10} color='white' />
+          <ambientLight intensity={0.5} color='white' />
           <directionalLight position={lightPoses} intensity={intensity} castShadow shadow-mapSize-width={1024}
             shadow-mapSize-height={1024} />
           <directionalLight position={[-1, -1, -1]} intensity={intensity} shadow-mapSize-width={1024}

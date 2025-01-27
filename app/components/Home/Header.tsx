@@ -792,7 +792,7 @@ const Header: React.FC = () => {
                     onClick={handleMenuToggle}
                 >
                     <Box
-                        className="flex flex-col items-center justify-center p-6 bg-[#2c2c2c]"
+                        className="flex flex-col items-center justify-center p-6 bg-[#283c28] m-auto"
                         sx={{
                             animation: 'fadeIn 0.3s ease-out',
                         }}
@@ -807,14 +807,14 @@ const Header: React.FC = () => {
                                     fontSize: "18px",
                                     marginBottom: '20px',
                                     padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
                                 }}
                             >
-                                Home
+                                HOME
                             </Typography>
                         </Link>
                         <Link href="/#walling-mb">
@@ -827,14 +827,14 @@ const Header: React.FC = () => {
                                     fontSize: "18px",
                                     marginBottom: '20px',
                                     padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
                                 }}
                             >
-                                Walling
+                                WALLING
                             </Typography>
                         </Link>
                         <Link href="/#paving-mb">
@@ -847,14 +847,14 @@ const Header: React.FC = () => {
                                     fontSize: "18px",
                                     marginBottom: '20px',
                                     padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
                                 }}
                             >
-                                Paving
+                                PAVING
                             </Typography>
                         </Link>
                         {/* <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
@@ -887,17 +887,57 @@ const Header: React.FC = () => {
                                     fontSize: "18px",
                                     marginBottom: '20px',
                                     padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
                                 }}
                             >
-                                Cobblestone
+                                COBBLE STONES
                             </Typography>
                         </Link>
-
+                        <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                BRICKS
+                            </Typography>
+                        </Link>
+                        <Link href="https://staging.splendourinstone.com.au/blog/">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                BLOG
+                            </Typography>
+                        </Link>
+                        {/* 
                         <Link href="/services">
                             <Typography
                                 variant="h3"
@@ -917,8 +957,8 @@ const Header: React.FC = () => {
                             >
                                 Service
                             </Typography>
-                        </Link>
-                        <Link href="/portfolio">
+                        </Link> */}
+                        {/* <Link href="/portfolio">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -937,7 +977,7 @@ const Header: React.FC = () => {
                             >
                                 Projects
                             </Typography>
-                        </Link>
+                        </Link> */}
                         <Link href="/about">
                             <Typography
                                 variant="h3"
@@ -948,14 +988,14 @@ const Header: React.FC = () => {
                                     fontSize: "18px",
                                     marginBottom: '20px',
                                     padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
                                 }}
                             >
-                                About
+                                ABOUT
                             </Typography>
                         </Link>
                         <Link href="/contact">
@@ -968,17 +1008,17 @@ const Header: React.FC = () => {
                                     fontSize: "18px",
                                     marginBottom: '20px',
                                     padding: '10px 0',
-                                    borderBottom: '2px solid #FFD700', // Gold underline
-                                    '&:hover': {
-                                        color: '#FFD700',
-                                        transform: 'translateX(10px)', // Slide effect on hover
-                                    }
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
                                 }}
                             >
-                                Contact Us
+                                CONTACT
                             </Typography>
                         </Link>
-                        <Link href="/faq">
+                        {/* <Link href="/faq">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -997,7 +1037,7 @@ const Header: React.FC = () => {
                             >
                                 Constultations
                             </Typography>
-                        </Link>
+                        </Link> */}
                     </Box>
                 </Box>
             )}

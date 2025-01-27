@@ -10,7 +10,7 @@ import { useMediaQuery } from '@mui/material';
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const isMobile = useMediaQuery('(max-width: 768px)'); // Media query for mobile
-    const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)'); 
+    const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)');
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -45,7 +45,6 @@ const Header: React.FC = () => {
                 </Box>
 
             </Box>
-
 
             {/* Mobile Hamburger Menu Button */}
             {isMobile && (
@@ -132,8 +131,8 @@ const Header: React.FC = () => {
 
             )}
 
-             {/* Mobile Hamburger Menu Button */}
-             {isTablet && (
+            {/* Mobile Hamburger Menu Button */}
+            {isTablet && (
                 <Box className="flex items-center justify-center gap-x-2">
                     <Box className="flex items-end w-1/7">
                         <Link href="/visualizer">
@@ -668,8 +667,7 @@ const Header: React.FC = () => {
                 </Box>
             </Box>}
 
-
-            {/* Mobile Menu Overlay */}
+            {/* Mobile Menu Overlay
             {isMobile && isMenuOpen && (
                 <Box
                     className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-70"
@@ -883,10 +881,267 @@ const Header: React.FC = () => {
                         </Link>
                     </Box>
                 </Box>
+            )} */}
+
+            {/* Mobile Menu Overlay */}
+            {isMobile && isMenuOpen && (
+                <Box
+                    className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-70"
+                    onClick={handleMenuToggle}
+                >
+                    <Box
+                        className="flex flex-col items-center justify-center p-6 bg-[#283c28] m-auto"
+                        sx={{
+                            animation: 'fadeIn 0.3s ease-out',
+                        }}
+                    >
+                        <Link href="/">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                HOME
+                            </Typography>
+                        </Link>
+                        <Link href="/#walling-mb">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                WALLING
+                            </Typography>
+                        </Link>
+                        <Link href="/#paving-mb">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                PAVING
+                            </Typography>
+                        </Link>
+                        {/* <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                Bricks
+                            </Typography>
+                        </Link> */}
+                        <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                COBBLE STONES
+                            </Typography>
+                        </Link>
+                        <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                BRICKS
+                            </Typography>
+                        </Link>
+                        <Link href="https://staging.splendourinstone.com.au/blog/">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                BLOG
+                            </Typography>
+                        </Link>
+                        {/* 
+                        <Link href="/services">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                Service
+                            </Typography>
+                        </Link> */}
+                        {/* <Link href="/portfolio">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                Projects
+                            </Typography>
+                        </Link> */}
+                        <Link href="/about">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                ABOUT
+                            </Typography>
+                        </Link>
+                        <Link href="/contact">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    // borderBottom: '2px solid #FFD700', // Gold underline
+                                    // '&:hover': {
+                                    //     color: '#FFD700',
+                                    //     transform: 'translateX(10px)', // Slide effect on hover
+                                    // }
+                                }}
+                            >
+                                CONTACT
+                            </Typography>
+                        </Link>
+                        {/* <Link href="/faq">
+                            <Typography
+                                variant="h3"
+                                color="#FFFFFF"
+                                sx={{
+                                    fontWeight: 400,
+                                    fontFamily: 'var(--font-montserrat)',
+                                    fontSize: "18px",
+                                    marginBottom: '20px',
+                                    padding: '10px 0',
+                                    borderBottom: '2px solid #FFD700', // Gold underline
+                                    '&:hover': {
+                                        color: '#FFD700',
+                                        transform: 'translateX(10px)', // Slide effect on hover
+                                    }
+                                }}
+                            >
+                                Constultations
+                            </Typography>
+                        </Link> */}
+                    </Box>
+                </Box>
             )}
 
-              {/* Mobile Menu Overlay */}
-              {isTablet  && isMenuOpen && (
+            {/* Mobile Menu Overlay */}
+            {isTablet && isMenuOpen && (
                 <Box
                     className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-70"
                     onClick={handleMenuToggle}

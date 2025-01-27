@@ -80,7 +80,7 @@ const House = ({
       cameraPosition: [0, -1, -1],
       primitivePosition: [0, -1.5, 0],
       orbitTarget: [3, -0.5, -2],
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#000000',
     }
   })
   const [settings2, setSettings2] = useState<CameraSettings>(() => {
@@ -88,7 +88,7 @@ const House = ({
       cameraPosition: [0, 0.4, 0.8],
       primitivePosition: [0, -1.5, 0],
       orbitTarget: [0, 0, 0],
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#000000',
     }
   })
 
@@ -175,7 +175,7 @@ const House = ({
           }}
           className='relativeScene'
         >
-          <ambientLight intensity={0.5} color='green' />
+          <ambientLight intensity={0.5} color='#ffffff' />
           <directionalLight position={lightPoses} intensity={intensity} castShadow />
           <directionalLight position={[-1, -1, -1]} intensity={intensity} />
           <primitive object={gltf.scene} position={settings1.primitivePosition} castShadow />

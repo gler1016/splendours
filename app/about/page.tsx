@@ -19,10 +19,7 @@ import FooterMobile from '../components/FooterMobile';
 import ShortCustomBrownDivider from '../components/Divider/ShortCustomBrownDivider';
 import EnquiryForm from '../components/EnquireFormModal';
 
-
-
 const AboutPage = () => {
-
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
@@ -35,12 +32,9 @@ const AboutPage = () => {
         <>
             <EnquiryForm open={isEnquiryFormOpen} handleClose={handleCloseEnquiryForm} />
             <Box>
-
                 <Box className="flex items-center w-full" sx={{ height: isMobile ? '15vh' : '20vh', paddingX: isMobile ? 2 : 0 }}>
                     <Header />
                 </Box>
-
-
                 <Box
                     sx={{
                         width: '100%',
@@ -51,7 +45,6 @@ const AboutPage = () => {
                         marginBottom: isMobile ? '3rem' : '6rem', // Adjust bottom margin for mobile
                     }}
                 >
-
                     {isMobile ? (
                         <Box className="flex w-full flex-col px-2 justify-center items-center gap-y-4">
                             <Box className="flex w-full justify-center">
@@ -2087,7 +2080,7 @@ const AboutPage = () => {
                                             fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             fontSize: '40px',
-                                            lineHeight:'1',
+                                            lineHeight: '1',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
@@ -2101,7 +2094,7 @@ const AboutPage = () => {
                                             fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             fontSize: '40px',
-                                            lineHeight:'1',
+                                            lineHeight: '1',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
@@ -2115,7 +2108,7 @@ const AboutPage = () => {
                                             fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             fontSize: '40px',
-                                            lineHeight:'1',
+                                            lineHeight: '1',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
@@ -2129,7 +2122,7 @@ const AboutPage = () => {
                                             fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             fontSize: '40px',
-                                            lineHeight:'1',
+                                            lineHeight: '1',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
