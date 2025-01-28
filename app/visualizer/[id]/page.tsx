@@ -187,6 +187,9 @@ const App = ({ params }: {
   const id = params.id;
   // const models = ['/models/chimney.glb', '/models/house.glb'];
   const models = ['/models/Chimney.glb', '/models/House.glb', '/models/Kitchen-Splashback.glb', '/models/Vertical-Wall-Bar.glb', '/models/Patios-Pergolas.glb', '/models/Bathroom.glb', '/models/Outside-Chimney.glb', '/models/Shower.glb', '/models/Entry-Wall.glb', '/models/Stones.glb'];
+
+  const modelImages = ["/images/modelImgs/Chimney.jpg", "/images/modelImgs/House.jpg", "/images/modelImgs/Kitchen-Splashback.jpg", "/images/modelImgs/Vertical-Wall-Bar.jpg", "/images/modelImgs/Patios-Pergolas.jpg", "/images/modelImgs/Bathroom.jpg", "/images/modelImgs/Outside-Chimney.jpg", "/images/modelImgs/Shower.jpg", "/images/modelImgs/Entry-Wall.jpg", "/images/modelImgs/Stones.jpg"]
+
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
 
   // Find the initial index based on the provided id when the component mounts
@@ -648,6 +651,17 @@ const App = ({ params }: {
                   </Typography>
                 </Box>
                 <Box className='flex w-full gap-x-5'>
+                  {/* Previous Image */}
+                  <Box className='flex flex-col items-center'>
+                    <Image
+                      src={modelImages[(currentModelIndex - 1 + modelImages.length) % modelImages.length]}
+                      alt='Previous Model'
+                      width={80}
+                      height={80}
+                      className='rounded-lg'
+                    />
+                    <Typography variant='caption' color='white'>Previous</Typography>
+                  </Box>
                   <Box className='flex cursor-pointer' onClick={handlePrevClick}>
                     <ArrowBackIosNewIcon sx={{ color: 'white' }} />
                     <Typography variant='body2' color='white'>
@@ -659,6 +673,17 @@ const App = ({ params }: {
                       N E X T
                     </Typography>
                     <ArrowForwardIosIcon sx={{ color: 'white' }} />
+                  </Box>
+                  {/* Next Image */}
+                  <Box className='flex flex-col items-center'>
+                    <Image
+                      src={modelImages[(currentModelIndex + 1) % modelImages.length]}
+                      alt='Next Model'
+                      width={80}
+                      height={80}
+                      className='rounded-lg'
+                    />
+                    <Typography variant='caption' color='white'>Next</Typography>
                   </Box>
                 </Box>
               </Box>

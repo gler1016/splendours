@@ -86,7 +86,7 @@ const Home = () => {
                     },
                 }}
             >
-                <Box className="flex items-center w-full" sx={{ height: isMobile ? '15vh' : isTablet ? '18vh' : '20vh' }}>
+                <Box className="flex items-center w-full" sx={{ backgroundColor: isMobile ? '#283C28' : '', height: isMobile ? '15vh' : isTablet ? '18vh' : '20vh' }}>
                     <Header />
                 </Box>
 
@@ -109,7 +109,7 @@ const Home = () => {
                             </Box>
                         )}
 
-                        <Box className="absolute" style={{ top: isTablet ? '50%' : '56%', right: isTablet ? '30%' : '40%' }}>
+                        <Box className="absolute" style={{ top: isMobile ? '25%' : isTablet ? '25%' : '56%', right: isTablet ? '30%' : '25%' }}>
                             <Image
                                 src="/images/Home/zoom.svg"
                                 alt="Zoom Icon"
@@ -125,7 +125,7 @@ const Home = () => {
                             style={{
                                 position: 'absolute',
                                 right: isTablet ? '3vw' : '4vw',
-                                top: isTablet ? '-5vh' : '-3vh',
+                                top: isTablet ? '-5vh' : '2vh',
                             }}
                         >
                             <Image
@@ -133,7 +133,7 @@ const Home = () => {
                                 alt="Logo"
                                 width={18}
                                 height={600}
-                                className="h-[75vh]"
+                                className="h-[70vh]"
                             />
                         </Box>
                     </Box>

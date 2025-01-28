@@ -60,12 +60,12 @@ const Header: React.FC = () => {
                                         height: 30,
                                     }}
                                 >
-                                    <Image
+                                    {/* <Image
                                         src="/images/Header/menu_circle.svg"
                                         alt="Hamburger Menu Circle"
                                         width={30}
                                         height={30}
-                                    />
+                                    /> */}
                                     <Box
                                         className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         sx={{
@@ -101,12 +101,12 @@ const Header: React.FC = () => {
                                     height: 30,
                                 }}
                             >
-                                <Image
+                                {/* <Image
                                     src="/images/Header/menu_circle.svg"
                                     alt="Hamburger Menu Circle"
                                     width={30}
                                     height={30}
-                                />
+                                /> */}
                                 <Box
                                     className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                     sx={{
@@ -800,9 +800,9 @@ const Header: React.FC = () => {
                         <Link href="/">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -820,9 +820,9 @@ const Header: React.FC = () => {
                         <Link href="/#walling-mb">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -840,9 +840,9 @@ const Header: React.FC = () => {
                         <Link href="/#paving-mb">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -860,9 +860,9 @@ const Header: React.FC = () => {
                         {/* <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -880,9 +880,9 @@ const Header: React.FC = () => {
                         <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -900,9 +900,9 @@ const Header: React.FC = () => {
                         <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -920,9 +920,9 @@ const Header: React.FC = () => {
                         <Link href="https://staging.splendourinstone.com.au/blog/">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -941,9 +941,9 @@ const Header: React.FC = () => {
                         <Link href="/services">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -961,9 +961,9 @@ const Header: React.FC = () => {
                         {/* <Link href="/portfolio">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -981,9 +981,9 @@ const Header: React.FC = () => {
                         <Link href="/about">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
@@ -1001,9 +1001,9 @@ const Header: React.FC = () => {
                         <Link href="/contact">
                             <Typography
                                 variant="h3"
-                                color="#FFFFFF"
+                                color="#DBC6BC"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: "18px",
                                     marginBottom: '20px',
