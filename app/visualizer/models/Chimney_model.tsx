@@ -176,7 +176,7 @@ const Chimney = ({
           }}
           className='relativeScene'
         >
-          <ambientLight intensity={0.5} color='white' />
+          <ambientLight intensity={1} color='white' />
           <directionalLight position={lightPoses} intensity={intensity} castShadow shadow-mapSize-width={1024}
             shadow-mapSize-height={1024} />
           <directionalLight position={[-1, -1, -1]} intensity={intensity} shadow-mapSize-width={1024}
@@ -225,7 +225,7 @@ const Chimney = ({
             }}
             className='relativeScene'
           >
-            <ambientLight intensity={0.5} color="#ffffff" />
+            <ambientLight intensity={1} color="#ffffff" />
             <directionalLight
               position={[5, 10, 7.5]}
               intensity={1.0}

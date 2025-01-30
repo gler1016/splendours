@@ -1,6 +1,6 @@
 'use client';
 import * as THREE from 'three'; // Ensure to import THREE if not already imported
-import { Camera } from 'three'
+import { Camera } from 'three';
 import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
@@ -9,7 +9,6 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { createColorTexture } from '@/lib/createColorTexture';
-
 
 const Beachport = ({
   modelPath,
@@ -108,56 +107,67 @@ const Beachport = ({
   const cameraRef = useRef<Camera | null>(null);
 
   useEffect(() => {
-    if (gltf) {
-      gltf.traverse((child: THREE.Object3D) => {
-        if (child instanceof THREE.Mesh && child.name.startsWith('main_change')) {
-          child.material = new THREE.MeshStandardMaterial({
-            color: 0xffffff, // Set to white, but you can change it as needed
-            map: textures.baseColor,
-            lightMap: textures.baseColor,
-            normalMap: textures.normal,
-            metalnessMap: colorTexture,
-            roughnessMap: colorTexture,
-            // displacementMap: textures.height,
-            // roughnessMap: textures.arm,
-            // displacementScale: 0,
-            emissive: 0x000000,
-            emissiveIntensity: 1,
-            roughness: 1,
-            metalness: 1
-          });
-          child.material.needsUpdate = true;
-        }
-      });
+    if (!gltf) return;
+    gltf.traverse((child: THREE.Object3D) => {
+      if (child instanceof THREE.Mesh && child.name.startsWith('main_change')) {
 
-      console.log("rotateStatus :", rotateStatus)
+        // Ensure textures are fully loaded
+        const baseColorMap = selectedBaseColor ? new THREE.TextureLoader().load(selectedBaseColor) : defaultBaseColor;
+        const armMap = selectedArm ? new THREE.TextureLoader().load(selectedArm) : defaultArm;
+        const normalMap = selectedNormal ? new THREE.TextureLoader().load(selectedNormal) : defaultNormal;
+        const heightMap = selectedHeight ? new THREE.TextureLoader().load(selectedHeight) : defaultHeight;
 
-      if (rotateStatus == 0) {
-        gltf.rotation.y = 0; // Rotate 90 degrees
-        setLightPoses([1, 1, 1]);
+        // Set texture properties for proper UV mapping
+        [baseColorMap, armMap, normalMap, heightMap].forEach((tex) => {
+          tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+          tex.minFilter = THREE.LinearMipMapLinearFilter;
+          tex.anisotropy = 16;
+        });
+
+        // Apply textures to material
+        child.material = new THREE.MeshStandardMaterial({
+          color: 0xffffff,
+          map: baseColorMap,
+          normalMap: normalMap,
+          metalnessMap: colorTexture,
+          lightMap: textures.baseColor,
+          roughnessMap: armMap, // Ensure correct mapping of roughness
+          // displacementMap: heightMap,
+          // displacementScale: 0.1, // Adjust to match model details
+          metalness: 0.5,
+          roughness: 0.8,
+          emissive: new THREE.Color(0x000000),
+          emissiveIntensity: 0.5,
+        });
+        child.material.needsUpdate = true;
       }
-      if (rotateStatus == 1) {
-        gltf.rotation.y = Math.PI / 3.5;
-        setLightPoses([0, 1, 1]);
-      }
-      if (rotateStatus == 2) {
-        gltf.rotation.y = - Math.PI / 3.5;
-        setLightPoses([0, 1, 1]);
-      }
+    });
 
-      // Apply model-specific transformations if needed
-      setIntensity(0.5);
+    console.log("rotateStatus :", rotateStatus)
 
-      setSettings1((prevSet) => ({
-        ...prevSet,
-        cameraPosition: [0, 0, zoomStatus ? 2.0 : 5]
-      }));
-      setSettings2((prevSet) => ({
-        ...prevSet,
-        cameraPosition: [0, 0, zoomStatus ? 1.5 : 3.5]
-      }));
+    if (rotateStatus == 0) {
+      gltf.rotation.y = 0; // Rotate 90 degrees
+      setLightPoses([1, 1, 1]);
     }
-  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus]);
+    if (rotateStatus == 1) {
+      gltf.rotation.y = Math.PI / 3.5;
+      setLightPoses([0, 1, 1]);
+    }
+    if (rotateStatus == 2) {
+      gltf.rotation.y = - Math.PI / 3.5;
+      setLightPoses([0, 1, 1]);
+    }
+    setIntensity(0.5);
+
+    setSettings1((prevSet) => ({
+      ...prevSet,
+      cameraPosition: [0, 0, zoomStatus ? 2.0 : 5]
+    }));
+    setSettings2((prevSet) => ({
+      ...prevSet,
+      cameraPosition: [0, 0, zoomStatus ? 1.5 : 3.5]
+    }));
+  }, [gltf, selectedBaseColor, selectedArm, selectedNormal, selectedHeight, zoomStatus, rotateStatus]);
 
   useEffect(() => {
     if (isMobile) {
@@ -185,7 +195,7 @@ const Beachport = ({
           }}
           className='relativeScene'
         >
-          <ambientLight intensity={0.5} color='green' />
+          <ambientLight intensity={0.5} color='#ffffff' />
           <directionalLight position={lightPoses} intensity={intensity} castShadow />
           <directionalLight position={[-1, -1, -1]} intensity={intensity} />
           {gltf && <primitive object={gltf} position={settings1.primitivePosition} castShadow />}

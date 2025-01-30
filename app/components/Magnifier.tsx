@@ -11,7 +11,6 @@ interface MagnifierProps {
 const Magnifier: React.FC<MagnifierProps> = ({
     src,
     alt,
-    width,
     height,
     zoom = 2, // Default zoom level
 }) => {

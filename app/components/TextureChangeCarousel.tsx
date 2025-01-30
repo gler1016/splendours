@@ -34,7 +34,7 @@ const TextureCarousel = ({ handleTextureChange }: { handleTextureChange: (baseCo
               )}
             />
             <div className="absolute bottom-0 left-0 right-0 text-white text-center text-xs py-1">
-              {texture.name}
+              {texture.name.toUpperCase()}
             </div>
           </SwiperSlide>
         ))}

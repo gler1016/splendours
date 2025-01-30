@@ -8,20 +8,7 @@ import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-
-const textureCache: Record<string, THREE.Texture> = {};
-
-const loadTexture = (path: string): THREE.Texture => {
-  if (textureCache[path]) return textureCache[path];
-  const texture = new THREE.TextureLoader().load(path);
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(1.4, 1.4);
-  texture.offset.set(0.1, 0.1);
-  textureCache[path] = texture;
-  return texture;
-};
-
+import { createColorTexture } from '@/lib/createColorTexture';
 
 const Bathroom = ({
   modelPath,
@@ -42,21 +29,29 @@ const Bathroom = ({
 }) => {
   const [gltf, setGltf] = useState<THREE.Group | null>(null);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  // const [value] = React.useState<number | null>(5);
   const [intensity, setIntensity] = useState<number>(1);
   const [lightPoses, setLightPoses] = useState<[number, number, number]>([1, 1, 1]);
+  const colorTexture = createColorTexture('#FFFF00');
 
+  // Load all potential textures at the top level
+  const defaultBaseColor = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.png');
+  const defaultArm = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_arm.png');
+  const defaultNormal = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_normal.png');
+  const defaultHeight = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_height.png');
+
+  // Manage the current textures
   const [textures, setTextures] = useState<{
     baseColor: THREE.Texture;
     arm: THREE.Texture;
     normal: THREE.Texture;
     height: THREE.Texture;
   }>({
-    baseColor: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.jpg'),
-    arm: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_arm.jpg'),
-    normal: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_height.jpg'),
-    height: useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_normal.jpg'),
+    baseColor: defaultBaseColor,
+    arm: defaultArm,
+    normal: defaultNormal,
+    height: defaultHeight,
   });
+
   // Define type for settings
   type CameraSettings = {
     cameraPosition: [number, number, number]; // Explicitly defined as a tuple
@@ -99,67 +94,80 @@ const Bathroom = ({
   }, [modelPath]);
 
 
+  // Update textures based on the selected paths
   useEffect(() => {
-    if (selectedBaseColor) {
-      setTextures((prevState) => ({ ...prevState, baseColor: loadTexture(selectedBaseColor) }));
-    }
-    if (selectedArm) {
-      setTextures((prevState) => ({ ...prevState, arm: loadTexture(selectedArm) }));
-    }
-    if (selectedNormal) {
-      setTextures((prevState) => ({ ...prevState, normal: loadTexture(selectedNormal) }));
-    }
-    if (selectedHeight) {
-      setTextures((prevState) => ({ ...prevState, height: loadTexture(selectedHeight) }));
-    }
-  }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight]);
+    setTextures({
+      baseColor: selectedBaseColor ? new THREE.TextureLoader().load(selectedBaseColor) : defaultBaseColor,
+      arm: selectedArm ? new THREE.TextureLoader().load(selectedArm) : defaultArm,
+      normal: selectedNormal ? new THREE.TextureLoader().load(selectedNormal) : defaultNormal,
+      height: selectedHeight ? new THREE.TextureLoader().load(selectedHeight) : defaultHeight,
+    });
+  }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight, defaultBaseColor, defaultArm, defaultNormal, defaultHeight]);
 
   const cameraRef = useRef<Camera | null>(null);
 
   useEffect(() => {
-    if (gltf) {
-      gltf.traverse((child: THREE.Object3D) => {
-        if (child instanceof THREE.Mesh && child.name.startsWith('main_change')) {
-          const material = child.material as THREE.MeshStandardMaterial;
-          material.map = textures.baseColor;
-          material.normalMap = textures.normal;
-          material.displacementMap = textures.height;
-          material.roughnessMap = textures.arm;
-          material.displacementScale = 0;
-          material.roughness = 0.8;
-          material.metalness = 0.0;
-          material.needsUpdate = true;
-        }
-      });
+    if (!gltf) return;
+    gltf.traverse((child: THREE.Object3D) => {
+      if (child instanceof THREE.Mesh && child.name.startsWith('main_change')) {
 
-      console.log("rotateStatus :", rotateStatus)
+        // Ensure textures are fully loaded
+        const baseColorMap = selectedBaseColor ? new THREE.TextureLoader().load(selectedBaseColor) : defaultBaseColor;
+        const armMap = selectedArm ? new THREE.TextureLoader().load(selectedArm) : defaultArm;
+        const normalMap = selectedNormal ? new THREE.TextureLoader().load(selectedNormal) : defaultNormal;
+        const heightMap = selectedHeight ? new THREE.TextureLoader().load(selectedHeight) : defaultHeight;
 
-      if (rotateStatus == 0) {
-        gltf.rotation.y = 0; // Rotate 90 degrees
-        setLightPoses([1, 1, 1]);
+        // Set texture properties for proper UV mapping
+        [baseColorMap, armMap, normalMap, heightMap].forEach((tex) => {
+          tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+          tex.minFilter = THREE.LinearMipMapLinearFilter;
+          tex.anisotropy = 16;
+        });
+
+        // Apply textures to material
+        child.material = new THREE.MeshStandardMaterial({
+          color: 0xffffff,
+          map: baseColorMap,
+          normalMap: normalMap,
+          metalnessMap: colorTexture,
+          lightMap: textures.baseColor,
+          roughnessMap: armMap, // Ensure correct mapping of roughness
+          // displacementMap: heightMap,
+          // displacementScale: 0.1, // Adjust to match model details
+          metalness: 0.5,
+          roughness: 0.8,
+          emissive: new THREE.Color(0x000000),
+          emissiveIntensity: 0.5,
+        });
+        child.material.needsUpdate = true;
       }
-      if (rotateStatus == 1) {
-        gltf.rotation.y = Math.PI / 3.5;
-        setLightPoses([0, 1, 1]);
-      }
-      if (rotateStatus == 2) {
-        gltf.rotation.y = - Math.PI / 3.5;
-        setLightPoses([0, 1, 1]);
-      }
+    });
 
-      // Apply model-specific transformations if needed
-      setIntensity(1);
+    console.log("rotateStatus :", rotateStatus)
 
-      setSettings1((prevSet) => ({
-        ...prevSet,
-        cameraPosition: [0, 0, zoomStatus ? 2.0 : 5]
-      }));
-      setSettings2((prevSet) => ({
-        ...prevSet,
-        cameraPosition: [0, 0, zoomStatus ? 1.5 : 3.5]
-      }));
+    if (rotateStatus == 0) {
+      gltf.rotation.y = 0; // Rotate 90 degrees
+      setLightPoses([1, 1, 1]);
     }
-  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus]);
+    if (rotateStatus == 1) {
+      gltf.rotation.y = Math.PI / 3.5;
+      setLightPoses([0, 1, 1]);
+    }
+    if (rotateStatus == 2) {
+      gltf.rotation.y = - Math.PI / 3.5;
+      setLightPoses([0, 1, 1]);
+    }
+    setIntensity(0.5);
+
+    setSettings1((prevSet) => ({
+      ...prevSet,
+      cameraPosition: [0, 0, zoomStatus ? 2.0 : 5]
+    }));
+    setSettings2((prevSet) => ({
+      ...prevSet,
+      cameraPosition: [0, 0, zoomStatus ? 1.5 : 3.5]
+    }));
+  }, [gltf, selectedBaseColor, selectedArm, selectedNormal, selectedHeight, zoomStatus, rotateStatus]);
 
   useEffect(() => {
     if (isMobile) {
@@ -226,13 +234,17 @@ const Bathroom = ({
             key={modelPath} // Add this line to force re-mounting
             camera={{ position: settings2.cameraPosition }}
             shadows
+            dpr={[2, 3]}
+            gl={{
+              antialias: true,         // Enable anti-aliasing for smoother edges
+            }}
             onCreated={({ gl, camera }) => {
               gl.setClearColor(settings2.backgroundColor); // Set background color dynamically
               cameraRef.current = camera;
             }}
             className='relativeScene'
           >
-            <directionalLight position={lightPoses} intensity={intensity} castShadow />
+            <ambientLight intensity={0.5} color="#ffffff" />
             <directionalLight position={[-1, -1, -1]} intensity={intensity} />
             {gltf && <primitive object={gltf} position={settings2.primitivePosition} castShadow />}
             {/* <OrbitControls target={settings.orbitTarget} /> */}

@@ -544,7 +544,7 @@ const App = ({ params }: {
                         xs: '8px',
                         sm: '10px',
                         md: '12px',
-                        lg: '15px',
+                        lg: '12px',
                       },
                     }}
                   >
@@ -608,7 +608,7 @@ const App = ({ params }: {
                 </Box>
               </Box>
 
-              <Box className='w-[15%]'></Box>
+              {/* <Box className='w-[15%]'></Box> */}
 
               {/* Right Section */}
               <Box className='flex flex-col space-y-8'>
@@ -650,7 +650,7 @@ const App = ({ params }: {
                     Tag:<span style={{ color: '#DCC5BD' }}>Exclusive</span>
                   </Typography>
                 </Box>
-                <Box className='flex w-full gap-x-5'>
+                <Box className='flex w-full gap-x-5 items-center'>
                   {/* Previous Image */}
                   <Box className='flex flex-col items-center'>
                     <Image
@@ -662,13 +662,14 @@ const App = ({ params }: {
                     />
                     <Typography variant='caption' color='white'>Previous</Typography>
                   </Box>
-                  <Box className='flex cursor-pointer' onClick={handlePrevClick}>
+                  <Box className='flex cursor-pointer items-center
+                  ' onClick={handlePrevClick}>
                     <ArrowBackIosNewIcon sx={{ color: 'white' }} />
                     <Typography variant='body2' color='white'>
                       P R E V
                     </Typography>
                   </Box>
-                  <Box className='flex cursor-pointer' onClick={handleNextClick}>
+                  <Box className='flex cursor-pointer items-center' onClick={handleNextClick}>
                     <Typography variant='body2' color='white'>
                       N E X T
                     </Typography>
