@@ -9,12 +9,12 @@
 
 .embla__container_deal {
   display: flex;
-  gap: 1rem;
-  transition: transform 0.3s ease;
+  gap: 1rem; /* Normal gap between slides */
+  transition: transform 0.5s ease-in-out;
 }
 
 .embla__slide_deal {
-  flex: 0 0 45%; /* Two items on the screen */
+  flex: 0 0 48%; /* Two images visible at a time */
   position: relative;
 }
 

@@ -13,7 +13,7 @@ const items = [
 const ProductsCarousel = () => {
     return (
         <Box>
-            <Carousel items={items} options={{ align: 'start' }} />
+            <Carousel items={items} options={{ loop: true, align: 'start', skipSnaps: false }} />
         </Box>
     );
 };

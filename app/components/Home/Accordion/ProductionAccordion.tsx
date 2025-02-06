@@ -35,7 +35,7 @@ const AccordionSummary = styled((props: CustomAccordionSummaryProps) => {
                 expanded ? (
                     <IndeterminateCheckBoxIcon sx={{ fontSize: '30px', color: '#dbc6bc' }} />
                 ) : (
-                    <AddBoxIcon sx={{ fontSize: '30px', color: '#dbc6bc', marginBottom:'-30px' }} />
+                    <AddBoxIcon sx={{ fontSize: '30px', color: '#dbc6bc', marginBottom: '-30px' }} />
                 )
             }
             {...rest}
@@ -100,7 +100,7 @@ export default function ProductionAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 fontFamily: 'Chronicle Display',
-                                fontStyle:'italic',
+                                fontStyle: 'italic',
                                 fontSize: { xs: '20px', sm: '30px', md: '40px', lg: '55px' },
                             }}
                         >
@@ -118,7 +118,7 @@ export default function ProductionAccordion() {
                                     fontWeight: 300,
                                     alignContent: 'flex-start',
                                     fontFamily: 'var(--font-montserrat)',
-                                    lineHeight:'1.4',
+                                    lineHeight: '1.4',
                                     fontSize: {
                                         xs: "8px",
                                         sm: "10px",  // Small screens
@@ -127,14 +127,14 @@ export default function ProductionAccordion() {
                                     }
                                 }}
                             >
-                                Define your target mEvery project begins with well-taken measures. We will visit the construction site in order to take the exact dimensions needed to create the technical drawings.arket and approach for the market
+                                Following the call, we'll delve deeper. We'll explore design options, recommend suitable stone types based on your preferences and space, and provide initial estimates to ensure transparency. Additionally, this is the perfect opportunity to visit our showroom for a more realistic feel of what to expect.
                             </Typography>
                             <WhiteCustomButton label={'Learn More'} iconSrc={'/images/vector.svg'} />
                         </Box>
                         <Box className="flex w-1/2">
                             <img
-                                src="/images/Home/Services/measurement.jpg"
-                                alt="measurement"
+                                src="/images/Home/Services/production.png"
+                                alt="production"
                                 className="flex w-full"
                             />
                         </Box>

@@ -296,7 +296,7 @@ const Header: React.FC = () => {
                         </Link>
                     </Box>
                     {/* <Box className=" text-center">
-                        <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
+                        <Link href="/about">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -319,58 +319,7 @@ const Header: React.FC = () => {
                                 Bricks
                             </Typography>
                         </Link>
-                    </Box> */}
-                    <Box className=" text-center">
-                        <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: "10px",
-                                        sm: "12px",
-                                        md: "15px",
-                                        lg: '20px',
-                                    },
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                CobbleStone
-                            </Typography>
-                        </Link>
                     </Box>
-                    <Box className=" text-center">
-                        <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: "10px",
-                                        sm: "12px",
-                                        md: "15px",
-                                        lg: '20px',
-                                    },
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                CobbleStone
-                            </Typography>
-                        </Link>
-                    </Box>
-
                     <Box className=" text-center">
                         <Link href="/services">
                             <Typography
@@ -392,10 +341,10 @@ const Header: React.FC = () => {
                                     }
                                 }}
                             >
-                                Service
+                                CobbleStone
                             </Typography>
                         </Link>
-                    </Box>
+                    </Box> */}
                     <Box className=" text-center">
                         <Link href="/portfolio">
                             <Typography
@@ -418,31 +367,6 @@ const Header: React.FC = () => {
                                 }}
                             >
                                 Projects
-                            </Typography>
-                        </Link>
-                    </Box>
-                    <Box className=" text-center">
-                        <Link href="/about">
-                            <Typography
-                                variant="h3"
-                                color="#FFFFFF"
-                                sx={{
-                                    fontWeight: 400,
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: "10px",
-                                        sm: "12px",
-                                        md: "15px",
-                                        lg: '20px',
-                                    },
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        color: '#FFD700', // Gold color on hover
-                                    }
-                                }}
-                            >
-                                About
                             </Typography>
                         </Link>
                     </Box>

@@ -36,7 +36,7 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
                         background: `linear-gradient(
                                     to bottom, 
                                     rgba(0, 0, 0, 0) 0%, 
-                                    rgba(0, 0, 0, 0.7) 50%
+                                    rgba(0, 0, 0, 0.5) 90%
                                     ), url(${inView ? imgSrc : PLACEHOLDER_SRC})`,
                         backgroundSize: 'cover', // Ensure the image covers the entire box
                         backgroundPosition: 'center', // Center the image

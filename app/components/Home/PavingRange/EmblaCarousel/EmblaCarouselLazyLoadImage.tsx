@@ -33,11 +33,16 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
                     sx={{
                         width: '100%',
                         aspectRatio: '2 / 3', // Aspect ratio of 2:3 (width to height)
+                        // background: `linear-gradient(
+                        //                     rgba(0, 0, 0, 0), 
+                        //                     rgba(0, 0, 0, 0.5)
+                        //                 ), 
+                        //                 url(${inView ? imgSrc : PLACEHOLDER_SRC})`,
                         background: `linear-gradient(
-                                            rgba(0, 0, 0, 0), 
-                                            rgba(0, 0, 0, 0.5)
-                                        ), 
-                                        url(${inView ? imgSrc : PLACEHOLDER_SRC})`,
+                                            to bottom, 
+                                            rgba(0, 0, 0, 0) 0%, 
+                                            rgba(0, 0, 0, 0.2) 90%
+                                            ), url(${inView ? imgSrc : PLACEHOLDER_SRC})`,
                         backgroundSize: 'cover', // Ensure the image covers the entire box
                         backgroundPosition: 'center', // Center the image
                         backgroundRepeat: 'no-repeat', // Prevent the image from repeating
@@ -58,7 +63,7 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
                                         fontSize: '45px',
                                         fontStyle: 'italic',
                                         fontWeight: 400,
-                                        marginTop:'160px',
+                                        marginTop: '160px',
                                         textAlign: 'start',
                                     }}
                                 >

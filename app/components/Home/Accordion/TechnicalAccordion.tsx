@@ -35,7 +35,7 @@ const AccordionSummary = styled((props: CustomAccordionSummaryProps) => {
                 expanded ? (
                     <IndeterminateCheckBoxIcon sx={{ fontSize: '30px', color: '#dbc6bc' }} />
                 ) : (
-                    <AddBoxIcon sx={{ fontSize: '30px', color: '#dbc6bc', marginBottom:'-30px' }} />
+                    <AddBoxIcon sx={{ fontSize: '30px', color: '#dbc6bc', marginBottom: '-30px' }} />
                 )
             }
             {...rest}
@@ -118,7 +118,7 @@ export default function TechnicalAccordion() {
                                     fontWeight: 300,
                                     alignContent: 'flex-start',
                                     fontFamily: 'var(--font-montserrat)',
-                                    lineHeight:'1.4',
+                                    lineHeight: '1.4',
                                     fontSize: {
                                         xs: "8px",
                                         sm: "10px",  // Small screens
@@ -127,14 +127,14 @@ export default function TechnicalAccordion() {
                                     }
                                 }}
                             >
-                                Define your target mEvery project begins with well-taken measures. We will visit the construction site in order to take the exact dimensions needed to create the technical drawings.arket and approach for the market
+                                Our conversation begins with a friendly call. We'll discuss your vision, understand your project scope, and answer any questions you may have about natural stone.
                             </Typography>
                             <WhiteCustomButton label={'Learn More'} iconSrc={'/images/vector.svg'} />
                         </Box>
                         <Box className="flex w-1/2">
                             <img
-                                src="/images/Home/Services/measurement.jpg"
-                                alt="measurement"
+                                src="/images/Home/Services/technical.png"
+                                alt="technical"
                                 className="flex w-full"
                             />
                         </Box>

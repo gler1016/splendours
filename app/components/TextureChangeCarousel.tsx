@@ -8,7 +8,7 @@ import { Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import textures from './textures.json'; // Import the JSON file
 
-const TextureCarousel = ({ handleTextureChange }: { handleTextureChange: (baseColor: string, arm: string, normal: string, height: string) => void }) => {
+const TextureCarousel = ({ handleTextureChange }: { handleTextureChange: (name: string, baseColor: string, arm: string, normal: string, height: string) => void }) => {
   return (
     <div className="w-full">
       <Swiper
@@ -19,21 +19,22 @@ const TextureCarousel = ({ handleTextureChange }: { handleTextureChange: (baseCo
         className="mySwiper"
       >
         {textures.map((texture, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide key={idx} className='flex'>
             <Image
               src={texture.thumbnail}
               alt={texture.name}
               width={100}
               height={100}
-              className="cursor-pointer rounded-full"
+              className="cursor-pointer rounded-full mx-auto"
               onClick={() => handleTextureChange(
+                texture.name, // Pass name to the parent
                 texture.textureBaseColorPath,
                 texture.textureArmPath,
                 texture.textureNormalPath,
-                texture.textureHeightPath
+                texture.textureHeightPath,
               )}
             />
-            <div className="absolute bottom-0 left-0 right-0 text-white text-center text-xs py-1">
+            <div className="text-white w-full text-xs overflow-hidden">
               {texture.name.toUpperCase()}
             </div>
           </SwiperSlide>

@@ -190,6 +190,7 @@ const App = ({ params }: {
 
   const modelImages = ["/images/modelImgs/Chimney.jpg", "/images/modelImgs/House.jpg", "/images/modelImgs/Kitchen-Splashback.jpg", "/images/modelImgs/Vertical-Wall-Bar.jpg", "/images/modelImgs/Patios-Pergolas.jpg", "/images/modelImgs/Bathroom.jpg", "/images/modelImgs/Outside-Chimney.jpg", "/images/modelImgs/Shower.jpg", "/images/modelImgs/Entry-Wall.jpg", "/images/modelImgs/Stones.jpg"]
 
+
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
 
   // Find the initial index based on the provided id when the component mounts
@@ -198,8 +199,9 @@ const App = ({ params }: {
     setCurrentModelIndex(initialIndex !== -1 ? initialIndex : 0); // Set to 0 if not found
   }, [id]);
 
-  // Set state for each texture individually
-  const [baseColor, setBaseColor] = useState<string>('');
+  // Set state for each texture individuall
+  const [name, setName] = useState<string>('BEACHPORT');
+  const [baseColor, setBaseColor] = useState<string>('/Project_textures/01_beachport/textures/beachport_basecolor.jpg');
   const [arm, setArm] = useState<string>('');
   const [normal, setNormal] = useState<string>('');
   const [height, setHeight] = useState<string>('');
@@ -207,7 +209,8 @@ const App = ({ params }: {
   const [rotateStatus, setRotateStatus] = useState(0);
 
   // Update individual textures when a new one is selected
-  const handleTextureChange = (newBaseColor: string, newArm: string, newNormal: string, newHeight: string) => {
+  const handleTextureChange = (name: string, newBaseColor: string, newArm: string, newNormal: string, newHeight: string) => {
+    setName(name.slice(0, 9).toUpperCase());
     setBaseColor(newBaseColor);
     setArm(newArm);
     setNormal(newNormal);
@@ -505,11 +508,12 @@ const App = ({ params }: {
               background: 'linear-gradient(to bottom, rgba(39, 59, 39, 0), rgba(39, 59, 39, 1))',
             }}
           >
-            <Box className='flex justify-between items-end mt-12'>
+            <Box className='flex w-full justify-between items-end mt-12'>
               {/* Left Section */}
-              <Box className='w-[26vw] flex'>
+              <Box className='w-1/4 flex'>
                 <Image
-                  src='/images/Visualizer/static.jpg'
+                  // src='/images/Visualizer/static.jpg'
+                  src={baseColor}
                   alt='Image1'
                   width={127}
                   height={127}
@@ -531,7 +535,7 @@ const App = ({ params }: {
                       },
                     }}
                   >
-                    CHARLOTTE
+                    {name}
                   </Typography>
                   <Typography
                     className='font-normal text-start w-[80%]'
@@ -555,7 +559,7 @@ const App = ({ params }: {
               </Box>
 
               {/* Center Section */}
-              <Box className='w-[35vw] text-center space-y-4'>
+              <Box className='w-1/3 text-center space-y-4'>
                 <Typography
                   className='font-normal text-center'
                   variant='h3'
@@ -611,80 +615,82 @@ const App = ({ params }: {
               {/* <Box className='w-[15%]'></Box> */}
 
               {/* Right Section */}
-              <Box className='flex flex-col space-y-8'>
-                <Box className='space-y-2'>
-                  <Typography
-                    className='font-normal text-start'
-                    variant='h3'
-                    color='#FFFFFF'
-                    sx={{
-                      fontWeight: 300,
-                      lineHeight: 0.9,
-                      fontFamily: 'var(--font-montserrat)',
-                      fontSize: {
-                        xs: '10px',
-                        sm: '10px',
-                        md: '12px',
-                        lg: '15px',
-                      },
-                    }}
-                  >
-                    Category:<span style={{ color: '#DCC5BD' }}>{id}</span>
-                  </Typography>
-                  <Typography
-                    className='font-normal text-start'
-                    variant='h3'
-                    color='#FFFFFF'
-                    sx={{
-                      fontWeight: 300,
-                      lineHeight: 0.9,
-                      fontFamily: 'var(--font-montserrat)',
-                      fontSize: {
-                        xs: '10px',
-                        sm: '10px',
-                        md: '12px',
-                        lg: '15px',
-                      },
-                    }}
-                  >
-                    Tag:<span style={{ color: '#DCC5BD' }}>Exclusive</span>
-                  </Typography>
-                </Box>
-                <Box className='flex w-full gap-x-5 items-center'>
-                  {/* Previous Image */}
-                  <Box className='flex flex-col items-center'>
-                    <Image
-                      src={modelImages[(currentModelIndex - 1 + modelImages.length) % modelImages.length]}
-                      alt='Previous Model'
-                      width={80}
-                      height={80}
-                      className='rounded-lg'
-                    />
-                    <Typography variant='caption' color='white'>Previous</Typography>
+              <Box className='w-1/4 flex justify-end'>
+                <Box className='flex flex-col space-y-8'>
+                  <Box className='space-y-2'>
+                    <Typography
+                      className='font-normal text-start'
+                      variant='h3'
+                      color='#FFFFFF'
+                      sx={{
+                        fontWeight: 300,
+                        lineHeight: 0.9,
+                        fontFamily: 'var(--font-montserrat)',
+                        fontSize: {
+                          xs: '10px',
+                          sm: '10px',
+                          md: '12px',
+                          lg: '15px',
+                        },
+                      }}
+                    >
+                      Category:<span style={{ color: '#DCC5BD' }}>{id}</span>
+                    </Typography>
+                    <Typography
+                      className='font-normal text-start'
+                      variant='h3'
+                      color='#FFFFFF'
+                      sx={{
+                        fontWeight: 300,
+                        lineHeight: 0.9,
+                        fontFamily: 'var(--font-montserrat)',
+                        fontSize: {
+                          xs: '10px',
+                          sm: '10px',
+                          md: '12px',
+                          lg: '15px',
+                        },
+                      }}
+                    >
+                      Tag:<span style={{ color: '#DCC5BD' }}>Exclusive</span>
+                    </Typography>
                   </Box>
-                  <Box className='flex cursor-pointer items-center
+                  <Box className='flex w-full gap-x-5 items-center'>
+                    {/* Previous Image */}
+                    <Box className='flex flex-col items-center'>
+                      <Image
+                        src={modelImages[(currentModelIndex - 1 + modelImages.length) % modelImages.length]}
+                        alt='Previous Model'
+                        width={80}
+                        height={80}
+                        className='rounded-lg'
+                      />
+                      <Typography variant='caption' color='white'>Previous</Typography>
+                    </Box>
+                    <Box className='flex cursor-pointer items-center
                   ' onClick={handlePrevClick}>
-                    <ArrowBackIosNewIcon sx={{ color: 'white' }} />
-                    <Typography variant='body2' color='white'>
-                      P R E V
-                    </Typography>
-                  </Box>
-                  <Box className='flex cursor-pointer items-center' onClick={handleNextClick}>
-                    <Typography variant='body2' color='white'>
-                      N E X T
-                    </Typography>
-                    <ArrowForwardIosIcon sx={{ color: 'white' }} />
-                  </Box>
-                  {/* Next Image */}
-                  <Box className='flex flex-col items-center'>
-                    <Image
-                      src={modelImages[(currentModelIndex + 1) % modelImages.length]}
-                      alt='Next Model'
-                      width={80}
-                      height={80}
-                      className='rounded-lg'
-                    />
-                    <Typography variant='caption' color='white'>Next</Typography>
+                      <ArrowBackIosNewIcon sx={{ color: 'white' }} />
+                      {/* <Typography sx={{ fontSize: '15px' }} variant='body2' color='white'>
+                        P R E V
+                      </Typography> */}
+                    </Box>
+                    <Box className='flex cursor-pointer items-center' onClick={handleNextClick}>
+                      {/* <Typography sx={{ fontSize: '15px' }} variant='body2' color='white'>
+                        N E X T
+                      </Typography> */}
+                      <ArrowForwardIosIcon sx={{ color: 'white' }} />
+                    </Box>
+                    {/* Next Image */}
+                    <Box className='flex flex-col items-center'>
+                      <Image
+                        src={modelImages[(currentModelIndex + 1) % modelImages.length]}
+                        alt='Next Model'
+                        width={80}
+                        height={80}
+                        className='rounded-lg'
+                      />
+                      <Typography variant='caption' color='white'>Next</Typography>
+                    </Box>
                   </Box>
                 </Box>
               </Box>

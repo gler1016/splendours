@@ -15,13 +15,17 @@ const Home = () => {
 
     // State management for the EnquiryForm modal
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
-    const [isTextureModalOpen, setIsTextureModalOpen] = useState(false); // Texture modal state
+    const [isTextureModalOpen1, setIsTextureModalOpen1] = useState(false); // Texture modal state
+    const [isTextureModalOpen2, setIsTextureModalOpen2] = useState(false); // Texture modal state
 
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
 
-    const handleOpenTextureModal = () => setIsTextureModalOpen(true); // Open texture modal
-    const handleCloseTextureModal = () => setIsTextureModalOpen(false); // Close texture modal
+    const handleOpenTextureModal1 = () => setIsTextureModalOpen1(true); // Open texture modal
+    const handleCloseTextureModal1 = () => setIsTextureModalOpen1(false); // Close texture modal
+
+    const handleOpenTextureModal2 = () => setIsTextureModalOpen2(true); // Open texture modal
+    const handleCloseTextureModal2 = () => setIsTextureModalOpen2(false); // Close texture modal
 
 
     return (
@@ -29,10 +33,10 @@ const Home = () => {
             {/* EnquiryForm Modal */}
             <EnquiryForm open={isEnquiryFormOpen} handleClose={handleCloseEnquiryForm} />
 
-            {/* Texture Modal */}
+            {/* Texture Modal1 */}
             <Modal
-                open={isTextureModalOpen}
-                onClose={handleCloseTextureModal}
+                open={isTextureModalOpen1}
+                onClose={handleCloseTextureModal1}
                 aria-labelledby="texture-modal-title"
                 aria-describedby="texture-modal-description"
             >
@@ -51,11 +55,48 @@ const Home = () => {
                     }}
                     className="glassImage"
                 >
-                    {/* <Typography id="texture-modal-title" variant="h6" component="h2" sx={{ mb: 2 }}>
-                        Texture Detail
-                    </Typography> */}
+                    <Typography id="texture-modal-title" color='#DBC6BC' variant="h6" component="h2" sx={{ mb: 2 }}>
+                        JAMISON
+                    </Typography>
                     <Magnifier
                         src="/Project_textures/12_jamieson/textures/jamieson_basecolor.jpg" // Replace with your texture image path
+                        alt="Texture"
+                        width={400}
+                        height={300}
+                        // style={{ width: '100%', height: 'auto' }}
+                        // className="glass"
+                        zoom={3} // Adjust the zoom level as needed
+                    />
+                </Box>
+            </Modal>
+
+            {/* Texture Modal2 */}
+            <Modal
+                open={isTextureModalOpen2}
+                onClose={handleCloseTextureModal2}
+                aria-labelledby="texture-modal-title"
+                aria-describedby="texture-modal-description"
+            >
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        // bgcolor: 'background.paper',
+                        boxShadow: 24,
+                        // p: 1,
+                        // borderRadius: 2,
+                        width: isMobile ? '80%' : '30%',
+                        textAlign: 'center',
+                    }}
+                    className="glassImage"
+                >
+                    <Typography id="texture-modal-title" color='#DBC6BC' variant="h6" component="h2" sx={{ mb: 2 }}>
+                        BLUESTONE
+                    </Typography>
+                    <Magnifier
+                        src="Bluestone-Magnifier.jpg" // Replace with your texture image path
                         alt="Texture"
                         width={400}
                         height={300}
@@ -86,13 +127,13 @@ const Home = () => {
                     },
                 }}
             >
-                <Box className="flex items-center w-full" sx={{ backgroundColor: isMobile ? '#283C28' : '', height: isMobile ? '15vh' : isTablet ? '18vh' : '20vh' }}>
+                <Box className="flex items-center w-full" sx={{ position: isMobile ? 'fixed' : '', zIndex: 50, top: 0, backgroundColor: isMobile ? '#283C28' : '', height: isMobile ? '15vh' : isTablet ? '18vh' : '20vh' }}>
                     <Header />
                 </Box>
 
                 <Box
                     className="relative flex items-center w-full"
-                    sx={{ height: isMobile ? '60vh' : isTablet ? '65vh' : '72vh' }}
+                    sx={{ height: isMobile ? '60vh' : isTablet ? '65vh' : '72vh', marginTop: isMobile ? '15vh' : 0 }}
                 >
                     <Box className="flex w-4/5"></Box>
                     <Box className="flex justify-between w-1/5 h-5/6" style={{ paddingRight: '20px' }}>
@@ -115,7 +156,17 @@ const Home = () => {
                                 alt="Zoom Icon"
                                 width={32}
                                 height={32}
-                                onClick={handleOpenTextureModal} // Open texture modal on click
+                                onClick={handleOpenTextureModal1} // Open texture modal on click
+                                style={{ cursor: 'pointer' }}
+                            />
+                        </Box>
+                        <Box className="absolute" style={{ top: isMobile ? '110%' : isTablet ? '25%' : '95%', right:isMobile ? '20%': isTablet ? '30%' : '40%' }}>
+                            <Image
+                                src="/images/Home/zoom.svg"
+                                alt="Zoom Icon"
+                                width={32}
+                                height={32}
+                                onClick={handleOpenTextureModal2} // Open texture modal on click
                                 style={{ cursor: 'pointer' }}
                             />
                         </Box>

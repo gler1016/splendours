@@ -27,6 +27,7 @@ import PracticalityMobileCarousel from '../components/Portfolio/PracticalityMobi
 import JourneyCarousel from '../components/Portfolio/JourneyCarousel/JourneyCarousel';
 import EnquiryForm from '../components/EnquireFormModal';
 import GreenCustomButton from '../components/GreenCustomButton';
+import OverlappingImageSlider from '../components/Portfolio/InspirationCarousel/InspirationCarousel';
 
 
 
@@ -401,8 +402,8 @@ const PortfolioPage = () => {
                                     </Typography>
                                 </Box>
                             </Box>
-                            <Box className="flex w-full px-2 justify-center">
-                                <Image
+                            <Box className="flex justify-center items-center">
+                                {/* <Image
                                     src="/images/Portfolio/Inspiration/Mobile/background-mobile-image.jpg" // Ensure this image is in the public/images folder
                                     alt="Background"
                                     // layout="fill"
@@ -410,8 +411,8 @@ const PortfolioPage = () => {
                                     className="w-full opacity-100 rounded-2xl"
                                     width={360}
                                     height={518}
-                                />
-
+                                /> */}
+                                <OverlappingImageSlider />
                             </Box>
 
                         </Box> : <Box

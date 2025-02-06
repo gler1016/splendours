@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { EmblaOptionsType } from 'embla-carousel';
 import styles from './Carousel.module.css';
@@ -22,6 +22,20 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const interval = setInterval(() => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      } else {
+        // emblaApi.scrollTo(0); // Reset to first slide
+      }
+    }, 3000); // Change slide every second
+
+    return () => clearInterval(interval);
   }, [emblaApi]);
 
   return (

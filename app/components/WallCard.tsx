@@ -9,9 +9,9 @@ interface CustomWallCardProps {
 
 const CustomWallCard: React.FC<CustomWallCardProps> = ({ product_image_src, product_subname }) => {
     return (
-        <Card className='w-full aspect-[1.23/1] relative' style={{ backgroundImage: `url(${product_image_src})`,borderRadius:'25px',backgroundSize:'cover' }}>
+        <Card className='w-full aspect-[1.23/1] relative' style={{ backgroundImage: `url(${product_image_src})`, borderRadius: '25px', backgroundSize: 'cover' }}>
             <CardContent sx={{
-                display: 'flex',  alignContent: 'space-between', flexWrap: 'wrap', height: '100%', paddingY: '10%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))',
+                display: 'flex', alignContent: 'space-between', flexWrap: 'wrap', height: '100%', paddingY: '10%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1))',
                 borderRadius: 'inherit'
             }}>
                 <Box sx={{ width: '100%', height: '100%', padding: '3%' }}>
