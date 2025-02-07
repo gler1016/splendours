@@ -116,7 +116,7 @@ export default function StoneTypesFaqAccordion() {
                                         }
                                     }}
                                 >
-                                    We offer a curated selection of high-quality natural stone cladding, walling, and paving options, including granite, limestone, travertine, sandstone, and bluestone. Explore our website or visit our showroom to discover the full range.
+                                    We provide a variety of natural stones, including granite, sandstone, limestone, bluestone, and quartzite, all sourced for premium quality and durability.
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/2 justify-between">

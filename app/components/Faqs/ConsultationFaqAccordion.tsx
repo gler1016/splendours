@@ -92,7 +92,7 @@ export default function StoneTypesFaqAccordion() {
                                 fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '30px' },
                             }}
                         >
-                            DO YOU PROVIDE CONSULTATIONS?
+                            HOW DO I CARE FOR MY NATURAL STONE SURFACES?
                         </Typography>
                     </Box>
                 </AccordionSummary>
@@ -116,7 +116,7 @@ export default function StoneTypesFaqAccordion() {
                                         }
                                     }}
                                 >
-                                    We offer a curated selection of high-quality natural stone cladding, walling, and paving options, including granite, limestone, travertine, sandstone, and bluestone. Explore our website or visit our showroom to discover the full range.
+                                    Regular cleaning with a pH-neutral cleaner is recommended. Avoid acidic products, as they can damage the stone over time. Sealing the stone enhances longevity.
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/2 justify-between">

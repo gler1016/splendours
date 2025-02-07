@@ -92,7 +92,7 @@ export default function StoneTypesFaqAccordion() {
                                 fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '30px' },
                             }}
                         >
-                            HOW DO I CARE FOR NATURAL STONE?
+                            IS NATURAL STONE ECO-FRIENDLY?
                         </Typography>
                     </Box>
                 </AccordionSummary>
@@ -107,7 +107,7 @@ export default function StoneTypesFaqAccordion() {
                                         fontWeight: 300,
                                         alignContent: 'flex-start',
                                         fontFamily: 'var(--font-montserrat)',
-                                        lineHeight:'1.4',
+                                        lineHeight: '1.4',
                                         fontSize: {
                                             xs: "8px",
                                             sm: "10px",  // Small screens
@@ -116,7 +116,7 @@ export default function StoneTypesFaqAccordion() {
                                         }
                                     }}
                                 >
-                                    We offer a curated selection of high-quality natural stone cladding, walling, and paving options, including granite, limestone, travertine, sandstone, and bluestone. Explore our website or visit our showroom to discover the full range.
+                                    Yes, natural stone is a sustainable material that requires minimal processing, reducing its environmental impact compared to manufactured options.
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/2 justify-between">

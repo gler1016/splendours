@@ -131,7 +131,7 @@ export default function StoneTypesFaqAccordion() {
                                 fontSize: "20px",
                             }}
                         >
-                            CAN I VISIT YOUR SHOWROOM?
+                            WHAT IS THE AVERAGE TURNAROUND TIME TO RECEIVE MY STONE ORDER?
                         </Typography>
                         {expanded ? (
                             <IndeterminateCheckBoxIcon
@@ -155,10 +155,7 @@ export default function StoneTypesFaqAccordion() {
                                     fontSize: "13px",
                                 }}
                             >
-                                We offer a curated selection of high-quality natural stone cladding,
-                                walling, and paving options, including granite, limestone,
-                                travertine, sandstone, and bluestone. Explore our website or visit
-                                our showroom to discover the full range.
+                                Within 24 hours if you live in Melbourn 30radius from Croydon.
                             </Typography>
                         </Box>
                         <Box className="flex w-full justify-between gap-x-[5px]">

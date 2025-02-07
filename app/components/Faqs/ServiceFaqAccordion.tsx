@@ -92,7 +92,7 @@ export default function StoneTypesFaqAccordion() {
                                 fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '30px' },
                             }}
                         >
-                            DO YOU OFFER INSTALLATION SERVICES?
+                            DO YOU OFFER INSTALLATION SERVICES FOR STONE PROJECTS?
                         </Typography>
                     </Box>
                 </AccordionSummary>
@@ -107,7 +107,7 @@ export default function StoneTypesFaqAccordion() {
                                         fontWeight: 300,
                                         alignContent: 'flex-start',
                                         fontFamily: 'var(--font-montserrat)',
-                                        lineHeight:'1.4',
+                                        lineHeight: '1.4',
                                         fontSize: {
                                             xs: "8px",
                                             sm: "10px",  // Small screens
@@ -116,7 +116,7 @@ export default function StoneTypesFaqAccordion() {
                                         }
                                     }}
                                 >
-                                    We offer a curated selection of high-quality natural stone cladding, walling, and paving options, including granite, limestone, travertine, sandstone, and bluestone. Explore our website or visit our showroom to discover the full range.
+                                    While we specialise in supplying premium natural stone, we can also help you with installation services by some of the best stone mansions in Australia.
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/2 justify-between">

@@ -53,11 +53,11 @@ const FaqPage = () => {
                                 fontWeight: 500,
                                 textAlign: 'center',
                                 fontFamily: 'Chronicle Display',
-                                lineHeight:'0.8',
+                                lineHeight: '0.8',
                                 fontSize: '40px'
                             }}
                         >
-                            AT SPLENDOUR 
+                            AT SPLENDOUR
                         </Typography>
                         <Typography
                             variant="h3"
@@ -66,7 +66,7 @@ const FaqPage = () => {
                                 fontWeight: 500,
                                 textAlign: 'center',
                                 fontFamily: 'Chronicle Display',
-                                lineHeight:'0.8',
+                                lineHeight: '0.8',
                                 fontSize: '40px'
                             }}
                         >
@@ -161,7 +161,7 @@ const FaqPage = () => {
                                 fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
                                 fontSize: '40px',
-                                fontStyle:'italic'
+                                fontStyle: 'italic'
                             }}
                         >
                             I HAVE A
@@ -175,7 +175,7 @@ const FaqPage = () => {
                                 fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
                                 fontSize: '40px',
-                                fontStyle:'italic'
+                                fontStyle: 'italic'
                             }}
                         >
                             QUESTION NOT
@@ -189,7 +189,7 @@ const FaqPage = () => {
                                 fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
                                 fontSize: '40px',
-                                fontStyle:'italic'
+                                fontStyle: 'italic'
                             }}
                         >
                             ANSWERED
@@ -203,7 +203,7 @@ const FaqPage = () => {
                                 fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
                                 fontSize: '40px',
-                                fontStyle:'italic'
+                                fontStyle: 'italic'
                             }}
                         >
                             HERE. HOW CAN I
@@ -217,7 +217,7 @@ const FaqPage = () => {
                                 fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
                                 fontSize: '40px',
-                                fontStyle:'italic'
+                                fontStyle: 'italic'
                             }}
                         >
                             I REACH YOU?
@@ -247,8 +247,8 @@ const FaqPage = () => {
                                 fontWeight: 400,
                                 alignContent: 'flex-start',
                                 fontFamily: 'Chronicle Display',
-                                fontStyle:'italic',
-                                lineHeight:'1',
+                                fontStyle: 'italic',
+                                lineHeight: '1',
                                 fontSize: {
                                     xs: "20px",
                                     sm: "30px",  // Small screens
@@ -266,8 +266,8 @@ const FaqPage = () => {
                                 fontWeight: 400,
                                 alignContent: 'flex-start',
                                 fontFamily: 'Chronicle Display',
-                                lineHeight:'1',
-                                fontStyle:'italic',
+                                lineHeight: '1',
+                                fontStyle: 'italic',
                                 fontSize: {
                                     xs: "20px",
                                     sm: "30px",  // Small screens
@@ -285,8 +285,8 @@ const FaqPage = () => {
                                 fontWeight: 400,
                                 alignContent: 'flex-start',
                                 fontFamily: 'Chronicle Display',
-                                lineHeight:'1',
-                                fontStyle:'italic',
+                                lineHeight: '1',
+                                fontStyle: 'italic',
                                 fontSize: {
                                     xs: "20px",
                                     sm: "30px",  // Small screens

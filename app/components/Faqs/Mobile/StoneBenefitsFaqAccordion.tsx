@@ -143,7 +143,7 @@ export default function StoneBenefitsFaqAccordion() {
                                 fontSize: "20px",
                             }}
                         >
-                            WHAT ARE THE BENEFITS OF USING NATURAL STONE?
+                            HOW DURABLE IS NATURAL STONE FOR HIGH-TRAFFIC AREAS?
                         </Typography>
                         {expanded ? (
                             <IndeterminateCheckBoxIcon
@@ -167,10 +167,7 @@ export default function StoneBenefitsFaqAccordion() {
                                     fontSize: "13px",
                                 }}
                             >
-                                We offer a curated selection of high-quality natural stone cladding,
-                                walling, and paving options, including granite, limestone,
-                                travertine, sandstone, and bluestone. Explore our website or visit
-                                our showroom to discover the full range.
+                                Natural stone is highly durable and ideal for high-traffic areas. Proper care and sealing resists wear and tear, making it perfect for pathways and patios.
                             </Typography>
                         </Box>
                         <Box className="flex w-full justify-between gap-x-[5px]">

@@ -131,7 +131,7 @@ export default function CostFaqAccordion() {
                                 fontSize: "20px",
                             }}
                         >
-                            HOW MUCH DOES NATURAL STONE COST?
+                            CAN NATURAL STONE BE USED FOR BOTH INDOOR AND OUTDOOR PROJECTS?
                         </Typography>
                         {expanded ? (
                             <IndeterminateCheckBoxIcon
@@ -155,10 +155,7 @@ export default function CostFaqAccordion() {
                                     fontSize: "13px",
                                 }}
                             >
-                                We offer a curated selection of high-quality natural stone cladding,
-                                walling, and paving options, including granite, limestone,
-                                travertine, sandstone, and bluestone. Explore our website or visit
-                                our showroom to discover the full range.
+                                Natural stone is versatile and can be used for paving, walls, patios, and outdoor landscaping, offering both durability and beauty.
                             </Typography>
                         </Box>
                         <Box className="flex w-full justify-between gap-x-[5px]">
