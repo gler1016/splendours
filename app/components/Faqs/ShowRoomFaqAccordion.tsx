@@ -122,34 +122,38 @@ export default function StoneTypesFaqAccordion() {
                             <Box className="flex w-1/2 justify-between">
                                 <Box>
                                     <Image
-                                        src="/images/Faqs/StoneFaqProducts/product1.png"
+                                        src="/images/Faqs/Q7/1.jpg"
                                         alt="Stone1"
                                         width={150}
                                         height={150}
+                                        className='rounded-full w-[150px] h-[150px]'
                                     />
                                 </Box>
                                 <Box>
                                     <Image
-                                        src="/images/Faqs/StoneFaqProducts/product2.png"
+                                        src="/images/Faqs/Q7/2.jpg"
                                         alt="Stone1"
                                         width={150}
                                         height={150}
+                                        className='rounded-full w-[150px] h-[150px]'
                                     />
                                 </Box>
                                 <Box>
                                     <Image
-                                        src="/images/Faqs/StoneFaqProducts/product3.png"
+                                        src="/images/Faqs/Q7/3.jpg"
                                         alt="Stone1"
                                         width={150}
                                         height={150}
+                                        className='rounded-full w-[150px] h-[150px]'
                                     />
                                 </Box>
                                 <Box>
                                     <Image
-                                        src="/images/Faqs/StoneFaqProducts/product4.png"
+                                        src="/images/Faqs/Q7/4.jpg"
                                         alt="Stone1"
                                         width={150}
                                         height={150}
+                                        className='rounded-full w-[150px] h-[150px]'
                                     />
                                 </Box>
                             </Box>

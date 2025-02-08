@@ -226,7 +226,7 @@ const HomePage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex justify-center w-full">
-                            <Link href={'/allWallingViews'}>
+                            <Link href={'https://www.splendourinstone.com.au/walling/'}>
                                 <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
@@ -280,7 +280,7 @@ const HomePage = () => {
                             We believe that in a new age world filled with gadgets, noise and pace that a moment to stop, reflect and connect with something pure
                         </Typography>
                         <Box className="flex justify-center mt-6">
-                            <Link href={'/allWallingViews'}>
+                            <Link href={'https://www.splendourinstone.com.au/walling/'}>
                                 <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
@@ -661,7 +661,7 @@ const HomePage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex justify-center w-full">
-                            <Link href={'/allPavingViews'}>
+                            <Link href={'https://www.splendourinstone.com.au/paving/'}>
                                 <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
@@ -705,7 +705,7 @@ const HomePage = () => {
                                 </Typography>
                             </Box>
                             <Box className="mt-5">
-                                <Link href={'/allPavingViews'}>
+                                <Link href={'https://www.splendourinstone.com.au/paving/'}>
                                     <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
                                 </Link>
                             </Box>

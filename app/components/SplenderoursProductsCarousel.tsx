@@ -10,6 +10,7 @@ interface Resource {
     product_content: string;
     imageUrl?: string;
     subImageUrl?: string;
+    linkImageUrl?: string;
 }
 
 // Import data (assuming it's a TypeScript module)
@@ -205,7 +206,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                         }}
                                         className={`icon-button ${hoveredIndex === index ? 'show' : ''}`}
                                     >
-                                         <Link href={`${resource.imageUrl}`} passHref>
+                                         <Link href={`${resource.linkImageUrl}`} passHref>
                                             <SearchIcon sx={{ fontSize: '50px', color: 'white' }} />
                                         </Link>
                                     </IconButton>

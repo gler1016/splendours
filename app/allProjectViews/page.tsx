@@ -56,19 +56,23 @@ export default function ActionAreaCard() {
   const modelList = [
     {
       name: "PARK ON PARK",
-      url: "images/Splendours_Products/main_products/product1.png"
+      url: "images/Splendours_Products/main_products/product1.png",
+      img_url: "https://www.splendourinstone.com.au/product/jamieson/"
     },
     {
       name: "SPLENDOURS PROJECTS",
-      url: "images/Splendours_Products/main_products/product2.png"
+      url: "images/Splendours_Products/main_products/product2.png",
+      img_url: "https://www.splendourinstone.com.au/product/buffalo/"
     },
     {
       name: "SPLENDOURS PROJECTS",
-      url: "images/Splendours_Products/main_products/product3.png"
+      url: "images/Splendours_Products/main_products/product3.png",
+      img_url: "https://www.splendourinstone.com.au/product/charlotte/"
     },
     {
       name: "STELLA MARIS",
-      url: "images/Splendours_Products/main_products/product4.png"
+      url: "images/Splendours_Products/main_products/product4.png",
+      img_url: "https://www.splendourinstone.com.au/product/beloka/"
     }
   ]
 
@@ -86,7 +90,7 @@ export default function ActionAreaCard() {
         <Grid container spacing={2}>
           {modelList.map((item, index) => (
             <Grid item lg={2.4} md={3} sm={6} xs={8} style={{ margin: "auto" }} key={index}>
-              <Link href={`${item.url}`} passHref>
+              <Link href={`${item.img_url}`} passHref>
                 <Card className="rounded-lg" style={{ backgroundColor: '#DCC5BD', border: '3px solid #DCC5BD' }}>
                   <CardActionArea>
                     <CardMedia

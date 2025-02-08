@@ -5,7 +5,8 @@
     "textureBaseColorPath": "/Project_textures/01_beachport/textures/beachport_basecolor.jpg",
     "textureArmPath": "/Project_textures/01_beachport/textures/beachport_arm.jpg",
     "textureHeightPath": "/Project_textures/01_beachport/textures/beachport_height.jpg",
-    "textureNormalPath": "/Project_textures/01_beachport/textures/beachport_normal.jpg"
+    "textureNormalPath": "/Project_textures/01_beachport/textures/beachport_normal.jpg",
+    "textureDescription":"Beachport stone, as presented by Splendour in Stone, showcases a refined elegance with its natural quartz formation in a freeform style."
   },
   {
     "name": "Atlantic_marble_french",
@@ -13,7 +14,8 @@
     "textureBaseColorPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_basecolor.jpg",
     "textureArmPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_arm.jpg",
     "textureHeightPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_height.jpg",
-    "textureNormalPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_normal.jpg"
+    "textureNormalPath": "/Project_textures/02_Atlantic_marble_french/textures/atlantic_french_normal.jpg",
+    "textureDescription":"Transform your space with Atlantic-marble, low-maintenance, and visually striking."
   },
   {
     "name": "beloka",
@@ -21,7 +23,8 @@
     "textureBaseColorPath": "/Project_textures/03_beloka/textures/beloka_basecolor.jpg",
     "textureArmPath": "/Project_textures/03_beloka/textures/beloka_arm.jpg",
     "textureHeightPath": "/Project_textures/03_beloka/textures/beloka_height.jpg",
-    "textureNormalPath": "/Project_textures/03_beloka/textures/beloka_normal.jpg"
+    "textureNormalPath": "/Project_textures/03_beloka/textures/beloka_normal.jpg",
+    "textureDescription":"Beloka is a distinguished choice for those seeking a natural stone with a rich blend of earthy tones and impressive durability."
   },
   {
     "name": "blanco",
@@ -29,7 +32,8 @@
     "textureBaseColorPath": "/Project_textures/04_blanco/textures/blanco_basecolor.jpg",
     "textureArmPath": "/Project_textures/04_blanco/textures/blanco_arm.jpg",
     "textureHeightPath": "/Project_textures/04_blanco/textures/blanco_height.jpg",
-    "textureNormalPath": "/Project_textures/04_blanco/textures/blanco_normal.jpg"
+    "textureNormalPath": "/Project_textures/04_blanco/textures/blanco_normal.jpg",
+    "textureDescription":"Blanco Quartz is renowned for its resilience. Made from one of the hardest minerals on Earth, it is extremely resistant to scratches, chips, and cracks."
   },
   {
     "name": "bluestone_flamed",
@@ -37,7 +41,8 @@
     "textureBaseColorPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_basecolor.jpg",
     "textureArmPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_arm.jpg",
     "textureHeightPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_height.jpg",
-    "textureNormalPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_normal.jpg"
+    "textureNormalPath": "/Project_textures/06_bluestone_flamed/textures/bluestone1_normal.jpg",
+    "textureDescription":"Each cobblestone has rich blue-grey tones and subtle variations, ensuring no two installations are alike."
   },
   {
     "name": "bluestone_sawn",
@@ -45,7 +50,8 @@
     "textureBaseColorPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_basecolor.jpg",
     "textureArmPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_arm.jpg",
     "textureHeightPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_height.jpg",
-    "textureNormalPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_normal.jpg"
+    "textureNormalPath": "/Project_textures/07_bluestone_sawn/textures/bluestone_sawn_normal.jpg",
+    "textureDescription":"Bluestone-Sawn Pavers offer a combination of aesthetic elegance and exceptional durability, making them an ideal choice for various outdoor paving applications."
   },
   {
     "name": "buffalo",
@@ -53,7 +59,8 @@
     "textureBaseColorPath": "/Project_textures/08_buffalo/textures/buffalo_basecolor.jpg",
     "textureArmPath": "/Project_textures/08_buffalo/textures/buffalo_arm.jpg",
     "textureHeightPath": "/Project_textures/08_buffalo/textures/buffalo_height.jpg",
-    "textureNormalPath": "/Project_textures/08_buffalo/textures/buffalo_normal.jpg"
+    "textureNormalPath": "/Project_textures/08_buffalo/textures/buffalo_normal.jpg",
+    "textureDescription":"Elevate your interior or exterior design with the flexibility of Buffalo Granite."
   },
   {
     "name": "charlotte",
@@ -61,7 +68,8 @@
     "textureBaseColorPath": "/Project_textures/09_charlotte/textures/Charlotte_basecolor.jpg",
     "textureArmPath": "/Project_textures/09_charlotte/textures/Charlotte_arm.jpg",
     "textureHeightPath": "/Project_textures/09_charlotte/textures/Charlotte_height.jpg",
-    "textureNormalPath": "/Project_textures/09_charlotte/textures/Charlotte_normal.jpg"
+    "textureNormalPath": "/Project_textures/09_charlotte/textures/Charlotte_normal.jpg",
+    "textureDescription":" Charlotte Sandstone is virtually indestructible and can withstand extreme temperatures, heavy impacts, and harsh weather conditions without degradation."
   },
   {
     "name": "10_grange",
@@ -69,7 +77,8 @@
     "textureBaseColorPath": "/Project_textures/10_grange/textures/grange_basecolor.jpg",
     "textureArmPath": "/Project_textures/10_grange/textures/grange_arm.jpg",
     "textureHeightPath": "/Project_textures/10_grange/textures/grange_height.jpg",
-    "textureNormalPath": "/Project_textures/10_grange/textures/grange_normal.jpg"
+    "textureNormalPath": "/Project_textures/10_grange/textures/grange_normal.jpg",
+    "textureDescription":"Grange Limestone is renowned for its durability and strength. Its resistance to wear, scratching, and weathering ensures long-lasting performance, even in demanding environments."
   },
   {
     "name": "grange",
@@ -77,7 +86,8 @@
     "textureBaseColorPath": "/Project_textures/08_buffalo/textures/buffalo_basecolor.jpg",
     "textureArmPath": "/Project_textures/08_buffalo/textures/buffalo_arm.jpg",
     "textureHeightPath": "/Project_textures/08_buffalo/textures/buffalo_height.jpg",
-    "textureNormalPath": "/Project_textures/08_buffalo/textures/buffalo_normal.jpg"
+    "textureNormalPath": "/Project_textures/08_buffalo/textures/buffalo_normal.jpg",
+    "textureDescription":"From bathroom feature walls to wall cladding and outdoor, Grange Limestone offers versatility in design applications. "
   },
   {
     "name": "jamieson",
@@ -85,7 +95,8 @@
     "textureBaseColorPath": "/Project_textures/12_jamieson/textures/jamieson_basecolor.jpg",
     "textureArmPath": "/Project_textures/12_jamieson/textures/jamieson_arm.jpg",
     "textureHeightPath": "/Project_textures/12_jamieson/textures/jamieson_height.jpg",
-    "textureNormalPath": "/Project_textures/12_jamieson/textures/jamieson_normal.jpg"
+    "textureNormalPath": "/Project_textures/12_jamieson/textures/jamieson_normal.jpg",
+    "textureDescription":"Jamieson Limestone boasts a unique and visually striking appearance with its warm, creamy hues and intricate fossil patterns that add depth and character to any surface."
   },
   {
     "name": "jasper",
@@ -93,7 +104,8 @@
     "textureBaseColorPath": "/Project_textures/13_jasper/textures/jasper_basecolor.jpg",
     "textureArmPath": "/Project_textures/13_jasper/textures/jasper_arm.jpg",
     "textureHeightPath": "/Project_textures/13_jasper/textures/jasper_height.jpg",
-    "textureNormalPath": "/Project_textures/13_jasper/textures/jasper_normal.jpg"
+    "textureNormalPath": "/Project_textures/13_jasper/textures/jasper_normal.jpg",
+    "textureDescription":"Jasper stands out with its light grey hues interlaced with subtle touches of bronze, offering a soft and adaptable appearance."
   },
   {
     "name": "marakesh",
@@ -101,7 +113,8 @@
     "textureBaseColorPath": "/Project_textures/14_marakesh/textures/marakesh_basecolor.jpg",
     "textureArmPath": "/Project_textures/14_marakesh/textures/marakesh_arm.jpg",
     "textureHeightPath": "/Project_textures/14_marakesh/textures/marakesh_height.jpg",
-    "textureNormalPath": "/Project_textures/14_marakesh/textures/marakesh_normal.jpg"
+    "textureNormalPath": "/Project_textures/14_marakesh/textures/marakesh_normal.jpg",
+    "textureDescription":"This mararkesh features soft, creamy tones interlaced with subtle brown variations, creating a warm and inviting aesthetic."
   },
   {
     "name": "15_porphyry_crazy",
@@ -109,7 +122,8 @@
     "textureBaseColorPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_basecolor.jpg",
     "textureArmPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_arm.jpg",
     "textureHeightPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_height.jpg",
-    "textureNormalPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_normal.jpg"
+    "textureNormalPath": "/Project_textures/15_porphyry_crazy/textures/porphyry_crazy_normal.jpg",
+    "textureDescription":"Porphyry a range of critical features that make it a preferred choice for discerning designers and homeowners alike."
   },
   {
     "name": "quartz",
@@ -117,7 +131,8 @@
     "textureBaseColorPath": "/Project_textures/16_quartz/textures/quartz_basecolor.jpg",
     "textureArmPath": "/Project_textures/16_quartz/textures/quartz_arm.jpg",
     "textureHeightPath": "/Project_textures/16_quartz/textures/quartz_height.jpg",
-    "textureNormalPath": "/Project_textures/16_quartz/textures/quartz_normal.jpg"
+    "textureNormalPath": "/Project_textures/16_quartz/textures/quartz_normal.jpg",
+    "textureDescription":"Blanco Quartz is renowned for its resilience. Made from one of the hardest minerals on Earth, it is extremely resistant to scratches, chips, and cracks."
   },
   {
     "name": "roman",
@@ -125,7 +140,8 @@
     "textureBaseColorPath": "/Project_textures/17_roman/textures/roman_basecolor.jpg",
     "textureArmPath": "/Project_textures/17_roman/textures/roman_arm.jpg",
     "textureHeightPath": "/Project_textures/17_roman/textures/roman_height.jpg",
-    "textureNormalPath": "/Project_textures/17_roman/textures/roman_normal.jpg"
+    "textureNormalPath": "/Project_textures/17_roman/textures/roman_normal.jpg",
+    "textureDescription":"Roman sandstone weathers centuries with remarkable resilience, as proven by the countless Roman structures that still stand today."
   },
   {
     "name": "shoreham",
@@ -133,7 +149,8 @@
     "textureBaseColorPath": "/Project_textures/18_shoreham/textures/shoreham_basecolor.jpg",
     "textureArmPath": "/Project_textures/18_shoreham/textures/shoreham_arm.jpg",
     "textureHeightPath": "/Project_textures/18_shoreham/textures/shoreham_height.jpg",
-    "textureNormalPath": "/Project_textures/18_shoreham/textures/shoreham_normal.jpg"
+    "textureNormalPath": "/Project_textures/18_shoreham/textures/shoreham_normal.jpg",
+    "textureDescription":"Shoreham Quartz is a striking natural stone, renowned for its durability and timeless appeal."
   },
   {
     "name": "sienna_crazy",
@@ -141,7 +158,8 @@
     "textureBaseColorPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_basecolor.jpg",
     "textureArmPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_arm.jpg",
     "textureHeightPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_height.jpg",
-    "textureNormalPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_normal.jpg"
+    "textureNormalPath": "/Project_textures/19_sienna_crazy/textures/sienna_crazy_normal.jpg",
+    "textureDescription":"Euro-Crazy paving embodies creativity and elegance. The random-sized quartzite pieces bring a dynamic yet natural look to any outdoor area."
   },
   {
     "name": "sienna_sandblast",
@@ -149,7 +167,8 @@
     "textureBaseColorPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_basecolor.jpg",
     "textureArmPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_arm.jpg",
     "textureHeightPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_height.jpg",
-    "textureNormalPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_normal.jpg"
+    "textureNormalPath": "/Project_textures/20_sienna_sandblast/textures/sienna_sandblast_normal.jpg",
+    "textureDescription":"Sienna Limestone Pavers present a remarkable choice for enhancing your outdoor living spaces."
   },
   {
     "name": "stirling",
@@ -157,7 +176,8 @@
     "textureBaseColorPath": "/Project_textures/21_stirling/textures/stirling_basecolor.jpg",
     "textureArmPath": "/Project_textures/21_stirling/textures/stirling_arm.jpg",
     "textureHeightPath": "/Project_textures/21_stirling/textures/stirling_height.jpg",
-    "textureNormalPath": "/Project_textures/21_stirling/textures/stirling_normal.jpg"
+    "textureNormalPath": "/Project_textures/21_stirling/textures/stirling_normal.jpg",
+    "textureDescription":"This sandstone boasts impressive compressive strength, making it resistant to weathering, abrasion, and heavy loads."
   },
   {
     "name": "travertine_ivory",
@@ -165,7 +185,8 @@
     "textureBaseColorPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_basecolor.jpg",
     "textureArmPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_arm.jpg",
     "textureHeightPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_height.jpg",
-    "textureNormalPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_normal.jpg"
+    "textureNormalPath": "/Project_textures/22_travertine_ivory/textures/travertine_ivory_normal.jpg",
+    "textureDescription":"Travertine Silver boasts a unique blend of silver, grey, and beige tones, with subtle veining and variations that add character and charm to any space."
   },
   {
     "name": "tuscano",
@@ -173,6 +194,7 @@
     "textureBaseColorPath": "/Project_textures/23_tuscano/textures/tuscano_basecolor.jpg",
     "textureArmPath": "/Project_textures/23_tuscano/textures/tuscano_arm.jpg",
     "textureHeightPath": "/Project_textures/23_tuscano/textures/tuscano_height.jpg",
-    "textureNormalPath": "/Project_textures/23_tuscano/textures/tuscano_normal.jpg"
+    "textureNormalPath": "/Project_textures/23_tuscano/textures/tuscano_normal.jpg",
+    "textureDescription":"Tuscano Limestone is a stunning natural stone prized for its subtle beauty and versatility."
   }
 ]

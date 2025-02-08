@@ -8,7 +8,7 @@ import { Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import textures from './textures.json'; // Import the JSON file
 
-const TextureCarousel = ({ handleTextureChange }: { handleTextureChange: (name: string, baseColor: string, arm: string, normal: string, height: string) => void }) => {
+const TextureCarousel = ({ handleTextureChange }: { handleTextureChange: (name: string, baseColor: string, arm: string, normal: string, height: string,newDescription: string) => void }) => {
   return (
     <div className="w-full">
       <Swiper
@@ -32,6 +32,7 @@ const TextureCarousel = ({ handleTextureChange }: { handleTextureChange: (name: 
                 texture.textureArmPath,
                 texture.textureNormalPath,
                 texture.textureHeightPath,
+                texture.textureDescription
               )}
             />
             <div className="text-white w-full text-xs overflow-hidden">

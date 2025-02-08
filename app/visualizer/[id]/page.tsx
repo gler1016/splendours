@@ -201,6 +201,7 @@ const App = ({ params }: {
 
   // Set state for each texture individuall
   const [name, setName] = useState<string>('BEACHPORT');
+  const [description, setDescription] = useState<string>('Beachport stone, as presented by Splendour in Stone, showcases a refined elegance with its natural quartz formation in a freeform style.');
   const [baseColor, setBaseColor] = useState<string>('/Project_textures/01_beachport/textures/beachport_basecolor.jpg');
   const [arm, setArm] = useState<string>('');
   const [normal, setNormal] = useState<string>('');
@@ -209,8 +210,9 @@ const App = ({ params }: {
   const [rotateStatus, setRotateStatus] = useState(0);
 
   // Update individual textures when a new one is selected
-  const handleTextureChange = (name: string, newBaseColor: string, newArm: string, newNormal: string, newHeight: string) => {
+  const handleTextureChange = (name: string, newBaseColor: string, newArm: string, newNormal: string, newHeight: string, newDescription: string) => {
     setName(name.slice(0, 9).toUpperCase());
+    setDescription(newDescription);
     setBaseColor(newBaseColor);
     setArm(newArm);
     setNormal(newNormal);
@@ -350,14 +352,14 @@ const App = ({ params }: {
                       fontWeight: 400,
                       fontFamily: 'Chronicle Display',
                       fontSize: {
-                        xs: '12px',
+                        xs: '15px',
                         sm: '16px',
                         md: '20px',
                         lg: '24px',
                       },
                     }}
                   >
-                    CHARLOTTE
+                    {name}
                   </Typography>
                 </Box>
                 <Box>
@@ -377,8 +379,9 @@ const App = ({ params }: {
                       },
                     }}
                   >
-                    Available in our freeform style, the Charlotte sandstone is made up of beautiful
-                    soft hues such as cream, yellow and pink.
+                    {/* Available in our freeform style, the Charlotte sandstone is made up of beautiful
+                    soft hues such as cream, yellow and pink. */}
+                    {description}
                   </Typography>
                 </Box>
               </Box>
@@ -552,8 +555,9 @@ const App = ({ params }: {
                       },
                     }}
                   >
-                    Available in our freeform style, the Charlotte sandstone is made up of beautiful
-                    soft hues such as cream, yellow and pink.
+                    {/* Available in our freeform style, the Charlotte sandstone is made up of beautiful
+                    soft hues such as cream, yellow and pink. */}
+                    {description}
                   </Typography>
                 </Box>
               </Box>

@@ -172,34 +172,38 @@ export default function StoneTypesFaqAccordion() {
                         <Box className="flex w-full justify-between gap-x-[5px]">
                             <Box>
                                 <Image
-                                    src="/images/Faqs/StoneFaqProducts/product1.png"
+                                    src="/images/Faqs/Q4/1.jpg"
                                     alt="Stone1"
                                     width={90}
                                     height={90}
+                                    className='rounded-full w-[90px] h-[90px]'
                                 />
                             </Box>
                             <Box>
                                 <Image
-                                    src="/images/Faqs/StoneFaqProducts/product2.png"
+                                    src="/images/Faqs/Q4/2.jpg"
                                     alt="Stone1"
                                     width={90}
                                     height={90}
+                                    className='rounded-full w-[90px] h-[90px]'
                                 />
                             </Box>
                             <Box>
                                 <Image
-                                    src="/images/Faqs/StoneFaqProducts/product3.png"
+                                    src="/images/Faqs/Q4/3.jpg"
                                     alt="Stone1"
                                     width={90}
                                     height={90}
+                                    className='rounded-full w-[90px] h-[90px]'
                                 />
                             </Box>
                             <Box>
                                 <Image
-                                    src="/images/Faqs/StoneFaqProducts/product4.png"
+                                    src="/images/Faqs/Q4/4.jpg"
                                     alt="Stone1"
                                     width={90}
                                     height={90}
+                                    className='rounded-full w-[90px] h-[90px]'
                                 />
                             </Box>
                         </Box>

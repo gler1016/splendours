@@ -124,7 +124,7 @@ export default function ProductionAccordion() {
                                         fontSize: '13px'
                                     }}
                                 >
-                                    Define your target mEvery project begins with well-taken measures. We will visit the construction site in order to take the exact dimensions needed to create the technical drawings.arket and approach for the market
+                                    Following the call, we'll delve deeper. We'll explore design options, recommend suitable stone types based on your preferences and space, and provide initial estimates to ensure transparency. Additionally, this is the perfect opportunity to visit our showroom for a more realistic feel of what to expect.
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/4 justify-end items-start">
@@ -140,7 +140,7 @@ export default function ProductionAccordion() {
                         <FullCustomBrownDivider />
                         <Box className="flex w-full">
                             <Image
-                                src="/images/Home/Services/measurement.jpg"
+                                src="/images/Service/journey/Mobile/discussion.png"
                                 alt="Plus"
                                 width={356}
                                 height={210}

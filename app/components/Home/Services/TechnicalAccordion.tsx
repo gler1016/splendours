@@ -72,7 +72,7 @@ export default function TechnicalAccordion() {
 
     return (
         <div style={{ padding: 0 }}> {/* Root component padding and margin set to 0 */}
-            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}  style={{backgroundColor:"transparent"}}>
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} style={{ backgroundColor: "transparent" }}>
                 <AccordionSummary
                     aria-controls="panel1d-content"
                     id="panel1d-header"
@@ -83,7 +83,7 @@ export default function TechnicalAccordion() {
                         color: 'white',
                     }}
                 >
-                    <Box sx={{ textAlign: 'left'}}>
+                    <Box sx={{ textAlign: 'left' }}>
                         <Typography
                             variant="h3"
                             color="#DCC5BD"
@@ -124,7 +124,7 @@ export default function TechnicalAccordion() {
                                         fontSize: '13px'
                                     }}
                                 >
-                                    Define your target mEvery project begins with well-taken measures. We will visit the construction site in order to take the exact dimensions needed to create the technical drawings.arket and approach for the market
+                                    Our conversation begins with a friendly call. We'll discuss your vision, understand your project scope, and answer any questions you may have about natural stone.
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/4 justify-end items-start">
@@ -140,7 +140,7 @@ export default function TechnicalAccordion() {
                         <FullCustomBrownDivider />
                         <Box className="flex w-full">
                             <Image
-                                src="/images/Home/Services/measurement.jpg"
+                                src="/images/Service/journey/Mobile/consultation.png"
                                 alt="Plus"
                                 width={356}
                                 height={210}

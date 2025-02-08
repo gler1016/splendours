@@ -72,7 +72,7 @@ export default function MeasurementAccordion() {
 
     return (
         <div style={{ padding: 0 }}> {/* Root component padding and margin set to 0 */}
-            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}  style={{backgroundColor:"transparent"}}>
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} style={{ backgroundColor: "transparent" }}>
                 <AccordionSummary
                     aria-controls="panel1d-content"
                     id="panel1d-header"
@@ -83,7 +83,7 @@ export default function MeasurementAccordion() {
                         color: 'white',
                     }}
                 >
-                    <Box sx={{ textAlign: 'left'}}>
+                    <Box sx={{ textAlign: 'left' }}>
                         <Typography
                             variant="h3"
                             color="#DCC5BD"
@@ -140,7 +140,7 @@ export default function MeasurementAccordion() {
                         <FullCustomBrownDivider />
                         <Box className="flex w-full">
                             <Image
-                                src="/images/Home/Services/measurement.jpg"
+                                src="/images/Service/journey/Mobile/measurement.jpg"
                                 alt="Plus"
                                 width={356}
                                 height={210}

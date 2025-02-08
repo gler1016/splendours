@@ -104,7 +104,7 @@ export default function InstallationAccordion() {
                                 fontSize: { xs: '20px', sm: '30px', md: '40px', lg: '55px' },
                             }}
                         >
-                            INSTALLATIONI
+                            INSTALLATION
                         </Typography>
                     </Box>
                 </AccordionSummary>

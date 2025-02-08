@@ -124,7 +124,7 @@ export default function InstallationAccordion() {
                                         fontSize: '13px'
                                     }}
                                 >
-                                    Define your target mEvery project begins with well-taken measures. We will visit the construction site in order to take the exact dimensions needed to create the technical drawings.arket and approach for the market
+                                    The big day arrives! Our recommended stone mason will meticulously install your chosen stone, transforming your space with the enduring beauty of natural stone.
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/4 justify-end items-start">
@@ -140,7 +140,7 @@ export default function InstallationAccordion() {
                         <FullCustomBrownDivider />
                         <Box className="flex w-full">
                             <Image
-                                src="/images/Home/Services/measurement.jpg"
+                                src="/images/Service/journey/Mobile/installation.png"
                                 alt="Plus"
                                 width={356}
                                 height={210}
