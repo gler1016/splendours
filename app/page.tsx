@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { Box, Button, Typography, Snackbar, Alert } from "@mui/material";
 import Link from "next/link";
 import { useMediaQuery } from '@mui/material';
@@ -31,7 +31,7 @@ import PavingRangeEmblaCarousel from "./components/Home/PavingRange/EmblaCarouse
 import Footer from "./components/Footer";
 import FooterMobile from "./components/FooterMobile";
 import './embla.css';
-
+import { motion } from "framer-motion";
 
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true }
 const SLIDE_COUNT = 3
@@ -86,7 +86,14 @@ const HomePage = () => {
     const [successAlert, setSuccessAlert] = useState(false);
 
     const [errorAlert, setErrorAlert] = useState(false);
+    const [highlighted, setHighlighted] = useState(0);
 
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setHighlighted((prev) => (prev + 1) % 3);
+      }, 1500);
+      return () => clearInterval(interval);
+    }, []);
     const handleToggle = () => {
         setShowFullText(!showFullText);
     };
@@ -175,11 +182,34 @@ const HomePage = () => {
                     <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>THE ART</Typography>
                     <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>SHOWROOM</Typography>
                 </Box> :
-                <Box className="flex flex-col px-20">
-                    <Typography variant="body1" color="white" sx={{ fontFamily: "Chronicle Display", fontSize: { xs: '20px', sm: '5vw', lg: '75px' }, fontWeight: 700, lineHeight: 1.1, opacity: '10%' }}>SAME DAY QUOTES</Typography>
-                    <Typography variant="body1" color="#DBC6BC" sx={{ fontFamily: "Chronicle Display", fontSize: { xs: '20px', sm: '5vw', lg: '75px' }, fontWeight: 700, lineHeight: 1.1, textAlign: 'center' }}>STATE OF THE ART SHOWROOM</Typography>
-                    <Typography variant="body1" color="white" sx={{ fontFamily: "Chronicle Display", fontSize: { xs: '20px', sm: '5vw', lg: '75px' }, fontWeight: 700, lineHeight: 1.1, opacity: '10%', textAlign: "right" }}>SUPPLY & INSTALL PACKAGES</Typography>
-                </Box>}
+                 <Box className="flex flex-col px-20">
+                 {[
+                   { text: "SAME DAY QUOTES", align: "left" },
+                   { text: "STATE OF THE ART SHOWROOM", align: "center", color: "#DBC6BC" },
+                   { text: "SUPPLY & INSTALL PACKAGES", align: "right" },
+                 ].map((item, index) => (
+                   <motion.div
+                     key={index}
+                     initial={{ opacity: 0.1 }}
+                     animate={{ opacity: highlighted === index ? 1 : 0.1 }}
+                     transition={{ duration: 0.5 }}
+                   >
+                     <Typography
+                       variant="body1"
+                       color={item.color || "white"}
+                       sx={{
+                         fontFamily: "Chronicle Display",
+                         fontSize: { xs: "20px", sm: "5vw", lg: "75px" },
+                         fontWeight: 700,
+                         lineHeight: 1.1,
+                         textAlign: item.align,
+                       }}
+                     >
+                       {item.text}
+                     </Typography>
+                   </motion.div>
+                 ))}
+               </Box>}
 
             {isMobile ? <ShortCustomBrownDivider /> : <></>}
 

@@ -48,7 +48,35 @@ const ServicesPage = () => {
     const [currentSetIndex, setCurrentSetIndex] = useState(0);
     const [currentSetIndexDeskTop, setCurrentSetIndexDeskTop] = useState(0);
 
-
+    const [images, setImages] = useState([
+        { id: 1, url: '/images/Service/advertisement/main1.png', position: 'large', transitioning: false },
+        { id: 2, url: '/images/Service/advertisement/main2.png', position: 'small-right', transitioning: false },
+        { id: 3, url: '/images/Service/advertisement/main3.png', position: 'small-left', transitioning: false }
+      ]);
+    
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setImages(prevImages => {
+            // First mark all images as transitioning
+            const transitioning = prevImages.map(img => ({ ...img, transitioning: true }));
+            
+            // After marking transition, rotate positions
+            return transitioning.map((img, i) => {
+              const positions = ['large', 'small-right', 'small-left'];
+              const currentIndex = positions.indexOf(img.position);
+              const nextIndex = (currentIndex + 1) % positions.length;
+              return { ...img, position: positions[nextIndex] };
+            });
+          });
+    
+          // Reset transitioning flag after animation completes
+          setTimeout(() => {
+            setImages(prev => prev.map(img => ({ ...img, transitioning: false })));
+          }, 500);
+        }, 3000);
+    
+        return () => clearInterval(interval);
+      }, []);
 
     const [value] = React.useState<number | null>(5);
     // State management for the EnquiryForm modal
@@ -363,27 +391,29 @@ const ServicesPage = () => {
                                         className='rounded-xl'
                                     />
                                 </Box> */}
-                                <Box
-                                    className="w-full h-[450px] rounded-[20px] zoom-image"
-                                    style={{
-                                        transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
-                                        transition: "transform 1s ease-in-out", // Smooth transition
-                                        overflow: "hidden",
-                                    }}
-                                    sx={{
-                                        backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][0]})`,
-                                        backgroundSize: "cover", // Ensures the image covers the box entirely
-                                        backgroundPosition: "center", // Centers the image within the box
-                                    }}
-                                >
-                                    {/* <Image
-                                        src={imageSetsDeskTop[currentSetIndex][0]} // First image in the current set
-                                        alt="main"
-                                        width={720}
-                                        height={550}
-                                        className='w-[720px] h-[450px] zoom-image'
-                                    /> */}
-                                </Box>
+     <Box className="relative w-full h-[600px] flex items-center justify-center">
+      <Box className="relative w-full max-w-4xl h-full">
+        {images.map((image) => (
+          <Box
+            key={image.id}
+            className={`absolute transition-all duration-500 ease-in-out rounded-xl overflow-hidden
+              ${image.transitioning ? 'scale-95' : 'scale-100'}
+              ${image.position === 'large' ? 
+                'w-1/2 h-96 left-1/4 top-4' : 
+                image.position === 'small-right' ? 
+                'w-1/3 h-64 right-4 bottom-4' : 
+                'w-1/3 h-64 left-4 bottom-4'
+              }`}
+          >
+            <img 
+              src={image.url} 
+              alt={`Carousel image ${image.id}`}
+              className="w-full h-full object-cover"
+            />
+          </Box>
+        ))}
+      </Box>
+    </Box>
                             </Box>
                         </Box>
 
@@ -417,40 +447,7 @@ const ServicesPage = () => {
                                         className='rounded-xl'
                                     />
                                 </Box> */}
-                                <Box className="flex w-1/2 zoom-effect">
-                                    <Box
-                                        className="w-full h-[148px] rounded-[20px] zoom-image"
-                                        style={{
-                                            transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
-                                            transition: "transform 1s ease-in-out", // Smooth transition
-                                            overflow: "hidden",
-                                        }}
-                                        sx={{
-                                            backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][1]})`,
-                                            backgroundSize: "cover", // Ensures the image covers the box entirely
-                                            backgroundPosition: "center", // Centers the image within the box
-                                        }}
-                                    >
-                                        {/* Additional content inside the Box, if needed */}
-                                    </Box>
-                                </Box>
-                                <Box className="flex w-1/2 zoom-effect">
-                                    <Box
-                                        className="w-full h-[148px] rounded-[20px] zoom-image"
-                                        style={{
-                                            transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
-                                            transition: "transform 1s ease-in-out", // Smooth transition
-                                            overflow: "hidden",
-                                        }}
-                                        sx={{
-                                            backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][2]})`,
-                                            backgroundSize: "cover", // Ensures the image covers the box entirely
-                                            backgroundPosition: "center", // Centers the image within the box
-                                        }}
-                                    >
-                                        {/* Additional content inside the Box, if needed */}
-                                    </Box>
-                                </Box>
+
                                 {/* <Box className="flex w-1/2">
                                     <Image
                                         src="/images/Service/advertisement/image2.png"

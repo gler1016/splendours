@@ -25,6 +25,7 @@ const Footer = () => {
                             alt="Logo"
                             width={182}
                             height={182}
+                            
                         />
                     </Box>
                 </Box>
