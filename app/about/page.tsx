@@ -27,7 +27,13 @@ const AboutPage = () => {
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
-
+    const images = [
+        "/images/About/Products/product1.jpg",
+        "/images/About/Products/product2.jpg",
+        "/images/About/Products/product3.jpg",
+        "/images/About/Products/product4.jpg",
+        "/images/About/Products/product5.jpg",
+      ];
     return (
         <>
             <EnquiryForm open={isEnquiryFormOpen} handleClose={handleCloseEnquiryForm} />
@@ -144,7 +150,7 @@ const AboutPage = () => {
                                             alt="Logo"
                                             width={510}
                                             height={355}
-                                            className="rounded-[20px]"
+                                            className="rounded-[20px] animate-scaleHeight animate-growFromBottom"
                                         />
                                     </Box>
                                 </Box>
@@ -175,30 +181,30 @@ const AboutPage = () => {
                                     alt="Logo"
                                     width={510}
                                     height={457}
-                                    className="rounded-[20px]"
+                                    className="rounded-[20px] animate-growFromBottom"
                                 />
                                 <Image
                                     src="/images/About/Products/product4.jpg"
                                     alt="Logo"
                                     width={510}
                                     height={327}
-                                    className="rounded-[20px]"
+                                    className="rounded-[20px] animate-shrinkFromTop"
                                 />
                             </Box>
                             <Box className="flex flex-col w-1/4 gap-y-4">
                                 <Image
                                     src="/images/About/Products/product3.jpg"
-                                    alt="Logo"
+                                    alt="Product 3"
                                     width={510}
                                     height={276}
-                                    className="rounded-[20px]"
+                                    className="rounded-[20px] animate-growFromBottom"
                                 />
                                 <Image
                                     src="/images/About/Products/product5.jpg"
-                                    alt="Logo"
+                                    alt="Product 5"
                                     width={510}
                                     height={276}
-                                    className="rounded-[20px]"
+                                    className="rounded-[20px] animate-shrinkFromTop"
                                 />
                                 <Typography
                                     variant="h6"
@@ -776,7 +782,8 @@ const AboutPage = () => {
 
                     </Box>}
 
-                    {isMobile ? <Box className="flex w-full flex-col justify-center items-center px-3 gap-y-4">
+                    {isMobile ? 
+                    <Box className="flex w-full flex-col justify-center items-center px-3 gap-y-4">
 
                         <Box className="flex flex-col w- justify-center">
                             <Typography
@@ -2167,86 +2174,79 @@ const AboutPage = () => {
                             </Box>
                         </Box>
                     </Box>
-                        : <Box
-                            className="flex w-full px-20 gap-x-12"
-                            sx={{
-                                position: 'relative',
-                                width: '100%',
-                                aspectRatio: '1.77 / 1', // Aspect ratio of 3:1 (width to height)
-                                backgroundImage: 'url("/images/About/Gallery/background.jpg")',
-                                backgroundSize: 'cover', // Ensure the image covers the entire box
-                                backgroundPosition: 'center', // Center the image
-                                display: 'flex',
-                                alignItems: 'center', // Center align text vertically
-                                justifyContent: 'space-between', // Center align text horizontally
-                                borderRadius: '25px',
-                                // Adding the overlay pseudo-element
-                                '&::before': {
-                                    content: '""',
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    height: '100%',
-                                    backgroundColor: 'rgba(0, 0, 0, 0.3)', // Adjust the opacity here
-                                    zIndex: 1, // Ensure it's on top of the background image but behind the content
-                                },
-                            }}
-                        >
-                            <Box className="flex flex-col w-1/2 h-full" sx={{ zIndex: 2 }}>
-                                <Box className="flex w-full h-1/2"></Box>
-                                <Box className="flex w-full flex-col h-1/2 justify-center gap-3">
-                                    <Typography
-                                        variant="h4"
-                                        color="white"
-                                        sx={{
-                                            fontFamily: 'Chronicle Display',
-                                            fontStyle: 'italic',
+                        :
+<Box
+  className="flex w-full px-20 gap-x-12 overflow-hidden"
+  sx={{
+    position: "relative",
+    width: "100%",
+    aspectRatio: "1.77 / 1",
+    borderRadius: "25px",
+  }}
+>
+<Box className="absolute inset-0 w-full h-full overflow-hidden">
+      {images.map((src, index) => (
+        <Box
+          key={index}
+          className={`absolute w-full h-full bg-cover bg-center animate-backgroundSlide`}
+          style={{
+            backgroundImage: `url(${src})`,
+            animationDelay: `${index * 2}s`,
+          }}
+        />
+      ))}
+    </Box>
 
-                                            fontSize: {
-                                                xs: '20px', // Font size for extra small screens
-                                                sm: '25px', // Font size for small screens
-                                                md: '35px', // Font size for medium screens
-                                                lg: '70px', // Font size for large screens
-                                            },
-                                            fontWeight: 300,
-                                            textAlign: 'start',
-                                        }}
-                                    >
-                                        A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
-                                    </Typography>
-                                    <Box className="mt-5" sx={{ paddingBottom: '50px' }}>
-                                        <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                                    </Box>
+  {/* Content Section */}
+  <Box className="flex flex-col w-1/2 h-full z-10 text-white">
+    <Box className="flex w-full h-1/2"></Box>
+    <Box className="flex w-full flex-col h-1/2 justify-center gap-3">
+      <Typography
+        variant="h4"
+        sx={{
+          fontFamily: "Chronicle Display",
+          fontStyle: "italic",
+          fontSize: { xs: "20px", sm: "25px", md: "35px", lg: "70px" },
+          fontWeight: 300,
+          textAlign: "start",
+        }}
+      >
+        A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
+      </Typography>
+      <Box className="mt-5" sx={{ paddingBottom: "50px" }}>
+        <WhiteCustomButton
+          label={"Enquire Now!"}
+          iconSrc={"/images/icons/Vector.svg"}
+          onClick={handleOpenEnquiryForm}
+        />
+      </Box>
+    </Box>
+  </Box>
 
-                                </Box>
-                            </Box>
-
-                            <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom: '50px' }}>
-                                <Box className="flex w-full h-1/2"></Box>
-                                <Box className="flex w-full flex-col h-1/2 justify-center items-center">
-                                    <Typography
-                                        variant="h4"
-                                        color="white"
-                                        sx={{
-                                            fontFamily: 'var(--font-montserrat)',
-                                            lineHeight: '1.2',
-                                            fontSize: {
-                                                xs: '10px', // Font size for extra small screens
-                                                sm: '12px', // Font size for small screens
-                                                md: '20px', // Font size for medium screens
-                                                lg: '28px', // Font size for large screens
-                                            },
-                                            fontWeight: 300,
-                                            textAlign: 'start',
-                                        }}
-                                    >
-                                        We take immense pride in collaborating with our clients to turn their design dreams into reality. Explore our extensive gallery showcasing a variety of projects, from modern kitchen renovations to captivating outdoor living spaces. Let these success stories inspire your stone design journey.
-                                        To make your exploration more realistic, visit our showroom and view captivating displays of different natural stones.
-                                    </Typography>
-                                </Box>
-                            </Box>
-                        </Box>}
+  <Box className="flex flex-col w-1/2 h-full items-start z-10 text-white">
+    <Box className="flex w-full h-1/2"></Box>
+    <Box className="flex w-full flex-col h-1/2 justify-center items-center">
+      <Typography
+        variant="h4"
+        sx={{
+          fontFamily: "var(--font-montserrat)",
+          lineHeight: "1.2",
+          fontSize: { xs: "10px", sm: "12px", md: "20px", lg: "28px" },
+          fontWeight: 300,
+          textAlign: "start",
+        }}
+      >
+        We take immense pride in collaborating with our clients to turn their
+        design dreams into reality. Explore our extensive gallery showcasing a
+        variety of projects, from modern kitchen renovations to captivating
+        outdoor living spaces. Let these success stories inspire your stone
+        design journey. To make your exploration more realistic, visit our
+        showroom and view captivating displays of different natural stones.
+      </Typography>
+    </Box>
+  </Box>
+</Box>
+}
 
 
 

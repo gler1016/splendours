@@ -13,16 +13,11 @@ const TouchCarousel: React.FC<TouchCarouselProps> = ({ images, options }) => {
   const [emblaRef] = useEmblaCarousel(options);
 
   return (
-    <div className={styles.embla}>
+    <div className={`${styles.embla} overflow-hidden relative`}> 
       <div className={styles.emblaViewport} ref={emblaRef}>
-        <div className={styles.emblaContainer}>
-          {images.map((image, index) => (
-            <div className={styles.emblaSlide} key={index}>
-              {/* <img
-                src={image.src}
-                alt={image.alt}
-                className={styles.emblaImage}
-              /> */}
+        <div className={`flex ${styles.emblaContainer} animate-marquee `}> 
+          {images.concat(images).map((image, index) => (
+            <div className={`${styles.emblaSlide} flex-shrink-0`} key={index}>
               <Image
                 src={image.src}
                 width={1136}
@@ -34,18 +29,6 @@ const TouchCarousel: React.FC<TouchCarouselProps> = ({ images, options }) => {
           ))}
         </div>
       </div>
-      {/* <button
-        className={`${styles.emblaButton} ${styles.emblaButtonPrev}`}
-        onClick={() => scrollTo((selectedIndex - 1 + images.length) % images.length)}
-      >
-        &#8249;
-      </button>
-      <button
-        className={`${styles.emblaButton} ${styles.emblaButtonNext}`}
-        onClick={() => scrollTo((selectedIndex + 1) % images.length)}
-      >
-        &#8250;
-      </button> */}
     </div>
   );
 };

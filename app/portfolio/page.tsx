@@ -2,7 +2,7 @@
 "use client"
 // app/about/page.tsx
 
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import Header from '../components/Header';
@@ -33,6 +33,14 @@ import OverlappingImageSlider from '../components/Portfolio/InspirationCarousel/
 
 
 const PortfolioPage = () => {
+   
+    const images = [
+        "/images/Portfolio/mission.png",
+        "/images/Portfolio/practicality/image1.jpg",
+        "/images/Portfolio/practicality/image2.jpg",
+        "/images/Portfolio/practicality/image3.jpg",
+
+      ];
 
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -467,23 +475,22 @@ const PortfolioPage = () => {
                                     </Typography>
                                 </Box>
                             </Box>
-                            <Box
-                                className="flex w-full"
-                                sx={{
-                                    position: 'relative',
-                                    width: '100%',
-                                    // height: '100%', // Adjust to match the image height
-                                    aspectRatio: '3 / 1', // Aspect ratio of 3:1 (width to height)
-                                    backgroundImage: 'url("/images/Portfolio/mission.png")',
-                                    backgroundSize: 'cover', // Ensure the image covers the entire box
-                                    backgroundPosition: 'center', // Center the image
-                                    display: 'flex',
-                                    alignItems: 'center', // Center align text vertically
-                                    justifyContent: 'flex-start', // Center align text horizontally
-                                    borderRadius: '25px'
-                                }}
-                            >
-                            </Box>
+<Box className="relative w-full aspect-[3/1] rounded-[25px] overflow-hidden">
+      <Box className="absolute inset-0 w-full h-full overflow-hidden">
+        {images.map((src, index) => (
+          <Box
+            key={index}
+            className="absolute inset-0 w-full h-full bg-cover bg-center animate-backgroundSlideLeftToRight"
+            style={{
+              backgroundImage: `url(${src})`,
+              animation: `backgroundSlideLeftToRight 6s ease-in-out infinite`,
+              animationDelay: `${index * 2}s`, 
+            }}
+          />
+        ))}
+      </Box>
+    </Box>
+    {/* backgroundImage: 'url(images/Service/products/background.jpg)', // Add your image  */}
                         </Box>}
 
                     <CustomPartDivider />

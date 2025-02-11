@@ -340,24 +340,31 @@ const FaqPage = () => {
                             className="w-full"
                         />
                     </Box>
-                </Box></Box> : <Box className="px-12"><Box className="flex justify-between w-full gap-6">
-                    <Box className="flex w-1/3">
-                        <Image
-                            src="/images/Faqs/image1.png"
-                            alt="Image1"
-                            width={552}
-                            height={480}
-                        />
-                    </Box>
-                    <Box className="flex w-2/3">
-                        <Image
-                            src="/images/Faqs/image2.png"
-                            alt="image2"
-                            width={1136}
-                            height={480}
-                        />
-                    </Box>
-                </Box></Box>}
+                </Box></Box> : 
+                <Box className="px-12">
+ <Box className="flex justify-between w-full gap-6">
+  {/* First Image: Expands More to Left */}
+  <Box className="flex  animate-growRight">
+    <Image
+      src="/images/Faqs/image1.png"
+      alt="Image1"
+      width={552}
+      height={480}
+    />
+  </Box>
+
+  {/* Second Image: Shrinks First, Then Expands */}
+  <Box className="flex  animate-shrinkLeft">
+    <Image
+      src="/images/Faqs/image2.png"
+      alt="Image2"
+      width={1136}
+      height={480}
+    />
+  </Box>
+</Box>
+
+                </Box>}
 
 
 
