@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useState , useEffect } from "react";
 import { Box, Button, Typography, Snackbar, Alert } from "@mui/material";
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from "next/link";
@@ -32,8 +32,7 @@ import PavingRangeEmblaCarousel from "./components/Home/PavingRange/EmblaCarouse
 import Footer from "./components/Footer";
 import FooterMobile from "./components/FooterMobile";
 import './embla.css';
-
-
+    
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true }
 const SLIDE_COUNT = 3
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
@@ -88,6 +87,14 @@ const HomePage = () => {
     const [successAlert, setSuccessAlert] = useState(false);
 
     const [errorAlert, setErrorAlert] = useState(false);
+    const [highlighted, setHighlighted] = useState(0);
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setHighlighted((prev) => (prev + 1) % 3);
+      }, 1500);
+      return () => clearInterval(interval);
+    }, []);
 
     const [activeIndex, setActiveIndex] = useState(1);
 

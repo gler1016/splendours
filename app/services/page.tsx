@@ -50,7 +50,35 @@ const ServicesPage = () => {
     const [currentSetIndex, setCurrentSetIndex] = useState(0);
     const [currentSetIndexDeskTop, setCurrentSetIndexDeskTop] = useState(0);
 
-
+    const [images, setImages] = useState([
+        { id: 1, url: '/images/Service/advertisement/main1.png', position: 'large', transitioning: false },
+        { id: 2, url: '/images/Service/advertisement/main2.png', position: 'small-right', transitioning: false },
+        { id: 3, url: '/images/Service/advertisement/main3.png', position: 'small-left', transitioning: false }
+      ]);
+    
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setImages(prevImages => {
+            // First mark all images as transitioning
+            const transitioning = prevImages.map(img => ({ ...img, transitioning: true }));
+            
+            // After marking transition, rotate positions
+            return transitioning.map((img, i) => {
+              const positions = ['large', 'small-right', 'small-left'];
+              const currentIndex = positions.indexOf(img.position);
+              const nextIndex = (currentIndex + 1) % positions.length;
+              return { ...img, position: positions[nextIndex] };
+            });
+          });
+    
+          // Reset transitioning flag after animation completes
+          setTimeout(() => {
+            setImages(prev => prev.map(img => ({ ...img, transitioning: false })));
+          }, 500);
+        }, 3000);
+    
+        return () => clearInterval(interval);
+      }, []);
 
     const [value] = React.useState<number | null>(5);
     // State management for the EnquiryForm modal

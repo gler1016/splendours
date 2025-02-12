@@ -36,6 +36,14 @@ import OverlappingImageSlider from '../components/Portfolio/InspirationCarousel/
 
 
 const PortfolioPage = () => {
+   
+    const images = [
+        "/images/Portfolio/mission.png",
+        "/images/Portfolio/practicality/image1.jpg",
+        "/images/Portfolio/practicality/image2.jpg",
+        "/images/Portfolio/practicality/image3.jpg",
+
+      ];
 
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });

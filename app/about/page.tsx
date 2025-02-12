@@ -197,7 +197,7 @@ const AboutPage = () => {
                                             alt="Logo"
                                             width={510}
                                             height={355}
-                                            className="rounded-[20px]"
+                                            className="rounded-[20px] animate-scaleHeight animate-growFromBottom"
                                         />
                                     </Box>
                                 </Box>
@@ -856,7 +856,8 @@ const AboutPage = () => {
 
                     </Box>}
 
-                    {isMobile ? <Box className="flex w-full flex-col justify-center items-center px-3 gap-y-4">
+                    {isMobile ? 
+                    <Box className="flex w-full flex-col justify-center items-center px-3 gap-y-4">
 
                         <Box className="flex flex-col w- justify-center">
                             <Typography
