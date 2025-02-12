@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Button, Typography, Snackbar, Alert } from "@mui/material";
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from "next/link";
 import { useMediaQuery } from '@mui/material';
 import axios from "axios";
@@ -76,6 +77,7 @@ const images = [
     },
 ];
 
+
 const HomePage = () => {
 
     const isMobile = useMediaQuery('(max-width: 768px)'); // Media query for mobile
@@ -86,6 +88,45 @@ const HomePage = () => {
     const [successAlert, setSuccessAlert] = useState(false);
 
     const [errorAlert, setErrorAlert] = useState(false);
+
+    const [activeIndex, setActiveIndex] = useState(1);
+
+    const texts = [
+        {
+          text: "SAME DAY QUOTES",
+          color: "white",
+          align: "left",
+          initialOpacity: 0.15
+        },
+        {
+          text: "STATE OF THE ART SHOWROOM",
+          color: "#DBC6BC",
+          align: "center",
+          initialOpacity: 1
+        },
+        {
+          text: "SUPPLY & INSTALL PACKAGES",
+          color: "white",
+          align: "right",
+          initialOpacity: 0.15
+        }
+    ];
+
+    const commonSx = {
+        fontFamily: "Chronicle Display", 
+        fontSize: { xs: '20px', sm: '5vw', lg: '75px' }, 
+        fontWeight: 700, 
+        lineHeight: 1.1
+      };
+    
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setActiveIndex((prevIndex) => (prevIndex + 1) % texts.length);
+        }, 3000); // Change text every 3 seconds
+    
+        return () => clearInterval(interval);
+      }, []);
 
     const handleToggle = () => {
         setShowFullText(!showFullText);
@@ -175,11 +216,34 @@ const HomePage = () => {
                     <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>THE ART</Typography>
                     <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>SHOWROOM</Typography>
                 </Box> :
-                <Box className="flex flex-col px-20">
-                    <Typography variant="body1" color="white" sx={{ fontFamily: "Chronicle Display", fontSize: { xs: '20px', sm: '5vw', lg: '75px' }, fontWeight: 700, lineHeight: 1.1, opacity: '10%' }}>SAME DAY QUOTES</Typography>
-                    <Typography variant="body1" color="#DBC6BC" sx={{ fontFamily: "Chronicle Display", fontSize: { xs: '20px', sm: '5vw', lg: '75px' }, fontWeight: 700, lineHeight: 1.1, textAlign: 'center' }}>STATE OF THE ART SHOWROOM</Typography>
-                    <Typography variant="body1" color="white" sx={{ fontFamily: "Chronicle Display", fontSize: { xs: '20px', sm: '5vw', lg: '75px' }, fontWeight: 700, lineHeight: 1.1, opacity: '10%', textAlign: "right" }}>SUPPLY & INSTALL PACKAGES</Typography>
-                </Box>}
+                   <Box className="flex flex-col px-20">
+                        <AnimatePresence>
+                            {texts.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: item.initialOpacity }}
+                                animate={{ 
+                                opacity: index === activeIndex ? 1 : 0.15,
+                                transition: { duration: 0.6 }
+                                }}
+                                style={{ width: '100%' }}
+                            >
+                                <Typography 
+                                variant="body1" 
+                                color={item.color}
+                                sx={{
+                                    ...commonSx,
+                                    textAlign: item.align,
+                                    opacity: index === activeIndex ? 1 : 0.15
+                                }}
+                                >
+                                {item.text}
+                                </Typography>
+                            </motion.div>
+                            ))}
+                        </AnimatePresence>
+                    </Box>    
+                }
 
             {isMobile ? <ShortCustomBrownDivider /> : <></>}
 
@@ -526,50 +590,52 @@ const HomePage = () => {
                     )}
                 </Box>
 
-                {isMobile || isTablet ? <StairsCarousel images={images} /> : <Box className="w-full flex flex-col aspect-[3.77/1] min-w-1 bg-[#DBC6BC] rounded-[40px] p-8 px-12" style={{ marginTop: '230px' }}>
-                    <Box className="flex justify-between w-1/4 gap-x-4" >
-
-                        <CarouselPart data={PARTDATA} />
-                        <Box className='flex flex-col h-[100px] justify-around'>
-                            <Typography
-                                variant="h3"
-                                color="#283C28"
-                                sx={{
-                                    fontWeight: 400,
-                                    alignContent: 'flex-start',
-                                    fontFamily: 'Chronicle Display',
-                                    fontSize: {
-                                        xs: "10px",
-                                        sm: "15px",  // Small screens
-                                        md: "25px",  // Medium screens
-                                        lg: "25px"
-                                    }
-                                }}
-                            >
-                                CHARLOTTE
-                            </Typography>
-                            <Typography
-                                variant="h3"
-                                color="#17181C"
-                                sx={{
-                                    // width: '90%',
-                                    fontWeight: 300,
-                                    alignContent: 'flex-start',
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: "7px",
-                                        sm: "10px",  // Small screens
-                                        md: "10px",  // Medium screens
-                                        lg: "12px"
-                                    }
-                                }}
-                            >
-                                Available in our freeform style, the Charlotte sandstone is made up of beautiful soft hues such as cream, yellow and pink.
-                            </Typography>
+                {isMobile || isTablet ? 
+                    <StairsCarousel images={images} /> 
+                        : 
+                    <Box className="w-full flex flex-col aspect-[3.77/1] min-w-1 bg-[#DBC6BC] rounded-[40px] p-8 px-12" style={{ marginTop: '230px' }}>
+                        <Box className="flex justify-between w-1/4 gap-x-4" >
+                            <CarouselPart data={PARTDATA} /> {/* small carousel */} 
+                            <Box className='flex flex-col h-[100px] justify-around'>
+                                <Typography
+                                    variant="h3"
+                                    color="#283C28"
+                                    sx={{
+                                        fontWeight: 400,
+                                        alignContent: 'flex-start',
+                                        fontFamily: 'Chronicle Display',
+                                        fontSize: {
+                                            xs: "10px",
+                                            sm: "15px",  // Small screens
+                                            md: "25px",  // Medium screens
+                                            lg: "25px"
+                                        }
+                                    }}
+                                >
+                                    CHARLOTTE
+                                </Typography>
+                                <Typography
+                                    variant="h3"
+                                    color="#17181C"
+                                    sx={{
+                                        // width: '90%',
+                                        fontWeight: 300,
+                                        alignContent: 'flex-start',
+                                        fontFamily: 'var(--font-montserrat)',
+                                        fontSize: {
+                                            xs: "7px",
+                                            sm: "10px",  // Small screens
+                                            md: "10px",  // Medium screens
+                                            lg: "12px"
+                                        }
+                                    }}
+                                >
+                                    Available in our freeform style, the Charlotte sandstone is made up of beautiful soft hues such as cream, yellow and pink.
+                                </Typography>
+                            </Box>
                         </Box>
-                    </Box>
                     <Box className="flex justify-center w-full">
-                        <Carousel data={DATA} />
+                        <Carousel data={DATA} /> {/* big carousel */}
                     </Box>
                     <Box className="flex justify-between w-full mt-[-3.5vh] lg:mt-[40px]">
                         <Box>

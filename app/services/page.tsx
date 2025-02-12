@@ -7,7 +7,8 @@ import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Box, Typography, Rating } from '@mui/material';
+import { Box, Typography, Rating, useTheme } from '@mui/material';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { EmblaOptionsType } from 'embla-carousel'
 import FullCustomYellowDivider from '../components/Divider/FullCustomYellowDivider';
@@ -23,6 +24,7 @@ import FullCustomGreenDivider from '../components/Divider/FullCustomGreenDivider
 import FooterMobile from '../components/FooterMobile';
 import EnquiryForm from '../components/EnquireFormModal';
 import "./page.module.css"
+import FeaturedCarousel from '../components/FeaturedCarousel';
 
 
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true }
@@ -73,6 +75,8 @@ const ServicesPage = () => {
 
         return () => clearInterval(interval);
     }, []);
+
+    
 
     return (
         <>
@@ -347,120 +351,36 @@ const ServicesPage = () => {
                                         AUSTRALIAN HOMES
                                     </Typography>
                                 </Box>
-                                <Box className="w-11/12">
+                                <Box className="w-11/12 -mt-10 mb-10">
                                     <FullCustomYellowDivider />
                                 </Box>
-
+                                <Box className="flex w-[55%]">
+                                    <Typography
+                                        variant="h3"
+                                        color="#ffffff"
+                                        sx={{
+                                            fontWeight: 300,
+                                            alignContent: 'flex-start',
+                                            fontFamily: 'var(--font-montserrat)',
+                                            fontSize: {
+                                                xs: "8px",
+                                                sm: "10px",  // Small screens
+                                                md: "12px",  // Medium screens
+                                                lg: "20px"
+                                            }
+                                        }}
+                                    >
+                                        with natural stone&apos;s timeless beauty and enduring qualities. We offer a comprehensive suite of services to transform your vision into reality, from selecting the perfect stone to flawless installation.
+                                    </Typography>
+                                </Box>
                             </Box>
 
                             <Box className="flex flex-col w-5/12">
-                                {/* <Box className="w-full">
-                                    <Image
-                                        src="/images/Service/advertisement/main.png"
-                                        alt="main"
-                                        width={720}
-                                        height={550}
-                                        className='rounded-xl'
-                                    />
-                                </Box> */}
-                                <Box
-                                    className="w-full h-[450px] rounded-[20px] zoom-image"
-                                    style={{
-                                        transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
-                                        transition: "transform 1s ease-in-out", // Smooth transition
-                                        overflow: "hidden",
-                                    }}
-                                    sx={{
-                                        backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][0]})`,
-                                        backgroundSize: "cover", // Ensures the image covers the box entirely
-                                        backgroundPosition: "center", // Centers the image within the box
-                                    }}
-                                >
-                                    {/* <Image
-                                        src={imageSetsDeskTop[currentSetIndex][0]} // First image in the current set
-                                        alt="main"
-                                        width={720}
-                                        height={550}
-                                        className='w-[720px] h-[450px] zoom-image'
-                                    /> */}
-                                </Box>
+                                <FeaturedCarousel />    
                             </Box>
                         </Box>
 
                         <Box className="flex w-full justify-between">
-                            <Box className="flex w-1/3">
-                                <Typography
-                                    variant="h3"
-                                    color="#ffffff"
-                                    sx={{
-                                        fontWeight: 300,
-                                        alignContent: 'flex-start',
-                                        fontFamily: 'var(--font-montserrat)',
-                                        fontSize: {
-                                            xs: "8px",
-                                            sm: "10px",  // Small screens
-                                            md: "12px",  // Medium screens
-                                            lg: "20px"
-                                        }
-                                    }}
-                                >
-                                    with natural stone&apos;s timeless beauty and enduring qualities. We offer a comprehensive suite of services to transform your vision into reality, from selecting the perfect stone to flawless installation.
-                                </Typography>
-                            </Box>
-                            <Box className="flex w-5/12 gap-3">
-                                {/* <Box className="flex w-1/2">
-                                    <Image
-                                        src="/images/Service/advertisement/image1.png"
-                                        alt="main"
-                                        width={344}
-                                        height={148}
-                                        className='rounded-xl'
-                                    />
-                                </Box> */}
-                                <Box className="flex w-1/2 zoom-effect">
-                                    <Box
-                                        className="w-full h-[148px] rounded-[20px] zoom-image"
-                                        style={{
-                                            transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
-                                            transition: "transform 1s ease-in-out", // Smooth transition
-                                            overflow: "hidden",
-                                        }}
-                                        sx={{
-                                            backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][1]})`,
-                                            backgroundSize: "cover", // Ensures the image covers the box entirely
-                                            backgroundPosition: "center", // Centers the image within the box
-                                        }}
-                                    >
-                                        {/* Additional content inside the Box, if needed */}
-                                    </Box>
-                                </Box>
-                                <Box className="flex w-1/2 zoom-effect">
-                                    <Box
-                                        className="w-full h-[148px] rounded-[20px] zoom-image"
-                                        style={{
-                                            transform: isResizingDeskTop ? "scale(0.95)" : "scale(1)", // Dynamic width
-                                            transition: "transform 1s ease-in-out", // Smooth transition
-                                            overflow: "hidden",
-                                        }}
-                                        sx={{
-                                            backgroundImage: `url(${imageSetsDeskTop[currentSetIndex][2]})`,
-                                            backgroundSize: "cover", // Ensures the image covers the box entirely
-                                            backgroundPosition: "center", // Centers the image within the box
-                                        }}
-                                    >
-                                        {/* Additional content inside the Box, if needed */}
-                                    </Box>
-                                </Box>
-                                {/* <Box className="flex w-1/2">
-                                    <Image
-                                        src="/images/Service/advertisement/image2.png"
-                                        alt="main"
-                                        width={344}
-                                        height={148}
-                                        className='rounded-xl'
-                                    />
-                                </Box> */}
-                            </Box>
                         </Box>
                     </Box>}
 

@@ -2,7 +2,7 @@
 "use client"
 // app/about/page.tsx
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -28,12 +28,23 @@ import Image from 'next/image';
 import ShortCustomBrownDivider from '../components/Divider/ShortCustomBrownDivider';
 import FullCustomBrownDivider from '../components/Divider/FullCustomBrownDivider';
 import FooterMobile from '../components/FooterMobile';
+import { motion } from 'framer-motion';
 
 
 const FaqPage = () => {
 
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
+    const [isSwapped, setIsSwapped] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        setIsSwapped(prev => !prev);
+        }, 3000); // Swap every 4 seconds
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <Box className="space-y-12">
@@ -340,25 +351,65 @@ const FaqPage = () => {
                             className="w-full"
                         />
                     </Box>
-                </Box></Box> : <Box className="px-12"><Box className="flex justify-between w-full gap-6">
-                    <Box className="flex w-1/3">
+                </Box></Box> 
+                : 
+                <Box className="px-12">
+                    <Box className="flex justify-between w-full gap-6">
+                        <motion.div
+                        animate={{
+                            width: isSwapped ? '66.666667%' : '33.333333%'
+                        }}
+                        transition={{
+                            duration: 0.8,
+                            ease: "easeInOut"
+                        }}
+                        className="flex"
+                        style={{
+                            height: '480px'
+                        }}
+                        >
                         <Image
                             src="/images/Faqs/image1.png"
                             alt="Image1"
                             width={552}
                             height={480}
+                            className="rounded-[20px]"
+                            style={{
+                            width: '100%',
+                            height: '480px',
+                            objectFit: 'fill'
+                            }}
                         />
-                    </Box>
-                    <Box className="flex w-2/3">
+                        </motion.div>
+                        
+                        <motion.div
+                        animate={{
+                            width: isSwapped ? '33.333333%' : '66.666667%'
+                        }}
+                        transition={{
+                            duration: 0.8,
+                            ease: "easeInOut"
+                        }}
+                        className="flex"
+                        style={{
+                            height: '480px'
+                        }}
+                        >
                         <Image
                             src="/images/Faqs/image2.png"
                             alt="image2"
                             width={1136}
                             height={480}
+                            className="rounded-[20px]"
+                            style={{
+                            width: '100%',
+                            height: '480px',
+                            objectFit: 'fill'
+                            }}
                         />
+                        </motion.div>
                     </Box>
-                </Box></Box>}
-
+                    </Box>}
 
 
             </Box>

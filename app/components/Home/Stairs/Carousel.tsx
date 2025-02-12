@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Box, Typography } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
+import useEmblaCarousel from "embla-carousel-react";
 
+interface Image {
+    src: string;
+  }
+  
+  interface Props {
+    images: Image[];
+  }
 
 interface ImageCarouselProps {
     images: { src: string; alt: string; product_name: string }[];
@@ -21,26 +29,43 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             prevIndex === 0 ? images.length - 1 : prevIndex - 1
         );
     };
+    
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });  
+    const autoplay = useCallback(() => {
+        if (!emblaApi) return;
+        const interval = setInterval(() => {
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 3000); // Adjust speed as needed
+    
+        return () => clearInterval(interval);
+      }, [emblaApi, images.length]);
+    
+      useEffect(() => {
+        if (emblaApi) {
+          autoplay();
+        }
+      }, [emblaApi, autoplay]);
 
 
     return (
         <Box className="w-full flex flex-col aspect-[1/1] sm:aspect-[7/1] min-w-1 bg-[#DBC6BC] rounded-[20px] px-8 py-8" style={{ marginTop: '270px' }}>
 
-            <div className="relative h-44">
-                {images.map((image, index) => (
-                    <div
-                        key={index}
-                        className={`absolute inset-0 transition-opacity duration-500 ${index === currentIndex ? 'opacity-100' : 'opacity-0'
-                            }`}
-                    >
-                        <img
-                            src={image.src}
-                            alt="images"
-                            className="object-cover w-[300px] mt-[-150px] mx-auto"
-                        />
-                    </div>
-                ))}
-            </div>
+<div className="relative h-44 w-full" ref={emblaRef}>
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            index === currentIndex ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <img
+            src={image.src}
+            alt="carousel"
+            className="object-cover w-[300px] mt-[-150px] mx-auto"
+          />
+        </div>
+      ))}
+    </div>
             <Box className="flex flex-col w-full gap-y-4">
                 <Box className="flex items-center justify-between w-full gap-x-2">
                     {/* <CarouselPart data={PARTDATA} /> */}

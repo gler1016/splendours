@@ -27,7 +27,7 @@ const TouchCarousel: React.FC<TouchCarouselProps> = ({ images, options }) => {
               <Image
                 src={image.src}
                 width={1136}
-                height={461}
+                height={661}
                 alt={image.alt}
                 className={styles.emblaImage}
               />

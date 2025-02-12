@@ -2,6 +2,7 @@
 
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { EmblaOptionsType } from 'embla-carousel';
 
 type CarouselProps = {
@@ -10,7 +11,20 @@ type CarouselProps = {
 };
 
 const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
-  const [emblaRef] = useEmblaCarousel(options);
+  const [emblaRef] = useEmblaCarousel(
+    { 
+      ...options,
+      loop: true // Enable infinite loop
+    }, 
+    [
+      Autoplay({
+        delay: 2000, //2 seconds per slide
+        stopOnInteraction: false, // Don't stop on user interaction
+        stopOnMouseEnter: true, // Pause on mouse hover
+        rootNode: (emblaRoot) => emblaRoot.parentElement // Necessary for proper autoplay functionality
+      })
+    ]
+  );
 
   return (
     <div className="embla_journey">

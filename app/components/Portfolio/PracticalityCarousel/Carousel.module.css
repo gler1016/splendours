@@ -61,3 +61,28 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
+.embla {
+  width: 100%;
+  position: relative;
+}
+
+.emblaContainer {
+  display: flex;
+  width: max-content; /* Ensures the images wrap seamlessly */
+  animation: scroll 20s linear infinite; /* Adjust speed as needed */
+}
+
+.emblaSlide {
+  flex: 0 0 auto;
+  width: 1136px; /* Match image width */
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

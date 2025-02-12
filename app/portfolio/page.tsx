@@ -2,7 +2,7 @@
 "use client"
 // app/about/page.tsx
 
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import Header from '../components/Header';
@@ -11,6 +11,9 @@ import './embla.css'
 
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+
 
 import FullCustomGreenDivider from '../components/Divider/FullCustomGreenDivider';
 import CustomPartDivider from '../components/CustomPartDivider';
@@ -41,6 +44,46 @@ const PortfolioPage = () => {
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
+
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [emblaRef, emblaApi] = useEmblaCarousel({ 
+      loop: true,
+      align: 'start',
+      skipSnaps: false,
+      dragFree: false,
+      duration: 2
+    });
+    
+      const slides = [
+          "/images/Portfolio/Inspiration/CarouselImages/image1.png",
+          "/images/Portfolio/Inspiration/CarouselImages/image2.png",
+          "/images/Portfolio/Inspiration/CarouselImages/image3.png",
+          "/images/Portfolio/Inspiration/CarouselImages/image4.png",
+          "/images/Portfolio/Inspiration/CarouselImages/image5.png",
+      ];
+
+      useEffect(() => {
+        if (!emblaApi) return;
+    
+        emblaApi.on('select', () => {
+          setSelectedIndex(emblaApi.selectedScrollSnap());
+        });
+      }, [emblaApi]);
+    
+      const autoplay = useCallback(() => {
+        if (!emblaApi) return;
+        
+        const intervalId = setInterval(() => {
+          emblaApi.scrollNext();
+        }, 3000); 
+        
+        return () => clearInterval(intervalId);
+      }, [emblaApi]);
+    
+      useEffect(() => {
+        autoplay();
+      }, [autoplay]);
+
     return (
         <>
             <EnquiryForm open={isEnquiryFormOpen} handleClose={handleCloseEnquiryForm} />
@@ -415,7 +458,9 @@ const PortfolioPage = () => {
                                 <OverlappingImageSlider />
                             </Box>
 
-                        </Box> : <Box
+                        </Box>
+                         : 
+                         <Box
                             className="relative flex-col w-full px-20 py-24 gap-x-12 rounded-[20px]"
                             sx={{
                                 backgroundImage: 'url(images/About/legacy-background.jpg)', // Add your image path here
@@ -467,23 +512,48 @@ const PortfolioPage = () => {
                                     </Typography>
                                 </Box>
                             </Box>
-                            <Box
-                                className="flex w-full"
-                                sx={{
-                                    position: 'relative',
-                                    width: '100%',
-                                    // height: '100%', // Adjust to match the image height
-                                    aspectRatio: '3 / 1', // Aspect ratio of 3:1 (width to height)
-                                    backgroundImage: 'url("/images/Portfolio/mission.png")',
-                                    backgroundSize: 'cover', // Ensure the image covers the entire box
-                                    backgroundPosition: 'center', // Center the image
+                            <Box sx={{ 
+                                overflow: 'hidden',
+                                position: 'relative',
+                                width: '100%'
+                                }} ref={emblaRef}>
+                                <Box sx={{ 
                                     display: 'flex',
-                                    alignItems: 'center', // Center align text vertically
-                                    justifyContent: 'flex-start', // Center align text horizontally
-                                    borderRadius: '25px'
-                                }}
-                            >
-                            </Box>
+                                    transition: 'transform 800ms cubic-bezier(0.4, 0, 0.2, 1)'
+                                }}>
+                                    {slides.map((slide, index) => (
+                                    <Box
+                                        key={index}
+                                        className="flex w-full"
+                                        sx={{
+                                        position: 'relative',
+                                        width: '100%',
+                                        aspectRatio: '3 / 1',
+                                        backgroundImage: `url("${slide}")`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'flex-start',
+                                        borderRadius: '25px',
+                                        flexShrink: 0,
+                                        minWidth: '100%',
+                                        transform: 'translateX(0)',
+                                        transition: 'transform 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+                                        opacity: 1,
+                                        '&.embla__slide--prev': {
+                                            transform: 'translateX(-100%)',
+                                            opacity: 0,
+                                        },
+                                        '&.embla__slide--next': {
+                                            transform: 'translateX(100%)',
+                                            opacity: 0,
+                                        }
+                                        }}
+                                    />
+                                    ))}
+                                </Box>
+                                </Box>
                         </Box>}
 
                     <CustomPartDivider />

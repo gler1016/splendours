@@ -1,22 +1,61 @@
-// carousel.tsx
 'use client'
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Typography } from '@mui/material';
 
 const CarouselPart = ({
     data,
+    autoplayInterval = 3000, // Default 3 seconds
 }: {
     data: {
         image: string
-    }[]
+    }[],
+    autoplayInterval?: number
 }) => {
     // State and Ref initialization
     const [currentImg, setCurrentImg] = useState(0)
     const [carouselSize, setCarouselSize] = useState({ width: 0, height: 0 })
+    const [isTransitioning, setIsTransitioning] = useState(false)
     const carouselRef = useRef(null)
+    const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null)
+
+    // Function to move to next slide
+    const nextSlide = useCallback(() => {
+        setIsTransitioning(true)
+        setCurrentImg((prev) => (prev === data.length - 1 ? 0 : prev + 1))
+    }, [data.length])
+
+    // Function to move to previous slide
+    const prevSlide = useCallback(() => {
+        setIsTransitioning(true)
+        setCurrentImg((prev) => (prev === 0 ? data.length - 1 : prev - 1))
+    }, [data.length])
+
+    // Autoplay effect
+    useEffect(() => {
+        // Start autoplay
+        const startAutoplay = () => {
+            autoplayTimerRef.current = setInterval(nextSlide, autoplayInterval)
+        }
+
+        const stopAutoplay = () => {
+            if (autoplayTimerRef.current) {
+                clearInterval(autoplayTimerRef.current)
+            }
+        }
+
+        startAutoplay()
+
+        // Clean up interval on component unmount
+        return () => stopAutoplay()
+    }, [nextSlide, autoplayInterval])
+
+    // Transition complete handler
+    const handleTransitionEnd = () => {
+        setIsTransitioning(false)
+    }
 
     // useEffect to get the initial carousel size
     useEffect(() => {
@@ -41,16 +80,27 @@ const CarouselPart = ({
                         left: -currentImg * carouselSize.width,
                     }}
                     className="absolute flex h-full w-full transition-all duration-300"
+                    onTransitionEnd={handleTransitionEnd}
                 >
                     {/* Map through data to render images */}
                     {data.map((v, i) => (
-                        <div key={i} className="relative h-full w-full shrink-0">
+                        <div 
+                            key={i} 
+                            className={`
+                                relative h-full w-full shrink-0
+                                transition-opacity duration-500 
+                                ${currentImg === i ? 'opacity-100' : 'opacity-0'}
+                            `}
+                        >
                             <Image
-                                className="pointer-events-none rounded-lg"
+                                className="pointer-events-none rounded-lg object-cover"
                                 alt={`carousel-image-${i}`}
                                 fill
                                 src={v.image || '/images/carousel_interactive_part/card1.png'}
-                            
+                                style={{
+                                    transition: 'opacity 0.5s ease-in-out',
+                                    opacity: currentImg === i ? 1 : 0
+                                }}
                             />
                         </div>
                     ))}
@@ -60,10 +110,18 @@ const CarouselPart = ({
             <div className="mt-6 flex justify-between" style={{ width: '250%' }}>
                 <button
                     disabled={currentImg === 0}
-                    onClick={() => setCurrentImg((prev) => prev - 1)}
+                    onClick={() => {
+                        prevSlide()
+                        // Reset autoplay timer when manually navigating
+                        if (autoplayTimerRef.current) {
+                            clearInterval(autoplayTimerRef.current)
+                            autoplayTimerRef.current = setInterval(nextSlide, autoplayInterval)
+                        }
+                    }}
                     className={` font-bold flex justify-center items-center ${currentImg === 0 && 'opacity-50'}`}
                 >
-                    <ArrowBackIosNewIcon /> <Typography
+                    <ArrowBackIosNewIcon /> 
+                    <Typography
                         className="font-semibold"
                         variant="h3"
                         color="#283C28"
@@ -79,7 +137,14 @@ const CarouselPart = ({
                 </button>
                 <button
                     disabled={currentImg === data.length - 1}
-                    onClick={() => setCurrentImg((prev) => prev + 1)}
+                    onClick={() => {
+                        nextSlide()
+                        // Reset autoplay timer when manually navigating
+                        if (autoplayTimerRef.current) {
+                            clearInterval(autoplayTimerRef.current)
+                            autoplayTimerRef.current = setInterval(nextSlide, autoplayInterval)
+                        }
+                    }}
                     className={` font-bold flex justify-center items-center ${currentImg === data.length - 1 && 'opacity-50'}`}
                 >
                     <Typography

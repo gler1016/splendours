@@ -1,12 +1,13 @@
 // app/about/page.tsx
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
+import { AnimatePresence, motion } from 'framer-motion';
 import CustomDivider from '../components/Divider';
 import FullCustomBrownDivider from '../components/Divider/FullCustomBrownDivider';
 import WhiteCustomButton from '../components/WhiteButton';
@@ -27,6 +28,58 @@ const AboutPage = () => {
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
+    const [isSwapped, setIsSwapped] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const bimages = [
+    "/images/About/Gallery/background.jpg",
+    "/images/About/Living/image1.jpg",  // Add your additional images
+    "/images/About/Living/image2.jpg",  // Add your additional images
+    "/images/About/Products/product2.jpg"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bimages.length);
+    }, 3000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+    const images = {
+        firstBox: [
+          {
+            src: "/images/About/Products/product2.jpg",
+            originalHeight: 457,
+            swappedHeight: 276
+          },
+          {
+            src: "/images/About/Products/product4.jpg",
+            originalHeight: 327,
+            swappedHeight: 508
+          }
+        ],
+        secondBox: [
+          {
+            src: "/images/About/Products/product3.jpg",
+            originalHeight: 327,
+            swappedHeight: 457
+          },
+          {
+            src: "/images/About/Products/product5.jpg",
+            originalHeight: 276,
+            swappedHeight: 276
+          }
+        ]
+      };
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setIsSwapped(prev => !prev);
+        }, 3000); // Change every 3 seconds
+    
+        return () => clearInterval(interval);
+      }, []);
+      
 
     return (
         <>
@@ -170,54 +223,81 @@ const AboutPage = () => {
                                 </Box>
                             </Box>
                             <Box className="flex flex-col w-1/4 gap-y-4">
-                                <Image
-                                    src="/images/About/Products/product2.jpg"
-                                    alt="Logo"
-                                    width={510}
-                                    height={457}
-                                    className="rounded-[20px]"
-                                />
-                                <Image
-                                    src="/images/About/Products/product4.jpg"
-                                    alt="Logo"
-                                    width={510}
-                                    height={327}
-                                    className="rounded-[20px]"
-                                />
-                            </Box>
-                            <Box className="flex flex-col w-1/4 gap-y-4">
-                                <Image
-                                    src="/images/About/Products/product3.jpg"
-                                    alt="Logo"
-                                    width={510}
-                                    height={276}
-                                    className="rounded-[20px]"
-                                />
-                                <Image
-                                    src="/images/About/Products/product5.jpg"
-                                    alt="Logo"
-                                    width={510}
-                                    height={276}
-                                    className="rounded-[20px]"
-                                />
-                                <Typography
-                                    variant="h6"
-                                    color="white"
-                                    sx={{
-                                        fontFamily: "var(--font-montserrat)",
-                                        lineHeight: "1.4",
-                                        fontSize: {
-                                            xs: "10px",
-                                            sm: "14px",
-                                            md: "16px",
-                                            lg: "18px",
-                                        },
-                                        fontWeight: 300,
+                                {images.firstBox.map((image, index) => (
+                                <motion.div
+                                    key={image.src}
+                                    animate={{
+                                    height: isSwapped ? image.swappedHeight : image.originalHeight
+                                    }}
+                                    transition={{ 
+                                    duration: 0.5, 
+                                    ease: "easeInOut" 
+                                    }}
+                                    style={{ 
+                                    width: 350,
+                                    height: isSwapped ? image.swappedHeight : image.originalHeight,
+                                    overflow: 'hidden',
+                                    borderRadius: '20px'
                                     }}
                                 >
-                                    At Splendour in Stone, we believe natural stone is an unparalleled design element, capable of injecting timeless beauty and undeniable character into any space.
+                                    <Image
+                                    src={image.src}
+                                    alt="Logo"
+                                    width={510}
+                                    height={isSwapped ? image.swappedHeight : image.originalHeight}
+                                    className="rounded-[20px] w-full h-full object-cover"
+                                    />
+                                </motion.div>
+                                ))}
+                            </Box>
+
+                            <Box className="flex flex-col w-1/4 gap-y-4">
+                                {images.secondBox.map((image, index) => (
+                                <motion.div
+                                    key={image.src}
+                                    animate={{
+                                    height: isSwapped ? image.swappedHeight : image.originalHeight
+                                    }}
+                                    transition={{ 
+                                    duration: 0.5, 
+                                    ease: "easeInOut" 
+                                    }}
+                                    style={{ 
+                                    width: 350,
+                                    height: isSwapped ? image.swappedHeight : image.originalHeight,
+                                    overflow: 'hidden',
+                                    borderRadius: '20px'
+                                    }}
+                                >
+                                    <Image
+                                    src={image.src}
+                                    alt="Logo"
+                                    width={510}
+                                    height={isSwapped ? image.swappedHeight : image.originalHeight}
+                                    className="rounded-[20px] w-full h-full object-cover"
+                                    />
+                                </motion.div>
+                                ))}
+
+                                <Typography
+                                variant="h6"
+                                color="white"
+                                sx={{
+                                    fontFamily: "var(--font-montserrat)",
+                                    lineHeight: "1.4",
+                                    fontSize: {
+                                    xs: "10px",
+                                    sm: "14px",
+                                    md: "16px",
+                                    lg: "18px",
+                                    },
+                                    fontWeight: 300,
+                                }}
+                                >
+                                At Splendour in Stone, we believe natural stone is an unparalleled design element, capable of injecting timeless beauty and undeniable character into any space.
                                 </Typography>
                             </Box>
+                                                    
                         </Box>
                     )}
 
@@ -2052,22 +2132,30 @@ const AboutPage = () => {
                             width: '100%',
                             aspectRatio: '1 / 2.16', // Aspect ratio of 3:1 (width to height)
                             borderRadius: '15px',
-                            overflow: 'hidden', // Ensures content stays within the rounded corners
-                            '&::before': {
-                                content: '""',
+                        }}
+                    >
+                        <AnimatePresence initial={false}>
+                            <motion.div
+                            key={currentImageIndex}
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "-100%" }}
+                            transition={{ 
+                                duration: 1.2,
+                                ease: "easeInOut"
+                            }}
+                            style={{
                                 position: 'absolute',
                                 top: 0,
                                 left: 0,
-                                right: 0,
-                                bottom: 0,
-                                backgroundImage: 'url("/images/About/Gallery/Mobile/background-mobile.jpg")',
-                                backgroundSize: 'cover', // Ensure the image covers the entire box
-                                backgroundPosition: 'center', // Center the image
-                                filter: 'blur(5px)', // Apply blur to the background
-                                zIndex: 1, // Place it behind the content
-                            },
-                        }}
-                    >
+                                width: '100%',
+                                height: '100%',
+                                backgroundImage: `url(${bimages[currentImageIndex]})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                            />
+                        </AnimatePresence>
                         {/* Main content */}
                         <Box
                             className="flex h-full flex-col w-full justify-between px-3"
@@ -2167,86 +2255,109 @@ const AboutPage = () => {
                             </Box>
                         </Box>
                     </Box>
-                        : <Box
-                            className="flex w-full px-20 gap-x-12"
-                            sx={{
-                                position: 'relative',
-                                width: '100%',
-                                aspectRatio: '1.77 / 1', // Aspect ratio of 3:1 (width to height)
-                                backgroundImage: 'url("/images/About/Gallery/background.jpg")',
-                                backgroundSize: 'cover', // Ensure the image covers the entire box
-                                backgroundPosition: 'center', // Center the image
-                                display: 'flex',
-                                alignItems: 'center', // Center align text vertically
-                                justifyContent: 'space-between', // Center align text horizontally
-                                borderRadius: '25px',
-                                // Adding the overlay pseudo-element
-                                '&::before': {
-                                    content: '""',
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    height: '100%',
-                                    backgroundColor: 'rgba(0, 0, 0, 0.3)', // Adjust the opacity here
-                                    zIndex: 1, // Ensure it's on top of the background image but behind the content
-                                },
+                        :  <Box
+                        className="flex w-full px-20 gap-x-12"
+                        sx={{
+                          position: 'relative',
+                          width: '100%',
+                          aspectRatio: '1.77 / 1',
+                          borderRadius: '25px',
+                          overflow: 'hidden'
+                        }}
+                      >
+                        <AnimatePresence initial={false}>
+                            <motion.div
+                            key={currentImageIndex}
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "-100%" }}
+                            transition={{ 
+                                duration: 1.2,
+                                ease: "easeInOut"
                             }}
-                        >
-                            <Box className="flex flex-col w-1/2 h-full" sx={{ zIndex: 2 }}>
-                                <Box className="flex w-full h-1/2"></Box>
-                                <Box className="flex w-full flex-col h-1/2 justify-center gap-3">
-                                    <Typography
-                                        variant="h4"
-                                        color="white"
-                                        sx={{
-                                            fontFamily: 'Chronicle Display',
-                                            fontStyle: 'italic',
-
-                                            fontSize: {
-                                                xs: '20px', // Font size for extra small screens
-                                                sm: '25px', // Font size for small screens
-                                                md: '35px', // Font size for medium screens
-                                                lg: '70px', // Font size for large screens
-                                            },
-                                            fontWeight: 300,
-                                            textAlign: 'start',
-                                        }}
-                                    >
-                                        A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
-                                    </Typography>
-                                    <Box className="mt-5" sx={{ paddingBottom: '50px' }}>
-                                        <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                                    </Box>
-
-                                </Box>
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                backgroundImage: `url(${bimages[currentImageIndex]})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                            />
+                        </AnimatePresence>
+                  
+                        {/* Overlay */}
+                        <Box
+                          sx={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                            zIndex: 1,
+                          }}
+                        />
+                  
+                        {/* Content */}
+                        <Box className="flex flex-col w-1/2 h-full" sx={{ zIndex: 2 }}>
+                          <Box className="flex w-full h-1/2"></Box>
+                          <Box className="flex w-full flex-col h-1/2 justify-center gap-3">
+                            <Typography
+                              variant="h4"
+                              color="white"
+                              sx={{
+                                fontFamily: 'Chronicle Display',
+                                fontStyle: 'italic',
+                                fontSize: {
+                                  xs: '20px',
+                                  sm: '25px',
+                                  md: '35px',
+                                  lg: '70px',
+                                },
+                                fontWeight: 300,
+                                textAlign: 'start',
+                              }}
+                            >
+                              A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
+                            </Typography>
+                            <Box className="mt-5" sx={{ paddingBottom: '50px' }}>
+                              <WhiteCustomButton 
+                                label={'Enquire Now!'} 
+                                iconSrc={'/images/icons/Vector.svg'} 
+                                onClick={handleOpenEnquiryForm} 
+                              />
                             </Box>
-
-                            <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom: '50px' }}>
-                                <Box className="flex w-full h-1/2"></Box>
-                                <Box className="flex w-full flex-col h-1/2 justify-center items-center">
-                                    <Typography
-                                        variant="h4"
-                                        color="white"
-                                        sx={{
-                                            fontFamily: 'var(--font-montserrat)',
-                                            lineHeight: '1.2',
-                                            fontSize: {
-                                                xs: '10px', // Font size for extra small screens
-                                                sm: '12px', // Font size for small screens
-                                                md: '20px', // Font size for medium screens
-                                                lg: '28px', // Font size for large screens
-                                            },
-                                            fontWeight: 300,
-                                            textAlign: 'start',
-                                        }}
-                                    >
-                                        We take immense pride in collaborating with our clients to turn their design dreams into reality. Explore our extensive gallery showcasing a variety of projects, from modern kitchen renovations to captivating outdoor living spaces. Let these success stories inspire your stone design journey.
-                                        To make your exploration more realistic, visit our showroom and view captivating displays of different natural stones.
-                                    </Typography>
-                                </Box>
-                            </Box>
-                        </Box>}
+                          </Box>
+                        </Box>
+                  
+                        <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom: '50px' }}>
+                          <Box className="flex w-full h-1/2"></Box>
+                          <Box className="flex w-full flex-col h-1/2 justify-center items-center">
+                            <Typography
+                              variant="h4"
+                              color="white"
+                              sx={{
+                                fontFamily: 'var(--font-montserrat)',
+                                lineHeight: '1.2',
+                                fontSize: {
+                                  xs: '10px',
+                                  sm: '12px',
+                                  md: '20px',
+                                  lg: '28px',
+                                },
+                                fontWeight: 300,
+                                textAlign: 'start',
+                              }}
+                            >
+                              We take immense pride in collaborating with our clients to turn their design dreams into reality. Explore our extensive gallery showcasing a variety of projects, from modern kitchen renovations to captivating outdoor living spaces. Let these success stories inspire your stone design journey.
+                              To make your exploration more realistic, visit our showroom and view captivating displays of different natural stones.
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Box>}
 
 
 

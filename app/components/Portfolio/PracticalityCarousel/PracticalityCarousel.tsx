@@ -21,7 +21,6 @@ import TouchCarousel from "./CarouselPart";
 
 const carouselOptions = {
     loop: true,
-    skipSnaps: true,
   };
 
 const PracticalityCarousel: React.FC = () => {
