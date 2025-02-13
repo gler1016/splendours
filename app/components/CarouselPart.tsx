@@ -17,19 +17,19 @@ const CarouselPart = ({
     // State and Ref initialization
     const [currentImg, setCurrentImg] = useState(0)
     const [carouselSize, setCarouselSize] = useState({ width: 0, height: 0 })
-    const [isTransitioning, setIsTransitioning] = useState(false)
+    // const [isTransitioning, setIsTransitioning] = useState(false)
     const carouselRef = useRef(null)
     const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null)
 
     // Function to move to next slide
     const nextSlide = useCallback(() => {
-        setIsTransitioning(true)
+        // setIsTransitioning(true)
         setCurrentImg((prev) => (prev === data.length - 1 ? 0 : prev + 1))
     }, [data.length])
 
     // Function to move to previous slide
     const prevSlide = useCallback(() => {
-        setIsTransitioning(true)
+        // setIsTransitioning(true)
         setCurrentImg((prev) => (prev === 0 ? data.length - 1 : prev - 1))
     }, [data.length])
 
@@ -54,7 +54,7 @@ const CarouselPart = ({
 
     // Transition complete handler
     const handleTransitionEnd = () => {
-        setIsTransitioning(false)
+        // setIsTransitioning(false)
     }
 
     // useEffect to get the initial carousel size

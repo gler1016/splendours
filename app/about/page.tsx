@@ -1,7 +1,7 @@
 // app/about/page.tsx
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Box, Typography } from '@mui/material';
@@ -31,12 +31,12 @@ const AboutPage = () => {
     const [isSwapped, setIsSwapped] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  const bimages = [
+  const bimages = useMemo(() => [
     "/images/About/Gallery/background.jpg",
     "/images/About/Living/image1.jpg",  // Add your additional images
     "/images/About/Living/image2.jpg",  // Add your additional images
     "/images/About/Products/product2.jpg"
-  ];
+  ], []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,7 +44,7 @@ const AboutPage = () => {
     }, 3000); // Change image every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [bimages]);
 
     const images = {
         firstBox: [
@@ -223,7 +223,7 @@ const AboutPage = () => {
                                 </Box>
                             </Box>
                             <Box className="flex flex-col w-1/4 gap-y-4">
-                                {images.firstBox.map((image, index) => (
+                                {images.firstBox.map((image) => (
                                 <motion.div
                                     key={image.src}
                                     animate={{
@@ -252,7 +252,7 @@ const AboutPage = () => {
                             </Box>
 
                             <Box className="flex flex-col w-1/4 gap-y-4">
-                                {images.secondBox.map((image, index) => (
+                                {images.secondBox.map((image) => (
                                 <motion.div
                                     key={image.src}
                                     animate={{

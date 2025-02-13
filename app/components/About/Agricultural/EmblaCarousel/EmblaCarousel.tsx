@@ -7,6 +7,7 @@ import {
 import useEmblaCarousel from 'embla-carousel-react';
 
 import data from './EmblaData.json'; // Import the JSON file
+import Image from 'next/image';
 
 const TWEEN_FACTOR_BASE = 0.2;
 
@@ -84,7 +85,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       .on('reInit', tweenParallax)
       .on('scroll', tweenParallax)
       .on('slideFocus', tweenParallax);
-  }, [emblaApi, tweenParallax]);
+  }, [emblaApi, tweenParallax, setTweenFactor, setTweenNodes]);
 
   return (
     <div className="embla_agri">
@@ -94,7 +95,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={index}>
               <div className="embla__parallax_agri">
                 <div className="embla__parallax__layer">
-                  <img
+                  <Image
                     className="embla__slide__img_agri embla__parallax__img_agri"
                     src={item.imageUrl} // Use the imageUrl from data.json
                     alt={`Slide ${index + 1}`}

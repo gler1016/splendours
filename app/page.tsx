@@ -87,14 +87,14 @@ const HomePage = () => {
     const [successAlert, setSuccessAlert] = useState(false);
 
     const [errorAlert, setErrorAlert] = useState(false);
-    const [highlighted, setHighlighted] = useState(0);
+    // const [highlighted, setHighlighted] = useState(0);
 
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setHighlighted((prev) => (prev + 1) % 3);
-      }, 1500);
-      return () => clearInterval(interval);
-    }, []);
+    // useEffect(() => {
+    //   const interval = setInterval(() => {
+    //     setHighlighted((prev) => (prev + 1) % 3);
+    //   }, 1500);
+    //   return () => clearInterval(interval);
+    // }, []);
 
     const [activeIndex, setActiveIndex] = useState(1);
 
@@ -133,7 +133,7 @@ const HomePage = () => {
         }, 3000); // Change text every 3 seconds
     
         return () => clearInterval(interval);
-      }, []);
+      }, [texts.length]);
 
     const handleToggle = () => {
         setShowFullText(!showFullText);

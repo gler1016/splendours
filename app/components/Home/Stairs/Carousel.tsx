@@ -9,9 +9,9 @@ interface Image {
     src: string;
   }
   
-  interface Props {
-    images: Image[];
-  }
+//   interface Props {
+//     images: Image[];
+//   }
 
 interface ImageCarouselProps {
     images: { src: string; alt: string; product_name: string }[];
@@ -66,7 +66,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <img
+          <Image
             src={image.src}
             alt="carousel"
             className="object-cover w-[300px] mt-[-150px] mx-auto"

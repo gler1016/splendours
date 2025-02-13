@@ -2,7 +2,7 @@
 "use client"
 // app/about/page.tsx
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import Header from '../components/Header';
@@ -11,8 +11,6 @@ import './embla.css'
 
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
 
 
 import FullCustomGreenDivider from '../components/Divider/FullCustomGreenDivider';
@@ -38,13 +36,13 @@ import OverlappingImageSlider2 from '../components/Portfolio/InspirationCarousel
 
 const PortfolioPage = () => {
    
-    const images = [
-        "/images/Portfolio/mission.png",
-        "/images/Portfolio/practicality/image1.jpg",
-        "/images/Portfolio/practicality/image2.jpg",
-        "/images/Portfolio/practicality/image3.jpg",
+    // const images = [
+    //     "/images/Portfolio/mission.png",
+    //     "/images/Portfolio/practicality/image1.jpg",
+    //     "/images/Portfolio/practicality/image2.jpg",
+    //     "/images/Portfolio/practicality/image3.jpg",
 
-      ];
+    //   ];
 
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -54,14 +52,14 @@ const PortfolioPage = () => {
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
 
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    const [emblaRef, emblaApi] = useEmblaCarousel({ 
-      loop: true,
-      align: 'start',
-      skipSnaps: false,
-      dragFree: false,
-      duration: 2
-    });
+    // const [selectedIndex, setSelectedIndex] = useState(0);
+    // const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    //   loop: true,
+    //   align: 'start',
+    //   skipSnaps: false,
+    //   dragFree: false,
+    //   duration: 2
+    // });
     
       const slides = [
           "/images/Portfolio/Inspiration/CarouselImages/image1.png",
@@ -71,31 +69,31 @@ const PortfolioPage = () => {
           "/images/Portfolio/Inspiration/CarouselImages/image5.png",
       ];
 
-      const getSlideDirection = (currentIndex: number): number => {
-        return currentIndex === 4 ? -1 : 1; // Reverse for last slide
-      };
+    //   const getSlideDirection = (currentIndex: number): number => {
+    //     return currentIndex === 4 ? -1 : 1; // Reverse for last slide
+    //   };
 
-      useEffect(() => {
-        if (!emblaApi) return;
+    //   useEffect(() => {
+    //     if (!emblaApi) return;
     
-        emblaApi.on('select', () => {
-          setSelectedIndex(emblaApi.selectedScrollSnap());
-        });
-      }, [emblaApi]);
+    //     emblaApi.on('select', () => {
+    //       setSelectedIndex(emblaApi.selectedScrollSnap());
+    //     });
+    //   }, [emblaApi]);
     
-      const autoplay = useCallback(() => {
-        if (!emblaApi) return;
+    //   const autoplay = useCallback(() => {
+    //     if (!emblaApi) return;
         
-        const intervalId = setInterval(() => {
-          emblaApi.scrollNext();
-        }, 3000); 
+    //     const intervalId = setInterval(() => {
+    //       emblaApi.scrollNext();
+    //     }, 3000); 
         
-        return () => clearInterval(intervalId);
-      }, [emblaApi]);
+    //     return () => clearInterval(intervalId);
+    //   }, [emblaApi]);
     
-      useEffect(() => {
-        autoplay();
-      }, [autoplay]);
+    //   useEffect(() => {
+    //     autoplay();
+    //   }, [autoplay]);
 
     return (
         <>

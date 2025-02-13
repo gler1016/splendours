@@ -7,6 +7,7 @@ import styles from './Carousel.module.css';
 import { Box, Typography } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import Image from 'next/image';
 
 type CarouselProps = {
   items: { imageUrl: string; alt: string, name1: string, name2: string, content: string }[];
@@ -116,7 +117,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
                 }}
               >
                 {/* Image */}
-                <img
+                <Image
                   className={styles.emblaSlideImg}
                   src={item.imageUrl}
                   alt={item.alt}

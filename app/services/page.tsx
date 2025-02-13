@@ -7,8 +7,8 @@ import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Box, Typography, Rating, useTheme } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Box, Typography, Rating } from '@mui/material';
+// import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { EmblaOptionsType } from 'embla-carousel'
 import FullCustomYellowDivider from '../components/Divider/FullCustomYellowDivider';
@@ -47,38 +47,38 @@ const ServicesPage = () => {
     // Mobile view (max-width 768px)
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
-    const [currentSetIndex, setCurrentSetIndex] = useState(0);
+    // const [currentSetIndex, setCurrentSetIndex] = useState(0);
     const [currentSetIndexDeskTop, setCurrentSetIndexDeskTop] = useState(0);
 
-    const [images, setImages] = useState([
-        { id: 1, url: '/images/Service/advertisement/main1.png', position: 'large', transitioning: false },
-        { id: 2, url: '/images/Service/advertisement/main2.png', position: 'small-right', transitioning: false },
-        { id: 3, url: '/images/Service/advertisement/main3.png', position: 'small-left', transitioning: false }
-      ]);
+    // const [images, setImages] = useState([
+    //     { id: 1, url: '/images/Service/advertisement/main1.png', position: 'large', transitioning: false },
+    //     { id: 2, url: '/images/Service/advertisement/main2.png', position: 'small-right', transitioning: false },
+    //     { id: 3, url: '/images/Service/advertisement/main3.png', position: 'small-left', transitioning: false }
+    //   ]);
     
-      useEffect(() => {
-        const interval = setInterval(() => {
-          setImages(prevImages => {
-            // First mark all images as transitioning
-            const transitioning = prevImages.map(img => ({ ...img, transitioning: true }));
+    //   useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       setImages(prevImages => {
+    //         // First mark all images as transitioning
+    //         const transitioning = prevImages.map(img => ({ ...img, transitioning: true }));
             
-            // After marking transition, rotate positions
-            return transitioning.map((img, i) => {
-              const positions = ['large', 'small-right', 'small-left'];
-              const currentIndex = positions.indexOf(img.position);
-              const nextIndex = (currentIndex + 1) % positions.length;
-              return { ...img, position: positions[nextIndex] };
-            });
-          });
+    //         // After marking transition, rotate positions
+    //         return transitioning.map((img, i) => {
+    //           const positions = ['large', 'small-right', 'small-left'];
+    //           const currentIndex = positions.indexOf(img.position);
+    //           const nextIndex = (currentIndex + 1) % positions.length;
+    //           return { ...img, position: positions[nextIndex] };
+    //         });
+    //       });
     
-          // Reset transitioning flag after animation completes
-          setTimeout(() => {
-            setImages(prev => prev.map(img => ({ ...img, transitioning: false })));
-          }, 500);
-        }, 3000);
+    //       // Reset transitioning flag after animation completes
+    //       setTimeout(() => {
+    //         setImages(prev => prev.map(img => ({ ...img, transitioning: false })));
+    //       }, 500);
+    //     }, 3000);
     
-        return () => clearInterval(interval);
-      }, []);
+    //     return () => clearInterval(interval);
+    //   }, []);
 
     const [value] = React.useState<number | null>(5);
     // State management for the EnquiryForm modal
@@ -86,18 +86,18 @@ const ServicesPage = () => {
     const handleOpenEnquiryForm = () => setIsEnquiryFormOpen(true);
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
     const [isResizing, setIsResizing] = useState(false);
-    const [isResizingDeskTop, setIsResizingDeskTop] = useState(false);
+    // const [isResizingDeskTop, setIsResizingDeskTop] = useState(false);
 
 
     useEffect(() => {
         const interval = setInterval(() => {
             setIsResizing(true); // Trigger resizing effect
-            setIsResizingDeskTop(true); // Trigger resizing effect
+            // setIsResizingDeskTop(true); // Trigger resizing effect
             setTimeout(() => {
-                setCurrentSetIndex((prevIndex) => (prevIndex + 1) % imageSets.length);
+                // setCurrentSetIndex((prevIndex) => (prevIndex + 1) % imageSets.length);
                 setCurrentSetIndexDeskTop((prevIndex) => (prevIndex + 1) % imageSetsDeskTop.length);
                 setIsResizing(false); // Reset resizing after image update
-                setIsResizingDeskTop(false); // Reset resizing after image update
+                // setIsResizingDeskTop(false); // Reset resizing after image update
             }, 500); // Match transition duration
         }, 3000);
 

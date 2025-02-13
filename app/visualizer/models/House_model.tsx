@@ -147,7 +147,7 @@ const House = ({
         cameraPosition: [0, 0.4, zoomStatus ? 1.5 : 0.8]
       }));
     }
-  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus]);
+  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus, colorTexture, textures.normal]);
 
   useEffect(() => {
     if (isMobile) {

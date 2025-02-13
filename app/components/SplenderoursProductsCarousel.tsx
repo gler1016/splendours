@@ -17,6 +17,7 @@ interface Resource {
 import data from "./SplenderoursProductsData.json";
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import Image from "next/image";
 
 // Carousel Component
 const SplenderoursProductsCarousel: React.FC = () => {
@@ -159,7 +160,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                 className="z-0 block w-full h-full bg-left-top bg-no-repeat bg-cover aspect-square bg-origin-padding rounded-2xl"
                                 style={{ backgroundImage: `url(${resource.imageUrl || ""})` }}
                             >
-                                <img
+                                <Image
                                     src={resource.imageUrl || ""}
                                     alt={resource.product_name}
                                     className="hidden w-full aspect-square rounded-2xl"
@@ -214,10 +215,10 @@ const SplenderoursProductsCarousel: React.FC = () => {
 
                                 <Box className="flex flex-col justify-start w-full gap-y-2" style={{ padding: "20px" }}>
                                     <Box className="w-1/3">
-                                        <img
+                                        <Image
                                             src={resource.subImageUrl || ""}
                                             alt={resource.product_subname}>
-                                        </img>
+                                        </Image>
                                     </Box>
                                     {/* <Image
                                         src={resource.subImageUrl || ""}

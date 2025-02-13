@@ -24,7 +24,7 @@ const OverlappingImageSlider2: React.FC<OverlappingImageSliderProps> = ({
     }, 2000); // Change image every 3 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   // Determine slide direction based on current index
   const getSlideDirection = (currentIndex: number): number => {

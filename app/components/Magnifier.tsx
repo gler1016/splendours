@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useRef, MouseEvent } from 'react';
 
 interface MagnifierProps {
@@ -55,7 +56,7 @@ const Magnifier: React.FC<MagnifierProps> = ({
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            <img
+            <Image
                 ref={imgRef}
                 src={src}
                 alt={alt}

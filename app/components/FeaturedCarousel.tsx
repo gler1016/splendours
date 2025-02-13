@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Box, useTheme } from '@mui/material';
+import React, { useCallback, useState } from 'react';
+import { Box } from '@mui/material';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 type PositionStyle = {
   width: string;
@@ -15,7 +16,7 @@ type PositionStyle = {
 );
 
 const FeaturedCarousel = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
   
   const images = [
@@ -30,14 +31,14 @@ const FeaturedCarousel = () => {
     "/images/Service/advertisement/image2_3.png"
   ];
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+  }, [images.length]);
 
   React.useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [nextSlide]);
 
   const getPositionStyles = (position: 'top' | 'bottomLeft' | 'bottomRight'): PositionStyle => {
     const baseStyles = {
@@ -126,7 +127,7 @@ const FeaturedCarousel = () => {
           transition={{ duration: 0.8, ease: 'easeInOut' }}
           onClick={nextSlide}
         >
-          <img
+          <Image
             src={images[indices.top]}
             alt="Top"
             style={{
@@ -146,7 +147,7 @@ const FeaturedCarousel = () => {
           exit="exit"
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          <img
+          <Image
             src={images[indices.bottomLeft]}
             alt="Bottom Left"
             style={{
@@ -166,7 +167,7 @@ const FeaturedCarousel = () => {
           exit="exit"
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          <img
+          <Image
             src={images[indices.bottomRight]}
             alt="Bottom Right"
             style={{

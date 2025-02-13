@@ -23,6 +23,7 @@ import ProductCarousel from "../../ProductCarousel";
 import PhaseCarousel from "../../PhaseCarousel";
 import CalendarControl from "../../CalendarControl";
 import MonthYearPicker from "./MonthCalendar";
+import Image from "next/image";
 
 const Booking: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -747,7 +748,7 @@ const Booking: React.FC = () => {
                                     onClick={handleOpenDialog}
                                 >
                                     Book
-                                    <img src="/images/icons/Vector.svg" alt="Book" />
+                                    <Image src="/images/icons/Vector.svg" alt="Book" />
                                 </button>
                             </Box>
 
@@ -776,7 +777,7 @@ const Booking: React.FC = () => {
                                 >
 
                                     Video Call
-                                    <img src="/images/icons/VideoCall.svg" alt="Video Call" />
+                                    <Image src="/images/icons/VideoCall.svg" alt="Video Call" />
                                 </button>
 
                                 <button
@@ -794,7 +795,7 @@ const Booking: React.FC = () => {
                                     className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
                                     onClick={handleOpenDialog_Call}
                                 >   Call
-                                    <img src="/images/icons/Call.svg" alt="Call" />
+                                    <Image src="/images/icons/Call.svg" alt="Call" />
 
                                 </button>
 
@@ -813,7 +814,7 @@ const Booking: React.FC = () => {
                                     className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
                                     onClick={handleOpenDialog_Email}
                                 > Email
-                                    <img src="/images/icons/Email.svg" alt="Email" />
+                                    <Image src="/images/icons/Email.svg" alt="Email" />
 
                                 </button>
                             </Box>
