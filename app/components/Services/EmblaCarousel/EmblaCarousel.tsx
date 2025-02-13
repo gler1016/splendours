@@ -24,7 +24,7 @@ type PropType = {
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: true, delay: 3000 })
+    Autoplay({ playOnInit: true, delay: 2000 })
   ])
   const [slidesInView, setSlidesInView] = useState<number[]>([])
 

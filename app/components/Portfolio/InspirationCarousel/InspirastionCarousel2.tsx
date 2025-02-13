@@ -6,25 +6,22 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface OverlappingImageSliderProps {
   className?: string;
+  images: string[];
+  scaleEffect: boolean;
 }
 
-const images: string[] = [
-  "/images/Portfolio/Inspiration/Mobile/background-mobile-image1.png",
-  "/images/Portfolio/Inspiration/Mobile/background-mobile-image2.png",
-  "/images/Portfolio/Inspiration/Mobile/background-mobile-image3.png",
-  "/images/Portfolio/Inspiration/Mobile/background-mobile-image4.png",
-  "/images/Portfolio/Inspiration/Mobile/background-mobile-image5.png",
-];
 
-const OverlappingImageSlider: React.FC<OverlappingImageSliderProps> = ({ 
-  className = "" 
+const OverlappingImageSlider2: React.FC<OverlappingImageSliderProps> = ({ 
+  className = "",
+  images,
+  scaleEffect 
 }) => {
   const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
+    }, 2000); // Change image every 3 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -46,15 +43,15 @@ const OverlappingImageSlider: React.FC<OverlappingImageSliderProps> = ({
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         exit={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        transition={{ duration: 0.8, ease: "easeIn" }}
         className="absolute w-full h-full object-cover rounded-2xl"
       >
         <Image
           src={images[index]}
           alt={`Slider image ${index + 1}`}
-          width={360}
-          height={518}
-          className="rounded-2xl object-cover"
+          width={1024}
+          height={588}
+          className="rounded-2xl object-cover w-full h-full"
           priority={index === 0}
         />
       </motion.div>
@@ -63,10 +60,10 @@ const OverlappingImageSlider: React.FC<OverlappingImageSliderProps> = ({
         {/* New Image Sliding In */}
         <motion.div
           key={`foreground-${index}`}
-          initial={{ x: `${getSlideDirection(index) * 100}%` }}
-          animate={{ x: "0%" }}
+          initial={scaleEffect ? { x: `${getSlideDirection(index) * 100}%`, opacity: 0, scale: 0  } : { x: `${getSlideDirection(index) * 100}%` } }
+          animate={scaleEffect ? { x: "0%", opacity: 1, scale: 1 } : { x: "0%" } }
           exit={{ opacity: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition={{ duration: 0.8, ease: "easeIn" }}
           className="absolute w-full h-full"
         >
           <Image
@@ -74,7 +71,7 @@ const OverlappingImageSlider: React.FC<OverlappingImageSliderProps> = ({
             alt={`Slider image ${((index + 1) % images.length) + 1}`}
             width={360}
             height={518}
-            className="rounded-2xl object-cover"
+            className="rounded-2xl object-cover w-full h-full "
           />
         </motion.div>
       </AnimatePresence>
@@ -82,4 +79,4 @@ const OverlappingImageSlider: React.FC<OverlappingImageSliderProps> = ({
   );
 };
 
-export default OverlappingImageSlider;
+export default OverlappingImageSlider2;

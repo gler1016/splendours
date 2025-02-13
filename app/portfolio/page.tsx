@@ -31,6 +31,7 @@ import JourneyCarousel from '../components/Portfolio/JourneyCarousel/JourneyCaro
 import EnquiryForm from '../components/EnquireFormModal';
 import GreenCustomButton from '../components/GreenCustomButton';
 import OverlappingImageSlider from '../components/Portfolio/InspirationCarousel/InspirationCarousel';
+import OverlappingImageSlider2 from '../components/Portfolio/InspirationCarousel/InspirastionCarousel2';
 
 
 
@@ -69,6 +70,10 @@ const PortfolioPage = () => {
           "/images/Portfolio/Inspiration/CarouselImages/image4.png",
           "/images/Portfolio/Inspiration/CarouselImages/image5.png",
       ];
+
+      const getSlideDirection = (currentIndex: number): number => {
+        return currentIndex === 4 ? -1 : 1; // Reverse for last slide
+      };
 
       useEffect(() => {
         if (!emblaApi) return;
@@ -524,8 +529,8 @@ const PortfolioPage = () => {
                                 overflow: 'hidden',
                                 position: 'relative',
                                 width: '100%'
-                                }} ref={emblaRef}>
-                                <Box sx={{ 
+                                }}>
+                                {/* <Box sx={{ 
                                     display: 'flex',
                                     transition: 'transform 800ms cubic-bezier(0.4, 0, 0.2, 1)'
                                 }}>
@@ -560,8 +565,9 @@ const PortfolioPage = () => {
                                         }}
                                     />
                                     ))}
-                                </Box>
-                                </Box>
+                                </Box> */}
+                                <OverlappingImageSlider2 images={slides} className='w-full' scaleEffect={true} />
+                            </Box>
                         </Box>}
 
                     <CustomPartDivider />
