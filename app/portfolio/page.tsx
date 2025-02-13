@@ -560,7 +560,7 @@ const PortfolioPage = () => {
                                             transform: 'translateX(100%)',
                                             opacity: 0,
                                         }
-                                        }}
+                                        }}  
                                     />
                                     ))}
                                 </Box> */}

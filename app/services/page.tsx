@@ -448,7 +448,7 @@ const ServicesPage = () => {
                             backgroundImage: 'url(images/Service/products/background.jpg)', // Add your image path here
                             backgroundSize: 'cover', // Ensures the background image covers the entire area
                             backgroundPosition: 'center', // Centers the background image
-                            backgroundRepeat: 'no-repeat', // Prevents repeating the background image
+                            backgroundRepeat: 'no-repeat', // Prevents repeating th e background  image
                         }}
                     ><Box className="flex w-full justify-between items-end">
                             <Box className="flex w-1/3">

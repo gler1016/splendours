@@ -586,7 +586,7 @@ const HomePage = () => {
                                 }}
                             >
                                 We believe that in a new age world filled with gadgets, noise, and pace that a moment to stop, reflect and
-                                connect with something pure
+                                connect with something pure  
                             </Typography>
                             <Box>
                                 <Link href={'/allvisualizers'}>
