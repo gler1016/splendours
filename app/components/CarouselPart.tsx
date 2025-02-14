@@ -1,5 +1,5 @@
 'use client'
-import Image from 'next/image'
+// import Image from 'next/image'
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -92,10 +92,9 @@ const CarouselPart = ({
                                 ${currentImg === i ? 'opacity-100' : 'opacity-0'}
                             `}
                         >
-                            <Image
+                            <img
                                 className="pointer-events-none rounded-lg object-cover"
                                 alt={`carousel-image-${i}`}
-                                fill
                                 src={v.image || '/images/carousel_interactive_part/card1.png'}
                                 style={{
                                     transition: 'opacity 0.5s ease-in-out',

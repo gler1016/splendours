@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Box } from '@mui/material';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 type PositionStyle = {
   width: string;
@@ -127,7 +127,7 @@ const FeaturedCarousel = () => {
           transition={{ duration: 0.8, ease: 'easeInOut' }}
           onClick={nextSlide}
         >
-          <Image
+          <img
             src={images[indices.top]}
             alt="Top"
             style={{
@@ -147,7 +147,7 @@ const FeaturedCarousel = () => {
           exit="exit"
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          <Image
+          <img
             src={images[indices.bottomLeft]}
             alt="Bottom Left"
             style={{
@@ -167,7 +167,7 @@ const FeaturedCarousel = () => {
           exit="exit"
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          <Image
+          <img
             src={images[indices.bottomRight]}
             alt="Bottom Right"
             style={{

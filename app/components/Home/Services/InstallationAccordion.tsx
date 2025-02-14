@@ -10,7 +10,6 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import FullCustomBrownDivider from '../../Divider/FullCustomBrownDivider';
 
-import Image from 'next/image';
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -128,7 +127,7 @@ export default function InstallationAccordion() {
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/4 justify-end items-start">
-                                <Image
+                                <img
                                     src="/images/Home/Services/TopRightVector.svg"
                                     alt="Plus"
                                     width={40}
@@ -139,7 +138,7 @@ export default function InstallationAccordion() {
                         </Box>
                         <FullCustomBrownDivider />
                         <Box className="flex w-full">
-                            <Image
+                            <img
                                 src="/images/Service/journey/Mobile/installation.png"
                                 alt="Plus"
                                 width={356}

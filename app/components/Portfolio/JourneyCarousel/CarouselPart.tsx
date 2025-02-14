@@ -4,7 +4,7 @@ import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { EmblaOptionsType } from 'embla-carousel';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 type CarouselProps = {
   items: { imageUrl: string; alt: string }[];
@@ -33,7 +33,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
         <div className="embla__container_journey">
           {items.map((item, index) => (
             <div className="embla__slide_journey" key={index}>
-              <Image
+              <img
                 className="embla__slide__img_journey"
                 src={item.imageUrl}
                 alt={item.alt}

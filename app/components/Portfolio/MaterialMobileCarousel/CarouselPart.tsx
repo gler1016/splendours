@@ -5,7 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { EmblaOptionsType } from 'embla-carousel';
 import styles from './Carousel.module.css';
 import { Typography } from '@mui/material';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 type CarouselProps = {
   items: { imageUrl: string; alt: string, name: string }[];
@@ -50,7 +50,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
               >
                 {item.name}
               </Typography>
-              <Image
+              <img
                 className={styles.emblaSlideImg}
                 src={item.imageUrl}
                 alt={item.alt}

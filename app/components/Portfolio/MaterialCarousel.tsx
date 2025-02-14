@@ -12,7 +12,7 @@ interface Resource {
 
 // Import data (assuming it's a TypeScript module)
 import data from "./MaterialData.json";
-import Image from "next/image";
+// import Image from "next/image";
 
 // Carousel Component
 const MaterialCarousel: React.FC = () => {
@@ -134,7 +134,7 @@ const MaterialCarousel: React.FC = () => {
                                 className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0 rounded-2xl"
                                 style={{ backgroundImage: `url(${resource.imageUrl || ""})` }}
                             >
-                                <Image
+                                <img
                                     src={resource.imageUrl || ""}
                                     alt={resource.product_name}
                                     className="w-full aspect-square hidden rounded-2xl"

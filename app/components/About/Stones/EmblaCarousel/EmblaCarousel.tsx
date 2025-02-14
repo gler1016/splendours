@@ -5,7 +5,7 @@ import {
 import useEmblaCarousel from 'embla-carousel-react';
 
 import data from './EmblaData.json'; // Import the JSON file
-import Image from 'next/image';
+// import Image from 'next/image';
 
 
 type PropType = {
@@ -28,7 +28,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide_stone" key={index}>
               <div className="embla__parallax_stone">
                 <div className="embla__parallax__layer_stone">
-                  <Image
+                  <img
                     // className="w-min-[40vw]"
                     src={item.imageUrl} // Use the imageUrl from data.json
                     alt={`Slide ${index + 1}`}
