@@ -60,7 +60,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport" ref={emblaRed}>
         <div className="embla__container">
           {data.resources.filter((resource: Resource) => resource.imageUrl).map((resource: Resource, index: number) => (
-            <Link href={`${resource.link}`}
+            <Link key={index} href={`${resource.link}`}
               className='w-full h-full'
             >
               <div className="h-full">
