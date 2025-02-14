@@ -1,10 +1,10 @@
 {
     "resources": [
-      { "imageUrl": "/images/Home/WallingRange/product1.jpg", "name": "CHARLOTTE" },
-      { "imageUrl": "/images/Home/WallingRange/product2.jpg", "name": "JAMIESON" },
-      { "imageUrl": "/images/Home/WallingRange/product3.jpg", "name": "BUFFALO" },
-      { "imageUrl": "/images/Home/WallingRange/product4.jpg", "name": "BELOKA" },
-      { "imageUrl": "/images/Home/WallingRange/product5.jpg", "name": "SHOREHAM" },
-      { "imageUrl": "/images/Home/WallingRange/product6.jpg", "name": "BEACHPORT" }
+      { "imageUrl": "/images/Home/WallingRange/product1.jpg", "name": "CHARLOTTE", "link": "https://www.splendourinstone.com.au/product/charlotte/" },
+      { "imageUrl": "/images/Home/WallingRange/product2.jpg", "name": "JAMIESON", "link": "https://www.splendourinstone.com.au/product/jamieson/" },
+      { "imageUrl": "/images/Home/WallingRange/product3.jpg", "name": "BUFFALO", "link": "https://www.splendourinstone.com.au/product/buffalo/" },
+      { "imageUrl": "/images/Home/WallingRange/product4.jpg", "name": "BELOKA", "link": "https://www.splendourinstone.com.au/product/beloka/" },
+      { "imageUrl": "/images/Home/WallingRange/product5.jpg", "name": "SHOREHAM", "link": "https://www.splendourinstone.com.au/product/shoreham/" },
+      { "imageUrl": "/images/Home/WallingRange/product6.jpg", "name": "BEACHPORT", "link": "https://www.splendourinstone.com.au/product/beachport/" }
     ]
   }

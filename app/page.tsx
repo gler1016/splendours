@@ -231,7 +231,7 @@ const HomePage = () => {
                                 initial={{ opacity: item.initialOpacity }}
                                 animate={{ 
                                 opacity: index === activeIndex ? 1 : 0.15,
-                                transition: { duration: 0.6 }
+                                transition: { duration: 0.3 }
                                 }}
                                 style={{ width: '100%' }}
                             >
@@ -358,14 +358,26 @@ const HomePage = () => {
                     </Box>
 
                     <Box className="flex justify-between gap-7 w-full mt-10 flex-wrap">
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product1.png" product_subname="CHARLOTTE" />
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product2.png" product_subname="JAMIESON" />
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product3.png" product_subname="BUFFALO" />
+                        <Link href={`https://www.splendourinstone.com.au/product/charlotte/`} className="w-full h-full">
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product1.png" product_subname="CHARLOTTE" />
+                        </Link>
+                        <Link href={`https://www.splendourinstone.com.au/product/jamieson/`} className="w-full h-full">
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product2.png" product_subname="JAMIESON" />
+                        </Link>
+                        <Link href={`https://www.splendourinstone.com.au/product/buffalo/`} className="w-full h-full">
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product3.png" product_subname="BUFFALO" />
+                        </Link>    
                     </Box>
                     <Box className="flex justify-between gap-7 w-full mt-6 flex-wrap">
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product4.png" product_subname="BELOKA" />
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product5.png" product_subname="SHOREHAM" />
-                        <CustomWallCard product_image_src="images/Home/WallingRange/product6.png" product_subname="BEACHPORT" />
+                        <Link href={`https://www.splendourinstone.com.au/product/beloka/`} className="w-full h-full">
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product4.png" product_subname="BELOKA" />
+                        </Link>
+                        <Link href={`https://www.splendourinstone.com.au/product/shoreham/`} className="w-full h-full">
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product5.png" product_subname="SHOREHAM" />
+                        </Link>
+                        <Link href={`https://www.splendourinstone.com.au/product/beachport/`} className="w-full h-full">
+                            <CustomWallCard product_image_src="images/Home/WallingRange/product6.png" product_subname="BEACHPORT" />
+                        </Link>
                     </Box>
                 </Box>
             ) : (
@@ -431,14 +443,26 @@ const HomePage = () => {
 
                     <Box className="flex flex-col w-full gap-y-7">
                         <Box className="flex justify-between w-full gap-7">
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product1.png" product_subname="CHARLOTTE" />
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product2.png" product_subname="JAMIESON" />
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product3.png" product_subname="BUFFALO" />
+                            <Link href={`https://www.splendourinstone.com.au/product/charlotte/`} className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/WallingRange/product1.png" product_subname="CHARLOTTE" />
+                            </Link>
+                            <Link href={`https://www.splendourinstone.com.au/product/jamieson/`} className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/WallingRange/product2.png" product_subname="JAMIESON" />
+                            </Link>
+                            <Link href={`https://www.splendourinstone.com.au/product/buffalo/`} className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/WallingRange/product3.png" product_subname="BUFFALO" />
+                            </Link>  
                         </Box>
                         <Box className="flex justify-between w-full gap-7">
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product4.png" product_subname="BELOKA" />
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product5.png" product_subname="SHOREHAM" />
-                            <CustomWallCard product_image_src="images/Home/WallingRange/product6.png" product_subname="BEACHPORT" />
+                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/WallingRange/product4.png" product_subname="BELOKA" />
+                            </Link>
+                            <Link href={`https://www.splendourinstone.com.au/product/shoreham/`} className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/WallingRange/product5.png" product_subname="SHOREHAM" />
+                            </Link>
+                            <Link href={`https://www.splendourinstone.com.au/product/beachport/`} className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/WallingRange/product6.png" product_subname="BEACHPORT" />
+                            </Link>
                         </Box>
                     </Box>
                 </Box>
@@ -808,14 +832,26 @@ const HomePage = () => {
 
                     <Box className="flex flex-col w-full gap-y-7">
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product1.png" product_subname="PORPHYRY" />
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product2.png" product_subname="QUARTZITE" />
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product3.png" product_subname="MARBLE" />
+                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/PavingRange/product1.png" product_subname="PORPHYRY" />
+                            </Link>
+                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/PavingRange/product2.png" product_subname="QUARTZITE" />
+                            </Link>
+                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/PavingRange/product3.png" product_subname="MARBLE" />
+                            </Link>
                         </Box>
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product4.png" product_subname="LIMESTONE" />
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product5.png" product_subname="GRANITE" />
-                            <CustomWallCard product_image_src="images/Home/PavingRange/product6.png" product_subname="BLUESTONE" />
+                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/PavingRange/product4.png" product_subname="LIMESTONE" />
+                            </Link>
+                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/PavingRange/product5.png" product_subname="GRANITE" />
+                            </Link>
+                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                                <CustomWallCard product_image_src="images/Home/PavingRange/product6.png" product_subname="BLUESTONE" />
+                            </Link>    
                         </Box>
                     </Box>
                 </Box>
