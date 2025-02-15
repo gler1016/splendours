@@ -157,7 +157,7 @@ const Retaining_wall = ({
         cameraPosition: [0, 0, zoomStatus ? 1.5 : 3.5]
       }));
     }
-  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus, textures.arm, textures.height, textures.normal]);
+  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus]);
 
   useEffect(() => {
     if (isMobile) {

@@ -10,12 +10,10 @@ import {
 } from './EmblaCarouselArrowButtons'
 
 import data from "./EmblaData.json";
-import Link from 'next/link'
 
 interface Resource {
   imageUrl?: string;
   name?: string;  // Add name property
-  link?: string;
 }
 
 type PropType = {
@@ -60,19 +58,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport" ref={emblaRed}>
         <div className="embla__container">
           {data.resources.filter((resource: Resource) => resource.imageUrl).map((resource: Resource, index: number) => (
-            <Link key={index} href={`${resource.link}`}
-              className='w-full h-full'
-            >
-              <div className="h-full">
-                <LazyLoadImage
-                  key={index}
-                  index={index}
-                  imgSrc={resource.imageUrl!}
-                  name={resource.name || "Unnamed"}  // Pass name or fallback to "Unnamed"
-                  inView={slidesInView.indexOf(index) > -1}
-                />
-              </div> 
-            </Link>
+            <LazyLoadImage
+              key={index}
+              index={index}
+              imgSrc={resource.imageUrl!}
+              name={resource.name || "Unnamed"}  // Pass name or fallback to "Unnamed"
+              inView={slidesInView.indexOf(index) > -1}
+            />
           ))}
         </div>
       </div>

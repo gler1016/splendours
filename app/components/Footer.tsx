@@ -76,7 +76,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/#walling">
+                                    <Link href="https://staging.splendourinstone.com.au/walling/">
                                         <Typography
                                             variant="h4"
                                             color="#283C28"
@@ -103,7 +103,7 @@ const Footer = () => {
 
                             <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
                                 <li>
-                                    <Link href="/#paving">
+                                    <Link href="https://staging.splendourinstone.com.au/paving/">
                                         <Typography
                                             variant="h4"
                                             color="#283C28"
@@ -125,7 +125,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/blog">
+                                    <Link href="https://staging.splendourinstone.com.au/gallery/">
                                         <Typography
                                             variant="h4"
                                             color="#283C28"
@@ -196,7 +196,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/gallery">
+                                    <Link href="https://staging.splendourinstone.com.au/gallery/">
                                         <Typography
                                             variant="h4"
                                             color="#283C28"

@@ -167,8 +167,7 @@ const Shower = ({
       ...prevSet,
       cameraPosition: [0, 0, zoomStatus ? 1.5 : 3.5]
     }));
-  }, [gltf, selectedBaseColor, selectedArm, selectedNormal, selectedHeight, zoomStatus, rotateStatus, colorTexture, defaultArm, defaultBaseColor, defaultHeight, defaultNormal, textures.baseColor
-  ]);
+  }, [gltf, selectedBaseColor, selectedArm, selectedNormal, selectedHeight, zoomStatus, rotateStatus]);
 
   useEffect(() => {
     if (isMobile) {

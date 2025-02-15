@@ -246,7 +246,7 @@ const Header: React.FC = () => {
                         </Link>
                     </Box>
                     <Box className=" text-center">
-                        <Link href="https://www.splendourinstone.com.au/walling/">
+                        <Link href="https://staging.splendourinstone.com.au/walling/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -271,7 +271,7 @@ const Header: React.FC = () => {
                         </Link>
                     </Box>
                     <Box className=" text-center">
-                        <Link href="https://www.splendourinstone.com.au/paving/">
+                        <Link href="https://staging.splendourinstone.com.au/paving/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -485,7 +485,7 @@ const Header: React.FC = () => {
                         </Link>
                     </Box>
                     <Box className=" text-center">
-                        <Link href="https://www.splendourinstone.com.au/walling/">
+                        <Link href="https://staging.splendourinstone.com.au/walling/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -505,7 +505,7 @@ const Header: React.FC = () => {
                         </Link>
                     </Box>
                     <Box className=" text-center">
-                        <Link href="https://www.splendourinstone.com.au/paving/">
+                        <Link href="https://staging.splendourinstone.com.au/paving/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -741,7 +741,7 @@ const Header: React.FC = () => {
                                 HOME
                             </Typography>
                         </Link>
-                        <Link href="https://www.splendourinstone.com.au/walling/">
+                        <Link href="https://staging.splendourinstone.com.au/walling/">
                             <Typography
                                 variant="h3"
                                 color="#DBC6BC"
@@ -761,7 +761,7 @@ const Header: React.FC = () => {
                                 WALLING
                             </Typography>
                         </Link>
-                        <Link href="https://www.splendourinstone.com.au/paving/">
+                        <Link href="https://staging.splendourinstone.com.au/paving/">
                             <Typography
                                 variant="h3"
                                 color="#DBC6BC"
@@ -997,7 +997,7 @@ const Header: React.FC = () => {
                                 Home
                             </Typography>
                         </Link>
-                        <Link href="https://www.splendourinstone.com.au/walling/">
+                        <Link href="https://staging.splendourinstone.com.au/walling/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -1017,7 +1017,7 @@ const Header: React.FC = () => {
                                 Walling
                             </Typography>
                         </Link>
-                        <Link href="https://www.splendourinstone.com.au/paving/">
+                        <Link href="https://staging.splendourinstone.com.au/paving/">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"

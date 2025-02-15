@@ -207,7 +207,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                         }}
                                         className={`icon-button ${hoveredIndex === index ? 'show' : ''}`}
                                     >
-                                         <Link href={`${resource.linkImageUrl}`} passHref>
+                                        <Link href={`${resource.linkImageUrl}`} passHref>
                                             <SearchIcon sx={{ fontSize: '50px', color: 'white' }} />
                                         </Link>
                                     </IconButton>

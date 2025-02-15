@@ -1,6 +1,6 @@
 "use client"
 
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Box, Button, Typography, Snackbar, Alert } from "@mui/material";
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from "next/link";
@@ -32,7 +32,7 @@ import PavingRangeEmblaCarousel from "./components/Home/PavingRange/EmblaCarouse
 import Footer from "./components/Footer";
 import FooterMobile from "./components/FooterMobile";
 import './embla.css';
-    
+
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true }
 const SLIDE_COUNT = 3
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
@@ -100,40 +100,40 @@ const HomePage = () => {
 
     const texts = [
         {
-          text: "SAME DAY QUOTES",
-          color: "white",
-          align: "left",
-          initialOpacity: 0.15
+            text: "SAME DAY QUOTES",
+            color: "white",
+            align: "left",
+            initialOpacity: 0.15
         },
         {
-          text: "STATE OF THE ART SHOWROOM",
-          color: "#DBC6BC",
-          align: "center",
-          initialOpacity: 1
+            text: "STATE OF THE ART SHOWROOM",
+            color: "#DBC6BC",
+            align: "center",
+            initialOpacity: 1
         },
         {
-          text: "SUPPLY & INSTALL PACKAGES",
-          color: "white",
-          align: "right",
-          initialOpacity: 0.15
+            text: "SUPPLY & INSTALL PACKAGES",
+            color: "white",
+            align: "right",
+            initialOpacity: 0.15
         }
     ];
 
     const commonSx = {
-        fontFamily: "Chronicle Display", 
-        fontSize: { xs: '20px', sm: '5vw', lg: '75px' }, 
-        fontWeight: 700, 
+        fontFamily: "Chronicle Display",
+        fontSize: { xs: '20px', sm: '5vw', lg: '75px' },
+        fontWeight: 700,
         lineHeight: 1.1
-      };
-    
+    };
+
 
     useEffect(() => {
         const interval = setInterval(() => {
-          setActiveIndex((prevIndex) => (prevIndex + 1) % texts.length);
+            setActiveIndex((prevIndex) => (prevIndex + 1) % texts.length);
         }, 3000); // Change text every 3 seconds
-    
+
         return () => clearInterval(interval);
-      }, [texts.length]);
+    }, [texts.length]);
 
     const handleToggle = () => {
         setShowFullText(!showFullText);
@@ -223,34 +223,34 @@ const HomePage = () => {
                     <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>THE ART</Typography>
                     <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>SHOWROOM</Typography>
                 </Box> :
-                   <Box className="flex flex-col px-20">
-                        <AnimatePresence>
-                            {texts.map((item, index) => (
+                <Box className="flex flex-col px-20">
+                    <AnimatePresence>
+                        {texts.map((item, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: item.initialOpacity }}
-                                animate={{ 
-                                opacity: index === activeIndex ? 1 : 0.15,
-                                transition: { duration: 0.3 }
+                                animate={{
+                                    opacity: index === activeIndex ? 1 : 0.15,
+                                    transition: { duration: 0.6 }
                                 }}
                                 style={{ width: '100%' }}
                             >
-                                <Typography 
-                                variant="body1" 
-                                color={item.color}
-                                sx={{
-                                    ...commonSx,
-                                    textAlign: item.align,
-                                    opacity: index === activeIndex ? 1 : 0.15
-                                }}
+                                <Typography
+                                    variant="body1"
+                                    color={item.color}
+                                    sx={{
+                                        ...commonSx,
+                                        textAlign: item.align,
+                                        opacity: index === activeIndex ? 1 : 0.15
+                                    }}
                                 >
-                                {item.text}
+                                    {item.text}
                                 </Typography>
                             </motion.div>
-                            ))}
-                        </AnimatePresence>
-                    </Box>    
-                }
+                        ))}
+                    </AnimatePresence>
+                </Box>
+            }
 
             {isMobile ? <ShortCustomBrownDivider /> : <></>}
 
@@ -351,31 +351,31 @@ const HomePage = () => {
                             We believe that in a new age world filled with gadgets, noise and pace that a moment to stop, reflect and connect with something pure
                         </Typography>
                         <Box className="flex justify-center mt-6">
-                            <Link href={'https://www.splendourinstone.com.au/walling/'}>
+                            <Link href={'https://www.splendourinstone.com.au/walling/'} passHref>
                                 <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
                     </Box>
 
                     <Box className="flex justify-between gap-7 w-full mt-10 flex-wrap">
-                        <Link href={`https://www.splendourinstone.com.au/product/charlotte/`} className="w-full h-full">
+                        <Link href={`https://www.splendourinstone.com.au/product/charlotte/`} className="w-full" passHref>
                             <CustomWallCard product_image_src="images/Home/WallingRange/product1.png" product_subname="CHARLOTTE" />
                         </Link>
-                        <Link href={`https://www.splendourinstone.com.au/product/jamieson/`} className="w-full h-full">
+                        <Link href={`https://www.splendourinstone.com.au/product/jamieson/`} className="w-full" passHref>
                             <CustomWallCard product_image_src="images/Home/WallingRange/product2.png" product_subname="JAMIESON" />
                         </Link>
-                        <Link href={`https://www.splendourinstone.com.au/product/buffalo/`} className="w-full h-full">
+                        <Link href={`https://www.splendourinstone.com.au/product/buffalo/ `} className="w-full" passHref>
                             <CustomWallCard product_image_src="images/Home/WallingRange/product3.png" product_subname="BUFFALO" />
-                        </Link>    
+                        </Link>
                     </Box>
                     <Box className="flex justify-between gap-7 w-full mt-6 flex-wrap">
-                        <Link href={`https://www.splendourinstone.com.au/product/beloka/`} className="w-full h-full">
+                        <Link href={`https://www.splendourinstone.com.au/product/beloka/`} className="w-full" passHref>
                             <CustomWallCard product_image_src="images/Home/WallingRange/product4.png" product_subname="BELOKA" />
                         </Link>
-                        <Link href={`https://www.splendourinstone.com.au/product/shoreham/`} className="w-full h-full">
+                        <Link href={`https://www.splendourinstone.com.au/product/shoreham/`} className="w-full" passHref>
                             <CustomWallCard product_image_src="images/Home/WallingRange/product5.png" product_subname="SHOREHAM" />
                         </Link>
-                        <Link href={`https://www.splendourinstone.com.au/product/beachport/`} className="w-full h-full">
+                        <Link href={`https://www.splendourinstone.com.au/product/beachport/`} className="w-full" passHref>
                             <CustomWallCard product_image_src="images/Home/WallingRange/product6.png" product_subname="BEACHPORT" />
                         </Link>
                     </Box>
@@ -434,7 +434,7 @@ const HomePage = () => {
                                 </Typography>
                             </Box>
                             <Box>
-                                <Link href={'/allWallingViews'}>
+                                <Link href={'https://www.splendourinstone.com.au/walling/'} passHref>
                                     <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
                                 </Link>
                             </Box>
@@ -443,24 +443,24 @@ const HomePage = () => {
 
                     <Box className="flex flex-col w-full gap-y-7">
                         <Box className="flex justify-between w-full gap-7">
-                            <Link href={`https://www.splendourinstone.com.au/product/charlotte/`} className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/charlotte/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/WallingRange/product1.png" product_subname="CHARLOTTE" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/jamieson/`} className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/jamieson/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/WallingRange/product2.png" product_subname="JAMIESON" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/buffalo/`} className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/buffalo/ `} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/WallingRange/product3.png" product_subname="BUFFALO" />
-                            </Link>  
+                            </Link>
                         </Box>
                         <Box className="flex justify-between w-full gap-7">
-                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/WallingRange/product4.png" product_subname="BELOKA" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/shoreham/`} className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/shoreham/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/WallingRange/product5.png" product_subname="SHOREHAM" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/beachport/`} className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/beachport/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/WallingRange/product6.png" product_subname="BEACHPORT" />
                             </Link>
                         </Box>
@@ -610,7 +610,7 @@ const HomePage = () => {
                                 }}
                             >
                                 We believe that in a new age world filled with gadgets, noise, and pace that a moment to stop, reflect and
-                                connect with something pure  
+                                connect with something pure
                             </Typography>
                             <Box>
                                 <Link href={'/allvisualizers'}>
@@ -621,12 +621,12 @@ const HomePage = () => {
                     )}
                 </Box>
 
-                {isMobile || isTablet ? 
-                    <StairsCarousel images={images} /> 
-                        : 
+                {isMobile || isTablet ?
+                    <StairsCarousel images={images} />
+                    :
                     <Box className="w-full flex flex-col aspect-[3.77/1] min-w-1 bg-[#DBC6BC] rounded-[40px] p-8 px-12" style={{ marginTop: '230px' }}>
                         <Box className="flex justify-between w-1/4 gap-x-4" >
-                            <CarouselPart data={PARTDATA} /> {/* small carousel */} 
+                            <CarouselPart data={PARTDATA} /> {/* small carousel */}
                             <Box className='flex flex-col h-[100px] justify-around'>
                                 <Typography
                                     variant="h3"
@@ -665,42 +665,42 @@ const HomePage = () => {
                                 </Typography>
                             </Box>
                         </Box>
-                    <Box className="flex justify-center w-full">
-                        <Carousel data={DATA} /> {/* big carousel */}
-                    </Box>
-                    <Box className="flex justify-between w-full mt-[-3.5vh] lg:mt-[40px]">
-                        <Box>
-                            <Typography color="#283C28 font-semibold" sx={{
-                                fontWeight: 500,
-                                alignContent: 'flex-start',
-                                fontFamily: 'var(--font-montserrat)',
-                                lineHeight: '1.6',
-                                fontSize: {
-                                    xs: "8px",
-                                    sm: "10px",  // Small screens
-                                    md: "12px",  // Medium screens
-                                    lg: "15px"
-                                }
-                            }}>Category: Stairs</Typography>
-                            <Typography color="#283C28 font-semibold" sx={{
-                                fontWeight: 500,
-                                alignContent: 'flex-start',
-                                fontFamily: 'var(--font-montserrat)',
-                                lineHeight: '1.6',
-                                fontSize: {
-                                    xs: "8px",
-                                    sm: "10px",  // Small screens
-                                    md: "12px",  // Medium screens
-                                    lg: "15px"
-                                }
-                            }}>Tag:  Exclusive</Typography>
+                        <Box className="flex justify-center w-full">
+                            <Carousel data={DATA} /> {/* big carousel */}
                         </Box>
-                        <Box>
-                            <Link href={'/visualizer/Chimney'}><GreenCustomButton label={'Try Now!'} iconSrc={'/images/icons/Vector.svg'} /></Link>
+                        <Box className="flex justify-between w-full mt-[-3.5vh] lg:mt-[40px]">
+                            <Box>
+                                <Typography color="#283C28 font-semibold" sx={{
+                                    fontWeight: 500,
+                                    alignContent: 'flex-start',
+                                    fontFamily: 'var(--font-montserrat)',
+                                    lineHeight: '1.6',
+                                    fontSize: {
+                                        xs: "8px",
+                                        sm: "10px",  // Small screens
+                                        md: "12px",  // Medium screens
+                                        lg: "15px"
+                                    }
+                                }}>Category: Stairs</Typography>
+                                <Typography color="#283C28 font-semibold" sx={{
+                                    fontWeight: 500,
+                                    alignContent: 'flex-start',
+                                    fontFamily: 'var(--font-montserrat)',
+                                    lineHeight: '1.6',
+                                    fontSize: {
+                                        xs: "8px",
+                                        sm: "10px",  // Small screens
+                                        md: "12px",  // Medium screens
+                                        lg: "15px"
+                                    }
+                                }}>Tag:  Exclusive</Typography>
+                            </Box>
+                            <Box>
+                                <Link href={'/visualizer/Chimney'}><GreenCustomButton label={'Try Now!'} iconSrc={'/images/icons/Vector.svg'} /></Link>
+                            </Box>
                         </Box>
+                        : <></>
                     </Box>
-                    : <></>
-                </Box>
                 }
 
 
@@ -758,7 +758,7 @@ const HomePage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex justify-center w-full">
-                            <Link href={'https://www.splendourinstone.com.au/paving/'}>
+                            <Link href={'https://www.splendourinstone.com.au/paving/'} passHref>
                                 <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
@@ -802,7 +802,7 @@ const HomePage = () => {
                                 </Typography>
                             </Box>
                             <Box className="mt-5">
-                                <Link href={'https://www.splendourinstone.com.au/paving/'}>
+                                <Link href={'https://www.splendourinstone.com.au/paving/'} passHref>
                                     <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
                                 </Link>
                             </Box>
@@ -832,26 +832,27 @@ const HomePage = () => {
 
                     <Box className="flex flex-col w-full gap-y-7">
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
-                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/porphyry-crazy/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product1.png" product_subname="PORPHYRY" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/ocean-grey-marble/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product2.png" product_subname="QUARTZITE" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/ocean-grey-marble/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product3.png" product_subname="MARBLE" />
                             </Link>
+
                         </Box>
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
-                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/tuscan-limestone/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product4.png" product_subname="LIMESTONE" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/granite-charcoal/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product5.png" product_subname="GRANITE" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/beloka/`}  className="w-full h-full">
+                            <Link href={`https://www.splendourinstone.com.au/product/bluestone-cobble/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product6.png" product_subname="BLUESTONE" />
-                            </Link>    
+                            </Link>
                         </Box>
                     </Box>
                 </Box>
