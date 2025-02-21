@@ -832,7 +832,7 @@ const HomePage = () => {
 
                     <Box className="flex flex-col w-full gap-y-7">
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
-                            <Link href={`https://www.splendourinstone.com.au/product/porphyry-crazy/`} className="w-full" passHref>
+                            <Link href={`https://staging.splendourinstone.com.au/product/porphyry-cobble/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product1.png" product_subname="PORPHYRY" />
                             </Link>
                             <Link href={`https://www.splendourinstone.com.au/product/ocean-grey-marble/`} className="w-full" passHref>
@@ -844,13 +844,13 @@ const HomePage = () => {
 
                         </Box>
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
-                            <Link href={`https://www.splendourinstone.com.au/product/tuscan-limestone/`} className="w-full" passHref>
+                            <Link href={`https://staging.splendourinstone.com.au/product/limestone-sienna/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product4.png" product_subname="LIMESTONE" />
                             </Link>
                             <Link href={`https://www.splendourinstone.com.au/product/granite-charcoal/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product5.png" product_subname="GRANITE" />
                             </Link>
-                            <Link href={`https://www.splendourinstone.com.au/product/bluestone-cobble/`} className="w-full" passHref>
+                            <Link href={`https://staging.splendourinstone.com.au/product/bluestone-sawn/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product6.png" product_subname="BLUESTONE" />
                             </Link>
                         </Box>
@@ -862,7 +862,6 @@ const HomePage = () => {
             {isMobile ?
                 <Box className="py-8">
                     <ShortCustomBrownDivider />
-
                 </Box> : <></>
             }
 

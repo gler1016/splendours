@@ -54,7 +54,7 @@ const FooterMobile = () => {
                             }}
                         >HOME</Typography>
                     </Link>
-                    <Link href={'https://staging.splendourinstone.com.au/walling/'} className="flex w-full justify-center">
+                    <Link href={'https://www.splendourinstone.com.au/walling/'} className="flex w-full justify-center">
                         <Typography
                             variant="h4"
                             color="#283C28"
@@ -66,7 +66,7 @@ const FooterMobile = () => {
                             }}
                         >WALLING</Typography>
                     </Link>
-                    <Link href={'https://staging.splendourinstone.com.au/paving/'} className="flex w-full justify-center">
+                    <Link href={'https://www.splendourinstone.com.au/paving/'} className="flex w-full justify-center">
                         <Typography
                             variant="h4"
                             color="#283C28"
@@ -78,7 +78,7 @@ const FooterMobile = () => {
                             }}
                         >PAVING</Typography>
                     </Link>
-                    <Link href={'https://staging.splendourinstone.com.au/blog/'} className="flex w-full justify-center">
+                    <Link href={'https://www.splendourinstone.com.au/blog/'} className="flex w-full justify-center">
                         <Typography
                             variant="h4"
                             color="#283C28"
@@ -124,7 +124,7 @@ const FooterMobile = () => {
                             }}
                         >ABOUT</Typography>
                     </Link>
-                    <Link href={'https://staging.splendourinstone.com.au/gallery/'} className="flex w-full justify-center">
+                    <Link href={'https://www.splendourinstone.com.au/gallery/'} className="flex w-full justify-center">
                         <Typography
                             variant="h4"
                             color="#283C28"
