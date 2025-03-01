@@ -22,6 +22,7 @@ import Shower from '../models/Shower_model';
 import Entry_wall from '../models/Entry_wall_model';
 import Beachport from '../models/Beachport_model';
 import TextureCarousel from '../../components/TextureChangeCarousel';
+import Card3DEffect from '../../components/3dEffects/Card3DEffect';
 
 const Loader = () => {
   const { progress } = useProgress();
@@ -659,9 +660,11 @@ const App = ({ params }: {
                       Tag:<span style={{ color: '#DCC5BD' }}>Exclusive</span>
                     </Typography>
                   </Box>
+                  <Card3DEffect>
                   <Box className='flex w-full gap-x-5 items-center'>
                     {/* Previous Image */}
-                    <Box className='flex flex-col items-center'>
+                   
+                     <Box className='flex flex-col items-center'>
                       <Image
                         src={modelImages[(currentModelIndex - 1 + modelImages.length) % modelImages.length]}
                         alt='Previous Model'
@@ -696,6 +699,8 @@ const App = ({ params }: {
                       <Typography variant='caption' color='white'>Next</Typography>
                     </Box>
                   </Box>
+                  </Card3DEffect>
+
                 </Box>
               </Box>
             </Box>

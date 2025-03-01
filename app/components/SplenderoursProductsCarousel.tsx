@@ -1,9 +1,12 @@
-import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import React, { useState, useRef, useEffect } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import Card3DEffect from "./3dEffects/Card3DEffect"; // Import the 3D card component
+import data from "./SplenderoursProductsData.json"; // Import your data
+import Link from "next/link";
 
-// Define the structure of each resource
 interface Resource {
     product_name: string;
     product_subname: string;
@@ -13,15 +16,7 @@ interface Resource {
     linkImageUrl?: string;
 }
 
-// Import data (assuming it's a TypeScript module)
-import data from "./SplenderoursProductsData.json";
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-// import Image from "next/image";
-
-// Carousel Component
 const SplenderoursProductsCarousel: React.FC = () => {
-
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const maxScrollWidth = useRef<number>(0);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -71,8 +66,11 @@ const SplenderoursProductsCarousel: React.FC = () => {
 
     return (
         <div className="mx-auto my-12 carousel" style={{ marginTop: "0px" }}>
-            <div className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 flex justify-between w-full h-full items-center ">
+              
+             <div className="relative overflow-hidden">
+                  <div className="absolute top-0 left-0 flex justify-between w-full h-full items-center ">
+                  
+
                     <button
                         onClick={movePrev}
                         className="z-10 w-10 h-full p-0 m-0 text-center text-white transition-all duration-300 ease-in-out opacity-75  hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed mt-[20px]"
@@ -128,12 +126,15 @@ const SplenderoursProductsCarousel: React.FC = () => {
                             <NavigateNextIcon fontSize="large" />
                         </Box>
                     </button>
-                </div>
-                <div
+
+                   </div>
+
+                  <div
                     ref={carousel}
                     className="relative z-0 flex overflow-hidden carousel-container gap-x-6 scroll-smooth snap-x snap-mandatory"
                 >
                     {data.resources.map((resource: Resource, index: number) => (
+                          
                         <Box
                             key={index}
                             className="carousel-item text-center relative snap-start aspect-[0.543/1] rounded-2xl"
@@ -155,10 +156,11 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                     minWidth: '24%' // 24% min-width for lg screens
                                 }
                             }}
-                        >
+                        >                                                       <Card3DEffect > 
+
                             <a
                                 className="z-0 block w-full h-full bg-left-top bg-no-repeat bg-cover aspect-square bg-origin-padding rounded-2xl"
-                                style={{ backgroundImage: `url(${resource.imageUrl || ""})` }}
+                                style={{ backgroundImage: `url(${resource.imageUrl || ""})  `  }}
                             >
                                 <img
                                     src={resource.imageUrl || ""}
@@ -173,6 +175,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                 }}
                                 className="absolute top-0 left-0 z-10 flex flex-col flex-wrap justify-between w-full h-full transition-opacity duration-300 aspect-square"
                             >
+
                                 <Box>
                                     <Typography
                                         variant="h3"
@@ -182,7 +185,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                             fontWeight: 375,
                                             fontFamily: 'Chronicle Display',
                                             lineHeight: '0.9',
-                                            padding: "20px",
+                                            padding: "30px",
                                             fontSize: '30px'
                                         }}
                                     >
@@ -194,8 +197,8 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                     <IconButton
                                         aria-label="search"
                                         sx={{
-                                            width: '70px',
-                                            height: '70px',
+                                            width: '90px',
+                                            height: '90px',
                                             position: 'absolute',
                                             zIndex: 40,
                                             backgroundColor: '#DBC6BC',
@@ -208,7 +211,7 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                         className={`icon-button ${hoveredIndex === index ? 'show' : ''}`}
                                     >
                                         <Link href={`${resource.linkImageUrl}`} passHref>
-                                            <SearchIcon sx={{ fontSize: '50px', color: 'white' }} />
+                                            <SearchIcon sx={{ fontSize: '90px', color: 'white' }} />
                                         </Link>
                                     </IconButton>
                                 </div>
@@ -266,11 +269,17 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                 </Box>
 
                             </Box>
+                            </Card3DEffect>
+
                         </Box>
+
                     ))}
-                </div>
-            </div>
-        </div>
+                  
+                  
+                  </div>
+
+                       </div>
+          </div>
     );
 };
 

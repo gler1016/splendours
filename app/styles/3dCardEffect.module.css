@@ -1,0 +1,15 @@
+.card3dContainer {
+    perspective: 1000px; /* Adds depth for 3D effect */
+    width: 100%;
+    height: 100%;
+}
+
+.card3d {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Ensures child elements are in 3D space */
+    transition: transform 0.1s ease-out;
+    border-radius: 16px; /* Match your design */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}

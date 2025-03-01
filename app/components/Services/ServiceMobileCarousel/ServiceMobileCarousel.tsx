@@ -12,6 +12,7 @@ const items = [
 const ServiceMobileCarousel = () => {
     return (
         <Box>
+            
             <Carousel items={items} options={{ loop: true, align: 'start' }} />
         </Box>
     );

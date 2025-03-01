@@ -32,6 +32,8 @@ import PavingRangeEmblaCarousel from "./components/Home/PavingRange/EmblaCarouse
 import Footer from "./components/Footer";
 import FooterMobile from "./components/FooterMobile";
 import './embla.css';
+import Card3DEffect from "./components/3dEffects/Card3DEffect";
+import LinkWrapper from "./components/3dEffects/LinkWrapper";
 
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true }
 const SLIDE_COUNT = 3
@@ -206,8 +208,10 @@ const HomePage = () => {
                         </Typography>
                     </Box>
                     <Box sx={{ marginTop: isMobile ? '30px' : '0px' }}>
-                        <Link href={'/allProjectViews'}>
+                        <Link href={'/allProjectViews'} >
+                        <LinkWrapper href="/" previewImage='/images/Linkhoverimages/viewAll.png'>
                             <WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                            </LinkWrapper>
                         </Link>
                     </Box>
                 </Box>
@@ -390,7 +394,9 @@ const HomePage = () => {
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
                     }}
-                >
+                >  
+                                   
+
                     <Box className="flex items-start justify-between w-full">
                         <Box className="flex items-center w-2/3">
                             <Typography
@@ -435,10 +441,14 @@ const HomePage = () => {
                             </Box>
                             <Box>
                                 <Link href={'https://www.splendourinstone.com.au/walling/'} passHref>
+                                <LinkWrapper href="/" previewImage='/images/Linkhoverimages/viewAll.png'>
+
                                     <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                    </LinkWrapper>
                                 </Link>
                             </Box>
                         </Box>
+
                     </Box>
 
                     <Box className="flex flex-col w-full gap-y-7">
@@ -465,7 +475,9 @@ const HomePage = () => {
                             </Link>
                         </Box>
                     </Box>
+                   
                 </Box>
+                
             )}
 
             {isMobile ?
@@ -486,7 +498,9 @@ const HomePage = () => {
                         paddingX: isMobile || isTablet ? 0 : 2,
                     }}
                 >
+                       
                     {/* Dynamic Heading Section */}
+
                     <Box
                         className="py-4"
                         sx={{
@@ -561,6 +575,7 @@ const HomePage = () => {
 
                         </Box>
                     </Box>
+
                     {/* Dynamic Content Section */}
                     {isMobile || isTablet ? (
                         <Box className="flex flex-col items-center w-full pt-3 space-y-7">
@@ -614,7 +629,9 @@ const HomePage = () => {
                             </Typography>
                             <Box>
                                 <Link href={'/allvisualizers'}>
+                                <LinkWrapper href="" previewImage="images/LinkhoverImages/allvisuallizer.png">
                                     <WhiteCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                    </LinkWrapper>
                                 </Link>
                             </Box>
                         </Box>
@@ -626,6 +643,7 @@ const HomePage = () => {
                     :
                     <Box className="w-full flex flex-col aspect-[3.77/1] min-w-1 bg-[#DBC6BC] rounded-[40px] p-8 px-12" style={{ marginTop: '230px' }}>
                         <Box className="flex justify-between w-1/4 gap-x-4" >
+                        <Card3DEffect rotationIntensity={30} perspective={1000}>
                             <CarouselPart data={PARTDATA} /> {/* small carousel */}
                             <Box className='flex flex-col h-[100px] justify-around'>
                                 <Typography
@@ -664,6 +682,8 @@ const HomePage = () => {
                                     Available in our freeform style, the Charlotte sandstone is made up of beautiful soft hues such as cream, yellow and pink.
                                 </Typography>
                             </Box>
+                            </Card3DEffect>
+
                         </Box>
                         <Box className="flex justify-center w-full">
                             <Carousel data={DATA} /> {/* big carousel */}
@@ -803,7 +823,10 @@ const HomePage = () => {
                             </Box>
                             <Box className="mt-5">
                                 <Link href={'https://www.splendourinstone.com.au/paving/'} passHref>
+                                <LinkWrapper href="/" previewImage="images\LinkhoverImages/pavving.png">
+
                                     <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                    </LinkWrapper>
                                 </Link>
                             </Box>
                         </Box>
@@ -844,6 +867,7 @@ const HomePage = () => {
 
                         </Box>
                         <Box className="flex flex-col md:flex-row justify-between w-full gap-y-7 md:gap-x-7">
+                           
                             <Link href={`https://staging.splendourinstone.com.au/product/limestone-sienna/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product4.png" product_subname="LIMESTONE" />
                             </Link>
@@ -853,6 +877,7 @@ const HomePage = () => {
                             <Link href={`https://staging.splendourinstone.com.au/product/bluestone-sawn/`} className="w-full" passHref>
                                 <CustomWallCard product_image_src="images/Home/PavingRange/product6.png" product_subname="BLUESTONE" />
                             </Link>
+                           
                         </Box>
                     </Box>
                 </Box>

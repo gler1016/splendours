@@ -1,9 +1,9 @@
 'use client'
-// import Image from 'next/image'
 import React, { useEffect, useRef, useState, useCallback } from 'react'
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { Typography } from '@mui/material';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import { Typography } from '@mui/material'
+import Card3DEffect from './3dEffects/Card3DEffect'
 
 const CarouselPart = ({
     data,
@@ -17,19 +17,16 @@ const CarouselPart = ({
     // State and Ref initialization
     const [currentImg, setCurrentImg] = useState(0)
     const [carouselSize, setCarouselSize] = useState({ width: 0, height: 0 })
-    // const [isTransitioning, setIsTransitioning] = useState(false)
     const carouselRef = useRef(null)
     const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null)
 
     // Function to move to next slide
     const nextSlide = useCallback(() => {
-        // setIsTransitioning(true)
         setCurrentImg((prev) => (prev === data.length - 1 ? 0 : prev + 1))
     }, [data.length])
 
     // Function to move to previous slide
     const prevSlide = useCallback(() => {
-        // setIsTransitioning(true)
         setCurrentImg((prev) => (prev === 0 ? data.length - 1 : prev - 1))
     }, [data.length])
 
@@ -72,7 +69,7 @@ const CarouselPart = ({
     return (
         <div>
             {/* Carousel container */}
-            <div className="relative h-[100px] w-[100px] overflow-hidden rounded-md" style={{marginBottom:"0px"}}>
+            <div className="relative h-[100px] w-[100px] overflow-hidden rounded-md" style={{ marginBottom: "0px" }}>
                 {/* Image container */}
                 <div
                     ref={carouselRef}
@@ -84,23 +81,44 @@ const CarouselPart = ({
                 >
                     {/* Map through data to render images */}
                     {data.map((v, i) => (
-                        <div 
-                            key={i} 
+                        <div
+                            key={i}
                             className={`
                                 relative h-full w-full shrink-0
                                 transition-opacity duration-500 
                                 ${currentImg === i ? 'opacity-100' : 'opacity-0'}
                             `}
+                            style={{
+                                pointerEvents: currentImg === i ? 'auto' : 'none', // Enable pointer events only for the active slide
+                            }}
                         >
-                            <img
-                                className="pointer-events-none rounded-lg object-cover"
-                                alt={`carousel-image-${i}`}
-                                src={v.image || '/images/carousel_interactive_part/card1.png'}
-                                style={{
-                                    transition: 'opacity 0.5s ease-in-out',
-                                    opacity: currentImg === i ? 1 : 0
-                                }}
-                            />
+                            {currentImg === i ? (
+                                <Card3DEffect rotationIntensity={30} perspective={1000}>
+                                    <img
+                                        className="rounded-lg object-cover"
+                                        alt={`carousel-image-${i}`}
+                                        src={v.image || '/images/carousel_interactive_part/card1.png'}
+                                        style={{
+                                            transition: 'opacity 0.5s ease-in-out',
+                                            opacity: currentImg === i ? 1 : 0,
+                                            width: '100%', // Ensure the image takes full width
+                                            height: '100%', // Ensure the image takes full height
+                                        }}
+                                    />
+                                </Card3DEffect>
+                            ) : (
+                                <img
+                                    className="rounded-lg object-cover"
+                                    alt={`carousel-image-${i}`}
+                                    src={v.image || '/images/carousel_interactive_part/card1.png'}
+                                    style={{
+                                        transition: 'opacity 0.5s ease-in-out',
+                                        opacity: currentImg === i ? 1 : 0,
+                                        width: '100%', // Ensure the image takes full width
+                                        height: '100%', // Ensure the image takes full height
+                                    }}
+                                />
+                            )}
                         </div>
                     ))}
                 </div>
@@ -119,7 +137,7 @@ const CarouselPart = ({
                     }}
                     className={` font-bold flex justify-center items-center ${currentImg === 0 && 'opacity-50'}`}
                 >
-                    <ArrowBackIosNewIcon /> 
+                    <ArrowBackIosNewIcon />
                     <Typography
                         className="font-semibold"
                         variant="h3"

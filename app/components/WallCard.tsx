@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Box, Card, CardContent, Typography } from '@mui/material';
+import Card3DEffect from './3dEffects/Card3DEffect';
 
 interface CustomWallCardProps {
     product_image_src: string,
@@ -9,7 +10,10 @@ interface CustomWallCardProps {
 
 const CustomWallCard: React.FC<CustomWallCardProps> = ({ product_image_src, product_subname }) => {
     return (
+        <Card3DEffect rotationIntensity={30} perspective={1000}>
+
         <Card className='w-full aspect-[1.23/1] relative' style={{ backgroundImage: `url(${product_image_src})`, borderRadius: '25px', backgroundSize: 'cover' }}>
+        <Card3DEffect rotationIntensity={30} perspective={1000}>
             <CardContent sx={{
                 display: 'flex', alignContent: 'space-between', flexWrap: 'wrap', height: '100%', paddingY: '10%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1))',
                 borderRadius: 'inherit'
@@ -40,7 +44,10 @@ const CustomWallCard: React.FC<CustomWallCardProps> = ({ product_image_src, prod
                 </Box>
 
             </CardContent>
+            </Card3DEffect>
         </Card>
+        </Card3DEffect>
+
     );
 }
 

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import Card3DEffect from './3dEffects/Card3DEffect'
 
 const Carousel = ({
     data,
@@ -73,18 +74,30 @@ const Carousel = ({
                         className="absolute w-full h-full transition-opacity duration-500"
                         style={{
                             opacity: currentImg === index ? 1 : 0,
-                            pointerEvents: 'none',
+                            pointerEvents: currentImg === index ? 'auto' : 'none', // Enable pointer events only for the active slide
                             zIndex: currentImg === index ? 1 : 0
                         }}
                         onTransitionEnd={handleTransitionEnd}
                     >
-                        <Image
-                            src={item.image}
-                            alt={`${item.product_name}`}
-                            fill
-                            className="object-cover"
-                            priority={index === currentImg}
-                        />
+                        {currentImg === index ? (
+                            <Card3DEffect rotationIntensity={30} perspective={1000}>
+                                <Image
+                                    src={item.image}
+                                    alt={`${item.product_name}`}
+                                    fill
+                                    className="object-cover"
+                                    priority={index === currentImg}
+                                />
+                            </Card3DEffect>
+                        ) : (
+                            <Image
+                                src={item.image}
+                                alt={`${item.product_name}`}
+                                fill
+                                className="object-cover"
+                                priority={index === currentImg}
+                            />
+                        )}
                     </div>
                 ))}
             </div>

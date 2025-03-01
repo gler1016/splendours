@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 import FooterMobile from '../components/FooterMobile';
 import Grid from '@mui/material/Grid';
 import { useMediaQuery } from 'react-responsive';
+import Card3DEffect from '../components/3dEffects/Card3DEffect';
 
 
 export default function ActionAreaCard() {
@@ -121,19 +122,24 @@ export default function ActionAreaCard() {
                         <Grid item lg={2.4} md={3} sm={6} xs={8} style={{ margin: "auto" }} key={index}>
                             <Link href={`${item.url}`} passHref>
                                 <Card className="rounded-lg" style={{ backgroundColor: '#DCC5BD', border: '3px solid #DCC5BD' }}>
-                                    <CardActionArea>
+                                <Card3DEffect>
+                                <CardActionArea>
+                                        <Card3DEffect>
                                         <CardMedia
                                             component="img"
                                             height="140"
                                             image={item.url}
                                             alt={item.name}
                                         />
+                                        </Card3DEffect>
                                         <CardContent>
                                             <Typography gutterBottom variant="h6" color="#283C28" component="div" sx={{ fontFamily: 'Chronicle Display', fontStyle: 'italic' }}>
                                                 {item.name}
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
+                                    </Card3DEffect>
+
                                 </Card>
                             </Link>
                         </Grid>

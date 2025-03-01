@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Box } from '@mui/material';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
+import Card3DEffect from './3dEffects/Card3DEffect';
 // import Image from 'next/image';
 
 type PositionStyle = {
@@ -127,6 +128,8 @@ const FeaturedCarousel = () => {
           transition={{ duration: 0.8, ease: 'easeInOut' }}
           onClick={nextSlide}
         >
+                              <Card3DEffect rotationIntensity={35} perspective={1000}>
+
           <img
             src={images[indices.top]}
             alt="Top"
@@ -137,6 +140,7 @@ const FeaturedCarousel = () => {
               borderRadius: '12px'
             }}
           />
+          </Card3DEffect>
         </motion.div>
         <motion.div
           key={`bottom-left-${indices.bottomLeft}`}
@@ -147,6 +151,8 @@ const FeaturedCarousel = () => {
           exit="exit"
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
+          <Card3DEffect rotationIntensity={30} perspective={1000}>
+
           <img
             src={images[indices.bottomLeft]}
             alt="Bottom Left"
@@ -157,6 +163,7 @@ const FeaturedCarousel = () => {
               borderRadius: '12px'
             }}
           />
+          </Card3DEffect>
         </motion.div>
         <motion.div
           key={`bottom-right-${indices.bottomRight}`}
@@ -167,6 +174,7 @@ const FeaturedCarousel = () => {
           exit="exit"
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
+          <Card3DEffect rotationIntensity={30} perspective={1000}>
           <img
             src={images[indices.bottomRight]}
             alt="Bottom Right"
@@ -177,6 +185,7 @@ const FeaturedCarousel = () => {
               borderRadius: '12px'
             }}
           />
+          </Card3DEffect>
         </motion.div>
       </AnimatePresence>
     </Box>

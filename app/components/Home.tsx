@@ -5,8 +5,9 @@ import { Box, Typography, useMediaQuery, Modal } from '@mui/material';
 import Image from 'next/image';
 import Header from './Home/Header';
 import WhiteCustomButton from './WhiteButton';
-import EnquiryForm from './EnquireFormModal';
+import EnquiryForm from './3dEffects/EnquireFormModal';
 import Magnifier from './Magnifier';
+import LinkWrapper from './3dEffects/LinkWrapper';
 
 
 const Home = () => {
@@ -264,14 +265,20 @@ const Home = () => {
                     >
                         <Box className="flex items-center w-full sm:w-1/3 md:w-2/5">
                             <Box>
+                                <LinkWrapper href="" previewImage='/images/LinkhoverImages/enquirenow.png'>
                                 <WhiteCustomButton
                                     label={'Enquire now!'}
                                     iconSrc={'images/Vector.svg'}
                                     onClick={handleOpenEnquiryForm}
                                 />
+                                </LinkWrapper>
                             </Box>
-                            <Link href={'/contact'} className="ml-[2.5vw]">
+                            <Link href={'/contact'} className="ml-[2.5vw]" style={{position:"relative"}}>
+                            <LinkWrapper href='/contact' previewImage='/images/Linkhoverimages/getintouch.png'>
+
                                 <WhiteCustomButton label={'Contact Us'} iconSrc={'images/Vector.svg'} />
+                                </LinkWrapper>
+
                             </Link>
                         </Box>
 

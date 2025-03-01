@@ -22,9 +22,10 @@ import GreenCustomButton from '../components/GreenCustomButton';
 import './embla.css';
 import FullCustomGreenDivider from '../components/Divider/FullCustomGreenDivider';
 import FooterMobile from '../components/FooterMobile';
-import EnquiryForm from '../components/EnquireFormModal';
+import EnquiryForm from '../components/3dEffects/EnquireFormModal';
 import "./page.module.css"
 import FeaturedCarousel from '../components/FeaturedCarousel';
+import Card3DEffect from '../components/3dEffects/Card3DEffect';
 
 
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true }
@@ -675,13 +676,15 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
+                        <Card3DEffect>
                             <Image
                                 src="/images/Service/journey/consultation.png"
                                 alt="main"
                                 width={471}
                                 height={221}
-                                className='rounded-lg'
+                                className='float-end rounded-lg'
                             />
+                            </Card3DEffect>
                         </Box>
                     </Box>}
 
@@ -794,14 +797,19 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
+                        <Card3DEffect >
+
                             <Image
                                 src="/images/Service/journey/discussion.png"
                                 alt="main"
                                 width={471}
                                 height={221}
-                                className='rounded-lg'
+                                className='float-end rounded-lg'
                             />
+                            </Card3DEffect>
                         </Box>
+                        
+
                     </Box>}
 
                     {isMobile ? <Box className="px-3"><FullCustomYellowDivider /></Box> : <Box className="px-12"><FullCustomYellowDivider /></Box>}
@@ -849,13 +857,13 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-full">
-                            <Image
-                                src="/images/Service/journey/Mobile/measurement.png"
-                                alt="main"
-                                width={358}
-                                height={215}
-                                className='rounded-lg w-full h-full'
-                            />
+        <Image
+            src="/images/Service/journey/Mobile/measurement.png"
+            alt="main"
+            width={358}
+            height={215}
+            className="rounded-lg w-full h-full"
+        />
                         </Box>
                     </Box></Box> : <Box className="flex w-full justify-between gap-6 px-12">
                         <Box className="flex w-1/5 items-start">
@@ -907,13 +915,15 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
+                        <Card3DEffect rotationIntensity={30} perspective={1000}>
                             <Image
                                 src="/images/Service/journey/measurement.png"
                                 alt="main"
                                 width={471}
                                 height={221}
-                                className='rounded-lg'
+                                className='float-end rounded-lg'
                             />
+                            </Card3DEffect>
                         </Box>
                     </Box>}
 
@@ -1026,13 +1036,15 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
+                        <Card3DEffect rotationIntensity={30} perspective={1000}>
                             <Image
                                 src="/images/Service/journey/arranging.png"
                                 alt="main"
                                 width={471}
                                 height={221}
-                                className='rounded-lg'
+                                className='rounded-lg float-end'
                             />
+                            </Card3DEffect>
                         </Box>
                     </Box>}
 
@@ -1144,13 +1156,15 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
+                        <Card3DEffect>
                             <Image
                                 src="/images/Service/journey/installation.png"
                                 alt="main"
                                 width={471}
                                 height={221}
-                                className='rounded-lg'
+                                className='float-end rounded-lg'
                             />
+                            </Card3DEffect>
                         </Box>
                     </Box>}
 

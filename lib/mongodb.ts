@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
 // Ensure your MongoDB URI is correct in .env.local
-const client = new MongoClient("mongodb://localhost:27017/splendours"); // MongoDB URI from environment variables
+const client = new MongoClient("mongodb://localhost:27017/"); // MongoDB URI from environment variables
 
 let isConnected = false; // Track connection status to avoid multiple connections
 

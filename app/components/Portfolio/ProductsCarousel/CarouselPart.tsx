@@ -44,9 +44,12 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
       <div className="embla__viewport_deal" ref={emblaRef}>
         <div className="embla__container_deal">
           {items.map((item, index) => (
+
             <div className="embla__slide_deal" key={index}>
-              <img className="embla__slide__img_deal" src={item.imageUrl} alt={item.alt} />
+             <img className="embla__slide__img_deal" src={item.imageUrl} alt={item.alt} />
             </div>
+           
+
           ))}
         </div>
       </div>

@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
+import colors from "tailwindcss/colors";
+import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 
 export default {
   content: [
@@ -8,7 +11,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      'sans': ['Montserrat', 'sans-serif'],
+      sans: ["Montserrat", "sans-serif"],
     },
     extend: {
       keyframes: {
@@ -19,15 +22,14 @@ export default {
         },
         fadeIn: {
           "0%": { opacity: "0" },
-          "100%": { opacity: "1" }
+          "100%": { opacity: "1" },
         },
-      
         shrinkLeft: {
           "0%": { transform: "scaleX(0.8)", transformOrigin: "right" },
           "50%": { transform: "scaleX(1.0)", transformOrigin: "right" },
           "100%": { transform: "scaleX(0.8)", transformOrigin: "right" },
         },
- backgroundSlideLeftToRight: {
+        backgroundSlideLeftToRight: {
           "0%": { transform: "translateX(-100%)", opacity: "0" },
           "10%": { transform: "translateX(0)", opacity: "1" }, // Comes in fully
           "50%": { opacity: "1" }, // Stays fully visible
@@ -43,7 +45,7 @@ export default {
           "100%": { transform: "translateY(-100%)", opacity: "0" }, // Fully out
         },
         marquee: {
-          "0%": { transform: "translateX(25%)"},
+          "0%": { transform: "translateX(25%)" },
           "100%": { transform: "translateX(-175%)" },
         },
         growFromBottom: {
@@ -56,20 +58,37 @@ export default {
         },
       },
       animation: {
-         fadeIin : "fadeIn 0.7s ease-in-out",
-        marquee: "marquee 10s linear infinite",        backgroundSlideLeftToRight: "backgroundSlideLeftToRight 10s ease-in-out infinite",
+        fadeIn: "fadeIn 0.7s ease-in-out",
+        marquee: "marquee 10s linear infinite",
+        backgroundSlideLeftToRight: "backgroundSlideLeftToRight 10s ease-in-out infinite",
         backgroundSlide: "backgroundSlide 10s ease-in-out infinite",
         growFromBottom: "growFromBottom 4s ease-in-out infinite alternate",
         shrinkFromTop: "shrinkFromTop 4s ease-in-out infinite alternate",
         growRight: "growRight 6s ease-in-out infinite",
         shrinkLeft: "shrinkLeft 6s ease-in-out infinite",
       },
-      
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        customColor: "#DBC6BC",
+        color: "#283C28",
+      },
+      boxShadow: {
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 } satisfies Config;
+
+// Plugin to add CSS variables for colors
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}

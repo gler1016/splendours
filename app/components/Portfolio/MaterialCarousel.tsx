@@ -12,6 +12,7 @@ interface Resource {
 
 // Import data (assuming it's a TypeScript module)
 import data from "./MaterialData.json";
+import Card3DEffect from "../3dEffects/Card3DEffect";
 // import Image from "next/image";
 
 // Carousel Component
@@ -130,6 +131,7 @@ const MaterialCarousel: React.FC = () => {
                             key={index}
                             className="carousel-item text-center relative snap-start aspect-[0.72/1] rounded-2xl" style={{ width: '25%', minWidth: '24%' }}
                         >
+                            <Card3DEffect rotationIntensity={30} perspective={1000}>
                             <a
                                 className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0 rounded-2xl"
                                 style={{ backgroundImage: `url(${resource.imageUrl || ""})` }}
@@ -152,6 +154,7 @@ const MaterialCarousel: React.FC = () => {
 
                                 </Box>
                             </a>
+                            </Card3DEffect>
                         </div>
                     ))}
                 </div>

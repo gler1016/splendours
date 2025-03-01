@@ -15,6 +15,7 @@ import './embla.css';
 import { useMediaQuery } from 'react-responsive';
 import FooterMobile from '../components/FooterMobile';
 import FullCustomBrownDivider from '../components/Divider/FullCustomBrownDivider';
+import Card3DEffect from '../components/3dEffects/Card3DEffect';
 
 
 
@@ -409,6 +410,7 @@ const ServicesPage = () => {
                 </Box> : <Box className="flex w-full flex-col gap-y-3 px-12">
                     <Box className="flex w-full gap-3">
                         <Box className="w-1/3">
+                        <Card3DEffect>
                             <Image
                                 src="/images/Contact/image1.png"
                                 alt="main"
@@ -416,8 +418,10 @@ const ServicesPage = () => {
                                 height={395}
                                 className="md:rounded-[25px] h-[100%] rounded-[5px]"
                             />
+                            </Card3DEffect>
                         </Box>
                         <Box className="w-2/3">
+                        <Card3DEffect>
                             <Image
                                 src="/images/Contact/image2.png"
                                 alt="main"
@@ -425,11 +429,13 @@ const ServicesPage = () => {
                                 height={395}
                                 className="md:rounded-[25px] rounded-[5px]"
                             />
+                            </Card3DEffect>
                         </Box>
                     </Box>
                     <Box className="flex w-full gap-3">
                         <Box className="w-1/2 space-y-5 h-full">
                             <Box className="flex w-full">
+                                <Card3DEffect>
                                 <Image
                                     src="/images/Contact/image3.png"
                                     alt="main"
@@ -437,8 +443,10 @@ const ServicesPage = () => {
                                     height={252}
                                     className="md:rounded-[25px] rounded-[5px]"
                                 />
+                                </Card3DEffect>
                             </Box>
                             <Box className="flex w-full">
+                                <Card3DEffect>
                                 <Image
                                     src="/images/Contact/image4.png"
                                     alt="main"
@@ -446,9 +454,11 @@ const ServicesPage = () => {
                                     height={127}
                                     className="md:rounded-[25px] rounded-[5px]"
                                 />
+                                </Card3DEffect>
                             </Box>
                         </Box>
                         <Box className="w-1/6">
+                        <Card3DEffect>
                             <Image
                                 src="/images/Contact/image5.png"
                                 alt="main"
@@ -456,8 +466,10 @@ const ServicesPage = () => {
                                 height={395}
                                 className="md:rounded-[25px] h-[100%] rounded-[5px]"
                             />
+                            </Card3DEffect>
                         </Box>
                         <Box className="w-1/3">
+                        <Card3DEffect>
                             <Image
                                 src="/images/Contact/image6.png"
                                 alt="main"
@@ -465,6 +477,7 @@ const ServicesPage = () => {
                                 height={395}
                                 className="md:rounded-[25px] h-[100%] rounded-[5px]"
                             />
+                            </Card3DEffect>
                         </Box>
                     </Box>
                 </Box>}

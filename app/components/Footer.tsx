@@ -1,10 +1,11 @@
-// components/Footer.tsx
 "use client"; // This line makes this file a client component in Next.js
 
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import FullCustomGreenDivider from '../components/Divider/FullCustomGreenDivider'
+import FloatingDock from './3dEffects/FloatingDock' // Import the FloatingDock component
+import LinkWrapper from "./3dEffects/LinkWrapper";
 
 const Footer = () => {
     return (
@@ -25,7 +26,6 @@ const Footer = () => {
                             alt="Logo"
                             width={182}
                             height={182}
-
                         />
                     </Box>
                 </Box>
@@ -56,6 +56,7 @@ const Footer = () => {
                         <Box className="flex w-1/2">
                             <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
                                 <li>
+                                    <LinkWrapper href="/" previewImage="/images/LinkhoverImages/home.png">
                                     <Link href="/">
                                         <Typography
                                             variant="h4"
@@ -74,9 +75,13 @@ const Footer = () => {
                                             }}
                                         >HOME</Typography>
                                     </Link>
+                                    </LinkWrapper>
                                 </li>
                                 <li>
+
                                     <Link href="https://www.splendourinstone.com.au/walling/">
+                                    <LinkWrapper href="https://www.splendourinstone.com.au/walling/" previewImage="/images/LinkhoverImages/wallingLink.png">
+
                                         <Typography
                                             variant="h4"
                                             color="#283C28"
@@ -95,14 +100,17 @@ const Footer = () => {
                                         >
                                             WALLING
                                         </Typography>
+                                        </LinkWrapper>
+
                                     </Link>
                                 </li>
                             </ul>
                         </Box>
                         <Box className="flex w-1/2">
-
                             <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
                                 <li>
+                                <LinkWrapper href="https://www.splendourinstone.com.au/walling/" previewImage="/images/LinkhoverImages/pavving.png">
+
                                     <Link href="https://www.splendourinstone.com.au/paving/">
                                         <Typography
                                             variant="h4"
@@ -123,8 +131,10 @@ const Footer = () => {
                                             PAVING
                                         </Typography>
                                     </Link>
+                                    </LinkWrapper>
                                 </li>
                                 <li>
+                                <LinkWrapper href="https://www.splendourinstone.com.au/gallery/" previewImage="/images/LinkhoverImages/blog.png">
                                     <Link href="https://www.splendourinstone.com.au/gallery/">
                                         <Typography
                                             variant="h4"
@@ -145,6 +155,7 @@ const Footer = () => {
                                             BLOG
                                         </Typography>
                                     </Link>
+                                    </LinkWrapper>
                                 </li>
                             </ul>
                         </Box>
@@ -152,6 +163,7 @@ const Footer = () => {
                 </Box>
                 <Box className="flex flex-col w-1/4 justify-center gap-3">
                     <Box className="flex w-3/7">
+
                         <Typography
                             variant="h3"
                             color="#283C28"
@@ -173,10 +185,12 @@ const Footer = () => {
                     </Box>
                     <Box className="flex w-full">
                         <Box className="flex w-1/2">
-
                             <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
                                 <li>
+
                                     <Link href="/about">
+                                    <LinkWrapper href="https://www.splendourinstone.com.au/gallery/" previewImage="/images/LinkhoverImages/about.png">
+
                                         <Typography
                                             variant="h4"
                                             color="#283C28"
@@ -193,9 +207,13 @@ const Footer = () => {
                                                 textAlign: 'start',
                                             }}
                                         >ABOUT</Typography>
+                                                                            </LinkWrapper>
+
                                     </Link>
                                 </li>
                                 <li>
+                                <LinkWrapper href="https://www.splendourinstone.com.au/gallery/" previewImage="/images/LinkhoverImages/gallery.png">
+
                                     <Link href="https://www.splendourinstone.com.au/gallery/">
                                         <Typography
                                             variant="h4"
@@ -216,15 +234,16 @@ const Footer = () => {
                                             GALLERY
                                         </Typography>
                                     </Link>
+                                    </LinkWrapper>
                                 </li>
                             </ul>
                         </Box>
                         <Box className="flex w-1/2">
-
                             <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
                                 <li>
                                     <Link href="/contact">
-                                        <Typography
+                                    <LinkWrapper href="https://www.splendourinstone.com.au/gallery/" previewImage="/images/LinkhoverImages/gallery.png">
+                                    <Typography
                                             variant="h4"
                                             color="#283C28"
                                             className="font-semibold"
@@ -242,10 +261,13 @@ const Footer = () => {
                                         >
                                             CONTACT
                                         </Typography>
+                                        </LinkWrapper>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/faq">
+                                    <LinkWrapper href="https://www.splendourinstone.com.au/gallery/" previewImage="/images/LinkhoverImages/getintouch.png">
+
                                         <Typography
                                             variant="h4"
                                             color="#283C28"
@@ -264,6 +286,7 @@ const Footer = () => {
                                         >
                                             CONSULTATION
                                         </Typography>
+                                        </LinkWrapper>
                                     </Link>
                                 </li>
                             </ul>
@@ -275,57 +298,10 @@ const Footer = () => {
             <FullCustomGreenDivider />
 
             <Box className="flex w-full justify-between pt-10 pb-16">
-                <Box className="flex w-1/5 justify-between">
-                    <Link href={'http://facebook.com'}>
-                        <Image
-                            src="/images/FooterIcon/facebook.svg"
-                            alt="Plus"
-                            width={40}
-                            height={40}
-                        />
-                    </Link>
-                    <Link href={'http://tictok.com'}>
-                        <Image
-                            src="/images/FooterIcon/twitter.svg"
-                            alt="Plus"
-                            width={40}
-                            height={40}
-                        />
-                    </Link>
-                    <Link href={'http://linkedIn.com'}>
-                        <Image
-                            src="/images/FooterIcon/linkedin.svg"
-                            alt="Plus"
-                            width={40}
-                            height={40}
-                        />
-                    </Link>
-                    <Link href={'http://youbube.com'}>
-                        <Image
-                            src="/images/FooterIcon/youtube.svg"
-                            alt="Plus"
-                            width={40}
-                            height={40}
-                        />
-                    </Link>
-                    <Link href={'httf://instagram.com'}>
-                        <Image
-                            src="/images/FooterIcon/instagram.svg"
-                            alt="Plus"
-                            width={40}
-                            height={40}
-                        />
-                    </Link>
-                    <Link href={'http://pixlr.com'}>
-                        <Image
-                            src="/images/FooterIcon/upwork.svg"
-                            alt="Plus"
-                            width={40}
-                            height={40}
-                        />
-                    </Link>
-                </Box>
-                <Box className="flex">
+                {/* Replace the social media icons with the FloatingDock component */}
+                <FloatingDock />
+
+                <Box className="flex p-7">
                     <Typography
                         variant="h3"
                         color="#283C28"
@@ -334,6 +310,7 @@ const Footer = () => {
                             alignContent: 'flex-start',
                             justifyContent: 'flex-end',
                             fontFamily: 'Chronicle Display',
+                            margintop:"10px",
                             fontSize: {
                                 xs: "8px",
                                 sm: "14px",  // Small screens

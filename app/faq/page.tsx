@@ -29,6 +29,7 @@ import ShortCustomBrownDivider from '../components/Divider/ShortCustomBrownDivid
 import FullCustomBrownDivider from '../components/Divider/FullCustomBrownDivider';
 import FooterMobile from '../components/FooterMobile';
 import { motion } from 'framer-motion';
+import Card3DEffect from '../components/3dEffects/Card3DEffect';
 
 
 const FaqPage = () => {
@@ -368,6 +369,7 @@ const FaqPage = () => {
                             height: '480px'
                         }}
                         >
+                            <Card3DEffect>
                         <Image
                             src="/images/Faqs/image1.png"
                             alt="Image1"
@@ -380,6 +382,7 @@ const FaqPage = () => {
                             objectFit: 'fill'
                             }}
                         />
+                        </Card3DEffect>
                         </motion.div>
                         
                         <motion.div
@@ -395,6 +398,7 @@ const FaqPage = () => {
                             height: '480px'
                         }}
                         >
+                            <Card3DEffect>
                         <Image
                             src="/images/Faqs/image2.png"
                             alt="image2"
@@ -407,6 +411,7 @@ const FaqPage = () => {
                             objectFit: 'fill'
                             }}
                         />
+                        </Card3DEffect>
                         </motion.div>
                     </Box>
                     </Box>}
