@@ -191,7 +191,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/service">
+                                    <Link href="/services">
                                         <Typography
                                             variant="h4"
                                             color="#283C28"

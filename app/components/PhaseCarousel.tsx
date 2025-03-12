@@ -22,6 +22,7 @@ interface PhaseCarouselProps {
 
 const PhaseCarousel: React.FC<PhaseCarouselProps> = ({ onPhaseSelect, handleOpenDialog }) => {
     const isMobile = useMediaQuery('(max-width: 768px)'); // Define mobile breakpoint
+    const isStemp = useMediaQuery('(max-width: 1000px)'); // Define mobile breakpoint
 
     const [resources] = useState<Resource[]>(data.resources);
     const [maxScrollWidth, setMaxScrollWidth] = useState<number>(0);
@@ -256,54 +257,56 @@ const PhaseCarousel: React.FC<PhaseCarouselProps> = ({ onPhaseSelect, handleOpen
                     ))}
                 </Box>
             </div>
-            <div style={{ marginLeft: "50vw", marginTop: "1vw" }}>
-                <GreenBtnBooking
-                    onClick={() => handleOpenDialog("")} label="Book" icon="/images/icons/Vector.svg" className="px-2">
-                    <button
-                        style={{
-                            padding: "10px 20px",
-                            backgroundColor: "#283C28", // Button background color
-                            color: "#DCC5BD", // Text color
-                            border: "none",
-                            borderRadius: "50px",
-                            cursor: "pointer",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                            position: "relative", // Required for absolute positioning of the icon
-                            overflow: "hidden", // Ensure the icon doesn't overflow the button
-                            transition: "all 0.3s ease", // Smooth transition for all properties
-                        }}
-                        className="lg:w-[260px] lg:h-[160px] lg:justify-between lg:text-[15px] ml-30"
-                        onClick={() => handleOpenDialog("")}
-                    >
-                        {/* Text */}
-                        <span
+            {isStemp ? null : (
+                <div style={{ marginLeft: "45vw", marginTop: "1vw" }}>
+                    <GreenBtnBooking
+                        onClick={() => handleOpenDialog("")} label="Book" icon="/images/icons/Vector.svg" className="px-2">
+                        <button
                             style={{
-                                transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth fade-out and slide-left
+                                padding: "10px 20px",
+                                backgroundColor: "#283C28", // Button background color
+                                color: "#DCC5BD", // Text color
+                                border: "none",
+                                borderRadius: "50px",
+                                cursor: "pointer",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                position: "relative", // Required for absolute positioning of the icon
+                                overflow: "hidden", // Ensure the icon doesn't overflow the button
+                                transition: "all 0.3s ease", // Smooth transition for all properties
                             }}
-                            className="hover:opacity-0 hover:-translate-x-2" // Fade out and slide left on hover
+                            className="lg:w-[260px] lg:h-[160px] lg:justify-between lg:text-[15px]"
+                            onClick={() => handleOpenDialog("")}
                         >
-                            Book
-                        </span>
+                            {/* Text */}
+                            <span
+                                style={{
+                                    transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth fade-out and slide-left
+                                }}
+                                className="hover:opacity-0 hover:-translate-x-2" // Fade out and slide left on hover
+                            >
+                                Book
+                            </span>
 
-                        {/* Icon */}
-                        <Image
-                            src="/images/icons/Vector.svg"
-                            alt="Book"
-                            height={32}
-                            width={32}
-                            style={{
-                                position: "absolute", // Position the icon absolutely within the button
-                                right: "20px", // Adjust position as needed
-                                opacity: 0, // Start with the icon hidden
-                                transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth fade-in and slide-in
-                            }}
-                            className="hover:opacity-100 hover:translate-x-0" // Fade in and slide in on hover
-                        />
-                    </button>
-                </GreenBtnBooking>
-            </div>
+                            {/* Icon */}
+                            <Image
+                                src="/images/icons/Vector.svg"
+                                alt="Book"
+                                height={32}
+                                width={32}
+                                style={{
+                                    position: "absolute", // Position the icon absolutely within the button
+                                    right: "20px", // Adjust position as needed
+                                    opacity: 0, // Start with the icon hidden
+                                    transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth fade-in and slide-in
+                                }}
+                                className="hover:opacity-100 hover:translate-x-0" // Fade in and slide in on hover
+                            />
+                        </button>
+                    </GreenBtnBooking>
+                </div>
+            )}
         </div >
     );
 };

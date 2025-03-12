@@ -25,7 +25,7 @@ export default function SplendoursOldHeader() {
   return (
     <header className="fixed top-0 left-0 w-screen z-50">
       {/* Upper Bar - Always Fixed */}
-      <div className={isScrolled ? "bg-color h-[45px] flex justify-center items-center gap-3 px-4 w-full fixed top-12 shadow-lg" : "bg-color h-[45px] flex justify-center items-center gap-3 px-4 w-full relative"}>
+      <div className={"bg-color h-[45px] flex justify-center items-center gap-3 px-4 w-full relative"}>
         <p className="text-xs-custom leading-tight-custom text-customColor font-semibold text-center">
           REGISTER YOUR INFORMATION FOR FREE STONE SAMPLES SENT EXPRESS TO YOU!
         </p>
@@ -47,7 +47,7 @@ export default function SplendoursOldHeader() {
         <div className="flex items-center gap-6">
           <FaEnvelope className="text-customColor" />
           <p className="text-xs-custom leading-tight-custom text-customColor">
-            AUSTRALIA'S NUMBER 1 HIGH-END STONE SUPPLIER - AUSTRALIA WIDE DELIVERYF
+            AUSTRALIA'S NUMBER 1 HIGH-END STONE SUPPLIER - AUSTRALIA WIDE DELIVERY
           </p>
         </div>
         <div className="flex items-center gap-6">
@@ -66,11 +66,11 @@ export default function SplendoursOldHeader() {
 
       {/* Lower Navigation Bar - Stays Below Upper Bar When Scrolled */}
       <div
-        className={`flex items-center justify-between px-6 w-full h-[120px] transition-all duration-300 ${isScrolled ? "fixed top-[0px] bg-color backdrop-blur-md shadow-lg" : "bg-color relative"}`}
+        className={`flex items-center justify-between px-6 w-full h-[120px] transition-all duration-300 ${isScrolled ? "fixed top-[45px] bg-color backdrop-blur-md shadow-lg" : "bg-color relative"}`}
       >
         {/* Left Side Links */}
         <div className="flex space-x-8 p-[10px] relative z-10">
-          <div className="flex items-center justify-center gap-14 relative">
+            <div className="flex items-center justify-center gap-[3vw] relative">
             {/* <div className="flex flex-col items-start space-y-2 relative"> */}
             <Link
               href="/"
@@ -114,12 +114,12 @@ export default function SplendoursOldHeader() {
         </div>
 
         {/* Center Logo */}
-        <div className="flex justify-center items-center w-full absolute left-[52.5%] transform -translate-x-1/2 z-0">
-          <Image src="/images/main.png" alt="Main Logo" width={290} height={92} />
+        <div className="flex justify-center items-center w-full absolute left-[50vw] transform -translate-x-1/2 z-0">
+          <Image src="/images/main.png" alt="Main Logo" style={{ width: "10vw" }} width={250} height={92} />
         </div>
 
         {/* Right Side Links */}
-        <div className="flex space-x-8 text-xs-custom leading-tight-custom items-center p-[10px] z-10">
+        <div className="flex space-x-[2vw] text-xs-custom leading-tight-custom items-center p-[10px] z-10">
           <Link
             href="https://staging.splendourinstone.com.au/about/"
             className={`relative text-xs-custom leading-tight-custom text-customColor after:content-[''] after:absolute after:left-0 after:top-full after:w-full after:h-[2px] after:bg-customColor after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 ${isActive("https://staging.splendourinstone.com.au/about/") ? "after:scale-x-100 font-bold" : ""
