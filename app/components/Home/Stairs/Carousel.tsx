@@ -66,9 +66,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <img
+          <Image
             src={image.src}
             alt="carousel"
+            width={300}
+            height={500}
             className="object-cover w-[300px] mt-[-150px] mx-auto"
           />
         </div>

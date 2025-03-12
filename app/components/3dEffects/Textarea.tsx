@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
 
-export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
@@ -14,8 +14,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
+    function handleMouseMove(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+      const { currentTarget, clientX, clientY } = event
       const { left, top } = currentTarget.getBoundingClientRect();
 
       mouseX.set(clientX - left);
@@ -27,9 +27,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         style={{
           background: useMotionTemplate`
             radial-gradient(
-              ${
-                visible ? radius + "px" : "0px"
-              } circle at ${mouseX}px ${mouseY}px,
+              ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
               #283C28,
               transparent 80%
             )
@@ -42,8 +40,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       >
         <textarea
           className={cn(
-            `flex w-full border-none bg-customColor dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm 
-             file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-color dark:placeholder-text-neutral-600 
+            `flex w-full border-none bg-customColor dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-xs-custom leading-tight-custom 
+             file:border-0 file:bg-transparent file:text-xs-custom leading-tight-custom file:font-medium placeholder:text-color dark:placeholder-text-neutral-600 
              focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
              disabled:cursor-not-allowed disabled:opacity-50 
              dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
@@ -62,6 +60,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 Textarea.displayName = "Textarea";
 
 export { Textarea };
+
 
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";

@@ -3,7 +3,7 @@
 // app/about/page.tsx
 
 import React, { useState, useEffect } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -26,6 +26,9 @@ import EnquiryForm from '../components/3dEffects/EnquireFormModal';
 import "./page.module.css"
 import FeaturedCarousel from '../components/FeaturedCarousel';
 import Card3DEffect from '../components/3dEffects/Card3DEffect';
+import { GreenServiceBtn } from './GreenServiceBtn';
+// import { AnimatedModalDemo } from '../components/Buttons/AnimatedModalDemo';
+import { WhiteBtn } from './whiteBtn';
 
 
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true }
@@ -46,8 +49,7 @@ const imageSetsDeskTop = [
 
 const ServicesPage = () => {
     // Mobile view (max-width 768px)
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-
+    const isMobile = useMediaQuery("(max-width: 768px)"); // Mobile breakpoint
     // const [currentSetIndex, setCurrentSetIndex] = useState(0);
     const [currentSetIndexDeskTop, setCurrentSetIndexDeskTop] = useState(0);
 
@@ -56,13 +58,13 @@ const ServicesPage = () => {
     //     { id: 2, url: '/images/Service/advertisement/main2.png', position: 'small-right', transitioning: false },
     //     { id: 3, url: '/images/Service/advertisement/main3.png', position: 'small-left', transitioning: false }
     //   ]);
-    
+
     //   useEffect(() => {
     //     const interval = setInterval(() => {
     //       setImages(prevImages => {
     //         // First mark all images as transitioning
     //         const transitioning = prevImages.map(img => ({ ...img, transitioning: true }));
-            
+
     //         // After marking transition, rotate positions
     //         return transitioning.map((img, i) => {
     //           const positions = ['large', 'small-right', 'small-left'];
@@ -71,13 +73,13 @@ const ServicesPage = () => {
     //           return { ...img, position: positions[nextIndex] };
     //         });
     //       });
-    
+
     //       // Reset transitioning flag after animation completes
     //       setTimeout(() => {
     //         setImages(prev => prev.map(img => ({ ...img, transitioning: false })));
     //       }, 500);
     //     }, 3000);
-    
+
     //     return () => clearInterval(interval);
     //   }, []);
 
@@ -105,14 +107,14 @@ const ServicesPage = () => {
         return () => clearInterval(interval);
     }, []);
 
-    
+
 
     return (
         <>
             <EnquiryForm open={isEnquiryFormOpen} handleClose={handleCloseEnquiryForm} />
             <Box >
 
-                <Box className="flex items-center w-full px-3" sx={{ height: '15vh' }}>
+                <Box className="flex items-center w-full px-2" sx={{ height: isMobile ? '15vh' : '40vh' }}>
                     <Header />
                 </Box>
 
@@ -405,7 +407,7 @@ const ServicesPage = () => {
                             </Box>
 
                             <Box className="flex flex-col w-5/12">
-                                <FeaturedCarousel />    
+                                <FeaturedCarousel />
                             </Box>
                         </Box>
 
@@ -476,8 +478,8 @@ const ServicesPage = () => {
                                 <Image
                                     src="/images/Service/products/Vector-bottom-right.svg"
                                     alt="main"
-                                    width={110}
-                                    height={110}
+                                    width={100}
+                                    height={100}
                                 />
                             </Box>
                         </Box>
@@ -676,14 +678,14 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
-                        <Card3DEffect>
-                            <Image
-                                src="/images/Service/journey/consultation.png"
-                                alt="main"
-                                width={471}
-                                height={221}
-                                className='float-end rounded-lg'
-                            />
+                            <Card3DEffect>
+                                <Image
+                                    src="/images/Service/journey/consultation.png"
+                                    alt="main"
+                                    width={471}
+                                    height={221}
+                                    className='float-end rounded-lg'
+                                />
                             </Card3DEffect>
                         </Box>
                     </Box>}
@@ -797,18 +799,18 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
-                        <Card3DEffect >
+                            <Card3DEffect >
 
-                            <Image
-                                src="/images/Service/journey/discussion.png"
-                                alt="main"
-                                width={471}
-                                height={221}
-                                className='float-end rounded-lg'
-                            />
+                                <Image
+                                    src="/images/Service/journey/discussion.png"
+                                    alt="main"
+                                    width={471}
+                                    height={221}
+                                    className='float-end rounded-lg'
+                                />
                             </Card3DEffect>
                         </Box>
-                        
+
 
                     </Box>}
 
@@ -857,13 +859,13 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-full">
-        <Image
-            src="/images/Service/journey/Mobile/measurement.png"
-            alt="main"
-            width={358}
-            height={215}
-            className="rounded-lg w-full h-full"
-        />
+                            <Image
+                                src="/images/Service/journey/Mobile/measurement.png"
+                                alt="main"
+                                width={358}
+                                height={215}
+                                className="rounded-lg w-full h-full"
+                            />
                         </Box>
                     </Box></Box> : <Box className="flex w-full justify-between gap-6 px-12">
                         <Box className="flex w-1/5 items-start">
@@ -915,14 +917,14 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
-                        <Card3DEffect rotationIntensity={30} perspective={1000}>
-                            <Image
-                                src="/images/Service/journey/measurement.png"
-                                alt="main"
-                                width={471}
-                                height={221}
-                                className='float-end rounded-lg'
-                            />
+                            <Card3DEffect rotationIntensity={30} perspective={1000}>
+                                <Image
+                                    src="/images/Service/journey/measurement.png"
+                                    alt="main"
+                                    width={471}
+                                    height={221}
+                                    className='float-end rounded-lg'
+                                />
                             </Card3DEffect>
                         </Box>
                     </Box>}
@@ -1036,14 +1038,14 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
-                        <Card3DEffect rotationIntensity={30} perspective={1000}>
-                            <Image
-                                src="/images/Service/journey/arranging.png"
-                                alt="main"
-                                width={471}
-                                height={221}
-                                className='rounded-lg float-end'
-                            />
+                            <Card3DEffect rotationIntensity={30} perspective={1000}>
+                                <Image
+                                    src="/images/Service/journey/arranging.png"
+                                    alt="main"
+                                    width={471}
+                                    height={221}
+                                    className='rounded-lg float-end'
+                                />
                             </Card3DEffect>
                         </Box>
                     </Box>}
@@ -1156,14 +1158,14 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
                         <Box className="flex w-2/5 justify-end">
-                        <Card3DEffect>
-                            <Image
-                                src="/images/Service/journey/installation.png"
-                                alt="main"
-                                width={471}
-                                height={221}
-                                className='float-end rounded-lg'
-                            />
+                            <Card3DEffect>
+                                <Image
+                                    src="/images/Service/journey/installation.png"
+                                    alt="main"
+                                    width={471}
+                                    height={221}
+                                    className='float-end rounded-lg'
+                                />
                             </Card3DEffect>
                         </Box>
                     </Box>}
@@ -1464,7 +1466,9 @@ const ServicesPage = () => {
                                     </Typography>
                                 </Box>
                                 {/* <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} /> */}
-                                <GreenCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                                <Box className={"flex items-start"}>
+                                    <GreenServiceBtn label={'ENQUIRE NOW!'} icon={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                                </Box>
                             </Box>
                         </Box>
 
@@ -1619,8 +1623,8 @@ const ServicesPage = () => {
                                         </Typography>
                                     </Box>
 
-                                    <Box>
-                                        <GreenCustomButton label={'Read more'} iconSrc={'/images/icons/Vector.svg'} />
+                                    <Box className={""}>
+                                        <GreenServiceBtn label={'Read more'} icon={'/images/icons/Vector.svg'} />
                                     </Box>
 
                                 </Box>
@@ -1680,8 +1684,8 @@ const ServicesPage = () => {
                                         </Typography>
                                     </Box>
 
-                                    <Box>
-                                        <GreenCustomButton label={'Read more'} iconSrc={'/images/icons/Vector.svg'} />
+                                    <Box className={""}>
+                                        <GreenServiceBtn label={'Read more'} icon={'/images/icons/Vector.svg'} />
                                     </Box>
 
                                 </Box>
@@ -1741,8 +1745,8 @@ const ServicesPage = () => {
                                         </Typography>
                                     </Box>
 
-                                    <Box>
-                                        <GreenCustomButton label={'Read more'} iconSrc={'/images/icons/Vector.svg'} />
+                                    <Box className={""}>
+                                        <GreenServiceBtn onClick={() => { }} label={'Read more'} icon={'/images/icons/Vector.svg'} />
                                     </Box>
 
                                 </Box>
@@ -1765,8 +1769,8 @@ const ServicesPage = () => {
                                 // layout="fill"
                                 objectFit="cover"
                                 className="w-[75%]"
-                                width={600}
-                                height={600}
+                                width={200}
+                                height={200}
                             />
                         </Box>
                         <Box className="absolute z-10 text-center w-full flex flex-col items-center justify-center gap-y-8 mt-[-100px]">
@@ -1808,7 +1812,7 @@ const ServicesPage = () => {
                         </Box>
                         <Box className="flex w-full justify-center py-4">
                             <Link href="/contact">
-                                <WhiteCustomButton label={'Contact Us'} iconSrc={'/images/icons/Vector.svg'} />
+                                <WhiteCustomButton label={'CONTACT US'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
                     </Box> : <Box className="flex w-full flex-col relative items-center justify-center gap-y-12 text-white py-12">
@@ -1816,7 +1820,6 @@ const ServicesPage = () => {
                             <Image
                                 src="/images/Service/partner.svg" // Ensure this image is in the public/images folder
                                 alt="Background"
-                                // layout="fill"
                                 objectFit="cover"
                                 className="opacity-100"
                                 width={800}
@@ -1851,8 +1854,8 @@ const ServicesPage = () => {
 
                             </Typography>
                         </Box>
-                        <Link href={'/contact'} className="flex w-full justify-center py-4">
-                            <WhiteCustomButton label={'Contact Us'} iconSrc={'/images/icons/Vector.svg'} />
+                        <Link href={'/contact'} className="relative flex items-center justify-center pt-4">
+                            <WhiteBtn label={'CONTACT US'} icon={'/images/Vector.svg'} />
                         </Link>
                     </Box>
                     }

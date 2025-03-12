@@ -41,7 +41,7 @@ const FaqPage = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-        setIsSwapped(prev => !prev);
+            setIsSwapped(prev => !prev);
         }, 3000); // Swap every 4 seconds
 
         return () => clearInterval(interval);
@@ -50,7 +50,7 @@ const FaqPage = () => {
     return (
         <Box className="space-y-12">
 
-            <Box className="flex items-center w-full px-3" sx={{ height: '15vh' }}>
+            <Box className="flex items-center w-full px-3" sx={{ height: isMobile ? '15vh' : '40vh' }}>
                 <Header />
             </Box>
 
@@ -247,7 +247,7 @@ const FaqPage = () => {
                                 lineHeight: '1.2'
                             }}
                         >
-                            No problem! Our team is always ready to assist you. Contact us by phone at (03) 9873 4941, email us at info@splendourinstone.com, or visit our Contact Us page for details. We're happy to answer any questions you may have.
+                            No problem! Our team is always ready to assist you. CONTACT US by phone at (03) 9873 4941, email us at info@splendourinstone.com, or visit our CONTACT US page for details. We're happy to answer any questions you may have.
                         </Typography>
                     </Box>
                 </Box> : <Box className="px-12"><Box className="flex w-full justify-between">
@@ -326,7 +326,7 @@ const FaqPage = () => {
                                 }
                             }}
                         >
-                            No problem! Our team is always ready to assist you. Contact us by phone at (03) 9873 4941, email us at info@splendourinstone.com, or visit our Contact Us page for details. We're happy to answer any questions you may have.
+                            No problem! Our team is always ready to assist you. CONTACT US by phone at (03) 9873 4941, email us at info@splendourinstone.com, or visit our CONTACT US page for details. We're happy to answer any questions you may have.
                         </Typography>
                     </Box>
                 </Box></Box>}
@@ -352,68 +352,68 @@ const FaqPage = () => {
                             className="w-full"
                         />
                     </Box>
-                </Box></Box> 
-                : 
-                <Box className="px-12">
-                    <Box className="flex justify-between w-full gap-6">
-                        <motion.div
-                        animate={{
-                            width: isSwapped ? '66.666667%' : '33.333333%'
-                        }}
-                        transition={{
-                            duration: 0.8,
-                            ease: "easeInOut"
-                        }}
-                        className="flex"
-                        style={{
-                            height: '480px'
-                        }}
-                        >
-                            <Card3DEffect>
-                        <Image
-                            src="/images/Faqs/image1.png"
-                            alt="Image1"
-                            width={552}
-                            height={480}
-                            className="rounded-[20px]"
-                            style={{
-                            width: '100%',
-                            height: '480px',
-                            objectFit: 'fill'
-                            }}
-                        />
-                        </Card3DEffect>
-                        </motion.div>
-                        
-                        <motion.div
-                        animate={{
-                            width: isSwapped ? '33.333333%' : '66.666667%'
-                        }}
-                        transition={{
-                            duration: 0.8,
-                            ease: "easeInOut"
-                        }}
-                        className="flex"
-                        style={{
-                            height: '480px'
-                        }}
-                        >
-                            <Card3DEffect>
-                        <Image
-                            src="/images/Faqs/image2.png"
-                            alt="image2"
-                            width={1136}
-                            height={480}
-                            className="rounded-[20px]"
-                            style={{
-                            width: '100%',
-                            height: '480px',
-                            objectFit: 'fill'
-                            }}
-                        />
-                        </Card3DEffect>
-                        </motion.div>
-                    </Box>
+                </Box></Box>
+                    :
+                    <Box className="px-12">
+                        <Box className="flex justify-between w-full gap-6">
+                            <motion.div
+                                animate={{
+                                    width: isSwapped ? '66.666667%' : '33.333333%'
+                                }}
+                                transition={{
+                                    duration: 0.8,
+                                    ease: "easeInOut"
+                                }}
+                                className="flex"
+                                style={{
+                                    height: '480px'
+                                }}
+                            >
+                                <Card3DEffect>
+                                    <Image
+                                        src="/images/Faqs/image1.png"
+                                        alt="Image1"
+                                        width={552}
+                                        height={480}
+                                        className="rounded-[20px]"
+                                        style={{
+                                            width: '100%',
+                                            height: '480px',
+                                            objectFit: 'fill'
+                                        }}
+                                    />
+                                </Card3DEffect>
+                            </motion.div>
+
+                            <motion.div
+                                animate={{
+                                    width: isSwapped ? '33.333333%' : '66.666667%'
+                                }}
+                                transition={{
+                                    duration: 0.8,
+                                    ease: "easeInOut"
+                                }}
+                                className="flex"
+                                style={{
+                                    height: '480px'
+                                }}
+                            >
+                                <Card3DEffect>
+                                    <Image
+                                        src="/images/Faqs/image2.png"
+                                        alt="image2"
+                                        width={1136}
+                                        height={480}
+                                        className="rounded-[20px]"
+                                        style={{
+                                            width: '100%',
+                                            height: '480px',
+                                            objectFit: 'fill'
+                                        }}
+                                    />
+                                </Card3DEffect>
+                            </motion.div>
+                        </Box>
                     </Box>}
 
 

@@ -60,6 +60,8 @@ const Magnifier: React.FC<MagnifierProps> = ({
                 ref={imgRef}
                 src={src}
                 alt={alt}
+                height={400}
+                width={300}
                 style={{ width: '100%', height: height ? `${height}px` : 'auto' }}
             />
             <div

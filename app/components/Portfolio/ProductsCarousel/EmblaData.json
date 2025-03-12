@@ -2,19 +2,19 @@
     "resources": [
       {
         "product_name": "OUTDOOR",
-        "imageUrl": "images/Portfolio/products/product1.png"
+        "imageUrl": "/images/Portfolio/products/product1.png"
       },
       {
         "product_name": "OUTDOOR",
-        "imageUrl": "images/Portfolio/products/product2.png"
+        "imageUrl": "/images/Portfolio/products/product2.png"
       },
       {
         "product_name": "OUTDOOR",
-        "imageUrl": "images/Portfolio/products/product3.png"
+        "imageUrl": "/images/Portfolio/products/product3.png"
       },
       {
         "product_name": "OUTDOOR",
-        "imageUrl": "images/Portfolio/products/product4.png"
+        "imageUrl": "/images/Portfolio/products/product4.png"
       }
     ]
   }

@@ -58,6 +58,8 @@ const DateCarousel: React.FC<CarouselProps> = ({ images }) => {
                                     layout="fill"
                                     objectFit="contain"
                                     className="animate-fadeIn"
+                                    width={100}
+                                    height={120}
                                 />
                             );
                         }

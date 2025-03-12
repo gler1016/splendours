@@ -38,7 +38,7 @@ const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, iconSrc, onClic
                 color: "#283C28",
                 fontSize: { xs: "11px", sm: "1vw" }, // Responsive font size
                 fontWeight: 400,
-                fontFamily: "var(--font-montserrat)",
+                fontFamily: "inherit",
                 fontSynthesisWeight: 600,
                 backgroundColor: "#DBC6BC", // Default background color
                 borderColor: "transparent", // Border color

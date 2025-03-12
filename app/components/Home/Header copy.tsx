@@ -293,7 +293,7 @@ const Header: React.FC = () => {
                                     }
                                 }}
                             >
-                                Contact Us
+                                CONTACT US
                             </Typography>
                         </Link>
                     </Box>
@@ -515,7 +515,7 @@ const Header: React.FC = () => {
                                     }
                                 }}
                             >
-                                Contact Us
+                                CONTACT US
                             </Typography>
                         </Link>
                         <Link href="/faq">

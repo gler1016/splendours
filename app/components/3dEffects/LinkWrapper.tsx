@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface LinkWrapperProps {
   href: string; // The URL the link points to
@@ -41,9 +42,11 @@ const LinkWrapper: React.FC<LinkWrapperProps> = ({ href, previewImage, children 
             minWidth: '200px',
           }}
         >
-          <img
+          <Image
             src={previewImage}
             alt="Preview"
+            width={250}
+            height={250}
             style={{
               width: '250px', // Adjust the size as needed
               height: 'auto',

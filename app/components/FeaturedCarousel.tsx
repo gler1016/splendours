@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Box } from '@mui/material';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Card3DEffect from './3dEffects/Card3DEffect';
+import Image from 'next/image';
 // import Image from 'next/image';
 
 type PositionStyle = {
@@ -130,9 +131,11 @@ const FeaturedCarousel = () => {
         >
                               <Card3DEffect rotationIntensity={35} perspective={1000}>
 
-          <img
+          <Image
             src={images[indices.top]}
             alt="Top"
+           width={569}
+           height={189}
             style={{
               width: '100%',
               height: '100%',
@@ -153,9 +156,11 @@ const FeaturedCarousel = () => {
         >
           <Card3DEffect rotationIntensity={30} perspective={1000}>
 
-          <img
+          <Image
             src={images[indices.bottomLeft]}
             alt="Bottom Left"
+            height={187}
+            width={189}
             style={{
               width: '100%',
               height: '100%',
@@ -175,9 +180,11 @@ const FeaturedCarousel = () => {
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
           <Card3DEffect rotationIntensity={30} perspective={1000}>
-          <img
+          <Image
             src={images[indices.bottomRight]}
             alt="Bottom Right"
+            width={189}
+            height={187}
             style={{
               width: '100%',
               height: '100%',

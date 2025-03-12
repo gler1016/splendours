@@ -46,7 +46,7 @@ const ServicesPage = () => {
             >
                 <Box className="flex flex-col space-y-3 xs:gap-y-3 sm:gap-y-6 md:gap-y-9" sx={{ border: isMobile ? '1px solid #000000' : 'none', paddingBottom: isMobile ? '40px' : '0px', }}>
 
-                    <Box className="flex items-center w-full px-3" sx={{ height: '15vh', borderTop: isMobile ? '1px solid #1E1E1E' : 'none' }}>
+                    <Box className="flex items-center w-full" sx={{  borderTop: isMobile ? '1px solid #1E1E1E' : 'none' }}>
                         <Header />
                     </Box>
 

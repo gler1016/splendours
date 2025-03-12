@@ -10,7 +10,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import WhiteCustomButton from '../../WhiteButton';
 import FullCustomBrownDivider from '../../Divider/FullCustomBrownDivider';
-// import Image from 'next/image';
+import Image from 'next/image';
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -131,10 +131,12 @@ export default function MeasurementAccordion() {
                             <WhiteCustomButton label={'Learn More'} iconSrc={'/images/vector.svg'} />
                         </Box>
                         <Box className="flex w-1/2">
-                            <img
+                            <Image
                                 src="/images/background.png"
                                 alt="Plus"
                                 className="flex w-full"
+                                width={500}
+                                height={500}
                             />
                         </Box>
                     </Box>

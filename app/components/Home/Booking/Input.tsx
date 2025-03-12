@@ -30,7 +30,7 @@ export const Input: React.FC<InputProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <label className="block text-sm font-medium text-gray-700 mb-1">
+      <label className="block text-xs-custom leading-tight-custom font-medium text-gray-700 mb-1">
         {label}
       </label>
       <motion.div

@@ -10,6 +10,8 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import WhiteCustomButton from '../../WhiteButton';
 import FullCustomBrownDivider from '../../Divider/FullCustomBrownDivider';
+import Image from 'next/image';
+import Card3DEffect from '../../3dEffects/Card3DEffect';
 // import Image from 'next/image';
 
 const Accordion = styled((props: AccordionProps) => (
@@ -133,11 +135,15 @@ export default function ProductionAccordion() {
                             <WhiteCustomButton label={'Learn More'} iconSrc={'/images/vector.svg'} />
                         </Box>
                         <Box className="flex w-1/2">
-                            <img
+                        <Card3DEffect>
+                            <Image
                                 src="/images/Home/Services/production.png"
                                 alt="production"
                                 className="flex w-full"
+                                width={475}
+                                height={230}
                             />
+                            </Card3DEffect>
                         </Box>
                     </Box>
                     <FullCustomBrownDivider />

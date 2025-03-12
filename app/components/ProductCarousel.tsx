@@ -14,6 +14,7 @@ interface ProductCarouselProps {
 
 // Import data (assuming it's a TypeScript module)
 import data from "./ProductData.json";
+import Image from "next/image";
 // import Image from "next/image";
 
 // Carousel Component
@@ -202,10 +203,12 @@ const ProductCarousel = ({ onProductSelect }: ProductCarouselProps) => {
                                     backgroundImage: `url(${resource.imageUrl || ""})`,
                                 }}
                             >
-                                <img
+                                <Image
                                     src={resource.imageUrl || ""}
                                     alt={resource.title}
                                     className="w-full hidden rounded-[40px]"
+                                    width={330}
+                                    height={87}
                                 />
                             </a>
 

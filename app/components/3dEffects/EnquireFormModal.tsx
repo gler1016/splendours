@@ -1,31 +1,31 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 import {
   Box,
   Modal,
   Typography,
   IconButton,
   Snackbar,
-  Alert,
-} from "@mui/material";
-import { Label } from "./Label";
-import { Input } from "./Input";
-import { cn } from "../../../lib/utils";
-import { Textarea } from "../3dEffects/Textarea";
-import CloseIcon from "@mui/icons-material/Close";
-import { ButtonHover } from "./ButtonHover";
+  Alert
+} from '@mui/material';
+import { Label } from './Label';
+import { Input } from './Input';
+import { cn } from '../../../lib/utils'
+import { Textarea } from '../3dEffects/Textarea';
+import CloseIcon from '@mui/icons-material/Close';
+import { ButtonHover } from './ButtonHover';
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 450,
-  bgcolor: "#f5e0d8",
-  border: "2px solid #000",
-  borderRadius: "10px",
+  bgcolor: '#f5e0d8',
+  border: '2px solid #000',
+  borderRadius: '10px',
   boxShadow: 24,
   p: 4,
 } as const;
@@ -39,10 +39,10 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
   const [successAlert, setSuccessAlert] = useState(false);
   const [errorAlert, setErrorAlert] = useState(false);
   const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    phone: "",
-    enquiry: "",
+    name: '',
+    email: '',
+    phone: '',
+    enquiry: '',
   });
 
   const handleChange = (
@@ -51,6 +51,8 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+
 
   const handleAlertClose = () => {
     setSuccessAlert(false);
@@ -65,11 +67,11 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
     }
     try {
       await axios.post("/api/submit-enquire-form", formData);
-      setFormData({ name: "", email: "", phone: "", enquiry: "" });
+      setFormData({ name: '', email: '', phone: '', enquiry: '' });
       setSuccessAlert(true); // Show success alert
       handleClose();
     } catch (error) {
-      console.error("Error submitting the enquiry form:", error);
+      console.error('Error submitting the enquiry form:', error);
       // Handle error appropriately, e.g., show an alert or notification
       setErrorAlert(true); // Show error alert
       handleClose();
@@ -80,19 +82,14 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
     <>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            mb={2}
-          >
+          <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
             <Typography
               variant="h4"
               color="#283C28"
               sx={{
                 fontWeight: 550,
-                textAlign: "center",
-                fontFamily: "Chronicle Display",
+                textAlign: 'center',
+                fontFamily: 'Chronicle Display',
                 flexGrow: 1, // This allows the title to take up space so the button aligns to the right
               }}
             >
@@ -107,17 +104,13 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
               <Label htmlFor="firstname">First name</Label>
               <Input id="firstname" placeholder="Enter Your Name" type="text" />
             </LabelInputContainer>
-            <LabelInputContainer>
+            <LabelInputContainer >
               <Label htmlFor="email">Email Address</Label>
               <Input id="email" placeholder="example@email.com" type="email" />
             </LabelInputContainer>
-            <LabelInputContainer>
+            <LabelInputContainer >
               <Label htmlFor="phonenumber">Phone Number</Label>
-              <Input
-                id="phonenumber"
-                placeholder="••••••••"
-                type="phonenumber"
-              />
+              <Input id="phonenumber" placeholder="••••••••" type="phonenumber" />
             </LabelInputContainer>
             <LabelInputContainer>
               <Textarea
@@ -128,36 +121,24 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
                 onChange={handleChange}
               />
             </LabelInputContainer>
-            <ButtonHover type="submit">Sign up &rarr;</ButtonHover>
+            <ButtonHover
+              type="submit"
+            >
+              Sign up &rarr;
+            </ButtonHover>
           </form>
         </Box>
       </Modal>
       {/* Success Alert */}
-      <Snackbar
-        open={successAlert}
-        autoHideDuration={6000}
-        onClose={handleAlertClose}
-      >
-        <Alert
-          onClose={handleAlertClose}
-          severity="success"
-          sx={{ width: "100%" }}
-        >
+      <Snackbar open={successAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+        <Alert onClose={handleAlertClose} severity="success" sx={{ width: "100%" }}>
           Form sent successfully!
         </Alert>
       </Snackbar>
 
       {/* Error Alert */}
-      <Snackbar
-        open={errorAlert}
-        autoHideDuration={6000}
-        onClose={handleAlertClose}
-      >
-        <Alert
-          onClose={handleAlertClose}
-          severity="error"
-          sx={{ width: "100%" }}
-        >
+      <Snackbar open={errorAlert} autoHideDuration={6000} onClose={handleAlertClose}>
+        <Alert onClose={handleAlertClose} severity="error" sx={{ width: "100%" }}>
           Failed to send form. Please try again.
         </Alert>
       </Snackbar>

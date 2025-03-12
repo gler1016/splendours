@@ -20,7 +20,8 @@ const Logo = () => {
             <Image
                 src={logoSrc}
                 alt="Logo"
-                fill
+                width={isMobile ? 151 : 250}
+                height={isMobile ? 47 : 60}
                 style={{ objectFit: 'contain' }}
                 priority
             />

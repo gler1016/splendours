@@ -10,7 +10,8 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import WhiteCustomButton from '../../WhiteButton';
 import FullCustomBrownDivider from '../../Divider/FullCustomBrownDivider';
-// import Image from 'next/image';
+import Image from 'next/image';
+import Card3DEffect from '../../3dEffects/Card3DEffect';
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -111,6 +112,7 @@ export default function TechnicalAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Box className="flex w-full justify-between">
+                        
                         <Box className="flex flex-col w-1/3 justify-around py-9">
                             <Typography
                                 variant="h3"
@@ -128,20 +130,27 @@ export default function TechnicalAccordion() {
                                     }
                                 }}
                             >
+
                                 Our conversation begins with a friendly call. We'll discuss your vision, understand your project scope, and answer any questions you may have about natural stone.
                             </Typography>
                             <WhiteCustomButton label={'Learn More'} iconSrc={'/images/vector.svg'} />
                         </Box>
                         <Box className="flex w-1/2">
-                            <img
+                        <Card3DEffect>
+                            <Image
                                 src="/images/Home/Services/technical.png"
                                 alt="technical"
                                 className="flex w-full"
+                                width={473}
+                                height={220}
                             />
+                            </Card3DEffect>
                         </Box>
                     </Box>
                     <FullCustomBrownDivider />
+                    
                 </AccordionDetails>
+               
             </Accordion>
         </div>
     );

@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { EmblaOptionsType } from 'embla-carousel'
 import Card3DEffect from '../../3dEffects/Card3DEffect' // Import the Card3DEffect component
+import Image from 'next/image'
 
 type CarouselProps = {
   items: { imageUrl: string; alt: string }[]
@@ -33,10 +34,12 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
           {items.map((item, index) => (
             <div className="embla__slide_journey" key={index}>
               <Card3DEffect>
-                <img
+                <Image
                   className="embla__slide__img_journey"
                   src={item.imageUrl}
                   alt={item.alt}
+                  height={350}
+                  width={350}
                 />
               </Card3DEffect>
             </div>

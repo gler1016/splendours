@@ -110,8 +110,8 @@ export default function ActionAreaCard() {
         <>
             <Box className="flex items-center w-full px-3" sx={{ height: '15hv' }}>
                 <Box
-                    className='flex items-center w-full px-3'
-                    sx={{ height: '15vh', borderTop: isMobile ? '1px solid #1E1E1E' : 'none' }}
+                    className='flex items-center w-full '
+                    sx={{ height:isMobile ? '15vh' : '40vh', padding: isMobile ? '3px' : '0px', borderTop: isMobile ? '1px solid #1E1E1E' : 'none' }}
                 >
                     <Header />
                 </Box>

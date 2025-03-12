@@ -9,7 +9,6 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
-    TextField,
     Snackbar,
     Alert
 } from "@mui/material";
@@ -23,8 +22,11 @@ import ProductCarousel from "../../ProductCarousel";
 import PhaseCarousel from "../../PhaseCarousel";
 import CalendarControl from "../../CalendarControl";
 import MonthYearPicker from "./MonthCalendar";
+import Image from "next/image";
+import { GreenBtnBooking } from "../../Buttons/GreenBtnBooking";
+// import { GreenAnimationBooking } from "./GreenAnimationBooking";
 // import Image from "next/image";
-
+import CustomTextField from "../../3dEffects/FormInput"
 const Booking: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1024px)' });
@@ -403,12 +405,6 @@ const Booking: React.FC = () => {
                                     </DialogContent>
                                 </Dialog>
 
-
-
-
-
-
-
                                 {/* <input
                                 ref={inputRef} // Attach the ref to the input
                                 type="month" // Specify the type
@@ -455,7 +451,7 @@ const Booking: React.FC = () => {
 
                         <ProductCarousel onProductSelect={handleProductSelection} />
 
-                        <PhaseCarousel onPhaseSelect={handlePhaseSelect} />
+                        <PhaseCarousel onPhaseSelect={handlePhaseSelect} handleOpenDialog={handleOpenDialog} />
                     </Box>
                     {/* Dialog for Form */}
                     <Dialog open={openDialog} onClose={handleCloseDialog}>
@@ -475,7 +471,7 @@ const Booking: React.FC = () => {
                         </DialogTitle>
                         <DialogContent>
                             <form onSubmit={handleSubmit} className="flex flex-col gap-y-3">
-                                <TextField
+                                <CustomTextField
                                     label="Name"
                                     fullWidth
                                     value={formData.name}
@@ -483,11 +479,16 @@ const Booking: React.FC = () => {
                                     error={!!nameError} // Show error styling if validation fails
                                     helperText={nameError} // Display validation message
                                     variant="outlined"
-                                    sx={{ "& .MuiInputBase-root": { borderRadius: 2 } }}
+                                    sx={{
+                                        "& .MuiInputBase-root": {
+                                            backgroundColor: "#F5F5F5",
+                                            borderRadius: 2,
+                                        },
+                                    }}
                                 />
 
                                 {!isCall && (
-                                    <TextField
+                                    <CustomTextField
                                         label="Email"
                                         fullWidth
                                         value={formData.email}
@@ -495,12 +496,17 @@ const Booking: React.FC = () => {
                                         error={!!emailError} // Trigger error state if invalid
                                         helperText={emailError} // Show validation message
                                         variant="outlined"
-                                        sx={{ "& .MuiInputBase-root": { borderRadius: 2 } }}
+                                        sx={{
+                                            "& .MuiInputBase-root": {
+                                                backgroundColor: "#F5F5F5",
+                                                borderRadius: 2,
+                                            },
+                                        }}
                                     />
                                 )}
 
                                 {!isVideoCall && (
-                                    <TextField
+                                    <CustomTextField
                                         label="Phone"
                                         fullWidth
                                         value={formData.phone}
@@ -508,12 +514,17 @@ const Booking: React.FC = () => {
                                         error={!!phoneError} // Show error styling if validation fails
                                         helperText={phoneError} // Display validation message
                                         variant="outlined"
-                                        sx={{ "& .MuiInputBase-root": { borderRadius: 2 } }}
+                                        sx={{
+                                            "& .MuiInputBase-root": {
+                                                backgroundColor: "#F5F5F5",
+                                                borderRadius: 2,
+                                            },
+                                        }}
                                     />
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Date"
                                         fullWidth
                                         value={
@@ -535,7 +546,7 @@ const Booking: React.FC = () => {
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Service"
                                         fullWidth
                                         value={selectedService || ""}
@@ -553,7 +564,7 @@ const Booking: React.FC = () => {
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Product"
                                         fullWidth
                                         value={selectedProductTitle || ""}
@@ -571,7 +582,7 @@ const Booking: React.FC = () => {
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Phase"
                                         fullWidth
                                         value={selectedPhase || ""}
@@ -589,7 +600,7 @@ const Booking: React.FC = () => {
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Special Requests"
                                         fullWidth
                                         multiline
@@ -602,7 +613,12 @@ const Booking: React.FC = () => {
                                             })
                                         }
                                         variant="outlined"
-                                        sx={{ "& .MuiInputBase-root": { borderRadius: 2 } }}
+                                        sx={{
+                                            "& .MuiInputBase-root": {
+                                                backgroundColor: "#F5F5F5",
+                                                borderRadius: 2,
+                                            },
+                                        }}
                                     />
                                 ) : (
                                     <></>
@@ -657,7 +673,7 @@ const Booking: React.FC = () => {
                 </Box>
             ) : (
                 <Box
-                    className="relative flex flex-col w-full px-10 py-20 gap-y-8 rounded-[40px]"
+                    className="relative flex flex-col w-full px-10 py-10 gap-y-8 rounded-[40px]"
                     sx={{
                         backgroundImage: "url(images/Home/Booking/background.jpg)", // Add your image path here
                         backgroundSize: "cover", // Ensures the background image covers the entire area
@@ -733,97 +749,92 @@ const Booking: React.FC = () => {
                             }}
                         >
                             {/* Book Button */}
-                            <Box
+                            {/* <Box
                                 className="flex justify-center md:justify-end"
                                 sx={{
                                     width: "100%",
                                 }}
                             >
-                                <button
-                                    style={{
-                                        padding: "10px 20px",
-                                        backgroundColor: "#283C28",
-                                        color: "#DCC5BD",
-                                        border: "none",
-                                        borderRadius: "50px",
-                                        cursor: "pointer",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                    className="lg:w-[260px] lg:h-[60px] lg:justify-between lg:text-[15px]"
-                                    onClick={handleOpenDialog}
-                                >
-                                    Book
-                                    <img src="/images/icons/Vector.svg" alt="Book" />
-                                </button>
-                            </Box>
+
+                            </Box> */}
 
                             {/* Action Buttons */}
                             <Box
-                                className="flex flex-col md:flex-row gap-3"
+                                className="flex flex-col md:flex-row gap-8"
                                 sx={{
                                     justifyContent: { xs: "center", md: "space-between" },
                                     alignItems: { xs: "center", md: "flex-start" },
                                 }}
                             >
-                                <button
-                                    style={{
-                                        padding: "10px 20px",
-                                        backgroundColor: "#283C28",
-                                        color: "#DCC5BD",
-                                        border: "none",
-                                        borderRadius: "50px",
-                                        cursor: "pointer",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                    className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
-                                    onClick={handleOpenDialog_VideoCall}
-                                >
 
-                                    Video Call
-                                    <img src="/images/icons/VideoCall.svg" alt="Video Call" />
-                                </button>
+                                <GreenBtnBooking onClick={handleOpenDialog_VideoCall} label="Video Call" icon="/images/icons/VideoCall.svg" className="gap-2">
+                                    <button
+                                        style={{
+                                            padding: "10px 20px",
+                                            backgroundColor: "#283C28",
+                                            color: "#DCC5BD",
+                                            border: "none",
+                                            borderRadius: "50px",
+                                            cursor: "pointer",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            transition: "all 0.3s ease", // Add transition for smooth animation
+                                        }}
+                                        className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px] hover:gap-4" // Add hover gap for spacing
+                                    >
+                                        <span style={{ transition: "transform 0.3s ease" }} className="hover:translate-x-2">
+                                            Video Call
+                                        </span>
+                                        <Image src="/images/icons/VideoCall.svg"
+                                            alt="Video Call"
+                                            width={32}
+                                            height={32}
+                                            style={{ opacity: 0, transition: "opacity 0.3s ease, transform 0.3s ease" }} // Add opacity and transform transition
+                                            className="hover:opacity-100 hover:translate-x-0"
+                                        />
+                                    </button>
+                                </GreenBtnBooking>
+                                <GreenBtnBooking onClick={handleOpenDialog_Call} label="Call" icon="/images/icons/Call.svg" className="px-2">
+                                    <button
+                                        style={{
+                                            padding: "10px 20px",
+                                            backgroundColor: "#283C28",
+                                            color: "#DCC5BD",
+                                            border: "none",
+                                            borderRadius: "50px",
+                                            cursor: "pointer",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                        }}
+                                        className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
+                                        onClick={handleOpenDialog_Call}
+                                    >   Call
+                                        <Image src="/images/icons/Call.svg" alt="Call" width={32} height={32} />
 
-                                <button
-                                    style={{
-                                        padding: "10px 20px",
-                                        backgroundColor: "#283C28",
-                                        color: "#DCC5BD",
-                                        border: "none",
-                                        borderRadius: "50px",
-                                        cursor: "pointer",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                    className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
-                                    onClick={handleOpenDialog_Call}
-                                >   Call
-                                    <img src="/images/icons/Call.svg" alt="Call" />
+                                    </button>
+                                </GreenBtnBooking>
+                                <GreenBtnBooking onClick={handleOpenDialog_Email} label="Email" icon="/images/icons/Email.svg" className="px-2">
+                                    <button
+                                        style={{
+                                            padding: "10px 20px",
+                                            backgroundColor: "#283C28",
+                                            color: "#DCC5BD",
+                                            border: "none",
+                                            borderRadius: "50px",
+                                            cursor: "pointer",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                        }}
+                                        className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
+                                        onClick={handleOpenDialog_Email}
+                                    > Email
+                                        <Image src="/images/icons/Email.svg" alt="Email" width={32} height={32} />
 
-                                </button>
-
-                                <button
-                                    style={{
-                                        padding: "10px 20px",
-                                        backgroundColor: "#283C28",
-                                        color: "#DCC5BD",
-                                        border: "none",
-                                        borderRadius: "50px",
-                                        cursor: "pointer",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                    className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
-                                    onClick={handleOpenDialog_Email}
-                                > Email
-                                    <img src="/images/icons/Email.svg" alt="Email" />
-
-                                </button>
+                                    </button>
+                                </GreenBtnBooking>
                             </Box>
                         </Box>
                     </Box>
@@ -841,7 +852,7 @@ const Booking: React.FC = () => {
 
                         <ProductCarousel onProductSelect={handleProductSelection} />
 
-                        <PhaseCarousel onPhaseSelect={handlePhaseSelect} />
+                        <PhaseCarousel onPhaseSelect={handlePhaseSelect} handleOpenDialog={handleOpenDialog} />
                     </Box>
 
                     {/* Dialog for Form */}
@@ -890,7 +901,7 @@ const Booking: React.FC = () => {
                                     gap: "16px",
                                 }}
                             >
-                                <TextField
+                                <CustomTextField
                                     label="Name"
                                     placeholder="John Doe"
                                     fullWidth
@@ -899,11 +910,16 @@ const Booking: React.FC = () => {
                                     error={!!nameError} // Show error styling if validation fails
                                     helperText={nameError} // Display validation message
                                     variant="outlined"
-                                    sx={{ "& .MuiInputBase-root": { borderRadius: 2 } }}
+                                    sx={{
+                                        "& .MuiInputBase-root": {
+                                            backgroundColor: "#F5F5F5",
+                                            borderRadius: 2,
+                                        },
+                                    }}
                                 />
 
                                 {!isCall && (
-                                    <TextField
+                                    <CustomTextField
                                         label="Email"
                                         fullWidth
                                         value={formData.email}
@@ -911,12 +927,17 @@ const Booking: React.FC = () => {
                                         error={!!emailError} // Trigger error state if invalid
                                         helperText={emailError} // Show validation message
                                         variant="outlined"
-                                        sx={{ "& .MuiInputBase-root": { borderRadius: 2 } }}
+                                        sx={{
+                                            "& .MuiInputBase-root": {
+                                                backgroundColor: "#F5F5F5",
+                                                borderRadius: 2,
+                                            },
+                                        }}
                                     />
                                 )}
 
                                 {!isVideoCall && (
-                                    <TextField
+                                    <CustomTextField
                                         label="Phone"
                                         fullWidth
                                         value={formData.phone}
@@ -924,12 +945,17 @@ const Booking: React.FC = () => {
                                         error={!!phoneError} // Show error styling if validation fails
                                         helperText={phoneError} // Display validation message
                                         variant="outlined"
-                                        sx={{ "& .MuiInputBase-root": { borderRadius: 2 } }}
+                                        sx={{
+                                            "& .MuiInputBase-root": {
+                                                backgroundColor: "#F5F5F5",
+                                                borderRadius: 2,
+                                            },
+                                        }}
                                     />
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Date"
                                         fullWidth
                                         value={
@@ -951,7 +977,7 @@ const Booking: React.FC = () => {
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Service"
                                         fullWidth
                                         value={selectedService || ""}
@@ -969,7 +995,7 @@ const Booking: React.FC = () => {
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Product"
                                         fullWidth
                                         value={selectedProductTitle || ""}
@@ -987,7 +1013,7 @@ const Booking: React.FC = () => {
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Phase"
                                         fullWidth
                                         value={selectedPhase || ""}
@@ -1005,7 +1031,7 @@ const Booking: React.FC = () => {
                                 )}
 
                                 {isBookNow || isEmail ? (
-                                    <TextField
+                                    <CustomTextField
                                         label="Special Requests"
                                         fullWidth
                                         multiline
@@ -1018,7 +1044,12 @@ const Booking: React.FC = () => {
                                             })
                                         }
                                         variant="outlined"
-                                        sx={{ "& .MuiInputBase-root": { borderRadius: 2 } }}
+                                        sx={{
+                                            "& .MuiInputBase-root": {
+                                                backgroundColor: "#F5F5F5",
+                                                borderRadius: 2,
+                                            },
+                                        }}
                                     />
                                 ) : (
                                     <></>

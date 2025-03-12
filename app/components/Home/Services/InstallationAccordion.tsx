@@ -9,6 +9,7 @@ import { Box, Typography } from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import FullCustomBrownDivider from '../../Divider/FullCustomBrownDivider';
+import Image from 'next/image';
 
 
 const Accordion = styled((props: AccordionProps) => (
@@ -127,7 +128,7 @@ export default function InstallationAccordion() {
                                 </Typography>
                             </Box>
                             <Box className="flex w-1/4 justify-end items-start">
-                                <img
+                                <Image
                                     src="/images/Home/Services/TopRightVector.svg"
                                     alt="Plus"
                                     width={40}
@@ -138,7 +139,7 @@ export default function InstallationAccordion() {
                         </Box>
                         <FullCustomBrownDivider />
                         <Box className="flex w-full">
-                            <img
+                            <Image
                                 src="/images/Service/journey/Mobile/installation.png"
                                 alt="Plus"
                                 width={356}

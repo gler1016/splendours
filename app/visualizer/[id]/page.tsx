@@ -661,44 +661,43 @@ const App = ({ params }: {
                     </Typography>
                   </Box>
                   <Card3DEffect>
-                  <Box className='flex w-full gap-x-5 items-center'>
-                    {/* Previous Image */}
-                   
-                     <Box className='flex flex-col items-center'>
-                      <Image
-                        src={modelImages[(currentModelIndex - 1 + modelImages.length) % modelImages.length]}
-                        alt='Previous Model'
-                        width={80}
-                        height={80}
-                        className='rounded-lg'
-                      />
-                      <Typography variant='caption' color='white'>Previous</Typography>
+                    <Box className='flex w-full gap-x-5 items-center'>
+                      {/* Previous Image */}
+                      <Box className="relative group">
+                        <Box className="flex flex-col items-center">
+                          <Image
+                            src={modelImages[(currentModelIndex - 1 + modelImages.length) % modelImages.length]}
+                            alt="Previous Model"
+                            width={300}
+                            height={300}
+                            className="mb-4 rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                          />
+                          <Typography variant="caption" color="white" className="cursor-pointer">
+                            Previous
+                          </Typography>
+                        </Box>
+                      </Box>
+                      <Box className='flex cursor-pointer items-center' onClick={handlePrevClick}>
+                        <ArrowBackIosNewIcon sx={{ color: 'white' }} />
+                      </Box>
+
+                      <Box className='flex cursor-pointer items-center' onClick={handleNextClick}>
+                        <ArrowForwardIosIcon sx={{ color: 'white' }} />
+                      </Box>
+                      {/* Next Image */}
+                      <Box className="relative group">
+                        <Box className='flex flex-col items-center'>
+                          <Image
+                            src={modelImages[(currentModelIndex + 1) % modelImages.length]}
+                            alt="Next Model"
+                            width={300}
+                            height={300}
+                            className="mb-4 rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                          />
+                          <Typography variant='caption' color='white' className="cursor-pointer">Next</Typography>
+                        </Box>
+                      </Box>
                     </Box>
-                    <Box className='flex cursor-pointer items-center
-                  ' onClick={handlePrevClick}>
-                      <ArrowBackIosNewIcon sx={{ color: 'white' }} />
-                      {/* <Typography sx={{ fontSize: '15px' }} variant='body2' color='white'>
-                        P R E V
-                      </Typography> */}
-                    </Box>
-                    <Box className='flex cursor-pointer items-center' onClick={handleNextClick}>
-                      {/* <Typography sx={{ fontSize: '15px' }} variant='body2' color='white'>
-                        N E X T
-                      </Typography> */}
-                      <ArrowForwardIosIcon sx={{ color: 'white' }} />
-                    </Box>
-                    {/* Next Image */}
-                    <Box className='flex flex-col items-center'>
-                      <Image
-                        src={modelImages[(currentModelIndex + 1) % modelImages.length]}
-                        alt='Next Model'
-                        width={80}
-                        height={80}
-                        className='rounded-lg'
-                      />
-                      <Typography variant='caption' color='white'>Next</Typography>
-                    </Box>
-                  </Box>
                   </Card3DEffect>
 
                 </Box>

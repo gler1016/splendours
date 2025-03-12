@@ -4,7 +4,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { Typography } from '@mui/material'
 import Card3DEffect from './3dEffects/Card3DEffect'
-
+import Image from 'next/image'
 const CarouselPart = ({
     data,
     autoplayInterval = 3000, // Default 3 seconds
@@ -94,23 +94,26 @@ const CarouselPart = ({
                         >
                             {currentImg === i ? (
                                 <Card3DEffect rotationIntensity={30} perspective={1000}>
-                                    <img
+                                    <Image
                                         className="rounded-lg object-cover"
                                         alt={`carousel-image-${i}`}
                                         src={v.image || '/images/carousel_interactive_part/card1.png'}
+                                        width={200}
+                                        height={300}
                                         style={{
                                             transition: 'opacity 0.5s ease-in-out',
                                             opacity: currentImg === i ? 1 : 0,
-                                            width: '100%', // Ensure the image takes full width
-                                            height: '100%', // Ensure the image takes full height
+                                           
                                         }}
                                     />
                                 </Card3DEffect>
                             ) : (
-                                <img
+                                <Image
                                     className="rounded-lg object-cover"
                                     alt={`carousel-image-${i}`}
                                     src={v.image || '/images/carousel_interactive_part/card1.png'}
+                                    width={500}
+                                     height={300}
                                     style={{
                                         transition: 'opacity 0.5s ease-in-out',
                                         opacity: currentImg === i ? 1 : 0,

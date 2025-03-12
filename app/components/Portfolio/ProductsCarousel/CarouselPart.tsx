@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaOptionsType } from "embla-carousel";
+import Image from "next/image";
 // import Image from "next/image";
 
 type CarouselProps = {
@@ -46,7 +47,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
           {items.map((item, index) => (
 
             <div className="embla__slide_deal" key={index}>
-             <img className="embla__slide__img_deal" src={item.imageUrl} alt={item.alt} />
+             <Image className="embla__slide__img_deal" src={item.imageUrl} alt={item.alt} width={130} height={120}/>
             </div>
            
 

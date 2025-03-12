@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Box, Card, CardContent, Typography } from '@mui/material';
-import Card3DEffect from './3dEffects/Card3DEffect';
+// import Card3DEffect from './3dEffects/Card3DEffect';
 
 interface CustomWallCardProps {
     product_image_src: string,
@@ -10,18 +10,18 @@ interface CustomWallCardProps {
 
 const CustomWallCard: React.FC<CustomWallCardProps> = ({ product_image_src, product_subname }) => {
     return (
-        <Card3DEffect rotationIntensity={30} perspective={1000}>
-
-        <Card className='w-full aspect-[1.23/1] relative' style={{ backgroundImage: `url(${product_image_src})`, borderRadius: '25px', backgroundSize: 'cover' }}>
-        <Card3DEffect rotationIntensity={30} perspective={1000}>
+        <Card
+            className='w-full aspect-[1.23/1] relative transition-transform duration-300 ease-in-out hover:translate-x-[-10px]'
+            style={{ backgroundImage: `url(${product_image_src})`, borderRadius: '25px', backgroundSize: 'cover' }}
+        >
             <CardContent sx={{
                 display: 'flex', alignContent: 'space-between', flexWrap: 'wrap', height: '100%', paddingY: '10%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1))',
                 borderRadius: 'inherit'
             }}>
                 <Box sx={{ width: '100%', height: '100%', padding: '3%' }}>
                     {/* <Typography gutterBottom variant="h5" component="div" sx={{ color: 'white', fontSize: '40px', fontFamily: 'var(--font-montserrat)', fontWeight: '500px' }}>
-                        {product_subname}
-                    </Typography> */}
+                {product_subname}
+                </Typography> */}
                     <Typography
                         variant="h3"
                         color="#DBC6BC"
@@ -44,10 +44,7 @@ const CustomWallCard: React.FC<CustomWallCardProps> = ({ product_image_src, prod
                 </Box>
 
             </CardContent>
-            </Card3DEffect>
         </Card>
-        </Card3DEffect>
-
     );
 }
 

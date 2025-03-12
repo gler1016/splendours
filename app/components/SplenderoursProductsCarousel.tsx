@@ -3,9 +3,10 @@ import { Box, Typography, IconButton } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import Card3DEffect from "./3dEffects/Card3DEffect"; // Import the 3D card component
 import data from "./SplenderoursProductsData.json"; // Import your data
 import Link from "next/link";
+import Image from "next/image";
+// import { BentoGrid } from "./3dEffects/Bento-grid";
 
 interface Resource {
     product_name: string;
@@ -66,10 +67,10 @@ const SplenderoursProductsCarousel: React.FC = () => {
 
     return (
         <div className="mx-auto my-12 carousel" style={{ marginTop: "0px" }}>
-              
-             <div className="relative overflow-hidden">
-                  <div className="absolute top-0 left-0 flex justify-between w-full h-full items-center ">
-                  
+
+            <div className="relative overflow-hidden">
+                <div className="absolute top-0 left-0 flex justify-between w-full h-full items-center ">
+
 
                     <button
                         onClick={movePrev}
@@ -127,22 +128,23 @@ const SplenderoursProductsCarousel: React.FC = () => {
                         </Box>
                     </button>
 
-                   </div>
+                </div>
 
-                  <div
+                <div
                     ref={carousel}
                     className="relative z-0 flex overflow-hidden carousel-container gap-x-6 scroll-smooth snap-x snap-mandatory"
                 >
+                    {/* < BentoGrid> */}
                     {data.resources.map((resource: Resource, index: number) => (
-                          
-                        <Box
-                            key={index}
-                            className="carousel-item text-center relative snap-start aspect-[0.543/1] rounded-2xl"
+                        <Box key={index}
+                            className="carousel-item border border-transparent text-center relative snap-start aspect-[0.543/1] rounded-2xl"
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                             sx={{
                                 width: '100%', // Default width for xs
                                 minWidth: '100%', // Default min-width for xs
+                                transition: 'transform 0.3s ease-in-out', // Add transition for smooth animation
+                                transform: hoveredIndex === index ? 'translateX(-10px)' : 'translateX(0)', // Move left on hover
                                 '@media (min-width: 600px)': { // sm (small screens)
                                     width: '50%', // 50% width for sm screens
                                     minWidth: '48%' // 48% min-width for sm screens
@@ -156,17 +158,20 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                     minWidth: '24%' // 24% min-width for lg screens
                                 }
                             }}
-                        >                                                       <Card3DEffect > 
+                        >
+                            {/* //                               <Card3DEffect > */}
 
                             <a
                                 className="z-0 block w-full h-full bg-left-top bg-no-repeat bg-cover aspect-square bg-origin-padding rounded-2xl"
-                                style={{ backgroundImage: `url(${resource.imageUrl || ""})  `  }}
+                                style={{ backgroundImage: `url(${resource.imageUrl || ""})  ` }}
                             >
-                                <img
+                                <Image
                                     src={resource.imageUrl || ""}
                                     alt={resource.product_name}
-                                    className="hidden w-full aspect-square rounded-2xl">
-                                </img>
+                                    height={325}
+                                    width={595}
+                                    className={"hidden w-full aspect-square rounded-2xl"} />
+
                             </a>
                             <Box
                                 sx={{
@@ -218,10 +223,13 @@ const SplenderoursProductsCarousel: React.FC = () => {
 
                                 <Box className="flex flex-col justify-start w-full gap-y-2" style={{ padding: "20px" }}>
                                     <Box className="w-1/3">
-                                        <img
+                                        <Image
                                             src={resource.subImageUrl || ""}
-                                            alt={resource.product_subname}>
-                                        </img>
+                                            alt={resource.product_subname}
+                                            height={420}
+                                            width={595}
+                                        />
+
                                     </Box>
                                     {/* <Image
                                         src={resource.subImageUrl || ""}
@@ -269,17 +277,15 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                 </Box>
 
                             </Box>
-                            </Card3DEffect>
 
                         </Box>
-
                     ))}
-                  
-                  
-                  </div>
+                    {/* </BentoGrid> */}
 
-                       </div>
-          </div>
+                </div>
+
+            </div >
+        </div >
     );
 };
 

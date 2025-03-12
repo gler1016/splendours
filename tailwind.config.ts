@@ -1,6 +1,4 @@
 import type { Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
-import colors from "tailwindcss/colors";
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 
 export default {
@@ -12,6 +10,8 @@ export default {
   theme: {
     fontFamily: {
       sans: ["Montserrat", "sans-serif"],
+      hanken: ['Hanken Grotesk'],
+
     },
     extend: {
       keyframes: {
@@ -72,22 +72,31 @@ export default {
         foreground: "var(--foreground)",
         customColor: "#DBC6BC",
         color: "#283C28",
+        secondary: "#233823",
+        border: "#272C30"
       },
       boxShadow: {
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
+      fontSize: {
+        'xs-custom': '0.8rem', // Custom small font size
+      },
+      lineHeight: {
+        'tight-custom': '1.1rem', // Custom line height
+      }
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors as unknown as import('tailwindcss/types/config').PluginCreator],
 } satisfies Config;
 
 // Plugin to add CSS variables for colors
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
+import type { PluginAPI } from "tailwindcss/types/config";
 
+function addVariablesForColors({ addBase, theme }: PluginAPI) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, value]) => [`--color-${key}`, value])
+  );
   addBase({
     ":root": newVars,
   });

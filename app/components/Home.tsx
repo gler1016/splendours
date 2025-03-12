@@ -7,7 +7,7 @@ import Header from './Home/Header';
 import WhiteCustomButton from './WhiteButton';
 import EnquiryForm from './3dEffects/EnquireFormModal';
 import Magnifier from './Magnifier';
-import LinkWrapper from './3dEffects/LinkWrapper';
+import { AboutWhiteBtn } from '../about/AboutwhiteBtn';
 
 
 const Home = () => {
@@ -99,8 +99,8 @@ const Home = () => {
                     <Magnifier
                         src="Bluestone-Magnifier.jpg" // Replace with your texture image path
                         alt="Texture"
-                        width={400}
-                        height={300}
+                        width={100}
+                        height={100}
                         // style={{ width: '100%', height: 'auto' }}
                         // className="glass"
                         zoom={3} // Adjust the zoom level as needed
@@ -128,9 +128,10 @@ const Home = () => {
                     },
                 }}
             >
-                <Box className="flex items-center w-full" sx={{ position: isMobile ? 'fixed' : '', zIndex: 50, top: 0, backgroundColor: isMobile ? '#283C28' : '', height: isMobile ? '15vh' : isTablet ? '18vh' : '20vh' }}>
+                <Box className="flex items-center w-[100vw]" sx={{ position: isMobile ? 'fixed' : '', zIndex: 50, top: 0, backgroundColor: isMobile ? '#283C28' : '', height: isMobile ? '15vh' : isTablet ? '18vh' : '40vh' }}>
                     <Header />
                 </Box>
+
 
                 <Box
                     className="relative flex items-center w-full"
@@ -161,7 +162,7 @@ const Home = () => {
                                 style={{ cursor: 'pointer' }}
                             />
                         </Box>
-                        <Box className="absolute" style={{ top: isMobile ? '110%' : isTablet ? '25%' : '95%', right:isMobile ? '20%': isTablet ? '30%' : '40%' }}>
+                        <Box className="absolute" style={{ top: isMobile ? '110%' : isTablet ? '25%' : '95%', right: isMobile ? '20%' : isTablet ? '30%' : '40%' }}>
                             <Image
                                 src="/images/Home/zoom.svg"
                                 alt="Zoom Icon"
@@ -223,8 +224,8 @@ const Home = () => {
                     </Box>
 
                     <Box className="flex items-center justify-between gap-x-[10px] w-full">
-                        <WhiteCustomButton label={'Enquire now!'} iconSrc={'images/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                        <Link href="/contact"><WhiteCustomButton label={'Contact Us'} iconSrc={'images/Vector.svg'} /></Link>
+                        <WhiteCustomButton label={'ENQUIRE NOW!'} iconSrc={'images/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                        <Link href="/contact"><WhiteCustomButton label={'CONTACT US'} iconSrc={'images/Vector.svg'} /></Link>
 
                     </Box>
 
@@ -249,12 +250,12 @@ const Home = () => {
 
                         <Box className="flex items-center justify-center gap-x-[15px] mt-4">
                             <WhiteCustomButton
-                                label={'Enquire now!'}
+                                label={'ENQUIRE NOW!'}
                                 iconSrc={'images/Vector.svg'}
                                 onClick={handleOpenEnquiryForm}
                             />
                             <Link href="/contact">
-                                <WhiteCustomButton label={'Contact Us'} iconSrc={'images/Vector.svg'} />
+                                <WhiteCustomButton label={'CONTACT US'} iconSrc={'images/Vector.svg'} />
                             </Link>
                         </Box>
                     </Box>
@@ -265,19 +266,15 @@ const Home = () => {
                     >
                         <Box className="flex items-center w-full sm:w-1/3 md:w-2/5">
                             <Box>
-                                <LinkWrapper href="" previewImage='/images/LinkhoverImages/enquirenow.png'>
-                                <WhiteCustomButton
-                                    label={'Enquire now!'}
-                                    iconSrc={'images/Vector.svg'}
+                                <AboutWhiteBtn
+                                    label={'ENQYURE NOW!'}
+                                    icon={'images/Vector.svg'}
                                     onClick={handleOpenEnquiryForm}
                                 />
-                                </LinkWrapper>
                             </Box>
-                            <Link href={'/contact'} className="ml-[2.5vw]" style={{position:"relative"}}>
-                            <LinkWrapper href='/contact' previewImage='/images/Linkhoverimages/getintouch.png'>
+                            <Link href={'/contact'} className="ml-[2.5vw]" style={{ position: "relative" }}>
 
-                                <WhiteCustomButton label={'Contact Us'} iconSrc={'images/Vector.svg'} />
-                                </LinkWrapper>
+                                <AboutWhiteBtn label={'CONTACT US'} icon={'images/Vector.svg'} />
 
                             </Link>
                         </Box>

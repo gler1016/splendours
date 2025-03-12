@@ -2,7 +2,7 @@
     "resources": [
       {
         "title": "JAMIESON",
-        "imageUrl": "images/Home/Booking/Products/Kakadu1.jpg"
+        "imageUrl": "/images/Home/Booking/Products/Kakadu1.jpg"
         
       },
       {
@@ -19,7 +19,7 @@
       },
       {
         "title": "JAMIESON2",
-        "imageUrl": "images/Home/Booking/Products/Kakadu2.jpg"
+        "imageUrl": "/images/Home/Booking/Products/Kakadu2.jpg"
         
       },
       {

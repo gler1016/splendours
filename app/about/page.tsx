@@ -19,6 +19,8 @@ import LivingMobileCarousel from '../components/About/Living/LivingMobileCarouse
 import FooterMobile from '../components/FooterMobile';
 import ShortCustomBrownDivider from '../components/Divider/ShortCustomBrownDivider';
 import EnquiryForm from '../components/3dEffects/EnquireFormModal';
+// import { AnimatedModalDemo } from '../components/Buttons/AnimatedModalDemo';
+import { AboutWhiteBtn } from './AboutwhiteBtn';
 
 const AboutPage = () => {
     // Mobile view (max-width 768px)
@@ -30,61 +32,66 @@ const AboutPage = () => {
     const handleCloseEnquiryForm = () => setIsEnquiryFormOpen(false);
     const [isSwapped, setIsSwapped] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  const bimages = useMemo(() => [
-    "/images/About/Gallery/background.jpg",
-    "/images/About/Living/image1.jpg",  // Add your additional images
-    "/images/About/Living/image2.jpg",  // Add your additional images
-    "/images/About/Products/product2.jpg"
-  ], []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bimages.length);
-    }, 3000); // Change image every 5 seconds
+    const bimages = useMemo(() => [
+        "/images/About/Gallery/background.jpg",
+        "/images/About/Living/image1.jpg",  // Add your additional images
+        "/images/About/Living/image2.jpg",  // Add your additional images
+        "/images/About/Products/product2.jpg"
+    ], []);
 
-    return () => clearInterval(interval);
-  }, [bimages]);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bimages.length);
+        }, 3000); // Change image every 5 seconds
 
+        return () => clearInterval(interval);
+    }, [bimages]);
+    type Image = {
+        src: string;
+        originalHeight: number;
+        swappedHeight: number;
+        alt: string; // Add the alt property
+    }
     const images = {
         firstBox: [
-          {
-            src: "/images/About/Products/product2.jpg",
-            originalHeight: 457,
-            swappedHeight: 276
-          },
-          {
-            src: "/images/About/Products/product4.jpg",
-            originalHeight: 327,
-            swappedHeight: 508
-          }
+            {
+                src: "/images/About/Products/product2.jpg",
+                originalHeight: 457,
+                swappedHeight: 276
+            },
+            {
+                src: "/images/About/Products/product4.jpg",
+                originalHeight: 327,
+                swappedHeight: 508
+            }
         ],
         secondBox: [
-          {
-            src: "/images/About/Products/product3.jpg",
-            originalHeight: 327,
-            swappedHeight: 457
-          },
-          {
-            src: "/images/About/Products/product5.jpg",
-            originalHeight: 276,
-            swappedHeight: 276
-          }
+            {
+                src: "/images/About/Products/product3.jpg",
+                originalHeight: 327,
+                swappedHeight: 457
+            },
+            {
+                src: "/images/About/Products/product5.jpg",
+                originalHeight: 276,
+                swappedHeight: 276
+            }
         ]
-      };
-      useEffect(() => {
+    };
+    useEffect(() => {
         const interval = setInterval(() => {
-          setIsSwapped(prev => !prev);
+            setIsSwapped(prev => !prev);
         }, 3000); // Change every 3 seconds
-    
+
         return () => clearInterval(interval);
-      }, []);
-      
+    }, []);
+
 
     return (
         <>
             <EnquiryForm open={isEnquiryFormOpen} handleClose={handleCloseEnquiryForm} />
-            <Box className="flex items-center w-full top-0" sx={{ backgroundColor: isMobile ? '#283C28' : '', position: isMobile ? 'fixed' : '', zIndex: 50, height: isMobile ? '15vh' : '20vh', paddingX: isMobile ? 2 : 0 }}>
+            <Box className="flex items-center w-full top-0" sx={{ backgroundColor: isMobile ? '#283C28' : '', position: isMobile ? 'fixed' : '', zIndex: 50, height: isMobile ? '15vh' : '40vh', paddingX: isMobile ? 2 : 0 }}>
                 <Header />
             </Box>
             <Box sx={{ marginTop: isMobile ? '15vh' : 0 }}>
@@ -224,80 +231,85 @@ const AboutPage = () => {
                             </Box>
                             <Box className="flex flex-col w-1/4 gap-y-4">
                                 {images.firstBox.map((image) => (
-                                <motion.div
-                                    key={image.src}
-                                    animate={{
-                                    height: isSwapped ? image.swappedHeight : image.originalHeight
-                                    }}
-                                    transition={{ 
-                                    duration: 0.5, 
-                                    ease: "easeInOut" 
-                                    }}
-                                    style={{ 
-                                    width: 350,
-                                    height: isSwapped ? image.swappedHeight : image.originalHeight,
-                                    overflow: 'hidden',
-                                    borderRadius: '20px'
-                                    }}
-                                >
-                                    <Image
-                                    src={image.src}
-                                    alt="Logo"
-                                    width={510}
-                                    height={isSwapped ? image.swappedHeight : image.originalHeight}
-                                    className="rounded-[20px] w-full h-full object-cover"
-                                    />
-                                </motion.div>
+                                    <motion.div
+                                        key={image.src}
+                                        animate={{
+                                            height: isSwapped ? image.swappedHeight : image.originalHeight,
+                                        }}
+                                        transition={{
+                                            duration: 0.5,
+                                            ease: "easeInOut",
+                                        }}
+                                        style={{
+                                            width: '100%', // Use relative width for responsiveness
+                                            maxWidth: 350, // Constrain maximum width
+                                            height: isSwapped ? image.swappedHeight : image.originalHeight,
+                                            overflow: 'hidden',
+                                            borderRadius: '20px',
+                                        }}
+                                        className="w-full" // Tailwind CSS for responsive width
+                                    >
+                                        <Image
+                                            src={image.src}
+                                            alt={"Descriptive alt text"} // Use a meaningful alt text
+                                            width={510}
+                                            height={isSwapped ? image.swappedHeight : image.originalHeight}
+                                            className="rounded-[20px] w-full h-full object-cover"
+                                            priority // Add priority if these images are above the fold
+                                        />
+                                    </motion.div>
                                 ))}
                             </Box>
 
                             <Box className="flex flex-col w-1/4 gap-y-4">
                                 {images.secondBox.map((image) => (
-                                <motion.div
-                                    key={image.src}
-                                    animate={{
-                                    height: isSwapped ? image.swappedHeight : image.originalHeight
-                                    }}
-                                    transition={{ 
-                                    duration: 0.5, 
-                                    ease: "easeInOut" 
-                                    }}
-                                    style={{ 
-                                    width: 350,
-                                    height: isSwapped ? image.swappedHeight : image.originalHeight,
-                                    overflow: 'hidden',
-                                    borderRadius: '20px'
-                                    }}
-                                >
-                                    <Image
-                                    src={image.src}
-                                    alt="Logo"
-                                    width={510}
-                                    height={isSwapped ? image.swappedHeight : image.originalHeight}
-                                    className="rounded-[20px] w-full h-full object-cover"
-                                    />
-                                </motion.div>
+                                    <motion.div
+                                        key={image.src}
+                                        animate={{
+                                            height: isSwapped ? image.swappedHeight : image.originalHeight,
+                                        }}
+                                        transition={{
+                                            duration: 0.5,
+                                            ease: "easeInOut",
+                                        }}
+                                        style={{
+                                            width: '100%', // Use relative width for responsiveness
+                                            maxWidth: 350, // Constrain maximum width
+                                            height: isSwapped ? image.swappedHeight : image.originalHeight,
+                                            overflow: 'hidden',
+                                            borderRadius: '20px',
+                                        }}
+                                        className="w-full" // Tailwind CSS for responsive width
+                                    >
+                                        <Image
+                                            src={image.src}
+                                            alt={"Descriptive alt text"} // Use a meaningful alt text
+                                            width={510}
+                                            height={isSwapped ? image.swappedHeight : image.originalHeight}
+                                            className="rounded-[20px] w-full h-full object-cover"
+                                            priority // Add priority if these images are above the fold
+                                        />
+                                    </motion.div>
                                 ))}
-
                                 <Typography
-                                variant="h6"
-                                color="white"
-                                sx={{
-                                    fontFamily: "var(--font-montserrat)",
-                                    lineHeight: "1.4",
-                                    fontSize: {
-                                    xs: "10px",
-                                    sm: "14px",
-                                    md: "16px",
-                                    lg: "18px",
-                                    },
-                                    fontWeight: 300,
-                                }}
+                                    variant="h6"
+                                    color="white"
+                                    sx={{
+                                        fontFamily: "var(--font-montserrat)",
+                                        lineHeight: "1.4",
+                                        fontSize: {
+                                            xs: "10px",
+                                            sm: "14px",
+                                            md: "16px",
+                                            lg: "18px",
+                                        },
+                                        fontWeight: 300,
+                                    }}
                                 >
-                                At Splendour in Stone, we believe natural stone is an unparalleled design element, capable of injecting timeless beauty and undeniable character into any space.
+                                    At Splendour in Stone, we believe natural stone is an unparalleled design element, capable of injecting timeless beauty and undeniable character into any space.
                                 </Typography>
                             </Box>
-                                                    
+
                         </Box>
                     )}
 
@@ -856,201 +868,201 @@ const AboutPage = () => {
 
                     </Box>}
 
-                    {isMobile ? 
-                    <Box className="flex w-full flex-col justify-center items-center px-3 gap-y-4">
+                    {isMobile ?
+                        <Box className="flex w-full flex-col justify-center items-center px-3 gap-y-4">
 
-                        <Box className="flex flex-col w- justify-center">
-                            <Typography
-                                variant="h4"
-                                color='#DBC6BC'
-                                sx={{
-                                    fontFamily: 'Chronicle Display',
-                                    lineHeight: '1',
-                                    fontStyle: 'italic',
-                                    fontSize: '40px',
-                                    fontWeight: 400,
-                                    textAlign: 'center',
-                                }}
-                            >
-                                THESE WERE BUT
-                            </Typography>
-                            <Typography
-                                variant="h4"
-                                color='#DBC6BC'
-                                sx={{
-                                    fontFamily: 'Chronicle Display',
-                                    lineHeight: '1',
-                                    fontStyle: 'italic',
-                                    fontSize: '40px',
-                                    fontWeight: 400,
-                                    textAlign: 'center',
-                                }}
-                            >
-                                A FEW OF THE
-                            </Typography>
-                            <Typography
-                                variant="h4"
-                                color='#DBC6BC'
-                                sx={{
-                                    fontFamily: 'Chronicle Display',
-                                    lineHeight: '1',
-                                    fontStyle: 'italic',
-                                    fontSize: '40px',
-                                    fontWeight: 400,
-                                    textAlign: 'center',
-                                }}
-                            >
-                                ARCHITECTURAL
-                            </Typography>
-                            <Typography
-                                variant="h4"
-                                color='#DBC6BC'
-                                sx={{
-                                    fontFamily: 'Chronicle Display',
-                                    lineHeight: '1',
-                                    fontStyle: 'italic',
-                                    fontSize: '40px',
-                                    fontWeight: 400,
-                                    textAlign: 'center',
-                                }}
-                            >
-                                INSPIRATIONS
-                            </Typography>
+                            <Box className="flex flex-col w- justify-center">
+                                <Typography
+                                    variant="h4"
+                                    color='#DBC6BC'
+                                    sx={{
+                                        fontFamily: 'Chronicle Display',
+                                        lineHeight: '1',
+                                        fontStyle: 'italic',
+                                        fontSize: '40px',
+                                        fontWeight: 400,
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    THESE WERE BUT
+                                </Typography>
+                                <Typography
+                                    variant="h4"
+                                    color='#DBC6BC'
+                                    sx={{
+                                        fontFamily: 'Chronicle Display',
+                                        lineHeight: '1',
+                                        fontStyle: 'italic',
+                                        fontSize: '40px',
+                                        fontWeight: 400,
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    A FEW OF THE
+                                </Typography>
+                                <Typography
+                                    variant="h4"
+                                    color='#DBC6BC'
+                                    sx={{
+                                        fontFamily: 'Chronicle Display',
+                                        lineHeight: '1',
+                                        fontStyle: 'italic',
+                                        fontSize: '40px',
+                                        fontWeight: 400,
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    ARCHITECTURAL
+                                </Typography>
+                                <Typography
+                                    variant="h4"
+                                    color='#DBC6BC'
+                                    sx={{
+                                        fontFamily: 'Chronicle Display',
+                                        lineHeight: '1',
+                                        fontStyle: 'italic',
+                                        fontSize: '40px',
+                                        fontWeight: 400,
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    INSPIRATIONS
+                                </Typography>
 
-                        </Box>
+                            </Box>
 
-                        <Box className="flex flex-col w-[75%]">
-                            <Typography
-                                variant="h4"
-                                color="white"
-                                sx={{
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px',
-                                    fontWeight: 300,
-                                    lineHeight: '1.2',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                that pushed Jordan to explore the craftsmanship and assembly of natural stone. Other notable features included:
-                            </Typography>
-                            <Typography
-                                variant="h4"
-                                color="white"
-                                sx={{
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px',
-                                    fontWeight: 300,
-                                    lineHeight: '1.2',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                Rome&apos;s St. Peter&apos;s Basilica, St. Paul&apos;s Cathedral, and the Colosseum
-                            </Typography>
-                            <Typography
-                                variant="h4"
-                                color="white"
-                                sx={{
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px',
-                                    fontWeight: 300,
-                                    lineHeight: '1.2',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                Cambodia’s Angkor Wat.
-                            </Typography>
-                        </Box>
+                            <Box className="flex flex-col w-[75%]">
+                                <Typography
+                                    variant="h4"
+                                    color="white"
+                                    sx={{
+                                        fontFamily: 'var(--font-montserrat)',
+                                        fontSize: '13px',
+                                        fontWeight: 300,
+                                        lineHeight: '1.2',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    that pushed Jordan to explore the craftsmanship and assembly of natural stone. Other notable features included:
+                                </Typography>
+                                <Typography
+                                    variant="h4"
+                                    color="white"
+                                    sx={{
+                                        fontFamily: 'var(--font-montserrat)',
+                                        fontSize: '13px',
+                                        fontWeight: 300,
+                                        lineHeight: '1.2',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    Rome&apos;s St. Peter&apos;s Basilica, St. Paul&apos;s Cathedral, and the Colosseum
+                                </Typography>
+                                <Typography
+                                    variant="h4"
+                                    color="white"
+                                    sx={{
+                                        fontFamily: 'var(--font-montserrat)',
+                                        fontSize: '13px',
+                                        fontWeight: 300,
+                                        lineHeight: '1.2',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    Cambodia’s Angkor Wat.
+                                </Typography>
+                            </Box>
 
-                    </Box> : <Box className="flex w-full justify-between items-start px-20">
+                        </Box> : <Box className="flex w-full justify-between items-start px-20">
 
-                        <Box className="flex w-3/5 flex-col justify-center">
-                            <Typography
-                                variant="h4"
-                                color='#DBC6BC'
-                                sx={{
-                                    fontFamily: 'Chronicle Display',
-                                    lineHeight: '0.9',
-                                    fontStyle: 'italic',
-                                    fontSize: {
-                                        xs: '15px', // Font size for extra small screens
-                                        sm: '30px', // Font size for small screens
-                                        md: '35px', // Font size for medium screens
-                                        lg: '65px', // Font size for large screens
-                                    },
-                                    fontWeight: 300,
-                                    textAlign: 'start',
-                                }}
-                            >
-                                THESE WERE BUT A FEW OF THE ARCHITECTURAL INSPIRATIONS
-                            </Typography>
+                            <Box className="flex w-3/5 flex-col justify-center">
+                                <Typography
+                                    variant="h4"
+                                    color='#DBC6BC'
+                                    sx={{
+                                        fontFamily: 'Chronicle Display',
+                                        lineHeight: '0.9',
+                                        fontStyle: 'italic',
+                                        fontSize: {
+                                            xs: '15px', // Font size for extra small screens
+                                            sm: '30px', // Font size for small screens
+                                            md: '35px', // Font size for medium screens
+                                            lg: '65px', // Font size for large screens
+                                        },
+                                        fontWeight: 300,
+                                        textAlign: 'start',
+                                    }}
+                                >
+                                    THESE WERE BUT A FEW OF THE ARCHITECTURAL INSPIRATIONS
+                                </Typography>
 
-                        </Box>
+                            </Box>
 
-                        <Box className="flex flex-col w-1/4">
-                            <Typography
-                                variant="h4"
-                                color="white"
-                                sx={{
-                                    fontFamily: 'var(--font-montserrat)',
-                                    fontSize: {
-                                        xs: '10px', // Font size for extra small screens
-                                        sm: '15px', // Font size for small screens
-                                        md: '18px', // Font size for medium screens
-                                        lg: '18px', // Font size for large screens
-                                    },
-                                    lineHeight: '1.2',
-                                    fontWeight: 400,
-                                    textAlign: 'start',
-                                }}
-                            >
-                                that pushed Jordan to explore the craftsmanship and assembly of natural stone. Other notable features included:
-                            </Typography>
-                            <ul style={{ listStyleType: 'disc', paddingLeft: '20px', color: 'white' }}>
-                                <li>
-                                    <Typography
-                                        variant="h4"
-                                        color="white"
-                                        sx={{
-                                            fontFamily: 'var(--font-montserrat)',
-                                            fontSize: {
-                                                xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
-                                            },
-                                            lineHeight: '1.2',
-                                            fontWeight: 300,
-                                            textAlign: 'start',
-                                        }}
-                                    >
-                                        Rome&apos;s St. Peter&apos;s Basilica, St. Paul&apos;s Cathedral, and the Colosseum
-                                    </Typography>
-                                </li>
-                                <li>
-                                    <Typography
-                                        variant="h4"
-                                        color="white"
-                                        sx={{
-                                            fontFamily: 'var(--font-montserrat)',
-                                            fontSize: {
-                                                xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
-                                            },
-                                            fontWeight: 300,
-                                            lineHeight: '1.2',
-                                            textAlign: 'start',
-                                        }}
-                                    >
-                                        Cambodia’s Angkor Wat.
-                                    </Typography>
-                                </li>
-                            </ul>
+                            <Box className="flex flex-col w-1/4">
+                                <Typography
+                                    variant="h4"
+                                    color="white"
+                                    sx={{
+                                        fontFamily: 'var(--font-montserrat)',
+                                        fontSize: {
+                                            xs: '10px', // Font size for extra small screens
+                                            sm: '15px', // Font size for small screens
+                                            md: '18px', // Font size for medium screens
+                                            lg: '18px', // Font size for large screens
+                                        },
+                                        lineHeight: '1.2',
+                                        fontWeight: 400,
+                                        textAlign: 'start',
+                                    }}
+                                >
+                                    that pushed Jordan to explore the craftsmanship and assembly of natural stone. Other notable features included:
+                                </Typography>
+                                <ul style={{ listStyleType: 'disc', paddingLeft: '20px', color: 'white' }}>
+                                    <li>
+                                        <Typography
+                                            variant="h4"
+                                            color="white"
+                                            sx={{
+                                                fontFamily: 'var(--font-montserrat)',
+                                                fontSize: {
+                                                    xs: '10px',
+                                                    sm: '15px',
+                                                    md: '18px',
+                                                    lg: '18px',
+                                                },
+                                                lineHeight: '1.2',
+                                                fontWeight: 300,
+                                                textAlign: 'start',
+                                            }}
+                                        >
+                                            Rome&apos;s St. Peter&apos;s Basilica, St. Paul&apos;s Cathedral, and the Colosseum
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography
+                                            variant="h4"
+                                            color="white"
+                                            sx={{
+                                                fontFamily: 'var(--font-montserrat)',
+                                                fontSize: {
+                                                    xs: '10px',
+                                                    sm: '15px',
+                                                    md: '18px',
+                                                    lg: '18px',
+                                                },
+                                                fontWeight: 300,
+                                                lineHeight: '1.2',
+                                                textAlign: 'start',
+                                            }}
+                                        >
+                                            Cambodia’s Angkor Wat.
+                                        </Typography>
+                                    </li>
+                                </ul>
 
-                        </Box>
+                            </Box>
 
-                    </Box>}
+                        </Box>}
 
                     {isMobile ? <Box><FullCustomBrownDivider /></Box> : <Box className="px-20"><FullCustomBrownDivider /></Box>}
 
@@ -2137,24 +2149,24 @@ const AboutPage = () => {
                     >
                         <AnimatePresence initial={false}>
                             <motion.div
-                            key={currentImageIndex}
-                            initial={{ y: "100%" }}
-                            animate={{ y: 0 }}
-                            exit={{ y: "-100%" }}
-                            transition={{ 
-                                duration: 1.2,
-                                ease: "easeInOut"
-                            }}
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                height: '100%',
-                                backgroundImage: `url(${bimages[currentImageIndex]})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                            }}
+                                key={currentImageIndex}
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                exit={{ y: "-100%" }}
+                                transition={{
+                                    duration: 1.2,
+                                    ease: "easeInOut"
+                                }}
+                                style={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    backgroundImage: `url(${bimages[currentImageIndex]})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                }}
                             />
                         </AnimatePresence>
                         {/* Main content */}
@@ -2256,106 +2268,106 @@ const AboutPage = () => {
                             </Box>
                         </Box>
                     </Box>
-                        :  <Box
-                        className="flex w-full px-20 gap-x-12"
-                        sx={{
-                          position: 'relative',
-                          width: '100%',
-                          aspectRatio: '1.77 / 1',
-                          borderRadius: '25px',
-                          overflow: 'hidden'
-                        }}
-                      >
-                        <AnimatePresence initial={false}>
-    <motion.div
-      key={currentImageIndex}
-      initial={{ y: "100%" }}
-      animate={{ y: 0 }}
-      exit={{ y: "-100%" }}
-      transition={{ duration: 1.2, ease: "easeInOut" }}
-      className="absolute top-0 left-0 w-full h-full"
-    >
-      <Image
-        src={bimages[currentImageIndex]}
-        alt={`Image ${currentImageIndex}`}
-        layout="fill"
-        objectFit="cover"
-        quality={100} // Ensures HD image
-        className="rounded-[25px]"
-      />
-    </motion.div>
-  </AnimatePresence>
-                  
-                        {/* Overlay */}
-                        <Box
-                          sx={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                            zIndex: 1,
-                          }}
-                        />
-                  
-                        {/* Content */}
-                        <Box className="flex flex-col w-1/2 h-full" sx={{ zIndex: 2 }}>
-                          <Box className="flex w-full h-1/2"></Box>
-                          <Box className="flex w-full flex-col h-1/2 justify-center gap-3">
-                            <Typography
-                              variant="h4"
-                              color="white"
-                              sx={{
-                                fontFamily: 'Chronicle Display',
-                                fontStyle: 'italic',
-                                fontSize: {
-                                  xs: '20px',
-                                  sm: '25px',
-                                  md: '35px',
-                                  lg: '70px',
-                                },
-                                fontWeight: 300,
-                                textAlign: 'start',
-                              }}
-                            >
-                              A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
-                            </Typography>
-                            <Box className="mt-5" sx={{ paddingBottom: '50px' }}>
-                              <WhiteCustomButton 
-                                label={'Enquire Now!'} 
-                                iconSrc={'/images/icons/Vector.svg'} 
-                                onClick={handleOpenEnquiryForm} 
-                              />
+                        : <Box
+                            className="flex w-full px-20 gap-x-12"
+                            sx={{
+                                position: 'relative',
+                                width: '100%',
+                                aspectRatio: '1.77 / 1',
+                                borderRadius: '25px',
+                                overflow: 'hidden'
+                            }}
+                        >
+                            <AnimatePresence initial={false}>
+                                <motion.div
+                                    key={currentImageIndex}
+                                    initial={{ y: "100%" }}
+                                    animate={{ y: 0 }}
+                                    exit={{ y: "-100%" }}
+                                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                                    className="absolute top-0 left-0 w-full h-full"
+                                >
+                                    <Image
+                                        src={bimages[currentImageIndex]}
+                                        alt={`Image ${currentImageIndex}`}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        quality={100} // Ensures HD image
+                                        className="rounded-[25px]"
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* Overlay */}
+                            <Box
+                                sx={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                                    zIndex: 1,
+                                }}
+                            />
+
+                            {/* Content */}
+                            <Box className="flex flex-col w-1/2 h-full" sx={{ zIndex: 2 }}>
+                                <Box className="flex w-full h-1/2"></Box>
+                                <Box className="flex w-full flex-col h-1/2 justify-center gap-3">
+                                    <Typography
+                                        variant="h4"
+                                        color="white"
+                                        sx={{
+                                            fontFamily: 'Chronicle Display',
+                                            fontStyle: 'italic',
+                                            fontSize: {
+                                                xs: '20px',
+                                                sm: '25px',
+                                                md: '35px',
+                                                lg: '70px',
+                                            },
+                                            fontWeight: 300,
+                                            textAlign: 'start',
+                                        }}
+                                    >
+                                        A GALLERY OF SUCCESS: YOUR INSPIRATION AWAITS
+                                    </Typography>
+                                    <Box className="mt-5" sx={{ paddingBottom: '50px', display: "flex", alignItem: "start" }}>
+                                        <AboutWhiteBtn
+                                            label={'ENQUIRE NOW!'}
+                                            icon={'/images/Vector.svg'}
+                                            onClick={handleOpenEnquiryForm}
+                                        />
+                                    </Box>
+                                </Box>
                             </Box>
-                          </Box>
-                        </Box>
-                  
-                        <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom: '50px' }}>
-                          <Box className="flex w-full h-1/2"></Box>
-                          <Box className="flex w-full flex-col h-1/2 justify-center items-center">
-                            <Typography
-                              variant="h4"
-                              color="white"
-                              sx={{
-                                fontFamily: 'var(--font-montserrat)',
-                                lineHeight: '1.2',
-                                fontSize: {
-                                  xs: '10px',
-                                  sm: '12px',
-                                  md: '20px',
-                                  lg: '28px',
-                                },
-                                fontWeight: 300,
-                                textAlign: 'start',
-                              }}
-                            >
-                              We take immense pride in collaborating with our clients to turn their design dreams into reality. Explore our extensive gallery showcasing a variety of projects, from modern kitchen renovations to captivating outdoor living spaces. Let these success stories inspire your stone design journey.
-                              To make your exploration more realistic, visit our showroom and view captivating displays of different natural stones.
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Box>}
+
+                            <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom: '50px' }}>
+                                <Box className="flex w-full h-1/2"></Box>
+                                <Box className="flex w-full flex-col h-1/2 justify-center items-center">
+                                    <Typography
+                                        variant="h4"
+                                        color="white"
+                                        sx={{
+                                            fontFamily: 'var(--font-montserrat)',
+                                            lineHeight: '1.2',
+                                            fontSize: {
+                                                xs: '10px',
+                                                sm: '12px',
+                                                md: '20px',
+                                                lg: '28px',
+                                            },
+                                            fontWeight: 300,
+                                            textAlign: 'start',
+                                        }}
+                                    >
+                                        We take immense pride in collaborating with our clients to turn their design dreams into reality. Explore our extensive gallery showcasing a variety of projects, from modern kitchen renovations to captivating outdoor living spaces. Let these success stories inspire your stone design journey.
+                                        To make your exploration more realistic, visit our showroom and view captivating displays of different natural stones.
+                                    </Typography>
+                                </Box>
+                            </Box>
+                        </Box>}
 
 
 
@@ -2532,8 +2544,8 @@ const AboutPage = () => {
                         </Box>
 
                         <Box className="flex w-full justify-around">
-                            <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                            <Link href="/contact"><WhiteCustomButton label={'Contact Us'} iconSrc={'/images/icons/Vector.svg'} /></Link>
+                            <WhiteCustomButton label={'ENQUIRE NOW!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                            <Link href="/contact"><WhiteCustomButton label={'CONTACT US'} iconSrc={'/images/icons/Vector.svg'} /></Link>
                         </Box>
 
                         <CustomDivider />
@@ -2554,8 +2566,8 @@ const AboutPage = () => {
                                 READY TO CRAFT YOUR STONE MASTERPIECE?
                             </Typography>
                             <Box className="flex w-full justify-start  gap-6">
-                                <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                                <Link href="/contact"><WhiteCustomButton label={'Contact Us'} iconSrc={'/images/icons/Vector.svg'} /></Link>
+                                <AboutWhiteBtn label={'ENQUIRE NOW!'} icon={'/images/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                                <Link href="/contact"><AboutWhiteBtn label={'CONTACT US'} icon={'/images/Vector.svg'} /></Link>
                             </Box>
                         </Box>
 
