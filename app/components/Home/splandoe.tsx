@@ -83,7 +83,7 @@ export default function SplendoursOldHeader() {
 
         {/* Center Logo */}
         <div className="flex justify-center items-center w-full absolute left-1/2 transform -translate-x-1/2">
-          <Image src="/images/main.png" alt="Main Logo" style={{ width: "10vw" }} width={250} height={92} />
+          <Image src="/images/main.png" alt="Main Logo" style={{ width: "17vw" }} width={250} height={92} />
         </div>
 
         {/* Right Side Links */}

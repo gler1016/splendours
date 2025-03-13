@@ -267,7 +267,7 @@ const Home = () => {
                         <Box className="flex items-center w-full sm:w-1/3 md:w-2/5">
                             <Box>
                                 <AboutWhiteBtn
-                                    label={'ENQYURE NOW!'}
+                                    label={'ENQUIRE NOW!'}
                                     icon={'images/Vector.svg'}
                                     onClick={handleOpenEnquiryForm}
                                 />
