@@ -304,7 +304,7 @@ const HomePage = () => {
                         </Box>
                         <Box className="flex justify-center w-full">
                             <Link href={'https://www.splendourinstone.com.au/walling/'}>
-                                <GreenAnimationButton label={'View all'} className="" icon="/images/icons/Vector.svg"></GreenAnimationButton>
+                                <GreenAnimationButton label={'VIEW ALL'} className="" icon="/images/icons/Vector.svg"></GreenAnimationButton>
                             </Link>
                         </Box>
                     </Box>
@@ -358,7 +358,7 @@ const HomePage = () => {
                         </Typography>
                         <Box className="flex justify-center mt-6">
                             <Link href={'https://www.splendourinstone.com.au/walling/'} passHref>
-                                <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                    <GreenCustomButton label={'VIEW ALL'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
                     </Box>
@@ -444,7 +444,7 @@ const HomePage = () => {
                             <Box className="flex justify-center ml-5 mr-8 mb-5">
                                 <Link href={'https://www.splendourinstone.com.au/walling/'} passHref>
 
-                                    <GreenAnimationButton label={'View all'} icon={'/images/icons/Vector.svg'} className="" />
+                                            <GreenAnimationButton label={'VIEW ALL'} icon={'/images/icons/Vector.svg'} className="" />
                                 </Link>
                             </Box>
                         </Box>
@@ -629,7 +629,7 @@ const HomePage = () => {
                             </Typography>
                             <Box className="flex w-full justify-center  ml-10 mb-24">
                                 <Link href={'/allvisualizers'}>
-                                    <AnimatedModalDemo label={'View all'} icon={'/images/Vector.svg'} ></AnimatedModalDemo>
+                                        <AnimatedModalDemo label={'VIEW ALL'} icon={'/images/Vector.svg'} ></AnimatedModalDemo>
                                 </Link>
                             </Box>
                         </Box>
@@ -780,7 +780,7 @@ const HomePage = () => {
                         </Box>
                         <Box className="flex justify-center w-full">
                             <Link href={'https://www.splendourinstone.com.au/paving/'} passHref>
-                                <GreenCustomButton label={'View all'} iconSrc={'/images/icons/Vector.svg'} />
+                                <GreenCustomButton label={'VIEW ALL'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
                     </Box>
@@ -825,7 +825,7 @@ const HomePage = () => {
                             <Box className="mt-5">
                                 <Link href={'https://www.splendourinstone.com.au/paving/'} passHref>
 
-                                    <GreenAnimationButton label={'View all'} className="px-2" icon={'/images/icons/Vector.svg'} />
+                                        <GreenAnimationButton label={'VIEW ALL'} className="px-2" icon={'/images/icons/Vector.svg'} />
 
                                 </Link>
                             </Box>
