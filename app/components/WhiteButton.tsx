@@ -5,38 +5,48 @@ import { Box } from "@mui/system";
 
 // Define the component's props with TypeScript types
 interface CustomButtonProps {
+    isMobile?: boolean
     label: string;
     iconSrc: string;
     onClick?: () => void;
 }
 
-const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, iconSrc, onClick }) => {
+const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, isMobile, iconSrc, onClick }) => {
     return (
         <Button
             className="font-semibold px-4"
             variant="outlined"
             endIcon={
                 <Box
-                    sx={{
-                        width: { xs: "30px", md: '2vw' },
-                        height: { xs: "30px", md: '2vw' },
-                        paddingRight: "10px",
-                        backgroundImage: `url(${iconSrc})`,
-                        backgroundSize: "cover",
-                        filter: "brightness(0) saturate(100%) invert(28%) sepia(14%) saturate(589%) hue-rotate(100deg) brightness(93%) contrast(81%)",
-                    }} />
+                    sx={isMobile ?
+                        {
+                            width: { xs: "25px", md: '1vw' },
+                            height: { xs: "25px", md: '1vw' },
+                            paddingRight: "5px",
+                            backgroundSize: "cover",
+                            filter: "brightness(0) saturate(100%) invert(28%) sepia(14%) saturate(589%) hue-rotate(100deg) brightness(93%) contrast(81%)",
+                        } : {
+                            width: { xs: "30px", md: '2vw' },
+                            height: { xs: "30px", md: '2vw' },
+                            paddingRight: "10px",
+                            backgroundImage: `url(${iconSrc})`,
+                            backgroundSize: "cover",
+                            filter: "brightness(0) saturate(100%) invert(28%) sepia(14%) saturate(589%) hue-rotate(100deg) brightness(93%) contrast(81%)",
+                        }
+                    } />
 
             }
             onClick={onClick}
+            style={{ "lineHeight": "1" }}
             sx={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                width: { xs: "160px", sm: "20vw", md: "13vw", lg: "13vw" }, // Responsive width
+                width: { xs: "140px", sm: "17vw", md: "11vw", lg: "8vw" }, // Responsive width
                 height: { xs: "42px", sm: "4.5vw", md: "3.1vw", lg: "3.1vw" }, // Responsive height
                 borderRadius: "50px",
                 color: "#283C28",
-                fontSize: { xs: "11px", sm: "1vw" }, // Responsive font size
+                fontSize: { xs: "14px", sm: "1.5vw" }, // Responsive font size
                 fontWeight: 400,
                 fontFamily: "inherit",
                 fontSynthesisWeight: 600,

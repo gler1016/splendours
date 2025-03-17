@@ -73,7 +73,7 @@ const GreenCustomButton: React.FC<GreenCustomButtonProps> = ({
           className="absolute left-0 w-full text-center transition-all duration-300 group-hover:translate-x-0 translate-x-full opacity-0 group-hover:opacity-100"
           style={{ color: borderColor }}
         >
-          VIEW ALL
+          View All
         </span>
       </Button>
     </div>

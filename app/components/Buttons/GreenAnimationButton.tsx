@@ -19,13 +19,13 @@ interface AnimatedModalDemoProps {
 export function GreenAnimationButton({label,icon,className} : AnimatedModalDemoProps) {
  
   return (
-    <div className="relative py-8 w-full flex items-center justify-center  ml-8">
+    <div className="relative py-8 w-full flex items-center justify-center  ml-14">
       <Modal>
       <ModalTrigger className={cn("bg-color text-customColor flex items-center justify-center gap-2 group/modal-btn",className)}>
           {/* SVG Icon */}
 
           {/* Label */}
-          <span className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
+          <span  className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
             {label}
 
           </span>

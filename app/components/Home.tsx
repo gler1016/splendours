@@ -128,14 +128,14 @@ const Home = () => {
                     },
                 }}
             >
-                <Box className="flex items-center w-[100vw]" sx={{ position: isMobile ? 'fixed' : '', zIndex: 50, top: 0, backgroundColor: isMobile ? '#283C28' : '', height: isMobile ? '15vh' : isTablet ? '18vh' : '40vh' }}>
+                <Box className="flex items-center w-[100vw]" sx={{ position: isMobile ? 'fixed' : '', zIndex: 50, top: 0, backgroundColor: isMobile ? '#283C28' : '', height: isMobile ? '15vh' : isTablet ? '10vh' : '40vh' }}>
                     <Header />
                 </Box>
 
 
                 <Box
                     className="relative flex items-center w-full"
-                    sx={{ height: isMobile ? '60vh' : isTablet ? '65vh' : '72vh', marginTop: isMobile ? '15vh' : 0 }}
+                    sx={{ height: isMobile ? '60vh' : isTablet ? '55vh' : '72vh', marginTop: isMobile ? '15vh' : 0 }}
                 >
                     <Box className="flex w-4/5"></Box>
                     <Box className="flex justify-between w-1/5 h-5/6" style={{ paddingRight: '20px' }}>
@@ -202,7 +202,7 @@ const Home = () => {
                             <Typography
                                 variant='h3'
                                 sx={{
-                                    fontSize: '40px',
+                                    fontSize: '30px',
                                     fontWeight: 400,
                                     color: { xs: '#DBC6BC', sm: '#FFFFFF' }, // Change color for mobile only
 
@@ -213,7 +213,7 @@ const Home = () => {
                             <Typography
                                 variant='h3'
                                 sx={{
-                                    fontSize: '40px',
+                                    fontSize: '35px',
                                     fontWeight: 400,
                                     color: { xs: '#FFFFFF', sm: '#FFFFFF' }, // Keep "IN STONE" color unchanged
                                 }}
@@ -224,11 +224,9 @@ const Home = () => {
                     </Box>
 
                     <Box className="flex items-center justify-between gap-x-[10px] w-full">
-                        <WhiteCustomButton label={'ENQUIRE NOW!'} iconSrc={'images/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                        <Link href="/contact"><WhiteCustomButton label={'CONTACT US'} iconSrc={'images/Vector.svg'} /></Link>
-
+                        <WhiteCustomButton isMobile={isMobile} label={'ENQUIRE NOW!'} iconSrc={'images/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                        <Link href="/contact"><WhiteCustomButton isMobile={isMobile} label={'CONTACT US'} iconSrc={'images/Vector.svg'} /></Link>
                     </Box>
-
                 </Box>) : isTablet ? (
                     <Box
                         className="flex flex-col w-full"
@@ -250,12 +248,13 @@ const Home = () => {
 
                         <Box className="flex items-center justify-center gap-x-[15px] mt-4">
                             <WhiteCustomButton
+                                isMobile={false}
                                 label={'ENQUIRE NOW!'}
                                 iconSrc={'images/Vector.svg'}
                                 onClick={handleOpenEnquiryForm}
                             />
                             <Link href="/contact">
-                                <WhiteCustomButton label={'CONTACT US'} iconSrc={'images/Vector.svg'} />
+                                <WhiteCustomButton isMobile={false} label={'CONTACT US'} iconSrc={'images/Vector.svg'} />
                             </Link>
                         </Box>
                     </Box>

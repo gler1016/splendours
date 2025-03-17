@@ -5,203 +5,233 @@ import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaMoneyBill } from "react-icons/fa";
+
 import { useMediaQuery } from '@mui/material';
 import SplendoursOldHeader from './SplendoursOldHeader';
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const isMobile = useMediaQuery('(max-width: 768px)'); // Media query for mobile
     const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)');
-
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
     return (
-        <Box className={isMobile ? "flex items-center justify-between w-full h-full" : ""} >
-            <Box className="flex  w-1/2 md:w-1/3 lg:w-1/3">
-                <Box>
-                    <Link href={'/'} >
-                        {isMobile && <Image
-                            src={'/images/Header/mobile-main-logo.png'}
-                            alt="Logo"
-                            width={isMobile ? 150 : 250}
-                            height={isMobile ? 50 : 70}
-                        />}
-
-                    </Link>
-                </Box>
-
-            </Box>
-
-            {/* Mobile Hamburger Menu Button */}
-            {isMobile && (
-                <Box className="flex items-center justify-center gap-x-2">
-                    <Box className="flex items-end w-1/7">
-                        <Link href="/visualizer">
-                            <Box className="flex items-center justify-center">
-                                <Box
-                                    className="relative"
-                                    sx={{
-                                        width: 30,
-                                        height: 30,
-                                    }}
+        <Box className={isMobile ? "flex items-center bg-color justify-between w-full h-full" : ""} >
+            {isMobile &&
+                <Box className={`flex justify-center w-full h-full lg:flex`}>
+                    <header className={`fixed left-0 w-screen z-50 top-0`}>
+                        <Box className={`bg-color justify-center  w-full h-full lg:flex`}>
+                            <div className={"h-[30px] flex justify-center items-center gap-3 px-4 w-full relative"}>
+                                <Link
+                                    href={"https://staging.splendourinstone.com.au/walling/#free-stone-samples"}
+                                    className="bg-customColor border border-customColor text-color w-[90px] h-[20px] rounded-full text-[10px] leading-tight-custom font-medium flex items-center justify-center hover:bg-white"
                                 >
-                                    {/* <Image
-                                        src="/images/Header/menu_circle.svg"
-                                        alt="Hamburger Menu Circle"
-                                        width={30}
-                                        height={30}
-                                    /> */}
-                                    <Box
-                                        className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                        sx={{
-                                            width: 30,
-                                            height: 30,
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                        }}
-                                    >
-                                        <Image
-                                            src="/images/Header/search.svg"
-                                            alt="Hamburger Menu"
-                                            width={15} // Adjust width as needed
-                                            height={15} // Adjust height as needed
-                                        />
-                                    </Box>
-                                </Box>
-                            </Box>
-
-                        </Link>
-                    </Box>
-                    <Box
-                        className="block lg:hidden"
-                        onClick={handleMenuToggle}
-                        sx={{ cursor: 'pointer' }}
-                    >
-                        <Box className="flex items-center justify-center">
-                            <Box
-                                className="relative"
-                                sx={{
-                                    width: 30,
-                                    height: 30,
-                                }}
-                            >
-                                {/* <Image
-                                    src="/images/Header/menu_circle.svg"
-                                    alt="Hamburger Menu Circle"
-                                    width={30}
-                                    height={30}
-                                /> */}
-                                <Box
-                                    className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                    sx={{
-                                        width: 30,
-                                        height: 30,
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <Image
-                                        src="/images/Header/menu.svg"
-                                        alt="Hamburger Menu"
-                                        width={15} // Adjust width as needed
-                                        height={15} // Adjust height as needed
-                                    />
-                                </Box>
-                            </Box>
+                                    Click Here
+                                </Link>
+                                <button className="border border-customColor h-[20px] px-5 text-customColor flex items-center justify-center gap-2 rounded-full text-[10px] leading-tight-custom font-semibold transition duration-300 hover:text-color hover:bg-customColor">
+                                    <FaMoneyBill className="w-4 h-4" /> Trade Credit
+                                </button>
+                            </div>
                         </Box>
-
-                    </Box>
-                </Box>
-
-            )}
-
-            {/* Mobile Hamburger Menu Button */}
-            {isTablet && (
-                <Box className="flex items-center justify-center gap-x-2">
-                    <Box className="flex items-end w-1/7">
-                        <Link href="/visualizer">
-                            <Box className="flex items-center justify-center">
-                                <Box
-                                    className="relative"
-                                    sx={{
-                                        width: 30,
-                                        height: 30,
-                                    }}
-                                >
-                                    <Image
-                                        src="/images/Header/menu_circle.svg"
-                                        alt="Hamburger Menu Circle"
-                                        width={30}
-                                        height={30}
-                                    />
-                                    <Box
-                                        className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                        sx={{
-                                            width: 30,
-                                            height: 30,
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                        }}
-                                    >
-                                        <Image
-                                            src="/images/Header/search.svg"
-                                            alt="Hamburger Menu"
-                                            width={15} // Adjust width as needed
-                                            height={15} // Adjust height as needed
-                                        />
-                                    </Box>
-                                </Box>
-                            </Box>
-
-                        </Link>
-                    </Box>
-                    <Box
-                        className="block lg:hidden"
-                        onClick={handleMenuToggle}
-                        sx={{ cursor: 'pointer' }}
-                    >
-                        <Box className="flex items-center justify-center">
-                            <Box
-                                className="relative"
-                                sx={{
-                                    width: 30,
-                                    height: 30,
-                                }}
-                            >
+                        <Box className="bg-color flex justify-between">
+                            <Box sx={{ "marginLeft": "4vw" }}>
                                 <Image
-                                    src="/images/Header/menu_circle.svg"
-                                    alt="Hamburger Menu Circle"
-                                    width={30}
-                                    height={30}
+                                    className='px-3'
+                                    src={'/images/Header/mobile-main-logo.png'}
+                                    alt="Logo"
+                                    width={isMobile ? 150 : 250}
+                                    height={isMobile ? 50 : 70}
                                 />
+                            </Box>
+                            <Box className="flex items-center justify-center gap-x-2" sx={{ marginRight: '4vw' }}>
+                                <Box className="flex items-end w-1/7">
+                                    <Link href="/visualizer">
+                                        <Box className="flex items-center justify-center">
+                                            <Box
+                                                className="relative"
+                                                sx={{
+                                                    width: 30,
+                                                    height: 30,
+                                                }}
+                                            >
+                                                <Box
+                                                    className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                    sx={{
+                                                        width: 30,
+                                                        height: 30,
+                                                        display: 'flex',
+                                                        justifyContent: 'center',
+                                                        alignItems: 'center',
+                                                    }}
+                                                >
+                                                    <Image
+                                                        src="/images/Header/search.svg"
+                                                        alt="Hamburger Menu"
+                                                        width={15} // Adjust width as needed
+                                                        height={15} // Adjust height as needed
+                                                    />
+                                                </Box>
+                                            </Box>
+                                        </Box>
+                                    </Link>
+                                </Box>
                                 <Box
-                                    className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                    sx={{
-                                        width: 30,
-                                        height: 30,
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                    }}
+                                    className="block lg:hidden"
+                                    onClick={handleMenuToggle}
+                                    sx={{ cursor: 'pointer' }}
                                 >
-                                    <Image
-                                        src="/images/Header/menu.svg"
-                                        alt="Hamburger Menu"
-                                        width={15} // Adjust width as needed
-                                        height={15} // Adjust height as needed
-                                    />
+                                    <Box className="flex items-center justify-center">
+                                        <Box
+                                            className="relative"
+                                            sx={{
+                                                width: 30,
+                                                height: 30,
+                                            }}
+                                        >
+                                            <Box
+                                                className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                sx={{
+                                                    width: 30,
+                                                    height: 30,
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                }}
+                                            >
+                                                <Image
+                                                    src="/images/Header/menu.svg"
+                                                    alt="Hamburger Menu"
+                                                    width={15} // Adjust width as needed
+                                                    height={15} // Adjust height as needed
+                                                />
+                                            </Box>
+                                        </Box>
+                                    </Box>
+
                                 </Box>
                             </Box>
                         </Box>
-
-                    </Box>
+                    </header>
                 </Box>
+            }
 
-            )}
+            {isTablet &&
+                <Box className={`flex justify-center top-0 w-full h-full  lg:flex`}>
+                    <header className="fixed top-0 left-0 w-screen z-50">
+                        <Box className={`flex  bg-color justify-center top-0 w-full h-full lg:flex`}>
+                            <div className={" h-[30px] flex justify-center items-center gap-3 px-4 w-full relative"}>
+                                <p className="text-[10px] leading-tight-custom text-customColor font-semibold text-center">
+                                    REGISTER YOUR INFORMATION FOR FREE STONE SAMPLES SENT EXPRESS TO YOU!
+                                </p>
+                                <Link
+                                    href={"https://staging.splendourinstone.com.au/walling/#free-stone-samples"}
+                                    className="bg-customColor border border-customColor text-color w-[90px] h-[20px] rounded-full text-[10px] leading-tight-custom font-medium flex items-center justify-center hover:bg-white"
+                                >
+                                    Click Here
+                                </Link>
+                                <button className="border border-customColor h-[20px] px-5 text-customColor flex items-center justify-center gap-2 rounded-full text-[10px] leading-tight-custom font-semibold transition duration-300 hover:text-color hover:bg-customColor">
+                                    <FaMoneyBill className="w-4 h-4" /> Trade Credit
+                                </button>
+                            </div>
+                        </Box>
+                        <Box className="bg-color flex justify-between" >
+                            <Box sx={{ "marginLeft": "4vw" }}>
+                                <Image
+                                    className='px-3'
+                                    src={'/images/Header/mobile-main-logo.png'}
+                                    alt="Logo"
+                                    width={isTablet ? 150 : 250}
+                                    height={isTablet ? 50 : 70}
+                                />
+                            </Box>
+                            <Box className="flex items-center justify-center gap-x-2" sx={{ marginRight: '4vw' }}>
+                                <Box className="flex items-end w-1/7">
+                                    <Link href="/visualizer">
+                                        <Box className="flex items-center justify-center">
+                                            <Box
+                                                className="relative"
+                                                sx={{
+                                                    width: 30,
+                                                    height: 30,
+                                                }}
+                                            >
+                                                {/* <Image
+                                                    src="/images/Header/menu_circle.svg"
+                                                    alt="Hamburger Menu Circle"
+                                                    width={30}
+                                                    height={30}
+                                                /> */}
+                                                <Box
+                                                    className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                    sx={{
+                                                        width: 30,
+                                                        height: 30,
+                                                        display: 'flex',
+                                                        justifyContent: 'center',
+                                                        alignItems: 'center',
+                                                    }}
+                                                >
+                                                    <Image
+                                                        src="/images/Header/search.svg"
+                                                        alt="Hamburger Menu"
+                                                        width={15} // Adjust width as needed
+                                                        height={15} // Adjust height as needed
+                                                    />
+                                                </Box>
+                                            </Box>
+                                        </Box>
+
+                                    </Link>
+                                </Box>
+                                <Box
+                                    className="block lg:hidden"
+                                    onClick={handleMenuToggle}
+                                    sx={{ cursor: 'pointer' }}
+                                >
+                                    <Box className="flex items-center justify-center">
+                                        <Box
+                                            className="relative"
+                                            sx={{
+                                                width: 30,
+                                                height: 30,
+                                            }}
+                                        >
+                                            {/* <Image
+                                                src="/images/Header/menu_circle.svg"
+                                                alt="Hamburger Menu Circle"
+                                                width={30}
+                                                height={30}
+                                            /> */}
+                                            <Box
+                                                className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                sx={{
+                                                    width: 30,
+                                                    height: 30,
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                }}
+                                            >
+                                                <Image
+                                                    src="/images/Header/menu.svg"
+                                                    alt="Hamburger Menu"
+                                                    width={15} // Adjust width as needed
+                                                    height={15} // Adjust height as needed
+                                                />
+                                            </Box>
+                                        </Box>
+                                    </Box>
+
+                                </Box>
+                            </Box>
+                        </Box>
+                    </header>
+                </Box>
+            }
+
+
 
             {/* Navigation Links - For Desktop and Mobile */}
             {isMobile ? <Box className={`flex w-full justify-between ${isMenuOpen ? 'block' : 'hidden'} lg:flex`}>

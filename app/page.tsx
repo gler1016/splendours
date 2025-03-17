@@ -211,9 +211,9 @@ const HomePage = () => {
                             SPLENDOURS PROJECTS
                         </Typography>
                     </Box>
-                    <Box sx={{ bottom: 0, right: 0, marginTop: isMobile ? '30px' : '0px', marginleft: "20px" }}>
+                    <Box sx={{ bottom: 0, left: "0", marginTop: isMobile ? '30px' : '0px', marginleft: "20px" }}>
                         <Link href={'/allProjectViews'} >
-                            <AnimatedModalDemo label="view all" icon={"images/Vector.svg"} ></AnimatedModalDemo>
+                            <AnimatedModalDemo label="view all" isMobile={isMobile} icon={"images/Vector.svg"} ></AnimatedModalDemo>
                         </Link>
                     </Box>
                 </Box>
@@ -225,9 +225,9 @@ const HomePage = () => {
 
             {isMobile ?
                 <Box className="flex flex-col w-full items-center justify-center">
-                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>STATE OF</Typography>
-                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>THE ART</Typography>
-                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '40px', fontWeight: 700, lineHeight: 0.9 }}>SHOWROOM</Typography>
+                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '35px', fontWeight: 700, lineHeight: 0.9 }}>STATE OF</Typography>
+                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '35px', fontWeight: 700, lineHeight: 0.9 }}>THE ART</Typography>
+                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '35px', fontWeight: 700, lineHeight: 0.9 }}>SHOWROOM</Typography>
                 </Box> :
                 <Box className="flex flex-col px-20">
                     <AnimatePresence>
@@ -304,7 +304,7 @@ const HomePage = () => {
                         </Box>
                         <Box className="flex justify-center w-full">
                             <Link href={'https://www.splendourinstone.com.au/walling/'}>
-                                <GreenAnimationButton label={'VIEW ALL'} className="" icon="/images/icons/Vector.svg"></GreenAnimationButton>
+                                <GreenAnimationButton label={'View All'} className="" icon="/images/icons/Vector.svg"></GreenAnimationButton>
                             </Link>
                         </Box>
                     </Box>
@@ -358,7 +358,7 @@ const HomePage = () => {
                         </Typography>
                         <Box className="flex justify-center mt-6">
                             <Link href={'https://www.splendourinstone.com.au/walling/'} passHref>
-                                    <GreenCustomButton label={'VIEW ALL'} iconSrc={'/images/icons/Vector.svg'} />
+                                <GreenCustomButton label={'View All'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
                     </Box>
@@ -444,7 +444,7 @@ const HomePage = () => {
                             <Box className="flex justify-center ml-5 mr-8 mb-5">
                                 <Link href={'https://www.splendourinstone.com.au/walling/'} passHref>
 
-                                            <GreenAnimationButton label={'VIEW ALL'} icon={'/images/icons/Vector.svg'} className="" />
+                                    <GreenAnimationButton label={'View All'} icon={'/images/icons/Vector.svg'} className="" />
                                 </Link>
                             </Box>
                         </Box>
@@ -541,7 +541,12 @@ const HomePage = () => {
                                             lineHeight: '1', // Adjust line height to match the image exactly
                                             fontWeight: 500,
                                             fontFamily: 'Chronicle Display',
-                                            fontSize: '120px',
+                                            fontSize: {
+                                                xs: "25px",
+                                                sm: "45px",
+                                                md: "55px",
+                                                lg: "100px",
+                                            },
                                             marginBottom: '20px', // Space between lines as shown in the image
                                         }}
                                     >
@@ -555,7 +560,12 @@ const HomePage = () => {
                                             lineHeight: '0.8',
                                             fontWeight: 500,
                                             fontFamily: 'Chronicle Display',
-                                            fontSize: '120px',
+                                            fontSize: {
+                                                xs: "25px",
+                                                sm: "45px",
+                                                md: "55px",
+                                                lg: "100px",
+                                            },
 
                                         }}
                                     >
@@ -601,7 +611,7 @@ const HomePage = () => {
                                 ].map(({ label, href }, index) => (
                                     <Box key={index} className="flex ">
                                         <Link href={href}>
-                                            <WhiteCustomButton label={label} iconSrc={'/images/icons/Vector.svg'} />
+                                            <WhiteCustomButton isMobile={isMobile} label={label} iconSrc={'/images/icons/Vector.svg'} />
                                         </Link>
                                     </Box>
                                 ))}
@@ -629,7 +639,7 @@ const HomePage = () => {
                             </Typography>
                             <Box className="flex w-full justify-center  ml-10 mb-24">
                                 <Link href={'/allvisualizers'}>
-                                        <AnimatedModalDemo label={'VIEW ALL'} icon={'/images/Vector.svg'} ></AnimatedModalDemo>
+                                    <AnimatedModalDemo label={'View All'} icon={'/images/Vector.svg'} ></AnimatedModalDemo>
                                 </Link>
                             </Box>
                         </Box>
@@ -780,7 +790,7 @@ const HomePage = () => {
                         </Box>
                         <Box className="flex justify-center w-full">
                             <Link href={'https://www.splendourinstone.com.au/paving/'} passHref>
-                                <GreenCustomButton label={'VIEW ALL'} iconSrc={'/images/icons/Vector.svg'} />
+                                <GreenCustomButton label={'View All'} iconSrc={'/images/icons/Vector.svg'} />
                             </Link>
                         </Box>
                     </Box>
@@ -825,7 +835,7 @@ const HomePage = () => {
                             <Box className="mt-5">
                                 <Link href={'https://www.splendourinstone.com.au/paving/'} passHref>
 
-                                        <GreenAnimationButton label={'VIEW ALL'} className="px-2" icon={'/images/icons/Vector.svg'} />
+                                    <GreenAnimationButton label={'View All'} className="px-2" icon={'/images/icons/Vector.svg'} />
 
                                 </Link>
                             </Box>
@@ -1058,7 +1068,7 @@ const HomePage = () => {
                     <CustomTextField value={email} onChange={(e) => setEmail(e.target.value)} />
                 </Box>
                 <Box className="flex w-full justify-center">
-                    <WhiteCustomButton label={'Send'} iconSrc={'/images/icons/Vector.svg'} onClick={handleSubmit} />
+                    <WhiteCustomButton isMobile={isMobile} label={'Send'} iconSrc={'/images/icons/Vector.svg'} onClick={handleSubmit} />
                 </Box>
                 {/* Success Alert */}
                 <Snackbar open={successAlert} autoHideDuration={6000} onClose={handleAlertClose}>

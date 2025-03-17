@@ -13,28 +13,42 @@ import React, {
 interface AnimatedModalDemoProps {
   label: string;
   icon?: string;
+  isMobile?: boolean;
 }
-export function AnimatedModalDemo({label,icon} : AnimatedModalDemoProps) {
- 
+export function AnimatedModalDemo({ isMobile, label, icon }: AnimatedModalDemoProps) {
+
   return (
     <div className="relative py-6 w-full flex items-center justify-center">
       <Modal>
-            <ModalTrigger className="bg-customColor text-color flex items-center justify-center gap-2 group/modal-btn">
-                {/* SVG Icon */}
-      
-                {/* Label */}
-                <span className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
-                  {label}
-      
-                </span>
-      
-                {/* Description */}
-                <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-color-500 z-20">
-                {icon && <Image src={icon} width={24} height={24} alt="icon"   className="text-color object-contain transition duration-500"/>}
-                </div>
-              </ModalTrigger>
-             
-            </Modal>
+        {isMobile ? <ModalTrigger className="bg-customColor text-color flex items-center justify-center gap-2 group/modal-btn">
+          {/* SVG Icon */}
+
+          {/* Label */}
+          <span className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
+            {label}
+
+          </span>
+
+          {/* Description */}
+          <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-color-500 z-20">
+            {icon && <Image src={icon} width={24} height={24} alt="icon" className="text-color object-contain transition duration-500" />}
+          </div>
+        </ModalTrigger> : <ModalTrigger className="bg-customColor text-color flex items-center justify-center gap-2 group/modal-btn right-4">
+          {/* SVG Icon */}
+
+          {/* Label */}
+          <span className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
+            {label}
+
+          </span>
+
+          {/* Description */}
+          <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-color-500 z-20">
+            {icon && <Image src={icon} width={24} height={24} alt="icon" className="text-color object-contain transition duration-500" />}
+          </div>
+        </ModalTrigger>
+        }
+      </Modal>
     </div>
   );
 }
@@ -216,7 +230,7 @@ export const ModalTrigger = ({
   return (
     <button
       className={cn(
-        "absolute bottom-4 right-4 px-4 py-2 w-[180px] font-hanken font-bold rounded-full text-black dark:text-white text-center  overflow-hidden",
+        "absolute bottom-4 px-4 py-2 w-[180px] font-hanken font-bold rounded-full text-black dark:text-white text-center  overflow-hidden",
         className
       )}
       onClick={() => setOpen(true)}
@@ -246,7 +260,7 @@ export const ModalBody = ({
   const modalRef = useRef<HTMLDivElement>(null!);
   const { setOpen } = useModal();
   useOutsideClick(modalRef, () => setOpen(false));
-  
+
 
   return (
     <AnimatePresence>
