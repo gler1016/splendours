@@ -109,7 +109,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                                 lineHeight: '1',
                                 alignContent: 'flex-start',
                                 fontFamily: 'var(--font-montserrat)',
-                                fontSize: '13px'
+                                fontSize: '17px'
                             }}
                         >
                             Available in our freeform style, the Charlotte sandstone is made up of beautiful soft hues such as cream, yellow and pink.
@@ -155,7 +155,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                             lineHeight: 0.8,
                             fontWeight: 500,
                             fontFamily: 'Chronicle Display',
-                            fontSize: '25px'
+                            fontSize: '20px'
                         }}
                     >
                         {images[currentIndex].product_name}

@@ -264,10 +264,10 @@ const SplenderoursProductsCarousel: React.FC = () => {
                                                 lineHeight: '1.2',
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: "13px",
-                                                    sm: "13px",
-                                                    md: "14px",
-                                                    lg: "15px"
+                                                    xs: "16px",
+                                                    sm: "16px",
+                                                    md: "16px",
+                                                    lg: "16px"
                                                 }
                                             }}
                                         >

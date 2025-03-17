@@ -201,7 +201,7 @@ const HomePage = () => {
                                 fontFamily: 'Chronicle Display',
                                 textAlign: isMobile ? 'center' : 'start',
                                 fontSize: {
-                                    xs: "40px",
+                                    xs: "30px",
                                     sm: "50px",
                                     md: "65px",
                                     lg: "120px"
@@ -225,9 +225,9 @@ const HomePage = () => {
 
             {isMobile ?
                 <Box className="flex flex-col w-full items-center justify-center">
-                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '35px', fontWeight: 700, lineHeight: 0.9 }}>STATE OF</Typography>
-                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '35px', fontWeight: 700, lineHeight: 0.9 }}>THE ART</Typography>
-                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '35px', fontWeight: 700, lineHeight: 0.9 }}>SHOWROOM</Typography>
+                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '30px', fontWeight: 700, lineHeight: 0.9 }}>STATE OF</Typography>
+                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '30px', fontWeight: 700, lineHeight: 0.9 }}>THE ART</Typography>
+                    <Typography variant="body1" color="#DBC6BC" className="text-center" sx={{ width: "70%", fontFamily: "Chronicle Display", fontSize: '30px', fontWeight: 700, lineHeight: 0.9 }}>SHOWROOM</Typography>
                 </Box> :
                 <Box className="flex flex-col px-20">
                     <AnimatePresence>
@@ -296,7 +296,7 @@ const HomePage = () => {
                                     fontWeight: 400,
                                     textAlign: 'center',
                                     fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px',
+                                    fontSize: '17px',
                                 }}
                             >
                                 We believe that in a new age world filled with gadgets, noise and pace that a moment to stop, reflect and connect with something pure
@@ -524,7 +524,7 @@ const HomePage = () => {
                                                 textAlign: 'center',
                                                 fontWeight: 500,
                                                 fontFamily: 'Chronicle Display',
-                                                fontSize: isMobile ? '40px' : '70px',
+                                                fontSize: isMobile ? '30px' : '70px',
                                             }}
                                         >
                                             {text}
@@ -604,12 +604,12 @@ const HomePage = () => {
                                     connect with something pure
                                 </Typography>
                             </Box>
-                            <Box className="flex w-full justify-center gap-2">
+                            <Box className="flex flex-col w-full justify-center items-center gap-2">
                                 {[
                                     { label: 'View all', href: '/allvisualizers' },
                                     { label: 'Try Now!', href: '/visualizer/Chimney' },
                                 ].map(({ label, href }, index) => (
-                                    <Box key={index} className="flex ">
+                                    <Box key={index} className="flex">
                                         <Link href={href}>
                                             <WhiteCustomButton isMobile={isMobile} label={label} iconSrc={'/images/icons/Vector.svg'} />
                                         </Link>
@@ -782,7 +782,7 @@ const HomePage = () => {
                                     fontWeight: 400,
                                     textAlign: 'center',
                                     fontFamily: 'var(--font-montserrat)',
-                                    fontSize: isTablet ? '16px' : '13px', // Adjust for tablets
+                                    fontSize: isTablet ? '17px' : '17px', // Adjust for tablets
                                 }}
                             >
                                 We believe that in a new age world filled with gadgets, noise, and pace that a moment to stop, reflect, and connect with something pure.
@@ -931,9 +931,9 @@ const HomePage = () => {
                                         fontWeight: 300,
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: {
-                                            xs: '12px',
-                                            sm: '14px',
-                                            md: '16px', // Adjusted for tablets
+                                            xs: '17px',
+                                            sm: '17px',
+                                            md: '17px', // Adjusted for tablets
                                         },
                                         lineHeight: 1.5,
                                     }}
@@ -948,9 +948,9 @@ const HomePage = () => {
                                         sx={{
                                             marginTop: '10px',
                                             fontSize: {
-                                                xs: '12px',
-                                                sm: '13px',
-                                                md: '14px', // Adjusted for tablets
+                                                xs: '18px',
+                                                sm: '18px',
+                                                md: '18px', // Adjusted for tablets
                                             },
                                             color: '#FFFFFF',
                                             fontWeight: 500,

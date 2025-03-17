@@ -22,8 +22,9 @@ const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, isMobile, iconS
                         {
                             width: { xs: "25px", md: '1vw' },
                             height: { xs: "25px", md: '1vw' },
-                            paddingRight: "5px",
+                            paddingRight: "2px",
                             backgroundSize: "cover",
+                            backgroundImage: `url(${iconSrc})`,
                             filter: "brightness(0) saturate(100%) invert(28%) sepia(14%) saturate(589%) hue-rotate(100deg) brightness(93%) contrast(81%)",
                         } : {
                             width: { xs: "30px", md: '2vw' },
@@ -46,7 +47,7 @@ const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, isMobile, iconS
                 height: { xs: "42px", sm: "4.5vw", md: "3.1vw", lg: "3.1vw" }, // Responsive height
                 borderRadius: "50px",
                 color: "#283C28",
-                fontSize: { xs: "14px", sm: "1.5vw" }, // Responsive font size
+                fontSize: { xs: "16px", sm: "1.3vw" }, // Responsive font size
                 fontWeight: 400,
                 fontFamily: "inherit",
                 fontSynthesisWeight: 600,

@@ -24,7 +24,7 @@ export function AnimatedModalDemo({ isMobile, label, icon }: AnimatedModalDemoPr
           {/* SVG Icon */}
 
           {/* Label */}
-          <span className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
+          <span style={{ "fontSize": "8vw" }} className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
             {label}
 
           </span>
@@ -230,7 +230,7 @@ export const ModalTrigger = ({
   return (
     <button
       className={cn(
-        "absolute bottom-4 px-4 py-2 w-[180px] font-hanken font-bold rounded-full text-black dark:text-white text-center  overflow-hidden",
+        "absolute bottom-4 px-2 w-[180px] font-hanken font-bold rounded-full text-black dark:text-white text-center  overflow-hidden",
         className
       )}
       onClick={() => setOpen(true)}
