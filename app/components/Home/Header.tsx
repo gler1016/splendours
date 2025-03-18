@@ -27,22 +27,22 @@ const Header: React.FC = () => {
                                 "marginLeft": "5px", "marginTop": "9px"
                             }}>
                                 <Image
-                                    className='px-3'
+                                    className='px-3 w-[550px] h-[55px]'
                                     src={'/images/Header/mobile-main-logo.png'}
                                     alt="Logo"
-                                    width={400}
-                                    height={120}
+                                    width={1000}
+                                    height={1000}
                                 />
                             </Box>
-                            <div className={"h-[70px] flex items-center px-4 w-full relative"}>
+                            <div className={"h-[70px] flex items-center px-2 w-full relative"}>
                                 <Link
                                     style={{
                                         fontFamily: "inherit",
                                         fontStyle: "inherit",
-                                        fontWeight: "750"
+                                        fontWeight: "550"
                                     }}
                                     href={"https://staging.splendourinstone.com.au/quote/"}
-                                    className="bg-customColor flex text-center items-center justify-center text-[13px] font-semibold text-color px-2 w-[150px] h-[40px] py-2 rounded-[30px]"
+                                    className="bg-customColor flex text-center items-center justify-center text-[10px] font-semibold text-color px-2 w-[130px] h-[35px] py-2 rounded-[30px]"
                                 >
                                     FREE MEASURE
                                     <br></br>
