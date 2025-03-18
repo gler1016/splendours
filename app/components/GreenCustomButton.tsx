@@ -25,12 +25,12 @@ const GreenCustomButton: React.FC<CustomButtonProps> = ({ label, iconSrc, onClic
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                width: { xs: "160px", sm: "20vw", md: "200px"}, // Responsive width
-                height: { xs: "42px", sm: "4.5vw", md: "3.1vw" , lg: "3.1vw"}, // Responsive height
+                width: { xs: "160px", sm: "200px", md: "200px"}, // Responsive width
+                height: { xs: "42px", sm: "42px", md: "42px", lg: "42px"}, // Responsive height
                 borderRadius: '50px',
                 color: '#DCC5BD',
-                fontSize: isMobile ? '17px' : isTablet ? '20px' : '1vw', // Responsive font size
-                fontWeight: 400,
+                fontSize: isMobile ? '24px' : isTablet ? '24px' : '24px', // Responsive font size
+                fontWeight: 500,
                 fontFamily: 'var(--font-montserrat)',
                 backgroundColor: '#283C28', // Default background color
                 borderColor: 'transparent', // Border color

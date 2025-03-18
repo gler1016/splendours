@@ -13,29 +13,29 @@ import React, {
 interface AnimatedModalDemoProps {
   label: string;
   icon?: string;
-  className:string;
+  className: string;
   children?: React.ReactNode;
 }
-export function GreenAnimationButton({label,icon,className} : AnimatedModalDemoProps) {
- 
+export function GreenAnimationButton({ label, icon, className }: AnimatedModalDemoProps) {
+
   return (
     <div className="relative py-8 w-full flex items-center justify-center  ml-14">
       <Modal>
-      <ModalTrigger className={cn("bg-color text-customColor flex items-center justify-center gap-2 group/modal-btn",className)}>
+        <ModalTrigger className={cn("bg-color text-customColor flex items-center justify-center gap-2 group/modal-btn", className)}>
           {/* SVG Icon */}
 
           {/* Label */}
-          <span  className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
+          <span style={{ "fontSize": "24px" }} className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
             {label}
 
           </span>
 
           {/* Description */}
           <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-color-500 z-20">
-          {icon && <Image src={icon} width={24} height={24} alt="icon"  className="object-contain transition duration-500"/>}
+            {icon && <Image src={icon} width={24} height={24} alt="icon" className="object-contain transition duration-500" />}
           </div>
         </ModalTrigger>
-       
+
       </Modal>
     </div>
   );
@@ -248,7 +248,7 @@ export const ModalBody = ({
   const modalRef = useRef<HTMLDivElement>(null!);
   const { setOpen } = useModal();
   useOutsideClick(modalRef, () => setOpen(false));
-  
+
 
   return (
     <AnimatePresence>

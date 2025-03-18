@@ -55,7 +55,7 @@ const Footer = () => {
                     </Box>
                     <Box className="flex w-full">
                         <Box className="flex w-1/2">
-                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
+                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '0px', color: '#283C28' }}>
                                 <li>
                                     <Link href="/">
                                         <Typography
@@ -65,9 +65,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -91,9 +91,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -117,9 +117,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -137,7 +137,7 @@ const Footer = () => {
                             </ul>
                         </Box>
                         <Box className="flex w-1/2">
-                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
+                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '10px', color: '#283C28' }}>
                                 <li>
                                     <Link href="https://www.splendourinstone.com.au/blog/">
                                         <Typography
@@ -147,9 +147,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -173,9 +173,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '6px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 200,
@@ -199,9 +199,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -247,7 +247,7 @@ const Footer = () => {
                     </Box>
                     <Box className="flex w-full">
                         <Box className="flex w-1/2">
-                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
+                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '0px', color: '#283C28' }}>
                                 <li>
                                     <Link href="/about">
                                         <Typography
@@ -257,9 +257,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -283,9 +283,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -309,9 +309,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -329,7 +329,7 @@ const Footer = () => {
                             </ul>
                         </Box>
                         <Box className="flex w-1/2">
-                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '20px', color: '#283C28' }}>
+                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '45px', color: '#283C28' }}>
                                 <li>
                                     <Link href="/faq">
                                         <Typography
@@ -339,9 +339,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -365,9 +365,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -391,9 +391,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -417,9 +417,9 @@ const Footer = () => {
                                             sx={{
                                                 fontFamily: 'var(--font-montserrat)',
                                                 fontSize: {
-                                                    xs: '8px',
-                                                    sm: '10px',
-                                                    md: '12px',
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
                                                     lg: '15px',
                                                 },
                                                 fontWeight: 300,
@@ -453,8 +453,8 @@ const Footer = () => {
                             fontFamily: 'Chronicle Display',
                             margintop: "10px",
                             fontSize: {
-                                xs: "8px",
-                                sm: "14px",  // Small screens
+                                xs: "14px",
+                                sm: "18px",  // Small screens
                                 md: "18px",  // Medium screens
                                 lg: "22px"
                             }

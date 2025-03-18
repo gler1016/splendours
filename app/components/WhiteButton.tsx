@@ -20,15 +20,15 @@ const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, isMobile, iconS
                 <Box
                     sx={isMobile ?
                         {
-                            width: { xs: "25px", md: '1vw' },
-                            height: { xs: "25px", md: '1vw' },
+                            width: { xs: "35px", md: '1vw' },
+                            height: { xs: "35px", md: '1vw' },
                             paddingRight: "2px",
                             backgroundSize: "cover",
                             backgroundImage: `url(${iconSrc})`,
                             filter: "brightness(0) saturate(100%) invert(28%) sepia(14%) saturate(589%) hue-rotate(100deg) brightness(93%) contrast(81%)",
                         } : {
-                            width: { xs: "30px", md: '2vw' },
-                            height: { xs: "30px", md: '2vw' },
+                            width: { xs: "30px", md: '30px' },
+                            height: { xs: "30px", md: '30px' },
                             paddingRight: "10px",
                             backgroundImage: `url(${iconSrc})`,
                             backgroundSize: "cover",
@@ -43,11 +43,11 @@ const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, isMobile, iconS
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                width: { xs: "140px", sm: "17vw", md: "11vw", lg: "8vw" }, // Responsive width
-                height: { xs: "42px", sm: "4.5vw", md: "3.1vw", lg: "3.1vw" }, // Responsive height
+                width: { xs: "170px", sm: "170px", md: "170px", lg: "170px" }, // Responsive width
+                height: { xs: "60px", sm: "60px", md: "60px", lg: "60px" }, // Responsive height
                 borderRadius: "50px",
                 color: "#283C28",
-                fontSize: { xs: "16px", sm: "1.3vw" }, // Responsive font size
+                fontSize: { xs: "20px", sm: "20px" }, // Responsive font size
                 fontWeight: 400,
                 fontFamily: "inherit",
                 fontSynthesisWeight: 600,

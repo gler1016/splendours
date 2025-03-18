@@ -109,7 +109,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                                 lineHeight: '1',
                                 alignContent: 'flex-start',
                                 fontFamily: 'var(--font-montserrat)',
-                                fontSize: '17px'
+                                fontSize: '22px'
                             }}
                         >
                             Available in our freeform style, the Charlotte sandstone is made up of beautiful soft hues such as cream, yellow and pink.
@@ -121,13 +121,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                         fontWeight: 500,
                         alignContent: 'flex-start',
                         fontFamily: 'var(--font-montserrat)',
-                        fontSize: '15px'
+                        fontSize: '18px'
                     }}>Category: Stairs</Typography>
                     <Typography color="#283C28" sx={{
                         fontWeight: 500,
                         alignContent: 'flex-start',
                         fontFamily: 'var(--font-montserrat)',
-                        fontSize: '15px'
+                        fontSize: '18px'
                     }}>Tag:  Exclusive</Typography>
                 </Box>
                 <Box className="flex justify-between w-full">

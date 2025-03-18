@@ -296,7 +296,7 @@ const HomePage = () => {
                                     fontWeight: 400,
                                     textAlign: 'center',
                                     fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '17px',
+                                    fontSize: '24px',
                                 }}
                             >
                                 We believe that in a new age world filled with gadgets, noise and pace that a moment to stop, reflect and connect with something pure
@@ -350,7 +350,7 @@ const HomePage = () => {
                                 textAlign: 'center',
                                 lineHeight: 1.4,
                                 fontFamily: 'var(--font-montserrat)',
-                                fontSize: '16px',
+                                fontSize: '24px',
                                 mt: 2,
                             }}
                         >
@@ -597,7 +597,7 @@ const HomePage = () => {
                                         fontWeight: 400,
                                         textAlign: 'center',
                                         fontFamily: 'var(--font-montserrat)',
-                                        fontSize: '20px',
+                                        fontSize: '24px',
                                     }}
                                 >
                                     We believe that in a new age world filled with gadgets, noise, and pace that a moment to stop, reflect and
@@ -781,8 +781,8 @@ const HomePage = () => {
                                 sx={{
                                     fontWeight: 400,
                                     textAlign: 'center',
+                                    fontSize: isTablet ? '20x' : '22px', // Adjust for tablets
                                     fontFamily: 'var(--font-montserrat)',
-                                    fontSize: isTablet ? '17px' : '17px', // Adjust for tablets
                                 }}
                             >
                                 We believe that in a new age world filled with gadgets, noise, and pace that a moment to stop, reflect, and connect with something pure.
@@ -929,12 +929,12 @@ const HomePage = () => {
                                     className="text-center"
                                     sx={{
                                         fontWeight: 300,
-                                        fontFamily: 'var(--font-montserrat)',
                                         fontSize: {
-                                            xs: '17px',
-                                            sm: '17px',
-                                            md: '17px', // Adjusted for tablets
+                                            xs: '22px',
+                                            sm: '22px',
+                                            md: '22px', // Adjusted for tablets
                                         },
+                                        fontFamily: 'var(--font-montserrat)',
                                         lineHeight: 1.5,
                                     }}
                                 >
@@ -948,9 +948,9 @@ const HomePage = () => {
                                         sx={{
                                             marginTop: '10px',
                                             fontSize: {
-                                                xs: '18px',
-                                                sm: '18px',
-                                                md: '18px', // Adjusted for tablets
+                                                xs: '20px',
+                                                sm: '20px',
+                                                md: '20px', // Adjusted for tablets
                                             },
                                             color: '#FFFFFF',
                                             fontWeight: 500,
@@ -1007,10 +1007,10 @@ const HomePage = () => {
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: 1.4,
                                         fontSize: {
-                                            xs: '12px',
-                                            sm: '14px', // Small screens
-                                            md: '16px', // Medium screens (tablets)
-                                            lg: '18px', // Larger screens
+                                            xs: '21px',
+                                            sm: '21px', // Small screens
+                                            md: '21px', // Medium screens (tablets)
+                                            lg: '21px', // Larger screens
                                         },
                                     }}
                                 >

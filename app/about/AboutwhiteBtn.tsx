@@ -35,7 +35,7 @@ export function AboutWhiteBtn({
         >
           {/* Label */}
 
-          <p style={{ fontFamily: "inherit", fontStyle: "inherit",fontWeight:"700" }} className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
+          <p style={{ fontFamily: "inherit", fontStyle: "inherit",fontWeight:"700", fontSize:"24px" }} className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
             {label}
           </p>
 
