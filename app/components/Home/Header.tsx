@@ -22,16 +22,16 @@ const Header: React.FC = () => {
             {isMobile &&
                 <Box className={`flex justify-center w-full h-[100%] lg:flex`}>
                     <header className={`fixed left-0 w-screen z-50 top-0`}>
-                        <Box className="bg-color flex justify-between">
+                        <Box className="bg-color flex justify-between items-center">
                             <Box sx={{
-                                marginLeft: "5px", marginTop: "7px"
+                                marginLeft: "5px"
                             }}>
                                 <img
                                     className='px-3'
                                     src={'/images/Header/mobile-main-logo.png'}
                                     alt="Logo"
                                     style={{
-                                        "width": '500px',
+                                        "width": '450px',
                                     }}
                                 />
                             </Box>
@@ -125,8 +125,8 @@ const Header: React.FC = () => {
                 isTablet &&
                 <Box className={`flex justify-center w-full h-full lg:flex`}>
                     <header className={`fixed left-0 w-screen z-50 top-0`}>
-                        <Box className="bg-color flex justify-between">
-                            <Box sx={{ "marginLeft": "3w", "marginTop": "1vw" }}>
+                        <Box className="bg-color flex justify-between items-center">
+                            <Box sx={{ "marginLeft": "3w" }}>
                                 <img
                                     className='px-3'
                                     src={'/images/Header/mobile-main-logo.png'}
