@@ -93,14 +93,7 @@ const HomePage = () => {
     const [successAlert, setSuccessAlert] = useState(false);
 
     const [errorAlert, setErrorAlert] = useState(false);
-    // const [highlighted, setHighlighted] = useState(0);
 
-    // useEffect(() => {
-    //   const interval = setInterval(() => {
-    //     setHighlighted((prev) => (prev + 1) % 3);
-    //   }, 1500);
-    //   return () => clearInterval(interval);
-    // }, []);
 
     const [activeIndex, setActiveIndex] = useState(1);
 
@@ -213,7 +206,7 @@ const HomePage = () => {
                     </Box>
                     <Box sx={{ bottom: 0, left: "0", marginTop: isMobile ? '30px' : '0px', marginleft: "20px" }}>
                         <Link href={'/allProjectViews'} >
-                            <AnimatedModalDemo label="view all" isMobile={isMobile} icon={"images/Vector.svg"} ></AnimatedModalDemo>
+                            <AnimatedModalDemo label="View all" isMobile={isMobile} icon={"images/Vector.svg"} ></AnimatedModalDemo>
                         </Link>
                     </Box>
                 </Box>
