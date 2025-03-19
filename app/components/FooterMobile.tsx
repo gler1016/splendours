@@ -148,7 +148,7 @@ const FooterMobile = () => {
                             }}
                         >CONTACT</Typography>
                     </Link>
-                    <Link href={'/https://www.splendourinstone.com.au/consultation/ '} className="flex w-full justify-center">
+                    <Link href={'https://staging.splendourinstone.com.au/consultation/'} className="flex w-full justify-center">
                         <Typography
                             variant="h4"
                             color="#283C28"

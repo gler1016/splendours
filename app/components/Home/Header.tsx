@@ -42,7 +42,7 @@ const Header: React.FC = () => {
                                         fontStyle: "inherit",
                                         fontWeight: "550"
                                     }}
-                                    href={"https://staging.splendourinstone.com.au/quote/"}
+                                    href="https://www.splendourinstone.com.au/consultation/ "
                                     className="bg-customColor flex text-center items-center justify-center text-[10px] font-semibold text-color px-2 w-[130px] h-[35px] py-2 rounded-[30px]"
                                 >
                                     FREE MEASURE
@@ -143,7 +143,7 @@ const Header: React.FC = () => {
                                         fontStyle: "inherit",
                                         fontWeight: "750"
                                     }}
-                                    href={"https://staging.splendourinstone.com.au/quote/"}
+                                    href="https://www.splendourinstone.com.au/consultation/ "
                                     className="bg-customColor flex text-center items-center justify-center text-[13px] font-semibold text-color px-2 w-[150px] h-[40px] py-2 rounded-[30px]"
                                 >
                                     FREE MEASURE
