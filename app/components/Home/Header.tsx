@@ -24,14 +24,15 @@ const Header: React.FC = () => {
                     <header className={`fixed left-0 w-screen z-50 top-0`}>
                         <Box className="bg-color flex justify-between">
                             <Box sx={{
-                                "marginLeft": "5px", "marginTop": "9px"
+                                marginLeft: "5px", marginTop: "7px"
                             }}>
-                                <Image
-                                    className='px-3 w-[550px] h-[55px]'
+                                <img
+                                    className='px-3'
                                     src={'/images/Header/mobile-main-logo.png'}
                                     alt="Logo"
-                                    width={1000}
-                                    height={1000}
+                                    style={{
+                                        "width": '500px',
+                                    }}
                                 />
                             </Box>
                             <div className={"h-[70px] flex items-center px-2 w-full relative"}>
@@ -123,15 +124,16 @@ const Header: React.FC = () => {
             {
                 isTablet &&
                 <Box className={`flex justify-center w-full h-full lg:flex`}>
-                    <header className={`fixed left-0 w-screen z-50`}>
+                    <header className={`fixed left-0 w-screen z-50 top-0`}>
                         <Box className="bg-color flex justify-between">
                             <Box sx={{ "marginLeft": "3w", "marginTop": "1vw" }}>
-                                <Image
+                                <img
                                     className='px-3'
                                     src={'/images/Header/mobile-main-logo.png'}
                                     alt="Logo"
-                                    width={isMobile ? 230 : 250}
-                                    height={isMobile ? 60 : 70}
+                                    style={{
+                                        "width": '320px',
+                                    }}
                                 />
                             </Box>
                             <div className={"h-[60px] flex items-center px-4 w-full relative"}>
