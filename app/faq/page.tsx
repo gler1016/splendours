@@ -4,7 +4,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import Header from '../components/Header';
+// import Header from '../components/Header';
+import Header from '../components/Home/Header';
 import Footer from '../components/Footer';
 
 import { Box, Typography } from '@mui/material';

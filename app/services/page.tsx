@@ -5,7 +5,8 @@
 import React, { useState, useEffect } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
-import Header from '../components/Header';
+// import Header from '../components/Header';
+import Header from '../components/Home/Header';
 import Footer from '../components/Footer';
 import { Box, Typography, Rating } from '@mui/material';
 // import { motion, AnimatePresence } from 'framer-motion';

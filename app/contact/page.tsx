@@ -3,7 +3,8 @@
 // app/about/page.tsx
 
 
-import Header from '../components/Header';
+// import Header from '../components/Header';
+import Header from '../components/Home/Header';
 import Footer from '../components/Footer';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
@@ -21,7 +22,7 @@ import Card3DEffect from '../components/3dEffects/Card3DEffect';
 
 const ServicesPage = () => {
 
-    
+
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const isLeastMobile = useMediaQuery({ query: '(max-width: 420px)' });
 
@@ -46,7 +47,7 @@ const ServicesPage = () => {
             >
                 <Box className="flex flex-col space-y-3 xs:gap-y-3 sm:gap-y-6 md:gap-y-9" sx={{ border: isMobile ? '1px solid #000000' : 'none', paddingBottom: isMobile ? '40px' : '0px', }}>
 
-                    <Box className="flex items-center w-full" sx={{  borderTop: isMobile ? '1px solid #1E1E1E' : 'none' }}>
+                    <Box className="flex items-center w-full" sx={{ borderTop: isMobile ? '1px solid #1E1E1E' : 'none',marginBottom:'100px' }}>
                         <Header />
                     </Box>
 
@@ -86,7 +87,7 @@ const ServicesPage = () => {
 
                     </Box>}
 
-                    {isMobile ? <Box  className="flex w-full flex-col px-3">
+                    {isMobile ? <Box className="flex w-full flex-col px-3">
                         <Typography
                             variant="h3"
                             className="text-center"
@@ -156,7 +157,7 @@ const ServicesPage = () => {
                         > THE BRILLIANCE OF NATURAL STONE.
                         </Typography>
                     </Box>
-                        : <Box  className="flex w-full flex-col px-12 py-1">
+                        : <Box className="flex w-full flex-col px-12 py-1">
                             <Typography
                                 variant="h3"
                                 color="#DCC5BD"
@@ -328,8 +329,8 @@ const ServicesPage = () => {
                                 We invite you to connect with our friendly and knowledgeable team to discuss your project and transform your vision into reality.
                             </Typography>
                         </Box>
-                        <Box  className="flex w-1/12 justify-end items-start">
-                            <Image 
+                        <Box className="flex w-1/12 justify-end items-start">
+                            <Image
                                 src="/images/Contact/Vector-bottom-left.svg"
                                 alt="main"
                                 width={120}
@@ -410,25 +411,25 @@ const ServicesPage = () => {
                 </Box> : <Box className="flex w-full flex-col gap-y-3 px-12">
                     <Box className="flex w-full gap-3">
                         <Box className="w-1/3">
-                        <Card3DEffect>
-                            <Image
-                                src="/images/Contact/image1.png"
-                                alt="main"
-                                width={552}
-                                height={395}
-                                className="md:rounded-[25px] h-[100%] rounded-[5px]"
-                            />
+                            <Card3DEffect>
+                                <Image
+                                    src="/images/Contact/image1.png"
+                                    alt="main"
+                                    width={552}
+                                    height={395}
+                                    className="md:rounded-[25px] h-[100%] rounded-[5px]"
+                                />
                             </Card3DEffect>
                         </Box>
                         <Box className="w-2/3">
-                        <Card3DEffect>
-                            <Image
-                                src="/images/Contact/image2.png"
-                                alt="main"
-                                width={1136}
-                                height={395}
-                                className="md:rounded-[25px] rounded-[5px]"
-                            />
+                            <Card3DEffect>
+                                <Image
+                                    src="/images/Contact/image2.png"
+                                    alt="main"
+                                    width={1136}
+                                    height={395}
+                                    className="md:rounded-[25px] rounded-[5px]"
+                                />
                             </Card3DEffect>
                         </Box>
                     </Box>
@@ -436,47 +437,47 @@ const ServicesPage = () => {
                         <Box className="w-1/2 space-y-5 h-full">
                             <Box className="flex w-full">
                                 <Card3DEffect>
-                                <Image
-                                    src="/images/Contact/image3.png"
-                                    alt="main"
-                                    width={844}
-                                    height={252}
-                                    className="md:rounded-[25px] rounded-[5px]"
-                                />
+                                    <Image
+                                        src="/images/Contact/image3.png"
+                                        alt="main"
+                                        width={844}
+                                        height={252}
+                                        className="md:rounded-[25px] rounded-[5px]"
+                                    />
                                 </Card3DEffect>
                             </Box>
                             <Box className="flex w-full">
                                 <Card3DEffect>
-                                <Image
-                                    src="/images/Contact/image4.png"
-                                    alt="main"
-                                    width={844}
-                                    height={127}
-                                    className="md:rounded-[25px] rounded-[5px]"
-                                />
+                                    <Image
+                                        src="/images/Contact/image4.png"
+                                        alt="main"
+                                        width={844}
+                                        height={127}
+                                        className="md:rounded-[25px] rounded-[5px]"
+                                    />
                                 </Card3DEffect>
                             </Box>
                         </Box>
                         <Box className="w-1/6">
-                        <Card3DEffect>
-                            <Image
-                                src="/images/Contact/image5.png"
-                                alt="main"
-                                width={262}
-                                height={395}
-                                className="md:rounded-[25px] h-[100%] rounded-[5px]"
-                            />
+                            <Card3DEffect>
+                                <Image
+                                    src="/images/Contact/image5.png"
+                                    alt="main"
+                                    width={262}
+                                    height={395}
+                                    className="md:rounded-[25px] h-[100%] rounded-[5px]"
+                                />
                             </Card3DEffect>
                         </Box>
                         <Box className="w-1/3">
-                        <Card3DEffect>
-                            <Image
-                                src="/images/Contact/image6.png"
-                                alt="main"
-                                width={552}
-                                height={395}
-                                className="md:rounded-[25px] h-[100%] rounded-[5px]"
-                            />
+                            <Card3DEffect>
+                                <Image
+                                    src="/images/Contact/image6.png"
+                                    alt="main"
+                                    width={552}
+                                    height={395}
+                                    className="md:rounded-[25px] h-[100%] rounded-[5px]"
+                                />
                             </Card3DEffect>
                         </Box>
                     </Box>
@@ -910,7 +911,7 @@ const ServicesPage = () => {
                     }}
                 >
                     <Box className="flex w-full justify-between">
-                        <Box  className="flex flex-col w-1/3">
+                        <Box className="flex flex-col w-1/3">
                             <Typography
                                 variant="h3"
                                 color="#283C28"
@@ -951,7 +952,7 @@ const ServicesPage = () => {
                             </Typography>
                         </Box>
 
-                        <Box  className="flex flex-col w-1/4 gap-y-2">
+                        <Box className="flex flex-col w-1/4 gap-y-2">
                             <Typography
                                 variant="h3"
                                 color="#283C28"
@@ -1015,7 +1016,7 @@ const ServicesPage = () => {
                     </Box>
 
 
-                    <Box   className="flex w-full justify-between">
+                    <Box className="flex w-full justify-between">
                         <Box className="flex w-7/12 items-center gap-3">
                             <Box className="w-1/7">
                                 <Image
@@ -1043,7 +1044,7 @@ const ServicesPage = () => {
                                 PHONE: <span style={{ fontWeight: 400 }}>(03) 9873 4941</span>
                             </Typography>
                         </Box>
-                        <Box  className="flex w-3/12">
+                        <Box className="flex w-3/12">
                             <Typography
                                 variant="h4"
                                 color="black"
@@ -1066,7 +1067,7 @@ const ServicesPage = () => {
 
                     <FullCustomGreenDivider />
 
-                    <Box  className="flex w-full justify-between">
+                    <Box className="flex w-full justify-between">
                         <Box className="flex w-7/12 items-center gap-3">
                             <Box className="w-1/7">
                                 <Image
@@ -1094,7 +1095,7 @@ const ServicesPage = () => {
                                 EMAIL: <span style={{ fontWeight: 400 }}>INFO@SPLENDOURINSTONE.COM</span>
                             </Typography>
                         </Box>
-                        <Box   className="flex w-3/12">
+                        <Box className="flex w-3/12">
                             <Typography
                                 variant="h4"
                                 color="black"
@@ -1145,7 +1146,7 @@ const ServicesPage = () => {
                                 VISIT OUR SHOWROOM: <span style={{ fontWeight: 300 }}>10/21 COOK RD,MITCHAM, MELBOURNE, VIC 3132.</span>
                             </Typography>
                         </Box>
-                        <Box   className="flex w-3/12">
+                        <Box className="flex w-3/12">
                             <Typography
                                 variant="h4"
                                 color="black"
@@ -1185,8 +1186,8 @@ const ServicesPage = () => {
                             height={600}
                         />
                     </Box>
-                    <Box  className="absolute z-10 text-center p-8 w-full justify-center items-center flex flex-col">
-                        <Typography  variant="h2" className="font-semibold" color='#DCC5BD' sx={{
+                    <Box className="absolute z-10 text-center p-8 w-full justify-center items-center flex flex-col">
+                        <Typography variant="h2" className="font-semibold" color='#DCC5BD' sx={{
                             fontFamily: 'Chronicle Display',
                             fontSize: '40px',
                             lineHeight: 0.9,

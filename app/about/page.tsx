@@ -3,6 +3,7 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import Header from '../components/Header';
+// import Header from '../components/Home/Header';
 import Footer from '../components/Footer';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
@@ -229,6 +230,7 @@ const AboutPage = () => {
                                     </Typography>
                                 </Box>
                             </Box>
+
                             <Box className="flex flex-col w-1/4 gap-y-4">
                                 {images.firstBox.map((image) => (
                                     <motion.div
@@ -242,7 +244,7 @@ const AboutPage = () => {
                                         }}
                                         style={{
                                             width: '100%', // Use relative width for responsiveness
-                                            maxWidth: 350, // Constrain maximum width
+                                            // maxWidth: 350, // Constrain maximum width
                                             height: isSwapped ? image.swappedHeight : image.originalHeight,
                                             overflow: 'hidden',
                                             borderRadius: '20px',
@@ -274,7 +276,7 @@ const AboutPage = () => {
                                         }}
                                         style={{
                                             width: '100%', // Use relative width for responsiveness
-                                            maxWidth: 350, // Constrain maximum width
+                                            // maxWidth: 350, // Constrain maximum width
                                             height: isSwapped ? image.swappedHeight : image.originalHeight,
                                             overflow: 'hidden',
                                             borderRadius: '20px',
@@ -309,7 +311,6 @@ const AboutPage = () => {
                                     At Splendour in Stone, we believe natural stone is an unparalleled design element, capable of injecting timeless beauty and undeniable character into any space.
                                 </Typography>
                             </Box>
-
                         </Box>
                     )}
 
