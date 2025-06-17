@@ -5,7 +5,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
-import Header from '../components/Header';
+// import Header from '../components/Header';
+import Header from '../components/Home/Header';
 import Footer from '../components/Footer';
 import './embla.css';
 // import {motion} from 'framer-motion';
@@ -212,7 +213,7 @@ const PortfolioPage = () => {
                                     sx={{
                                         fontWeight: 400,
                                         textAlign: 'center',
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontSize: '40px'
                                     }}
@@ -225,7 +226,7 @@ const PortfolioPage = () => {
                                     sx={{
                                         fontWeight: 400,
                                         textAlign: 'center',
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontSize: '40px'
                                     }}
@@ -239,7 +240,7 @@ const PortfolioPage = () => {
                                     sx={{
                                         fontWeight: 600,
                                         textAlign: 'center',
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontSize: '40px'
                                     }}
@@ -252,7 +253,7 @@ const PortfolioPage = () => {
                                     sx={{
                                         fontWeight: 600,
                                         textAlign: 'center',
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontSize: '40px'
                                     }}
@@ -263,7 +264,7 @@ const PortfolioPage = () => {
 
                             <FullCustomBrownDivider />
 
-                            <Box className="flex w-full gap-3">
+                            <Box className="flex w-full gap-3 py-4">
                                 <Box className="w-1/2">
                                     <Box>
                                         <Typography
@@ -274,10 +275,10 @@ const PortfolioPage = () => {
                                                 fontWeight: 300,
                                                 fontFamily: 'var(--font-montserrat)',
                                                 lineHeight: 1.4,
-                                                fontSize: '15px'
+                                                fontSize: '13px'
                                             }}
                                         >
-                                            we create experiences. Our portfolio showcases a captivating collection of projects where natural stone has breathed life into Melbourne homes and businesses.
+                                            we create experiences.<br /> Our portfolio showcases a<br /> captivating collection of<br /> projects where natural<br /> stone has breathed life<br /> into Melbourne homes<br /> and businesses.
                                         </Typography>
                                     </Box>
 
@@ -300,17 +301,17 @@ const PortfolioPage = () => {
                                             fontWeight: 300,
                                             fontFamily: 'var(--font-montserrat)',
                                             lineHeight: 1.4,
-                                            fontSize: '15px'
+                                            fontSize: '13px'
                                         }}
                                     >
-                                        Explore a curated selection of projects, each a testament to natural stone's enduring beauty and versatility. From modern kitchen renovations featuring captivating stone splashbacks to stunning outdoor living spaces paved with timeless elegance, discover how we've collaborated with clients to translate their visions into reality.
+                                        Explore a curated<br /> selection of projects, each<br /> a testament to natural<br /> stone's enduring beauty<br /> and versatility. From<br /> modern kitchen<br /> renovations featuring<br /> captivating stone<br /> splashbacks to stunning<br /> outdoor living spaces<br /> paved with timeless<br /> elegance, discover how<br /> we've collaborated with<br /> clients to translate their<br /> visions into reality.
                                     </Typography>
                                 </Box>
                             </Box>
                         </Box>
 
-                    </Box> : <Box className="flex flex-col gap-y-6 px-20">
-                        <Box className="flex w-full justify-between">
+                    </Box> : <Box className="flex flex-col gap-y-6 px-20 py-2">
+                        <Box className="flex w-full justify-between mb-6">
                             <Box className="w-2/3">
                                 <Typography
                                     variant="h3"
@@ -321,10 +322,10 @@ const PortfolioPage = () => {
                                         fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontSize: {
-                                            xs: "15px",
-                                            sm: "30px",  // Small screens
-                                            md: "40px",  // Medium screens
-                                            lg: "60px"
+                                            xs: "10px",
+                                            sm: "20px",  // Small screens
+                                            md: "30px",  // Medium screens
+                                            lg: "45px"
                                         }
                                     }}
                                 >
@@ -339,10 +340,10 @@ const PortfolioPage = () => {
                                         lineHeight: '1',
                                         fontFamily: 'Chronicle Display',
                                         fontSize: {
-                                            xs: "15px",
-                                            sm: "30px",  // Small screens
-                                            md: "40px",  // Medium screens
-                                            lg: "60px"
+                                            xs: "10px",
+                                            sm: "20px",  // Small screens
+                                            md: "30px",  // Medium screens
+                                            lg: "45px"
                                         }
                                     }}
                                 >
@@ -354,8 +355,8 @@ const PortfolioPage = () => {
                                 className='hidden lg:flex'
                                 src="/images/Portfolio/Vector.svg"
                                 alt="Vector"
-                                width={130}
-                                height={130}
+                                width={90}
+                                height={90}
                             />
                         </Box>
 
@@ -367,12 +368,13 @@ const PortfolioPage = () => {
                             sx={{ gap: isTablet ? '12px' : '' }}
                         >
                             {/* Left Typography Box */}
-                            <Box className={isMobile ? "w-full" : isTablet ? "w-2/5" : "w-1/4"}>
+                            <Box className={isMobile ? "w-full" : isTablet ? "w-2/5" : "w-1/4 mt-4"}>
                                 <Typography
                                     variant="h3"
                                     color="#FFFFFF"
                                     sx={{
-                                        fontWeight: 300,
+                                        fontWeight: 100,
+                                        lineHeight: '1.4',
                                         alignContent: 'flex-start',
                                         fontFamily: 'var(--font-montserrat)',
                                         textAlign: isMobile ? 'center' : 'left',
@@ -380,7 +382,7 @@ const PortfolioPage = () => {
                                             xs: '10px', // Extra small screens
                                             sm: '12px', // Small screens
                                             md: isTablet ? '14px' : '15px', // Medium screens
-                                            lg: '20px', // Large screens
+                                            lg: '15px', // Large screens
                                         },
                                     }}
                                 >
@@ -389,12 +391,13 @@ const PortfolioPage = () => {
                             </Box>
 
                             {/* Right Typography Box */}
-                            <Box className={isMobile ? "w-full" : isTablet ? "w-3/5" : "flex w-2/5"}>
+                            <Box className={isMobile ? "w-full" : isTablet ? "w-3/5" : "flex w-2/5 mt-4"}>
                                 <Typography
                                     variant="h3"
                                     color="#FFFFFF"
                                     sx={{
-                                        fontWeight: 300,
+                                        fontWeight: 100,
+                                        lineHeight: '1.4',
                                         alignContent: 'flex-start',
                                         fontFamily: 'var(--font-montserrat)',
                                         textAlign: isMobile ? 'center' : 'left',
@@ -402,7 +405,7 @@ const PortfolioPage = () => {
                                             xs: '10px', // Extra small screens
                                             sm: '12px', // Small screens
                                             md: isTablet ? '14px' : '15px', // Medium screens
-                                            lg: '20px', // Large screens
+                                            lg: '15px', // Large screens
                                         },
                                     }}
                                 >
@@ -428,8 +431,8 @@ const PortfolioPage = () => {
                             <Box className="flex w-full">
                                 <Box className="flex flex-col w-full items-center justify-center">
                                     <Typography variant="h2" className="mb-4 font-light text-center" color='#283C28' sx={{
-                                        fontFamily: 'Chronicle Display',
-                                        lineHeight: '0.7',
+                                        // fontFamily: 'Chronicle Display',
+                                        lineHeight: '0.9',
                                         fontStyle: 'italic',
                                         fontSize: '50px',
                                         fontWeight: 300,
@@ -437,8 +440,8 @@ const PortfolioPage = () => {
                                         FIND
                                     </Typography>
                                     <Typography variant="h2" className="mb-4 font-light text-center" color='#283C28' sx={{
-                                        fontFamily: 'Chronicle Display',
-                                        lineHeight: '0.7',
+                                        // fontFamily: 'Chronicle Display',
+                                        lineHeight: '0.9',
                                         fontStyle: 'italic',
                                         fontSize: '50px',
                                         fontWeight: 300,
@@ -446,8 +449,8 @@ const PortfolioPage = () => {
                                         INSPIRATION
                                     </Typography>
                                     <Typography variant="h2" className="mb-4 font-light text-center" color='#283C28' sx={{
-                                        fontFamily: 'Chronicle Display',
-                                        lineHeight: '0.7',
+                                        // fontFamily: 'Chronicle Display',
+                                        lineHeight: '0.9',
                                         fontStyle: 'italic',
                                         fontSize: '50px',
                                         fontWeight: 300,
@@ -455,8 +458,8 @@ const PortfolioPage = () => {
                                         FOR YOUR
                                     </Typography>
                                     <Typography variant="h2" className="mb-4 font-light text-center" color='#283C28' sx={{
-                                        fontFamily: 'Chronicle Display',
-                                        lineHeight: '0.7',
+                                        // fontFamily: 'Chronicle Display',
+                                        lineHeight: '0.9',
                                         fontStyle: 'italic',
                                         fontSize: '50px',
                                         fontWeight: 300,
@@ -468,9 +471,9 @@ const PortfolioPage = () => {
                                         width: '80%',
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 400,
+                                        fontWeight: 500,
                                     }}>
-                                        Whether you&apos;re seeking classic sophistication or a burst of contemporary flair, our portfolio offers a wealth of inspiration.
+                                        Whether you&apos;re seeking classic<br /> sophistication or a burst of<br /> contemporary flair, our portfolio offers<br /> a wealth of inspiration.
                                     </Typography>
                                 </Box>
                             </Box>
@@ -498,13 +501,13 @@ const PortfolioPage = () => {
                                 backgroundRepeat: 'no-repeat', // Prevents repeating the background image
                             }}
                         >
-                            <Box className="flex w-full justify-between mb-12">
+                            <Box className="flex w-full items-center justify-between mb-12">
                                 <Box className="flex w-4/5 items-center">
                                     <Typography
                                         variant="h3"
                                         color="#283C28"
                                         sx={{
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             alignContent: 'flex-start',
                                             fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
@@ -513,14 +516,14 @@ const PortfolioPage = () => {
                                                 xs: "30px",
                                                 sm: "45px",  // Small screens
                                                 md: "65px",  // Medium screens
-                                                lg: "100px"
+                                                lg: "70px"
                                             }
                                         }}
                                     >
-                                        FIND INSPIRATION FOR YOUR PROJECT
+                                        FIND INSPIRATION<br /> FOR YOUR PROJECT
                                     </Typography>
                                 </Box>
-                                <Box className="flex w-1/3 items-center mb-12">
+                                <Box className="flex w-[25%] items-center mb-12">
                                     <Typography
                                         variant="h3"
                                         color="#000000"
@@ -533,7 +536,7 @@ const PortfolioPage = () => {
                                                 xs: "8px",
                                                 sm: "10px",  // Small screens
                                                 md: "12px",  // Medium screens
-                                                lg: "20px"
+                                                lg: "14px"
                                             }
                                         }}
                                     >
@@ -586,7 +589,7 @@ const PortfolioPage = () => {
                             </Box>
                         </Box>}
 
-                    <CustomPartDivider />
+                        <CustomPartDivider />
 
                     {isMobile ? (
                         <Box className="flex flex-col w-full gap-y-6 px-3">
@@ -597,17 +600,17 @@ const PortfolioPage = () => {
                                         variant="h3"
                                         color="#DCC5BD"
                                         sx={{
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: "center",
-                                            lineHeight: "0.8",
-                                            fontFamily: "Chronicle Display",
-                                            fontSize: "18px", // Smaller font for mobile
+                                            lineHeight: "1",
+                                            // fontFamily: "Chronicle Display",
+                                            fontSize: "44px", // Smaller font for mobile
                                         }}
                                     >
                                         PROJECT TYPE
                                     </Typography>
                                 </Box>
-                                <Box className="flex w-[65%] items-center">
+                                <Box className="flex w-[60%] items-center text-center">
                                     <Typography
                                         variant="h3"
                                         color="#FFFFFF"
@@ -615,11 +618,11 @@ const PortfolioPage = () => {
                                             fontWeight: 300,
                                             textAlign: "center",
                                             fontFamily: "var(--font-montserrat)",
-                                            fontSize: "12px", // Smaller font for mobile
+                                            fontSize: "13px", // Smaller font for mobile
                                         }}
                                     >
-                                        Narrow your search by exploring projects categorised by
-                                        application, such as kitchens, bathrooms, or outdoor spaces.
+                                        Narrow your search by exploring<br /> projects categorised by<br />
+                                        application, such as kitchens,<br /> bathrooms, or outdoor spaces.
                                     </Typography>
                                 </Box>
                             </Box>
@@ -648,7 +651,7 @@ const PortfolioPage = () => {
                                                 xs: "20px",
                                                 sm: "30px", // Small screens
                                                 md: isTablet ? "35px" : "45px", // Adjusted for tablets
-                                                lg: "100px",
+                                                lg: "80px",
                                             },
                                         }}
                                     >
@@ -667,14 +670,15 @@ const PortfolioPage = () => {
                                         variant="h3"
                                         color="#FFFFFF"
                                         sx={{
-                                            fontWeight: 300,
+                                            fontWeight: 100,
+                                            lineHeight: "1.4",
                                             textAlign: isTablet ? "center" : "left",
                                             fontFamily: "var(--font-montserrat)",
                                             fontSize: {
                                                 xs: "8px",
                                                 sm: "10px", // Small screens
                                                 md: isTablet ? "14px" : "12px", // Adjusted for tablets
-                                                lg: "20px",
+                                                lg: "15px",
                                             },
                                         }}
                                     >
@@ -707,14 +711,13 @@ const PortfolioPage = () => {
                                         className="mb-4 font-light text-center"
                                         color="#283C28"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '0.9',
-                                            fontStyle: 'italic',
                                             fontSize: '40px',
                                             fontWeight: 300,
                                         }}
                                     >
-                                        EXPLORE THE MATERIALS
+                                        EXPLORE <br /> THE <br /> MATERIALS
                                     </Typography>
 
                                     <Typography
@@ -723,11 +726,11 @@ const PortfolioPage = () => {
                                         color="#283C28"
                                         sx={{
                                             fontFamily: 'var(--font-montserrat)',
-                                            fontSize: '15px',
-                                            fontWeight: 300,
+                                            fontSize: '14px',
+                                            fontWeight: 500,
                                         }}
                                     >
-                                        Delve deeper into the specific stones used in each project, allowing you to discover the unique textures and colours each natural stone offers.
+                                        Delve deeper into the specific stones used in <br /> each project, allowing you to discover the <br /> unique textures and colours each natural<br /> stone offers.
                                     </Typography>
                                 </Box>
                             </Box>
@@ -747,19 +750,19 @@ const PortfolioPage = () => {
                         >
                             <Box className="flex flex-col md:flex-row w-full justify-between">
                                 {/* Left Section for Description */}
-                                <Box className="flex w-full md:w-1/3 items-start justify-center mt-5">
+                                <Box className="flex w-[28%] items-start justify-center mt-5">
                                     <Typography
                                         variant="h5"
                                         color="#000000"
                                         sx={{
                                             fontWeight: 400,
                                             fontFamily: 'var(--font-montserrat)',
-                                            textAlign: 'center',
+                                            textAlign: 'start',
                                             fontSize: {
                                                 xs: '12px', // Mobile
-                                                sm: '14px', // Small screens
-                                                md: '16px', // Tablets
-                                                lg: '18px', // Large screens
+                                                sm: '13px', // Small screens
+                                                md: '14px', // Tablets
+                                                lg: '14px', // Large screens
                                             },
                                         }}
                                     >
@@ -779,7 +782,7 @@ const PortfolioPage = () => {
                                                 xs: '24px', // Mobile
                                                 sm: '32px', // Small screens
                                                 md: '48px', // Tablets
-                                                lg: '80px', // Large screens
+                                                lg: '76px', // Large screens
                                             },
                                         }}
                                     >
@@ -807,8 +810,9 @@ const PortfolioPage = () => {
                                     sx={{
                                         fontWeight: 300,
                                         textAlign: 'center',
+                                        fontStyle: 'italic',
                                         lineHeight: '0.8',
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         fontSize: 'center'
                                     }}
                                 >
@@ -822,12 +826,13 @@ const PortfolioPage = () => {
                                     color="#FFFFFF"
                                     sx={{
                                         fontWeight: 300,
+                                        lineHeight: '1.4',
                                         textAlign: 'center',
                                         fontFamily: 'var(--font-montserrat)',
-                                        fontSize: '13px'
+                                        fontSize: '12px'
                                     }}
                                 >
-                                    Beyond the visual appeal, each project description highlights the practical benefits of using natural stone. Discover how stone&apos;s durability enhances functionality, its timeless style adds lasting value, and its sustainable nature creates an eco-conscious space.
+                                    Beyond the visual appeal, each project<br /> description highlights the practical benefits<br /> of using natural stone. Discover how stone&apos;s<br /> durability enhances functionality, its timeless<br /> style adds lasting value, and its sustainable<br /> nature creates an eco-conscious space.
                                 </Typography>
                             </Box>
                         </Box>
@@ -837,14 +842,15 @@ const PortfolioPage = () => {
                                 variant="h3"
                                 color="#DCC5BD"
                                 sx={{
-                                    fontWeight: 300,
+                                    fontWeight: 100,
                                     alignContent: 'flex-start',
+                                    fontStyle: 'italic',
                                     fontFamily: 'Chronicle Display',
                                     fontSize: !isTablet ? {
                                         xs: "40px",
                                         sm: "60px",  // Small screens
                                         md: "75px",  // Medium screens
-                                        lg: "100px"
+                                        lg: "80px"
                                     } : '60px',
                                     lineHeight: '0.8'
                                 }}
@@ -852,24 +858,24 @@ const PortfolioPage = () => {
                                 GIVING YOU PRACTICALITY
                             </Typography>
                         </Box>
-                        <Box className="flex w-1/3 items-center">
+                        <Box className="flex w-[25%] items-center">
                             <Typography
                                 variant="h3"
                                 color="#ffffff"
                                 sx={{
                                     fontWeight: 300,
+                                    lineHeight: '1.4',
                                     alignContent: 'flex-start',
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: "8px",
                                         sm: "10px",  // Small screens
                                         md: "12px",  // Medium screens
-                                        lg: "20px"
+                                        lg: "14px"
                                     }
                                 }}
                             >
                                 Beyond the visual appeal, each project description highlights the practical benefits of using natural stone. Discover how stone's durability enhances functionality, its timeless style adds lasting value, and its sustainable nature creates an eco-conscious space.
-
                             </Typography>
                         </Box>
                     </Box>}
@@ -901,18 +907,18 @@ const PortfolioPage = () => {
                                         sx={{
                                             fontWeight: 300,
                                             textAlign: 'center',
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             lineHeight: 0.8,
-                                            fontSize: '40px'
+                                            fontSize: '44px'
                                         }}
                                     >
                                         READY TO START YOUR STONE JOURNEY?
                                     </Typography></Box>
-                                <Box className="flex w-full flex-col items-center justify-between ">
-                                    <GreenBtn label={'ENQUIRE NOW!'} icon={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                                <Box className="flex w-full flex-col items-center justify-center ">
+                                    <GreenBtn label={'Enquire Now!'} icon={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
                                     <Link href="/contact">
-                                        <GreenBtn label={'CONTACT US!'} icon={'/images/icons/Vector.svg'} onClick={() => { }} />
+                                        <GreenBtn label={'Contact Us!'} icon={'/images/icons/Vector.svg'} onClick={() => { }} />
                                     </Link>
                                 </Box>
                             </Box>
@@ -957,26 +963,27 @@ const PortfolioPage = () => {
                                                 xs: "30px",
                                                 sm: "40px",  // Small screens
                                                 md: "65px",  // Medium screens
-                                                lg: "100px"
+                                                lg: "75px"
                                             }
                                         }}
                                     >
                                         READY TO START YOUR STONE JOURNEY?
                                     </Typography>
                                 </Box>
-                                <Box className="flex flex-col w-1/3 items-center gap-3">
+                                <Box className="flex flex-col w-[30%] items-center gap-3">
                                     <Typography
                                         variant="h3"
                                         color="#000000"
                                         sx={{
                                             fontWeight: 400,
+                                            lineHeight: '1.4',
                                             alignContent: 'flex-start',
                                             fontFamily: 'var(--font-montserrat)',
                                             fontSize: {
                                                 xs: "8px",
                                                 sm: "10px",  // Small screens
                                                 md: "12px",  // Medium screens
-                                                lg: "20px"
+                                                lg: "14px"
                                             }
                                         }}
                                     >
@@ -985,21 +992,21 @@ const PortfolioPage = () => {
                                     {isTablet ?
                                         <Box className="flex w-full justify-between gap-4">
                                             <Box className="flex w-1/2">
-                                                <GreenCustomButton label={'ENQUIRE NOW!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                                                <GreenCustomButton label={'Enquiry!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
                                             </Box>
                                             <Box className="flex w-1/2">
                                                 <Link href="/contact">
-                                                    <GreenCustomButton label={'CONTACT US!'} iconSrc={'/images/icons/Vector.svg'} />
+                                                    <GreenCustomButton label={'Contact Us!'} iconSrc={'/images/icons/Vector.svg'} />
                                                 </Link>
                                             </Box>
                                         </Box> :
-                                        <Box className="flex w-full justify-between mr-4 ">
+                                        <Box className="flex w-full justify-between mr-14 ">
                                             <Box>
 
                                             </Box>
-                                            <GreenBtn label={'ENQUIRE NOW!'} icon={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                                            <GreenBtn label={'Enquire Now!'} icon={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
                                             <Link href="/contact">
-                                                <GreenBtn label={'CONTACT US!'} icon={'/images/icons/Vector.svg'} onClick={() => { }} />
+                                                <GreenBtn label={'Contact Us!'} icon={'/images/icons/Vector.svg'} onClick={() => { }} />
                                             </Link>
                                         </Box>}
                                 </Box>
@@ -1018,32 +1025,32 @@ const PortfolioPage = () => {
                                 alt="Background"
                                 // layout="fill"
                                 objectFit="cover"
-                                className="w-1/2"
+                                className="w-[50%]"
                                 width={260}
                                 height={260}
                             />
                         </Box>
                         <Box className="absolute z-10 text-center p-8 w-full">
-                            <Typography variant="h2" className="font-bold" color='#DCC5BD' sx={{
-                                fontFamily: 'Chronicle Display',
-                                fontSize: '40px',
-                                lineHeight: 0.9,
+                            <Typography variant="h2" className="font-normal" color='#DCC5BD' sx={{
+                                // fontFamily: 'Chronicle Display',
+                                fontSize: '34px',
+                                lineHeight: 1,
                                 fontWeight: 300,
                             }}>
-                                LET SPLENDOUR IN STONE BE YOUR PARTNER
+                                LET SPLENDOUR <br /> IN STONE BE <br /> YOUR PARTNER
                             </Typography>
                             <CustomPartDivider />
                             <Box>
                                 <Typography variant="h5" className="text-center" sx={{
                                     fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px',
+                                    fontSize: '12px',
                                     fontWeight: 300,
                                 }}>
                                     in crafting a masterpiece that
                                 </Typography>
                                 <Typography variant="h5" className="text-center" sx={{
                                     fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px',
+                                    fontSize: '12px',
                                     fontWeight: 300,
                                 }}>
                                     endures for generations.
@@ -1068,25 +1075,25 @@ const PortfolioPage = () => {
                                 fontSize: !isTablet ? {
                                     xs: '45px', // Font size for extra small screens
                                     sm: '65px', // Font size for small screens
-                                    md: '85px', // Font size for medium screens
-                                    lg: '100px', // Font size for large screens
+                                    md: '68px', // Font size for medium screens
+                                    lg: '68px', // Font size for large screens
                                 } : '70px',
-                                fontWeight: 300,
+                                fontWeight: 100,
                                 width: '70%',
                                 lineHeight: '0.8'
                             }}>
-                                LET SPLENDOUR IN STONE BE YOUR PARTNER
+                                LET SPLENDOUR IN <br />STONE BE YOUR<br /> PARTNER
                             </Typography>
 
                             <Typography variant="h5" className="mb-8" sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: {
                                     xs: '12px', // Font size for extra small screens
-                                    sm: '14px', // Font size for small screens
-                                    md: '16px', // Font size for medium screens
-                                    lg: '20px', // Font size for large screens
+                                    sm: '12px', // Font size for small screens
+                                    md: '12px', // Font size for medium screens
+                                    lg: '12px', // Font size for large screens
                                 },
-                                fontWeight: 300,
+                                fontWeight: 100,
                             }}>
                                 in crafting a masterpiece that endures for generations.
                             </Typography>

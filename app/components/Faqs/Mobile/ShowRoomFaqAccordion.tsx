@@ -57,10 +57,10 @@ const AccordionSummary = styled((props: CustomAccordionSummaryProps) => {
                             fontWeight: 300,
                             flexWrap: "wrap",
                             fontFamily: "Chronicle Display",
-                            fontSize: "20px",
+                            fontSize: "22px",
                         }}
                     >
-                        CAN I VISTI YOUR
+                        CAN I VISIT YOUR
                     </Typography>
                     <Typography
                         variant="h3"
@@ -69,7 +69,7 @@ const AccordionSummary = styled((props: CustomAccordionSummaryProps) => {
                             fontWeight: 300,
                             flexWrap: "wrap",
                             fontFamily: "Chronicle Display",
-                            fontSize: "20px",
+                            fontSize: "22px",
                         }}
                     >
                         SHOWROOM?
@@ -127,11 +127,11 @@ export default function StoneTypesFaqAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 flexWrap: "wrap",
-                                fontFamily: "Chronicle Display",
+                                // fontFamily: "Chronicle Display",
                                 fontSize: "20px",
                             }}
                         >
-                            WHAT IS THE AVERAGE TURNAROUND TIME TO RECEIVE MY STONE ORDER?
+                            CAN I VISIT YOUR SHOWROOM?
                         </Typography>
                         {expanded ? (
                             <IndeterminateCheckBoxIcon

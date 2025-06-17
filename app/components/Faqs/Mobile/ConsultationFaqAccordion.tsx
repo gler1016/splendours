@@ -127,11 +127,11 @@ export default function ConsultationFaqAccodion() {
                             sx={{
                                 fontWeight: 300,
                                 flexWrap: "wrap",
-                                fontFamily: "Chronicle Display",
-                                fontSize: "20px",
+                                // fontFamily: "Chronicle Display",
+                                fontSize: "22px",
                             }}
                         >
-                            HOW DO I CARE FOR MY NATURAL STONE SURFACES?
+                            DO YOU PROVIDE CONSULTATIONS?
                         </Typography>
                         {expanded ? (
                             <IndeterminateCheckBoxIcon

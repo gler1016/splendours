@@ -27,6 +27,7 @@ import { GreenBtnBooking } from "../../Buttons/GreenBtnBooking";
 // import { GreenAnimationBooking } from "./GreenAnimationBooking";
 // import Image from "next/image";
 import CustomTextField from "../../3dEffects/FormInput"
+
 const Booking: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1024px)' });
@@ -372,13 +373,48 @@ const Booking: React.FC = () => {
                                 sx={{
                                     fontWeight: 400,
                                     textAlign: "center",
-                                    fontFamily: "Chronicle Display",
+                                    // fontFamily: "Chronicle Display",
                                     fontSize: "40px",
                                 }}
                             >
                                 BOOKING
                             </Typography>
+                            
                         </Box>
+                        <Box className="flex w-full justify-center">
+                        <Box
+                            className="flex w-[50%] h-[42px] justify-center border-2 border-[#283C28]"
+                            sx={{ borderRadius: "20px" }}
+                        >
+                            {/* <CalendarControl onClick={handleCalendarControlClick} month={getMonthAbbreviation(selectedMonth)} year={selectedYear} /> */}
+                            <CalendarControl
+                                onClick={handleCalendarControlClick}
+                                month={getMonthAbbreviation(selectedMonth)}
+                                year={selectedYear}
+                            />
+
+                            <Dialog
+                                open={openCalendarDialog}
+                                onClose={handleCloseCalendarDialog}
+                            >
+                                <DialogTitle>Select Month and Year</DialogTitle>
+                                <DialogContent>
+                                    <MonthYearPicker
+                                        initialMonth={selectedMonth}
+                                        initialYear={selectedYear}
+                                        onMonthYearChange={handleMonthYearChange}
+                                    />
+                                </DialogContent>
+                            </Dialog>
+                        </Box>
+                        <Box className="flex w-[50%] justify-center">
+                            <GreenCustomButton
+                                label={"Book"}
+                                iconSrc="/images/icons/Vector.svg"
+                                onClick={handleOpenDialog}
+                            />
+                        </Box>
+                    </Box>
 
                         <Box className="flex justify-between w-full">
                             <GreenCustomMobileButton
@@ -409,40 +445,7 @@ const Booking: React.FC = () => {
                         <ProductCarousel onProductSelect={handleProductSelection} />
 
                         <PhaseCarousel onPhaseSelect={handlePhaseSelect} handleOpenDialog={handleOpenDialog} />
-                    </Box>
-                    <Box className="flex w-full justify-center">
-                        <Box
-                            className="flex w-[160px] h-[42px] justify-center"
-                            sx={{ borderRadius: "20px" }}
-                        >
-                            {/* <CalendarControl onClick={handleCalendarControlClick} month={getMonthAbbreviation(selectedMonth)} year={selectedYear} /> */}
-                            <CalendarControl
-                                onClick={handleCalendarControlClick}
-                                month={getMonthAbbreviation(selectedMonth)}
-                                year={selectedYear}
-                            />
 
-                            <Dialog
-                                open={openCalendarDialog}
-                                onClose={handleCloseCalendarDialog}
-                            >
-                                <DialogTitle>Select Month and Year</DialogTitle>
-                                <DialogContent>
-                                    <MonthYearPicker
-                                        initialMonth={selectedMonth}
-                                        initialYear={selectedYear}
-                                        onMonthYearChange={handleMonthYearChange}
-                                    />
-                                </DialogContent>
-                            </Dialog>
-                        </Box>
-                        <Box className="flex w-1/2 justify-center">
-                            <GreenCustomButton
-                                label={"Book"}
-                                iconSrc="/images/icons/Vector.svg"
-                                onClick={handleOpenDialog}
-                            />
-                        </Box>
                     </Box>
                     {/* Dialog for Form */}
                     <Dialog open={openDialog} onClose={handleCloseDialog}>
@@ -751,6 +754,42 @@ const Booking: React.FC = () => {
 
                             {/* Action Buttons */}
                             <Box
+                            className="flex flex-col -mb-12"
+                            sx={{
+                                justifyContent: { xs: "flex-end", md: "space-between" },
+                                alignItems: { xs: "center", md: "flex-end" },
+                            }}
+                            >
+                            <GreenBtnBooking onClick={handleOpenDialog} label="Book" icon="/images/icons/Vector.svg" className="gap-2 ">
+                                    <button
+                                        style={{
+                                            padding: "10px 20px",
+                                            backgroundColor: "#283C28",
+                                            color: "#DCC5BD",
+                                            border: "none",
+                                            borderRadius: "50px",
+                                            cursor: "pointer",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            transition: "all 0.3s ease", // Add transition for smooth animation
+                                        }}
+                                        className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px] hover:gap-4" // Add hover gap for spacing
+                                    >
+                                        <span style={{ transition: "transform 0.3s ease" }} className="hover:translate-x-2 text-[#DCC5BD]">
+                                            Book
+                                        </span>
+                                        <Image src="/images/icons/VideoCall.svg"
+                                            alt="Video Call"
+                                            width={32}
+                                            height={32}
+                                            style={{ opacity: 0, transition: "opacity 0.3s ease, transform 0.3s ease" }} // Add opacity and transform transition
+                                            className="hover:opacity-100 hover:translate-x-0"
+                                        />
+                                    </button>
+                                </GreenBtnBooking>
+                            </Box>
+                            <Box
                                 className="flex flex-col md:flex-row gap-8"
                                 sx={{
                                     justifyContent: { xs: "center", md: "space-between" },
@@ -774,7 +813,7 @@ const Booking: React.FC = () => {
                                         }}
                                         className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px] hover:gap-4" // Add hover gap for spacing
                                     >
-                                        <span style={{ transition: "transform 0.3s ease" }} className="hover:translate-x-2">
+                                        <span style={{ transition: "transform 0.3s ease" }} className="hover:translate-x-2 text-[#DCC5BD]">
                                             Video Call
                                         </span>
                                         <Image src="/images/icons/VideoCall.svg"
@@ -799,7 +838,7 @@ const Booking: React.FC = () => {
                                             alignItems: "center",
                                             gap: "8px",
                                         }}
-                                        className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
+                                        className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px] text-[#DCC5BD]"
                                         onClick={handleOpenDialog_Call}
                                     >   Call
                                         <Image src="/images/icons/Call.svg" alt="Call" width={32} height={32} />
@@ -819,7 +858,7 @@ const Booking: React.FC = () => {
                                             alignItems: "center",
                                             gap: "8px",
                                         }}
-                                        className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px]"
+                                        className="lg:w-[222px] lg:h-[54px] lg:justify-between lg:text-[15px] text-[#DCC5BD]"
                                         onClick={handleOpenDialog_Email}
                                     > Email
                                         <Image src="/images/icons/Email.svg" alt="Email" width={32} height={32} />

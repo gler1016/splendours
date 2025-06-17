@@ -138,11 +138,11 @@ export default function StoneTypesFaqAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 flexWrap: "wrap",
-                                fontFamily: "Chronicle Display",
-                                fontSize: "20px",
+                                // fontFamily: "Chronicle Display",
+                                fontSize: "22px",
                             }}
                         >
-                            DO YOU OFFER INSTALLATION SERVICES FOR STONE PROJECTS?
+                            DO YOU OFFER INSTALLATION SERVICES?
                         </Typography>
                         {expanded ? (
                             <IndeterminateCheckBoxIcon

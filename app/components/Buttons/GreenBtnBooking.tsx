@@ -34,8 +34,8 @@ export function GreenBtnBooking({
           onClick={onClick} // Pass onClick to ModalTrigger
         >
           {/* Label */}
-          <span className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
-            {label}
+          <span className="group-hover/modal-btn:translate-x-40 flex justify-between gap-8 text-center font-light text-[11px] transition duration-500 text-[#DCC5BD]">
+            {label} {icon && <Image src={icon} width={18} height={18} alt="icon" className="object-contain transition duration-500" />}
           </span>
 
           {/* Icon */}
@@ -43,8 +43,8 @@ export function GreenBtnBooking({
             {icon && (
               <Image
                 src={icon}
-                width={24}
-                height={24}
+                width={20}
+                height={20}
                 alt="icon"
                 className="object-contain transition duration-500"
               />

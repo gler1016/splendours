@@ -18,9 +18,14 @@ const Header: React.FC = () => {
 
     return (
         <Box className="flex items-center justify-between w-full h-full ">
-           { isMobile && <Box className="flex w-1/2 md:w-1/3 lg:w-1/3">
+           { isMobile && 
+           <Box className="flex w-1/2 md:w-1/3 lg:w-1/3">
+        
                 <Box>
                     <Link href={'/'}>
+                    <p className="text-xs-custom leading-tight-custom text-customColor font-semibold text-center">
+                    REGISTER YOUR INFORMATION FOR FREE STONE SAMPLES SENT EXPRESS TO YOU!
+                        </p>
                         <Image
                             src={isMobile ? '/images/Header/mobile-main-logo.png' : '/images/Header/main-common-logo.svg'}
                             alt="Logo"

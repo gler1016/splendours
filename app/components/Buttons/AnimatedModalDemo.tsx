@@ -18,27 +18,33 @@ interface AnimatedModalDemoProps {
 export function AnimatedModalDemo({ isMobile, label, icon }: AnimatedModalDemoProps) {
 
   return (
-    <div className="relative py-6 w-full flex items-center justify-center">
+    <div className="relative py-6 w-full mt-4 flex items-center justify-center">
       <Modal>
-        {isMobile ? <ModalTrigger className="bg-customColor text-color flex items-center justify-center gap-2 group/modal-btn">
+        {isMobile ? <ModalTrigger className="bg-customColor text-color py-2 flex items-center justify-center gap-2 group/modal-btn -my-2">
           {/* SVG Icon */}
 
           {/* Label */}
-          <span style={{ "fontSize": "22px" }} className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
+          <span style={{ "fontSize": "14px" }} className="group-hover/modal-btn:translate-x-40 text-[#283C28] text-[14px] flex justify-between gap-16 text-center transition duration-500">
             {label}
-
+            {icon && <Image src={icon} width={24} height={24} alt="icon" className="text-color object-contain transition duration-500" />}
           </span>
 
           {/* Description */}
           <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-color-500 z-20">
             {icon && <Image src={icon} width={24} height={24} alt="icon" className="text-color object-contain transition duration-500" />}
           </div>
-        </ModalTrigger> : <ModalTrigger className="bg-customColor text-color flex items-center justify-center gap-2 group/modal-btn right-4">
+        </ModalTrigger> : <ModalTrigger className="bg-customColor text-color flex items-center py-2 justify-center gap-2 group/modal-btn right-4">
           {/* SVG Icon */}
 
           {/* Label */}
-          <span style={{ "fontSize": "33px" }} className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
-            {label}
+          <span style={{ "fontSize": "14px" }} className="group-hover/modal-btn:translate-x-40 flex justify-between gap-10 text-center transition duration-500 text-[#283C28]">
+            {label} { icon && <Image
+                            src={icon}
+                            width={20}
+                            height={20}
+                            alt="icon"
+                            className="object-contain transition duration-500"
+                          />}
           </span>
 
           {/* Description */}

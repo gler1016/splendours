@@ -14,13 +14,14 @@ const Footer = () => {
                 backgroundSize: 'cover', // Ensures the background image covers the entire area
                 backgroundPosition: 'center', // Centers the background image
                 backgroundRepeat: 'no-repeat', // Prevents repeating the background image
+                // color:'#DBC6BC',
             }}
         >
             <Box className="flex w-full justify-between py-12">
-                <Box className="flex w-1/4">
+                <Box className="flex w-1/4  ">
                     <Box>
                         <Image
-                            src="/images/FooterIcon/footer-logo.svg"
+                            src="/images/Footer/splendour logo rounded.svg"
                             alt="Logo"
                             width={182}
                             height={182}
@@ -109,6 +110,62 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link href="/portfolio">
+                                        <Typography
+                                            variant="h4"
+                                            color="#283C28"
+                                            className="font-semibold"
+                                            sx={{
+                                                fontFamily: 'var(--font-montserrat)',
+                                                fontSize: {
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
+                                                    lg: '15px',
+                                                },
+                                                fontWeight: 300,
+                                                textAlign: 'start',
+                                                transition: "transform 0.3s ease", // Smooth transition for the hover effect
+                                                "&:hover": {
+                                                    transform: "translateX(10px)", // Move 10px to the right on hover
+                                                },
+                                            }}
+                                        >
+                                            PORTFOLIO
+                                        </Typography>
+                                    </Link>
+                                </li>
+                                {/* <li>
+                                    <Link href="https://www.splendourinstone.com.au/paving/">
+                                        <Typography
+                                            variant="h4"
+                                            color="#283C28"
+                                            className="font-semibold"
+                                            sx={{
+                                                fontFamily: 'var(--font-montserrat)',
+                                                fontSize: {
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
+                                                    lg: '15px',
+                                                },
+                                                fontWeight: 300,
+                                                textAlign: 'start',
+                                                transition: "transform 0.3s ease", // Smooth transition for the hover effect
+                                                "&:hover": {
+                                                    transform: "translateX(10px)", // Move 10px to the right on hover
+                                                },
+                                            }}
+                                        >
+                                            PAVING
+                                        </Typography>
+                                    </Link>
+                                </li> */}
+                            </ul>
+                        </Box>
+                        <Box className="flex w-1/2">
+                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '10px', color: '#283C28' }}>
+                            <li>
                                     <Link href="https://www.splendourinstone.com.au/paving/">
                                         <Typography
                                             variant="h4"
@@ -134,10 +191,6 @@ const Footer = () => {
                                         </Typography>
                                     </Link>
                                 </li>
-                            </ul>
-                        </Box>
-                        <Box className="flex w-1/2">
-                            <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '10px', color: '#283C28' }}>
                                 <li>
                                     <Link href="https://www.splendourinstone.com.au/blog/">
                                         <Typography
@@ -161,58 +214,6 @@ const Footer = () => {
                                             }}
                                         >
                                             BLOG
-                                        </Typography>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="https://www.splendourinstone.com.au/locations/">
-                                        <Typography
-                                            variant="h4"
-                                            color="#283C28"
-                                            className="font-semibold"
-                                            sx={{
-                                                fontFamily: 'var(--font-montserrat)',
-                                                fontSize: {
-                                                    xs: '14px',
-                                                    sm: '14px',
-                                                    md: '14px',
-                                                    lg: '15px',
-                                                },
-                                                fontWeight: 200,
-                                                textAlign: 'start',
-                                                transition: "transform 0.3s ease", // Smooth transition for the hover effect
-                                                "&:hover": {
-                                                    transform: "translateX(10px)", // Move 10px to the right on hover
-                                                },
-                                            }}
-                                        >
-                                            SERVICE AREAS
-                                        </Typography>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/services">
-                                        <Typography
-                                            variant="h4"
-                                            color="#283C28"
-                                            className="font-semibold"
-                                            sx={{
-                                                fontFamily: 'var(--font-montserrat)',
-                                                fontSize: {
-                                                    xs: '14px',
-                                                    sm: '14px',
-                                                    md: '14px',
-                                                    lg: '15px',
-                                                },
-                                                fontWeight: 300,
-                                                textAlign: 'start',
-                                                transition: "transform 0.3s ease", // Smooth transition for the hover effect
-                                                "&:hover": {
-                                                    transform: "translateX(10px)", // Move 10px to the right on hover
-                                                },
-                                            }}
-                                        >
-                                            SERVICE
                                         </Typography>
                                     </Link>
                                 </li>
@@ -301,6 +302,32 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link href="/faq">
+                                        <Typography
+                                            variant="h4"
+                                            color="#283C28"
+                                            className="font-semibold"
+                                            sx={{
+                                                fontFamily: 'var(--font-montserrat)',
+                                                fontSize: {
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
+                                                    lg: '15px',
+                                                },
+                                                fontWeight: 300,
+                                                textAlign: 'start',
+                                                transition: "transform 0.3s ease", // Smooth transition for the hover effect
+                                                "&:hover": {
+                                                    transform: "translateX(10px)", // Move 10px to the right on hover
+                                                },
+                                            }}
+                                        >
+                                            FAQ
+                                        </Typography>
+                                    </Link>
+                                </li>
+                                {/* <li>
                                     <Link href="https://www.splendourinstone.com.au/consultation/ ">
                                         <Typography
                                             variant="h4"
@@ -325,12 +352,12 @@ const Footer = () => {
                                             CONSULTATION
                                         </Typography>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </Box>
                         <Box className="flex w-1/2">
                             <ul className="space-y-3" style={{ listStyleType: 'disc', paddingLeft: '45px', color: '#283C28' }}>
-                                <li>
+                                {/* <li>
                                     <Link href="/faq">
                                         <Typography
                                             variant="h4"
@@ -353,6 +380,32 @@ const Footer = () => {
                                             }}
                                         >
                                             FAQs
+                                        </Typography>
+                                    </Link>
+                                </li> */}
+                                <li>
+                                    <Link href="/services">
+                                        <Typography
+                                            variant="h4"
+                                            color="#283C28"
+                                            className="font-semibold"
+                                            sx={{
+                                                fontFamily: 'var(--font-montserrat)',
+                                                fontSize: {
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
+                                                    lg: '15px',
+                                                },
+                                                fontWeight: 300,
+                                                textAlign: 'start',
+                                                transition: "transform 0.3s ease", // Smooth transition for the hover effect
+                                                "&:hover": {
+                                                    transform: "translateX(10px)", // Move 10px to the right on hover
+                                                },
+                                            }}
+                                        >
+                                            SERVICES
                                         </Typography>
                                     </Link>
                                 </li>
@@ -383,6 +436,32 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link href="https://www.splendourinstone.com.au/consultation/ ">
+                                        <Typography
+                                            variant="h4"
+                                            color="#283C28"
+                                            className="font-semibold"
+                                            sx={{
+                                                fontFamily: 'var(--font-montserrat)',
+                                                fontSize: {
+                                                    xs: '14px',
+                                                    sm: '14px',
+                                                    md: '14px',
+                                                    lg: '15px',
+                                                },
+                                                fontWeight: 300,
+                                                textAlign: 'start',
+                                                transition: "transform 0.3s ease", // Smooth transition for the hover effect
+                                                "&:hover": {
+                                                    transform: "translateX(10px)", // Move 10px to the right on hover
+                                                },
+                                            }}
+                                        >
+                                            CONSULTATION
+                                        </Typography>
+                                    </Link>
+                                </li>
+                                {/* <li>
                                     <Link href="https://staging.splendourinstone.com.au/reclaimed-bricks/">
                                         <Typography
                                             variant="h4"
@@ -407,8 +486,8 @@ const Footer = () => {
                                             BRICKS
                                         </Typography>
                                     </Link>
-                                </li>
-                                <li>
+                                </li> */}
+                                {/* <li>
                                     <Link href="https://staging.splendourinstone.com.au/cobble-stones/">
                                         <Typography
                                             variant="h4"
@@ -433,7 +512,7 @@ const Footer = () => {
                                             COBBLESTONE
                                         </Typography>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </Box>
                     </Box>
@@ -454,9 +533,9 @@ const Footer = () => {
                             margintop: "10px",
                             fontSize: {
                                 xs: "14px",
-                                sm: "18px",  // Small screens
-                                md: "18px",  // Medium screens
-                                lg: "22px"
+                                sm: "16px",  // Small screens
+                                md: "14px",  // Medium screens
+                                lg: "18px"
                             }
                         }}
                     >

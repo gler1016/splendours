@@ -89,10 +89,10 @@ export default function StoneTypesFaqAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 fontFamily: 'Chronicle Display',
-                                fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '30px' },
+                                fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '28px' },
                             }}
                         >
-                            HOW DO I CARE FOR MY NATURAL STONE SURFACES?
+                            DO YOU PROVIDE CONSULTATIONS?
                         </Typography>
                     </Box>
                 </AccordionSummary>

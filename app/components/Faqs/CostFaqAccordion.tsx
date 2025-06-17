@@ -89,10 +89,10 @@ export default function StoneTypesFaqAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 fontFamily: 'Chronicle Display',
-                                fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '30px' },
+                                fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '28px' },
                             }}
                         >
-                            CAN NATURAL STONE BE USED FOR BOTH INDOOR AND OUTDOOR PROJECTS?
+                            HOW MUCH DOES NATURAL STONE COST?
                         </Typography>
                     </Box>
                 </AccordionSummary>

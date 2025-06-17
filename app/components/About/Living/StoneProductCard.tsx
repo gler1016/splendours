@@ -31,7 +31,7 @@ const StoneProductCard: React.FC<StoneProductCardProps> = ({ product_image_src, 
                                     xs: "15px",
                                     sm: "20px",  // Small screens
                                     md: "30px",  // Medium screens
-                                    lg: "40px"
+                                    lg: "32px"
                                 }
                             }}
                         >
@@ -42,16 +42,17 @@ const StoneProductCard: React.FC<StoneProductCardProps> = ({ product_image_src, 
                         variant="h3"
                         color="#FFFFFF"
                         sx={{
-                            fontWeight: 300,
+                            fontWeight: 100,
                             width: '85%',
                             alignContent: 'flex-start',
                             fontFamily: 'var(--font-montserrat)',
-                            lineHeight:'1',
+                            lineHeight:'1.4',
+                            opacity: '0.9',
                             fontSize: {
                                 xs: "15px",
                                 sm: "15px",  // Small screens
                                 md: "15px",  // Medium screens
-                                lg: "20px"
+                                lg: "16px"
                             }
                         }}
                     >

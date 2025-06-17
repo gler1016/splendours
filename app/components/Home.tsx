@@ -8,12 +8,14 @@ import WhiteCustomButton from './WhiteButton';
 import EnquiryForm from './3dEffects/EnquireFormModal';
 import Magnifier from './Magnifier';
 import { AboutWhiteBtn } from '../about/AboutwhiteBtn';
+import blueImage from '@/public/Bluestone-Magnifier.jpg'
 
 
 const Home = () => {
     const isMobile = useMediaQuery('(max-width: 768px)'); // Mobile breakpoint
     const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)'); // Tablet breakpoint
 
+    const ImageBlue = blueImage;
     // State management for the EnquiryForm modal
     const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
     const [isTextureModalOpen1, setIsTextureModalOpen1] = useState(false); // Texture modal state
@@ -97,7 +99,7 @@ const Home = () => {
                         BLUESTONE
                     </Typography>
                     <Magnifier
-                        src="Bluestone-Magnifier.jpg" // Replace with your texture image path
+                        src={ImageBlue.src} // Replace with your texture image path
                         alt="Texture"
                         width={100}
                         height={100}
@@ -120,7 +122,7 @@ const Home = () => {
                     height: '100vh',
                     '@media (max-width: 768px)': {
                         backgroundImage: 'url(/images/Home/background-mobile.png)', // Mobile background
-                        height: '100vh',
+                        height: '90vh',
                     },
                     '@media (min-width: 769px) and (max-width: 1024px)': {
                         backgroundImage: 'url(/images/Home/background-mobile.png)', // Tablet-specific background
@@ -178,7 +180,7 @@ const Home = () => {
                             style={{
                                 position: 'absolute',
                                 right: isTablet ? '3vw' : '4vw',
-                                top: isTablet ? '-5vh' : '2vh',
+                                top: isTablet ? '-5vh' : isMobile ? '0vh' : '-4vh',
                             }}
                         >
                             <Image
@@ -186,7 +188,7 @@ const Home = () => {
                                 alt="Logo"
                                 width={18}
                                 height={600}
-                                className="h-[70vh]"
+                                className="h-[50vh] max-sm:h-[70vh]"
                             />
                         </Box>
                     </Box>
@@ -194,7 +196,7 @@ const Home = () => {
 
                 {isMobile ? (<Box className="flex flex-col w-full" sx={{ paddingX: '4vw', height: '30vh' }}>
 
-                    <Box className="flex items-center justify-center">
+                    <Box className="flex items-center justify-start -mt-4 mb-2">
                         <Box
 
                         >
@@ -202,18 +204,18 @@ const Home = () => {
                             <Typography
                                 variant='h3'
                                 sx={{
-                                    fontSize: '30px',
+                                    fontSize: '38px',
                                     fontWeight: 400,
                                     color: { xs: '#DBC6BC', sm: '#FFFFFF' }, // Change color for mobile only
 
                                 }}
                             >
-                                STONE BY SPLENDOUR
+                                STONE BY <br /> SPLENDOUR
                             </Typography>
                             <Typography
                                 variant='h3'
                                 sx={{
-                                    fontSize: '35px',
+                                    fontSize: '38px',
                                     fontWeight: 400,
                                     color: { xs: '#FFFFFF', sm: '#FFFFFF' }, // Keep "IN STONE" color unchanged
                                 }}
@@ -224,8 +226,8 @@ const Home = () => {
                     </Box>
 
                     <Box className="flex items-center justify-between gap-x-[10px] w-full">
-                        <WhiteCustomButton isMobile={isMobile} label={'ENQUIRE NOW!'} iconSrc={'images/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                        <Link href="/contact"><WhiteCustomButton isMobile={isMobile} label={'CONTACT US'} iconSrc={'images/Vector.svg'} /></Link>
+                        <WhiteCustomButton isMobile={isMobile} label={'Enquire Now!'} iconSrc={'images/Vector.svg'} onClick={handleOpenEnquiryForm} />
+                        <Link href="/contact"><WhiteCustomButton isMobile={isMobile} label={'Contact Us'} iconSrc={'images/Vector.svg'} /></Link>
                     </Box>
                 </Box>) : isTablet ? (
                     <Box
@@ -249,36 +251,36 @@ const Home = () => {
                         <Box className="flex items-center justify-center gap-x-[15px] mt-4">
                             <WhiteCustomButton
                                 isMobile={false}
-                                label={'ENQUIRE NOW!'}
-                                iconSrc={'images/Vector.svg'}
+                                label={'Enquire Now!'}
+                                iconSrc={'images/Vectorn.svg'}
                                 onClick={handleOpenEnquiryForm}
                             />
                             <Link href="/contact">
-                                <WhiteCustomButton isMobile={false} label={'CONTACT US'} iconSrc={'images/Vector.svg'} />
+                                <WhiteCustomButton isMobile={false} label={'Contact Us'} iconSrc={'images/Vectorn.svg'} />
                             </Link>
                         </Box>
                     </Box>
                 ) : (
                     <Box
-                        className="flex flex-col w-full mb-6 sm:flex-row md:flex-row lg:flex-row md:px-[5vw]"
+                        className="flex flex-col w-full mb-6 sm:flex-row md:flex-row lg:flex-row md:px-[5vw] "
                         sx={{ height: '8vh' }}
                     >
-                        <Box className="flex items-center w-full sm:w-1/3 md:w-2/5">
+                        <Box className="flex items-center mt-8 w-full sm:w-1/3 md:w-2/5">
                             <Box>
                                 <AboutWhiteBtn
-                                    label={'ENQUIRE NOW!'}
-                                    icon={'images/Vector.svg'}
+                                    label={'Enquire Now!'}
+                                    icon={'images/Vectorn.svg'}
                                     onClick={handleOpenEnquiryForm}
                                 />
                             </Box>
                             <Link href={'/contact'} className="ml-[2.5vw]" style={{ position: "relative" }}>
 
-                                <AboutWhiteBtn label={'CONTACT US'} icon={'images/Vector.svg'} />
+                                <AboutWhiteBtn label={'Contact Us'} icon={'images/Vectorn.svg'} />
 
                             </Link>
                         </Box>
 
-                        <Box className="flex items-center justify-center w-[60vw]">
+                        <Box className="flex items-center justify-center -mr-14 w-[60vw]">
                             <Typography
                                 variant="h3"
                                 color="#FFFFFF"
@@ -293,6 +295,8 @@ const Home = () => {
                             </Typography>
                         </Box>
                     </Box>
+
+
                 )}
             </Box>
         </>

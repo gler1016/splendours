@@ -17,7 +17,7 @@ const Splendours_header_level = () => {
             <ShortCustomBrownDivider />
             </Box>
             <div className="flex justify-center">
-                <Typography variant="h5" color="#DCC5BD" className="text-center" sx={{ fontFamily: "Chronicle Display", fontSize: isMobile ? "23px" : '28px', fontWeight: 500, margin: "auto", letterSpacing: isMobile ? 5 : 4,lineHeight:isMobile?'23px':'60px' }}>SUPPLIERS OF STONE AUSTRALIA WIDE & INTERNATIONAL</Typography>
+                <Typography variant="h5" color="#DCC5BD" className="text-center" sx={{  fontSize: isMobile ? "23px" : '28px', fontWeight: isMobile ? 600 : 500, margin: "auto", letterSpacing: isMobile ? 5 : 4,lineHeight:isMobile?'23px':'60px', }}>SUPPLIERS OF STONE AUSTRALIA WIDE & INTERNATIONAL</Typography>
             </div>
             <Box className="py-10">
             <ShortCustomBrownDivider />

@@ -92,7 +92,7 @@ export default function StoneTypesFaqAccordion() {
                                 fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '30px' },
                             }}
                         >
-                            WHAT IS THE AVERAGE TURNAROUND TIME TO RECEIVE MY STONE ORDER?
+                            CAN I VISIT YOUR SHOWROOM?
                         </Typography>
                     </Box>
                 </AccordionSummary>

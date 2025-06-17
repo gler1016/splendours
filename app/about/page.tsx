@@ -2,8 +2,8 @@
 'use client'
 
 import React, { useEffect, useMemo, useState } from 'react';
-import Header from '../components/Header';
-// import Header from '../components/Home/Header';
+// import Header from '../components/Header';
+import Header from '../components/Home/Header';
 import Footer from '../components/Footer';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
@@ -92,8 +92,9 @@ const AboutPage = () => {
     return (
         <>
             <EnquiryForm open={isEnquiryFormOpen} handleClose={handleCloseEnquiryForm} />
-            <Box className="flex items-center w-full top-0" sx={{ backgroundColor: isMobile ? '#283C28' : '', position: isMobile ? 'fixed' : '', zIndex: 50, height: isMobile ? '15vh' : '40vh', paddingX: isMobile ? 2 : 0 }}>
-                <Header />
+            
+            <Box className="flex items-center w-full top-0 " sx={{ backgroundColor: isMobile ? '#283C28' : '', position: isMobile ? 'fixed' : '', zIndex: 50, height: isMobile ? '15vh' : '28vh', paddingX: isMobile ? 2 : 0 }}>
+                    <Header />
             </Box>
             <Box sx={{ marginTop: isMobile ? '15vh' : 0 }}>
 
@@ -109,7 +110,7 @@ const AboutPage = () => {
                 >
                     {isMobile ? (
                         <Box className="flex w-full flex-col px-2 justify-center items-center gap-y-4">
-                            <Box className="flex w-full justify-center">
+                            <Box className="flex w-full justify-center ">
                                 <Box className="flex flex-col w-1/3 gap-y-2 items-center">
                                     <Box>
                                         <Image
@@ -162,19 +163,20 @@ const AboutPage = () => {
                             </Box>
                             <Box className="flex flex-col w-full gap-y-4 items-center">
                                 <Typography
-                                    variant="h4"
+                                    variant="h3"
                                     color="#DBC6BC"
                                     className="text-center"
                                     sx={{
-                                        fontFamily: "Raleway",
-                                        fontSize: "32px",
+                                        // fontFamily: "Chronicle Display",
+                                        fontStyle: "normal", 
+                                        fontSize: "38px",
                                         lineHeight: 1.2,
                                         fontWeight: 300,
                                     }}
                                 >
-                                    Unearth the Enduring Beauty of Stone with Splendour in Stone,{" "}
-                                    <span style={{ fontWeight: 600 }}>Australia’s</span>{" "}
-                                    <span style={{ fontWeight: 600 }}>No. 1 High-end Stone Supplier</span>
+                                    Unearth the <br /> Enduring Beauty of <br /> Stone with Splendour <br /> in Stone,{" "}
+                                    <span style={{ fontWeight: 600 }}>Australia’s</span>{" "} <br />
+                                    <span style={{ fontWeight: 600 }}>No. 1 High-end <br />  Stone Supplier</span>
                                 </Typography>
                                 <Typography
                                     variant="h6"
@@ -182,20 +184,22 @@ const AboutPage = () => {
                                     className="text-center"
                                     sx={{
                                         fontFamily: "var(--font-montserrat)",
-                                        fontSize: "12px",
+                                        fontSize: "13px",
                                         lineHeight: 1.4,
                                         width: "90%",
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                     }}
                                 >
-                                    At Splendour in Stone, we believe natural stone is an unparalleled
-                                    design element, capable of injecting timeless beauty and undeniable
+                                    At Splendour in Stone, we believe natural stone is <br /> an unparalleled
+                                    design element, capable of <br /> injecting timeless beauty and undeniable <br />
                                     character into any space.
                                 </Typography>
                             </Box>
                         </Box>
-                    ) : (
-                        <Box className="flex w-full px-10 gap-x-4 py-4">
+                    ) 
+                    :
+                     (
+                        <Box className="flex w-full px-10 gap-x-4 py-4 relative scale-y-90 -mt-12">
                             <Box className="flex flex-col w-1/2 gap-y-4 justify-between">
                                 <Box className="flex w-full">
                                     <Box className="w-1/2"></Box>
@@ -209,23 +213,23 @@ const AboutPage = () => {
                                         />
                                     </Box>
                                 </Box>
-                                <Box className="w-4/5">
+                                <Box className=" w-[41%] top-[23rem] absolute">
                                     <Typography
                                         variant="h4"
                                         color="#DBC6BC"
                                         sx={{
                                             fontFamily: "Raleway",
-                                            lineHeight: "1.2",
+                                            lineHeight: "1.05",
                                             fontSize: {
                                                 xs: "18px",
                                                 sm: "24px",
                                                 md: "36px",
-                                                lg: "48px",
+                                                lg: "60px",
                                             },
-                                            fontWeight: 300,
+                                            // fontWeight: 100,
                                         }}
                                     >
-                                        Unearth the Enduring Beauty of Stone with Splendour in Stone,{" "}
+                                       <span style={{ fontWeight: 100}} >Unearth the Enduring Beauty of Stone with Splendour in Stone,{" "}</span> 
                                         <span style={{ fontWeight: 600 }}>Australia’s No. 1 High-end Stone Supplier</span>
                                     </Typography>
                                 </Box>
@@ -294,6 +298,7 @@ const AboutPage = () => {
                                     </motion.div>
                                 ))}
                                 <Typography
+                                className='pt-4'
                                     variant="h6"
                                     color="white"
                                     sx={{
@@ -316,7 +321,7 @@ const AboutPage = () => {
 
 
                     {isMobile ? <Box
-                        className="relative flex flex-col w-full px-3 py-12 gap-x-12 gap-y-6 rounded-[20px]"
+                        className="relative flex flex-col w-full px-2 py-1 gap-x-12 gap-y-6 -mt-4 rounded-[20px]"
                         sx={{
                             backgroundImage: 'url(images/About/Legacy/Mobile/legacy-background-mobile.jpg)', // Add your image path here
                             backgroundSize: 'cover', // Ensures the background image covers the entire area
@@ -326,22 +331,22 @@ const AboutPage = () => {
                         }}
                     >
                         <Box className="flex w-full">
-                            <Box className="flex flex-col w-full items-center justify-center">
-                                <Typography variant="h2" className="mb-4 font-light text-center" color='#283C28' sx={{
-                                    fontFamily: 'Chronicle Display',
-                                    lineHeight: '0.9',
+                            <Box className="flex flex-col w-full items-center ">
+                                <Typography variant="h2" className="mb-8 -mt-4 font-light text-center" color='#283C28' sx={{
+                                    // fontFamily: 'Chronicle Display',
+                                    lineHeight: '1',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
-                                    fontWeight: 300,
+                                    fontSize: '42px',
+                                    fontWeight: 400,
                                 }}>
-                                    A LEGACY BUILT ON QUALITY AND EXPERTISE
+                                    A LEGACY BUILT <br /> ON QUALITY AND <br /> EXPERTISE
                                 </Typography>
                                 <Box className="flex justify-center">
-                                    <Typography variant="h5" className="text-center" color='#000000' sx={{
+                                    <Typography variant="h5" className="text-center mt-2" color='#000000' sx={{
                                         fontFamily: 'var(--font-montserrat)',
-                                        fontSize: '15px',
+                                        fontSize: '14px',
                                         width: '70%',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                     }}>
                                         Splendour in Stone has carved its niche in Australia&apos;s stone industry thanks to the
                                         wanderlust of its founder, Jordan Hill.
@@ -386,28 +391,29 @@ const AboutPage = () => {
                         <Box className="flex w-1/2">
 
                             <Box className="flex flex-col w-full justify-center gap-y-3">
-                                <Typography variant="h2" className="mb-4 font-light" color='#283C28' sx={{
+                                <Typography variant="h2" className="mb-4" color='#283C28' sx={{
                                     fontFamily: 'Chronicle Display',
-                                    lineHeight: '0.8',
+                                    lineHeight: 0.8,
                                     fontStyle: 'italic',
                                     fontSize: {
                                         xs: '40px', // Font size for extra small screens
                                         sm: '60px', // Font size for small screens
-                                        md: '80px', // Font size for medium screens
-                                        lg: '90px', // Font size for large screens
+                                        md: '70px', // Font size for medium screens
+                                        lg: '75px', // Font size for large screens
                                     },
-                                    fontWeight: 300,
+                                    fontWeight: 10,
                                 }}>
                                     A LEGACY BUILT ON QUALITY AND EXPERTISE
                                 </Typography>
-                                <Box className="w-4/5">
-                                    <Typography variant="h5" color='#000000' sx={{
+                                <Box className="w-[65%]">
+                                    <Typography variant="h5" color='#283C28' sx={{
                                         fontFamily: 'var(--font-montserrat)',
+                                        lineHeight: '1.4',
                                         fontSize: {
-                                            xs: '12px', // Font size for extra small screens
-                                            sm: '14px', // Font size for small screens
-                                            md: '16px', // Font size for medium screens
-                                            lg: '20px', // Font size for large screens
+                                            xs: '10px', // Font size for extra small screens
+                                            sm: '12px', // Font size for small screens
+                                            md: '12px', // Font size for medium screens
+                                            lg: '12px', // Font size for large screens
                                         },
                                         fontWeight: 400,
                                     }}>
@@ -436,7 +442,7 @@ const AboutPage = () => {
                         <Box className="absolute z-10 text-center p-8 w-full flex flex-col gap-x-3 mb-24">
                             {isMobile ? <Box style={{ height: "5px", marginTop: "100px" }}></Box> : <></>}
                             <Typography variant="h2" className="font-normal" color="#DBC6BC" sx={{
-                                fontFamily: 'Chronicle Display',
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
                                 fontSize: '40px',
                                 fontWeight: 300,
@@ -448,11 +454,11 @@ const AboutPage = () => {
                                 <Typography variant="h5" sx={{
                                     width: '70%',
                                     fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px',
+                                    fontSize: '12px',
                                     lineHeight: '1.4',
                                     fontWeight: 300,
                                 }}>
-                                    we&apos;re stone enthusiasts dedicated to crafting exceptional experiences for our clients.
+                                    We&apos;re stone enthusiasts dedicated <br /> to crafting exceptional experiences for our clients.
                                 </Typography>
                             </Box>
                         </Box>
@@ -470,31 +476,31 @@ const AboutPage = () => {
                                 />
                             </Box>
                             <Box className="absolute z-10 text-center p-8 w-3/4 flex flex-col gap-y-6">
-                                <Typography variant="h2" className="font-semibold" color="#DBC6BC" sx={{
+                                <Typography variant="h4" className="font-semibold" color="#DBC6BC" sx={{
                                     fontFamily: 'Chronicle Display',
                                     lineHeight: { lg: '0.8', xs: '0.95' },
                                     fontSize: {
                                         xs: '40px', // Font size for extra small screens
                                         sm: '60px', // Font size for small screens
                                         md: '80px', // Font size for medium screens
-                                        lg: '100px', // Font size for large screens
+                                        lg: '80px', // Font size for large screens
                                     },
                                     fontWeight: 300,
                                 }}>
                                     WE&apos;RE MORE THAN JUST SUPPLIERS
                                 </Typography>
                                 <ShortCustomBrownDivider />
-                                <Typography variant="h5" color="white" sx={{
+                                <Typography variant="h6" color="white" sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: '12px', // Font size for extra small screens
                                         sm: '14px', // Font size for small screens
-                                        md: '16px', // Font size for medium screens
-                                        lg: '18px', // Font size for large screens
+                                        md: '14px', // Font size for medium screens
+                                        lg: '14px', // Font size for large screens
                                     },
-                                    fontWeight: 300,
+                                    fontWeight: 100,
                                 }}>
-                                    we&apos;re stone enthusiasts dedicated to crafting exceptional experiences for our clients.
+                                    We&apos;re stone enthusiasts dedicated to crafting exceptional experiences for our clients.
                                 </Typography>
                             </Box>
                         </Box>
@@ -514,17 +520,17 @@ const AboutPage = () => {
 
                             <Box className="flex w-full flex-col justify-center gap-y-3">
                                 <Typography
-                                    variant="h4"
+                                    variant="h3"
                                     color='#283C28'
-                                    className='font-semibold text-center'
+                                    className=' text-center'
                                     sx={{
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontSize: '40px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                     }}
                                 >
-                                    THROUGH HIS EXPLORATIOINS ACROSS AFRICA&apos;S EAST COAST, ENDING IN EGYPT,
+                                    THROUGH HIS EXPLORATIONS ACROSS AFRICA&apos;S EAST COAST,<br /> ENDING IN <br /> EGYPT,
                                 </Typography>
                                 <Box className="flex justify-center">
                                     <Typography
@@ -534,12 +540,12 @@ const AboutPage = () => {
                                             width: '85%',
                                             fontFamily: 'var(--font-montserrat)',
                                             fontSize: '13px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             lineHeight: '1.2',
                                             textAlign: 'center',
                                         }}
                                     >
-                                        he came across the immense beauty of limestone as displayed in the Pyramids of Giza. But this was just the beginning of his discovery of natural stone’s beauty.
+                                        He came across the immense beauty of <br /> limestone as displayed in the Pyramids of Giza. <br /> But this was just the beginning of his discovery <br /> of natural stone’s beauty.
                                     </Typography>
                                 </Box>
 
@@ -567,9 +573,6 @@ const AboutPage = () => {
                                     />
                                 </Box>
                             </Box>
-
-
-
                         </Box>
 
                         <Box className="flex w-full flex-col gap-y-6">
@@ -579,12 +582,11 @@ const AboutPage = () => {
                                     <Typography
                                         variant="h4"
                                         color='#283C28'
-                                        className='font-semibold'
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '1',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'center',
                                         }}
                                     >
@@ -593,12 +595,11 @@ const AboutPage = () => {
                                     <Typography
                                         variant="h4"
                                         color='#283C28'
-                                        className='font-semibold'
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '1',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'center',
                                         }}
                                     >
@@ -607,12 +608,11 @@ const AboutPage = () => {
                                     <Typography
                                         variant="h4"
                                         color='#283C28'
-                                        className='font-semibold'
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '1',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'center',
                                         }}
                                     >
@@ -621,12 +621,11 @@ const AboutPage = () => {
                                     <Typography
                                         variant="h4"
                                         color='#283C28'
-                                        className='font-semibold'
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '1',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'center',
                                         }}
                                     >
@@ -635,12 +634,11 @@ const AboutPage = () => {
                                     <Typography
                                         variant="h4"
                                         color='#283C28'
-                                        className='font-semibold'
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '1',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'center',
                                         }}
                                     >
@@ -649,12 +647,11 @@ const AboutPage = () => {
                                     <Typography
                                         variant="h4"
                                         color='#283C28'
-                                        className='font-semibold'
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '1',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'center',
                                         }}
                                     >
@@ -663,12 +660,11 @@ const AboutPage = () => {
                                     <Typography
                                         variant="h4"
                                         color='#283C28'
-                                        className='font-semibold'
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '1',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'center',
                                         }}
                                     >
@@ -677,12 +673,11 @@ const AboutPage = () => {
                                     <Typography
                                         variant="h4"
                                         color='#283C28'
-                                        className='font-semibold'
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             lineHeight: '1',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'center',
                                         }}
                                     >
@@ -695,12 +690,12 @@ const AboutPage = () => {
                                     color='#000000'
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
-                                        fontSize: '15px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
-                                    In all its glory, it was a great discovery of unimaginable granite features built with precision despite the area being unconducive for building.
+                                    In all its glory, it was a great discovery of <br /> unimaginable granite features built with <br /> precision despite the area being unconducive <br /> for building.
                                 </Typography>
 
                             </Box>
@@ -758,18 +753,18 @@ const AboutPage = () => {
                                     color='#283C28'
                                     sx={{
                                         fontFamily: 'Chronicle Display',
-                                        lineHeight: isTablet ? '1' : '0.8',
+                                        lineHeight: isTablet ? '1' : '0.9',
                                         fontSize: {
                                             xs: '15px', // Font size for extra small screens
                                             sm: '30px', // Font size for small screens
                                             md: '35px', // Font size for medium screens
-                                            lg: '70px', // Font size for large screens
+                                            lg: '42px', // Font size for large screens
                                         },
-                                        fontWeight: 400,
+                                        fontWeight: 300,
                                         textAlign: 'start',
                                     }}
                                 >
-                                    THROUGH HIS EXPLORATIOINS ACROSS AFRICA&apos;S EAST COAST, ENDING IN EGYPT,
+                                    THROUGH HIS EXPLORATIONS ACROSS AFRICA&apos;S EAST COAST, ENDING IN EGYPT,
                                 </Typography>
                                 <Box className="w-5/6">
                                     <Typography
@@ -786,7 +781,7 @@ const AboutPage = () => {
                                             fontWeight: 400,
                                         }}
                                     >
-                                        he came across the immense beauty of limestone as displayed in the Pyramids of Giza. But this was just the beginning of his discovery of natural stone’s beauty.
+                                        He came across the immense beauty of limestone as displayed in the Pyramids of Giza. But this was just the beginning of his discovery of natural stone’s beauty.
                                     </Typography>
                                 </Box>
 
@@ -807,10 +802,10 @@ const AboutPage = () => {
 
                         <Box className="flex w-full justify-between gap-10">
 
-                            <Box className="flex w-1/2 flex-col justify-center gap-y-7">
+                            <Box className="flex w-[44%] flex-col justify-center gap-y-7">
                                 <Typography
                                     variant="h4"
-                                    className='font-normal'
+                                    className='font-light'
                                     color='#283C28'
                                     sx={{
                                         fontFamily: 'Chronicle Display',
@@ -819,7 +814,7 @@ const AboutPage = () => {
                                             xs: '15px', // Font size for extra small screens
                                             sm: '30px', // Font size for small screens
                                             md: '35px', // Font size for medium screens
-                                            lg: '70px', // Font size for large screens
+                                            lg: '45px', // Font size for large screens
                                         },
                                         fontWeight: 300,
                                         textAlign: 'start',
@@ -828,15 +823,16 @@ const AboutPage = () => {
                                     HIS TRAVELS TOOK HIM TO SOUTH AMERICA, TO THE HIDDEN CITY OF THE INCAS IN MACHU PICCHU.
                                 </Typography>
                                 <Typography
+                                    className='w-[54%]'
                                     variant="h4"
                                     color='#000000'
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: {
                                             xs: '10px', // Font size for extra small screens
-                                            sm: '15px', // Font size for small screens
-                                            md: '18px', // Font size for medium screens
-                                            lg: '20px', // Font size for large screens
+                                            sm: '12px', // Font size for small screens
+                                            md: '14px', // Font size for medium screens
+                                            lg: '16px', // Font size for large screens
                                         },
                                         fontWeight: 400,
                                         textAlign: 'start',
@@ -870,17 +866,17 @@ const AboutPage = () => {
                     </Box>}
 
                     {isMobile ?
-                        <Box className="flex w-full flex-col justify-center items-center px-3 gap-y-4">
+                        <Box className="flex w-full flex-col justify-center items-center px-3 gap-y-4 ">
 
-                            <Box className="flex flex-col w- justify-center">
+                            <Box className="flex flex-col justify-center">
                                 <Typography
                                     variant="h4"
                                     color='#DBC6BC'
                                     sx={{
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontStyle: 'italic',
-                                        fontSize: '40px',
+                                        fontSize: '38px',
                                         fontWeight: 400,
                                         textAlign: 'center',
                                     }}
@@ -891,10 +887,10 @@ const AboutPage = () => {
                                     variant="h4"
                                     color='#DBC6BC'
                                     sx={{
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontStyle: 'italic',
-                                        fontSize: '40px',
+                                        fontSize: '38px',
                                         fontWeight: 400,
                                         textAlign: 'center',
                                     }}
@@ -905,10 +901,10 @@ const AboutPage = () => {
                                     variant="h4"
                                     color='#DBC6BC'
                                     sx={{
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontStyle: 'italic',
-                                        fontSize: '40px',
+                                        fontSize: '38px',
                                         fontWeight: 400,
                                         textAlign: 'center',
                                     }}
@@ -919,10 +915,10 @@ const AboutPage = () => {
                                     variant="h4"
                                     color='#DBC6BC'
                                     sx={{
-                                        fontFamily: 'Chronicle Display',
+                                        // fontFamily: 'Chronicle Display',
                                         lineHeight: '1',
                                         fontStyle: 'italic',
-                                        fontSize: '40px',
+                                        fontSize: '38px',
                                         fontWeight: 400,
                                         textAlign: 'center',
                                     }}
@@ -940,11 +936,11 @@ const AboutPage = () => {
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
                                         fontWeight: 300,
-                                        lineHeight: '1.2',
+                                        lineHeight: '1.4',
                                         textAlign: 'center',
                                     }}
                                 >
-                                    that pushed Jordan to explore the craftsmanship and assembly of natural stone. Other notable features included:
+                                    That pushed Jordan to explore the craftsmanship and assembly of natural stone. Other notable features included:
                                 </Typography>
                                 <Typography
                                     variant="h4"
@@ -953,7 +949,7 @@ const AboutPage = () => {
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
                                         fontWeight: 300,
-                                        lineHeight: '1.2',
+                                        lineHeight: '1.4',
                                         textAlign: 'center',
                                     }}
                                 >
@@ -966,7 +962,7 @@ const AboutPage = () => {
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
                                         fontWeight: 300,
-                                        lineHeight: '1.2',
+                                        lineHeight: '1.4',
                                         textAlign: 'center',
                                     }}
                                 >
@@ -974,11 +970,11 @@ const AboutPage = () => {
                                 </Typography>
                             </Box>
 
-                        </Box> : <Box className="flex w-full justify-between items-start px-20">
-
-                            <Box className="flex w-3/5 flex-col justify-center">
+                        </Box> : 
+                        <Box className="flex w-full justify-between items-start px-20 -my-20">
+                            <Box className="flex w-[50%] flex-col justify-center">
                                 <Typography
-                                    variant="h4"
+                                    variant="h6"
                                     color='#DBC6BC'
                                     sx={{
                                         fontFamily: 'Chronicle Display',
@@ -988,7 +984,7 @@ const AboutPage = () => {
                                             xs: '15px', // Font size for extra small screens
                                             sm: '30px', // Font size for small screens
                                             md: '35px', // Font size for medium screens
-                                            lg: '65px', // Font size for large screens
+                                            lg: '45px', // Font size for large screens
                                         },
                                         fontWeight: 300,
                                         textAlign: 'start',
@@ -1007,16 +1003,16 @@ const AboutPage = () => {
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: {
                                             xs: '10px', // Font size for extra small screens
-                                            sm: '15px', // Font size for small screens
-                                            md: '18px', // Font size for medium screens
-                                            lg: '18px', // Font size for large screens
+                                            sm: '12px', // Font size for small screens
+                                            md: '14px', // Font size for medium screens
+                                            lg: '14px', // Font size for large screens
                                         },
                                         lineHeight: '1.2',
-                                        fontWeight: 400,
+                                        fontWeight: 300,
                                         textAlign: 'start',
                                     }}
                                 >
-                                    that pushed Jordan to explore the craftsmanship and assembly of natural stone. Other notable features included:
+                                    That pushed Jordan to explore the craftsmanship and assembly of natural stone. Other notable features included:
                                 </Typography>
                                 <ul style={{ listStyleType: 'disc', paddingLeft: '20px', color: 'white' }}>
                                     <li>
@@ -1028,8 +1024,8 @@ const AboutPage = () => {
                                                 fontSize: {
                                                     xs: '10px',
                                                     sm: '15px',
-                                                    md: '18px',
-                                                    lg: '18px',
+                                                    md: '15px',
+                                                    lg: '15px',
                                                 },
                                                 lineHeight: '1.2',
                                                 fontWeight: 300,
@@ -1048,8 +1044,8 @@ const AboutPage = () => {
                                                 fontSize: {
                                                     xs: '10px',
                                                     sm: '15px',
-                                                    md: '18px',
-                                                    lg: '18px',
+                                                    md: '15px',
+                                                    lg: '15px',
                                                 },
                                                 fontWeight: 300,
                                                 lineHeight: '1.2',
@@ -1065,9 +1061,9 @@ const AboutPage = () => {
 
                         </Box>}
 
-                    {isMobile ? <Box><FullCustomBrownDivider /></Box> : <Box className="px-20"><FullCustomBrownDivider /></Box>}
+                    {isMobile ? <Box className="-my-10"><FullCustomBrownDivider /></Box> : <Box className="px-20 py-0 -mt-20 opacity-40"><FullCustomBrownDivider /></Box>}
 
-                    {isMobile ? <Box className="px-3"><AgriculturalMobileCarousel /></Box> : <Box className="flex w-full px-20 gap-x-6 ">
+                    {isMobile ? <Box className="px-3"><AgriculturalMobileCarousel /></Box> : <Box className="flex w-full px-20 -mt-20 gap-x-6 ">
                         <Box className="flex w-1/4">
                             <Image
                                 src="/images/About/Agricultural/image1.jpg"
@@ -1108,7 +1104,7 @@ const AboutPage = () => {
                     }
 
                     {isMobile ? <Box
-                        className="relative flex flex-col w-full px-3 py-12 gap-x-12 gap-y-6 rounded-[20px]"
+                        className="relative flex flex-col w-full -mt-4 px-3 py-12 gap-x-12 gap-y-6 rounded-[20px]"
                         sx={{
                             backgroundImage: 'url(images/About/Achievements/Mobile/backgrouond-mobile.jpg)', // Add your image path here
                             backgroundSize: 'cover', // Ensures the background image covers the entire area
@@ -1119,24 +1115,24 @@ const AboutPage = () => {
                         <Box className="flex w-full">
                             <Box className="flex flex-col w-full items-center justify-center">
                                 <Typography variant="h2" className="mb-4 font-light text-center" color='#283C28' sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     lineHeight: '1',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
-                                    fontWeight: 300,
+                                    fontSize: '44px',
+                                    fontWeight: 400,
                                 }}>
                                     NOTABLE
                                     ACHIEVEMENTS
                                 </Typography>
 
-                                <Typography variant="h5" className="text-center" color='#000000' sx={{
+                                <Typography variant="h5" className="text-center mt-4" color='#000000' sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                 }}>
-                                    before his founding of Splendour in Stone include his apprenticeship in landscape construction and his work on fireplaces and feature walls using stone.
-                                    However, his passion remained in supplying stone after much-needed research, travel, and testing, leading to the birth of Slendour in Stone Pty Ltd.
-                                    Our journey was also fueled by a desire to bridge the gap between premium stone and accessible design solutions. Over the years, we've fostered a team of passionate professionals with a wealth of knowledge about natural stone and its applications.
+                                    Before his founding of Splendour in Stone include his <br /> apprenticeship in landscape construction and his <br /> work on fireplaces and feature walls using stone.<br />
+                                    However, his passion remained in supplying stone <br /> after much-needed research, travel, and testing, <br /> leading to the birth of Slendour in Stone Pty Ltd.<br />
+                                    Our journey was also fueled by a desire to bridge the <br /> gap between premium stone and accessible design <br /> solutions. Over the years, we've fostered a team of <br /> passionate professionals with a wealth of knowledge <br /> about natural stone and its applications.
                                 </Typography>
                             </Box>
                         </Box>
@@ -1153,7 +1149,7 @@ const AboutPage = () => {
                         </Box>
 
                     </Box> : <Box
-                        className="relative flex w-full px-20 py-24 gap-x-16 rounded-[20px]"
+                        className="relative flex w-full px-20 py-28 gap-x-4 rounded-[20px]"
                         sx={{
                             backgroundImage: 'url(images/About/Achievements/background.jpg)', // Add your image path here
                             backgroundSize: 'cover', // Ensures the background image covers the entire area
@@ -1161,8 +1157,8 @@ const AboutPage = () => {
                             backgroundRepeat: 'no-repeat', // Prevents repeating the background image
                         }}
                     >
-                        <Box className="flex w-[65%] justify-center flex-col gap-y-5">
-                            <Typography variant="h2" color="#283C28" className="mb-4 font-normal" sx={{
+                        <Box className="flex w-[70%] justify-center flex-col gap-y-4">
+                            <Typography variant="h3" color="#283C28" className="mb-2" sx={{
                                 fontFamily: 'Chronicle Display',
                                 fontStyle: 'italic',
                                 lineHeight: isTablet ? '1' : '0.8',
@@ -1170,27 +1166,27 @@ const AboutPage = () => {
                                     xs: '30px', // Font size for extra small screens
                                     sm: '40px', // Font size for small screens
                                     md: '60px', // Font size for medium screens
-                                    lg: '100px', // Font size for large screens
+                                    lg: '75px', // Font size for large screens
                                 },
-                                fontWeight: 300,
+                                fontWeight: 20,
                             }}>
                                 NOTABLE ACHIEVEMENTS
                             </Typography>
-                            <Box className="w-5/6">
+                            <Box className="w-[83%]">
                                 <Typography variant="h5" className="mb-8" sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     color: '#000000',
                                     fontSize: {
-                                        xs: '12px', // Font size for extra small screens
-                                        sm: '14px', // Font size for small screens
-                                        md: '16px', // Font size for medium screens
-                                        lg: '18px', // Font size for large screens
+                                        xs: '10px', // Font size for extra small screens
+                                        sm: '12px', // Font size for small screens
+                                        md: '14px', // Font size for medium screens
+                                        lg: '14px', // Font size for large screens
                                     },
-                                    lineHeight: '1.2',
+                                    lineHeight: '1.4',
                                     fontWeight: 400,
                                 }}>
-                                    before his founding of Splendour in Stone include his apprenticeship in landscape construction and his work on fireplaces and feature walls using stone.
-                                    However, his passion remained in supplying stone after much-needed research, travel, and testing, leading to the birth of Slendour in Stone Pty Ltd.
+                                    Before his founding of Splendour in Stone include his apprenticeship in landscape construction and his work on fireplaces and feature walls using stone.<br />
+                                    However, his passion remained in supplying stone after much-needed research, travel, and testing, leading to the birth of Slendour in Stone Pty Ltd.<br />
                                     Our journey was also fueled by a desire to bridge the gap between premium stone and accessible design solutions. Over the years, we&apos;ve fostered a team of passionate professionals with a wealth of knowledge about natural stone and its applications.
                                 </Typography>
                             </Box>
@@ -1213,15 +1209,15 @@ const AboutPage = () => {
 
                     {isMobile ? <Box><CustomDivider /></Box> : <></>}
 
-                    {isMobile ? <Box className="px-6">
+                    {isMobile ? <Box className="px-2">
                         <Box className="flex w-full flex-col items-center">
                             <Typography
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1233,9 +1229,9 @@ const AboutPage = () => {
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1247,9 +1243,9 @@ const AboutPage = () => {
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1262,9 +1258,9 @@ const AboutPage = () => {
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1276,9 +1272,9 @@ const AboutPage = () => {
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1290,9 +1286,9 @@ const AboutPage = () => {
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1304,9 +1300,9 @@ const AboutPage = () => {
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1318,9 +1314,9 @@ const AboutPage = () => {
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1332,9 +1328,9 @@ const AboutPage = () => {
                                 variant="h4"
                                 color="#DBC6BC"
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontStyle: 'italic',
-                                    fontSize: '40px',
+                                    fontSize: '44px',
                                     lineHeight: '1',
                                     fontWeight: 400,
                                     textAlign: 'center',
@@ -1344,7 +1340,7 @@ const AboutPage = () => {
                             </Typography>
                         </Box>
                     </Box>
-                        : <Box className="px-20">
+                        : <Box className="px-20 -mt-20">
                             <Box className="flex w-full">
                                 <Typography
                                     variant="h4"
@@ -1352,33 +1348,33 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'Chronicle Display',
                                         fontStyle: 'italic',
-                                        lineHeight: '1',
+                                        lineHeight: '0.9',
                                         fontSize: {
                                             xs: '13px', // Font size for extra small screens
                                             sm: '30px', // Font size for small screens
                                             md: '35px', // Font size for medium screens
-                                            lg: '70px', // Font size for large screens
+                                            lg: '50px', // Font size for large screens
                                         },
-                                        fontWeight: 300,
+                                        fontWeight: 100,
                                         textAlign: 'start',
                                     }}
                                 >
-                                    TODAY, SPLENDOURS IN STONE SUPPLIES A WIDE RANGE OF NATURAL STONES FROM ALL OVER THE WORLD, INCLUDEING:
+                                    TODAY, SPLENDOURS IN STONE SUPPLIES A WIDE RANGE OF NATURAL STONES FROM ALL OVER THE WORLD, INCLUDING:
                                 </Typography>
                             </Box>
                         </Box>}
 
 
-                    {isMobile ? <Box className="flex w-full flex-col gap-y-5">
-                        <Box className="flex w-full flex-col mx-auto justify-center items-center">
+                    {isMobile ? <Box className="flex w-full flex-col gap-y-5 -mt-8">
+                        <Box className="flex w-full flex-col mx-auto my-2 justify-center items-center">
                             <Typography
                                 variant="h4"
                                 color="white"
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     lineHeight: '1.2',
-                                    fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontSize: '15px',
+                                    fontWeight: 400,
                                     textAlign: 'center',
                                 }}
                             >
@@ -1390,8 +1386,8 @@ const AboutPage = () => {
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     lineHeight: '1.2',
-                                    fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontSize: '15px',
+                                    fontWeight: 400,
                                     textAlign: 'center',
                                 }}
                             >
@@ -1403,8 +1399,8 @@ const AboutPage = () => {
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     lineHeight: '1.2',
-                                    fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontSize: '15px',
+                                    fontWeight: 400,
                                     textAlign: 'center',
                                 }}
                             >
@@ -1416,8 +1412,8 @@ const AboutPage = () => {
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     lineHeight: '1.2',
-                                    fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontSize: '15px',
+                                    fontWeight: 400,
                                     textAlign: 'center',
                                 }}
                             >
@@ -1432,8 +1428,8 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.4',
-                                        fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
@@ -1445,8 +1441,8 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.4',
-                                        fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
@@ -1458,8 +1454,8 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.4',
-                                        fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
@@ -1471,8 +1467,8 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.4',
-                                        fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
@@ -1486,8 +1482,8 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.4',
-                                        fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
@@ -1499,8 +1495,8 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.4',
-                                        fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
@@ -1512,8 +1508,8 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.4',
-                                        fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
@@ -1525,8 +1521,8 @@ const AboutPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.4',
-                                        fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontSize: '14px',
+                                        fontWeight: 400,
                                         textAlign: 'center',
                                     }}
                                 >
@@ -1534,7 +1530,7 @@ const AboutPage = () => {
                                 </Typography>
                             </Box>
                         </Box>
-                    </Box> : <Box className="flex w-full justify-between px-20">
+                    </Box> : <Box className="flex w-full justify-between px-20 -mt-24">
                         <Box className="w-1/5">
                             <ul style={{ listStyleType: 'disc', paddingLeft: '20px', color: 'white' }}>
                                 <li>
@@ -1546,11 +1542,11 @@ const AboutPage = () => {
                                             lineHeight: '1.2',
                                             fontSize: {
                                                 xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                sm: '14px',
+                                                md: '14px',
+                                                lg: '14px',
                                             },
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             textAlign: 'start',
                                         }}
                                     >
@@ -1566,12 +1562,12 @@ const AboutPage = () => {
                                             lineHeight: '1.2',
                                             fontSize: {
                                                 xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                sm: '14px',
+                                                md: '14px',
+                                                lg: '14px',
                                             },
 
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             textAlign: 'start',
                                         }}
                                     >
@@ -1587,9 +1583,9 @@ const AboutPage = () => {
                                             lineHeight: '1.2',
                                             fontSize: {
                                                 xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                sm: '14px',
+                                                md: '14px',
+                                                lg: '16px',
                                             },
                                             fontWeight: 300,
                                             textAlign: 'start',
@@ -1608,10 +1604,10 @@ const AboutPage = () => {
                                             fontSize: {
                                                 xs: '10px',
                                                 sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                md: '16px',
+                                                lg: '14px',
                                             },
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             textAlign: 'start',
                                         }}
                                     >
@@ -1631,11 +1627,11 @@ const AboutPage = () => {
                                             lineHeight: '1.2',
                                             fontSize: {
                                                 xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                sm: '14px',
+                                                md: '14px',
+                                                lg: '14px',
                                             },
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             textAlign: 'start',
                                         }}
                                     >
@@ -1651,9 +1647,9 @@ const AboutPage = () => {
                                             lineHeight: '1.2',
                                             fontSize: {
                                                 xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                sm: '14px',
+                                                md: '14px',
+                                                lg: '14px',
                                             },
                                             fontWeight: 300,
                                             textAlign: 'start',
@@ -1671,11 +1667,11 @@ const AboutPage = () => {
                                             lineHeight: '1.2',
                                             fontSize: {
                                                 xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                sm: '14px',
+                                                md: '14px',
+                                                lg: '14px',
                                             },
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             textAlign: 'start',
                                         }}
                                     >
@@ -1691,11 +1687,11 @@ const AboutPage = () => {
                                             lineHeight: '1.2',
                                             fontSize: {
                                                 xs: '10px',
-                                                sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                sm: '14px',
+                                                md: '14px',
+                                                lg: '14px',
                                             },
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             textAlign: 'start',
                                         }}
                                     >
@@ -1704,21 +1700,22 @@ const AboutPage = () => {
                                 </li>
                             </ul>
                         </Box>
-                        <Box className="w-1/4">
+                        <Box className="w-[30%]">
                             <Typography
                                 variant="h4"
                                 color="white"
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
-                                    lineHeight: '1.2',
+                                    lineHeight: '1.4',
                                     fontSize: {
                                         xs: '10px',
-                                        sm: '15px',
-                                        md: '18px',
-                                        lg: '18px',
+                                        sm: '14px',
+                                        md: '14px',
+                                        lg: '14px',
                                     },
-                                    fontWeight: 300,
+                                    fontWeight: 100,
                                     textAlign: 'start',
+                                    justifyContent: 'center',
                                 }}
                             >
                                 We also pride ourselves on an experienced team we have assembled over the years, creating a haven for all our customers and their inquiries.
@@ -1735,7 +1732,7 @@ const AboutPage = () => {
                         </Box>
                     </Box>}
 
-                    {isMobile ? <StonesMobileCarousel /> : <Box className="flex w-full px-20 gap-x-20 ">
+                    {isMobile ? <StonesMobileCarousel /> : <Box className="flex w-full px-20 gap-x-20 -mt-24 ">
                         <Box className="flex w-1/4">
                             <Image
                                 src="/images/About/Stones/stone1.png"
@@ -1774,9 +1771,11 @@ const AboutPage = () => {
                         className="pl-5 pb-7"
                         sx={{
                             position: 'relative',
+                            height: '100vh',
                             width: '100%',
-                            aspectRatio: '1 / 2.16', // Aspect ratio of 3:1 (width to height)
+                            aspectRatio: '1 / 1.6', // Aspect ratio of 3:1 (width to height)
                             backgroundImage: 'url("/images/About/Requirements/house-mobile.jpg")',
+                        
                             backgroundSize: 'cover', // Ensure the image covers the entire box
                             backgroundPosition: 'center', // Center the image
                             display: 'flex',
@@ -1797,51 +1796,51 @@ const AboutPage = () => {
                             },
                         }}
                     >
-                        <Box className="w-full" sx={{ position: 'relative', zIndex: 2 }}>
-                            {/* Optional content */}
-                        </Box>
+                        {/* <Box className="w-full border" sx={{ position: 'relative', zIndex: 2 }}>
+                        </Box> */}
                         <Box
-                            className="flex flex-col w-full gap-y-5"
+                            className="flex flex-col w-full gap-y-5 mt-[12rem] justify-end "
                             sx={{ position: 'relative', zIndex: 2 }}
                         >
                             <Box className="flex flex-col">
                                 <Box className="flex flex-col w-full">
                                     <Typography
-                                        variant="h4"
+                                        variant="h3"
                                         color="white"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             lineHeight: '1.2',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'start',
                                         }}
                                     >
                                         MORE THAN
                                     </Typography>
                                     <Typography
-                                        variant="h4"
+                                        variant="h3"
                                         color="white"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             lineHeight: '1.2',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             textAlign: 'start',
                                         }}
                                     >
                                         JUST PRODUCTS:
                                     </Typography>
                                     <Typography
+                                        variant="h3"
                                         component="span"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             lineHeight: '1.2',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
                                         }}
@@ -1849,13 +1848,14 @@ const AboutPage = () => {
                                         CRAFTED WITH
                                     </Typography>
                                     <Typography
+                                        variant="h3"
                                         component="span"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             lineHeight: '1.2',
                                             fontSize: '40px',
-                                            fontWeight: 300,
+                                            fontWeight: 400,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
                                         }}
@@ -1871,23 +1871,23 @@ const AboutPage = () => {
                                         fontFamily: 'var(--font-montserrat)',
                                         lineHeight: '1.3',
                                         width: '95%',
-                                        fontSize: '13px',
+                                        fontSize: '12px',
                                         fontWeight: 300,
                                         color: 'white', // Set text color
                                         textAlign: 'start',
                                     }}
                                 >
-                                    At Splendour in Stone, we believe there&apos;s no one-size-fits-all
-                                    approach to stone design. Our extensive product range caters to a
-                                    diverse set of needs, from the timeless elegance of marble to the
-                                    contemporary appeal of granite. We understand that selecting the
-                                    perfect stone for your project can be daunting. That&apos;s why we go
-                                    beyond simply offering products. Our team delves into the specifics
-                                    of your project – whether it&apos;s combating wear and tear in
-                                    high-traffic areas, achieving a specific aesthetic, or enhancing
-                                    the natural light in your space. We offer a comprehensive range of
-                                    stone cladding, walling, and paving solutions, meticulously chosen
-                                    for their durability, aesthetics, and suitability for various
+                                    At Splendour in Stone, we believe there&apos;s no one- <br />size-fits-all
+                                    approach to stone design. Our <br /> extensive product range caters to a
+                                    diverse set of <br /> needs, from the timeless elegance of marble to the<br />
+                                    contemporary appeal of granite.<br /> We understand that selecting the
+                                    perfect stone for <br /> your project can be daunting. That&apos;s why we go<br /> 
+                                    beyond simply offering products.<br /> Our team delves into the specifics
+                                    of your project – <br /> whether it&apos;s combating wear and tear in
+                                    high- <br />traffic areas, achieving a specific aesthetic, or <br /> enhancing
+                                    the natural light in your space.<br /> We offer a comprehensive range of
+                                    stone cladding,<br /> walling, and paving solutions, meticulously chosen<br />
+                                    for their durability, aesthetics, and suitability for <br /> various
                                     design challenges....
                                 </Typography>
                             </Box>
@@ -1928,14 +1928,14 @@ const AboutPage = () => {
                                                 sx={{
                                                     fontFamily: 'Chronicle Display',
                                                     fontStyle: 'italic',
-                                                    lineHeight: '0.8',
+                                                    lineHeight: '0.9',
                                                     fontSize: {
                                                         xs: '20px', // Font size for extra small screens
                                                         sm: '25px', // Font size for small screens
                                                         md: '45px', // Font size for medium screens
-                                                        lg: '70px', // Font size for large screens
+                                                        lg: '58px', // Font size for large screens
                                                     },
-                                                    fontWeight: 300,
+                                                    fontWeight: 20,
                                                     textAlign: 'start',
                                                 }}
                                             >
@@ -1951,9 +1951,9 @@ const AboutPage = () => {
                                                         xs: '20px', // Font size for extra small screens
                                                         sm: '25px', // Font size for small screens
                                                         md: '45px', // Font size for medium screens
-                                                        lg: '70px', // Font size for large screens
+                                                        lg: '60px', // Font size for large screens
                                                     },
-                                                    fontWeight: 300,
+                                                    fontWeight: 20,
                                                     color: 'white', // Set text color
                                                     textAlign: 'start'
                                                 }}
@@ -1966,14 +1966,14 @@ const AboutPage = () => {
                                                 component="span"
                                                 sx={{
                                                     fontFamily: 'var(--font-montserrat)',
-                                                    lineHeight: '1',
+                                                    lineHeight: '0.8',
                                                     fontSize: {
                                                         xs: '7px', // Font size for extra small screens
                                                         sm: '10px', // Font size for small screens
                                                         md: '15px', // Font size for medium screens
                                                         lg: '18px', // Font size for large screens
                                                     },
-                                                    fontWeight: 300,
+                                                    fontWeight: 100,
                                                     color: 'white', // Set text color
                                                     textAlign: 'start'
                                                 }}
@@ -1994,18 +1994,18 @@ const AboutPage = () => {
 
                     {isMobile ? <CustomDivider /> : <></>}
 
-                    {isMobile ? <Box className="flex flex-col w-full px-3 gap-y-4">
+                    {isMobile ? <Box className="flex flex-col w-full px-3 gap-y-4 ">
 
-                        <Box className="flex flex-col w-full px-7">
+                        <Box className="flex flex-col w-full px-2">
                             <Typography
                                 variant="h4"
                                 color='#DBC6BC'
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     lineHeight: '1',
                                     fontStyle: 'italic',
                                     fontSize: '40px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                     textAlign: 'center',
                                 }}
                             >
@@ -2015,11 +2015,11 @@ const AboutPage = () => {
                                 variant="h4"
                                 color='#DBC6BC'
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     lineHeight: '1',
                                     fontStyle: 'italic',
                                     fontSize: '40px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                     textAlign: 'center',
                                 }}
                             >
@@ -2029,11 +2029,11 @@ const AboutPage = () => {
                                 variant="h4"
                                 color='#DBC6BC'
                                 sx={{
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     lineHeight: '1',
                                     fontStyle: 'italic',
                                     fontSize: '40px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                     textAlign: 'center',
                                 }}
                             >
@@ -2043,7 +2043,7 @@ const AboutPage = () => {
 
                         </Box>
 
-                        <Box className="flex flex-col items-center w-full">
+                        <Box className="flex flex-col items-center w-full -mb-8">
                             <Typography
                                 variant="h4"
                                 color="white"
@@ -2051,19 +2051,20 @@ const AboutPage = () => {
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: '13px',
                                     fontWeight: 300,
-                                    lineHeight: '1.2',
+                                    lineHeight: '1.4',
                                     width: '90%',
                                     textAlign: 'center',
                                 }}
                             >
-                                We understand that your home is more than just bricks and mortar. It&apos;s a sanctuary, a reflection of your style, and a place where comfort and functionality reign supreme. That&apos;s why we don&apos;t just offer stone products; we offer solutions.
+                                We understand that your home is more than just <br /> bricks and mortar. It&apos;s a sanctuary, a reflection of <br /> your style, and a place where comfort and <br /> functionality reign supreme. That&apos;s why we don&apos;t <br /> just offer stone products; we offer solutions.
                             </Typography>
 
                         </Box>
 
-                    </Box> : <Box className="flex w-full justify-between items-start px-20">
+                    </Box> : 
+                    <Box className="flex w-full justify-between items-start px-20 -mt-24">
 
-                        <Box className="flex w-1/2 flex-col justify-center">
+                        <Box className="flex w-1/2 flex-col justify-center mt-4">
                             <Typography
                                 variant="h4"
                                 color='#DBC6BC'
@@ -2072,12 +2073,12 @@ const AboutPage = () => {
                                     lineHeight: '0.9',
                                     fontStyle: 'italic',
                                     fontSize: {
-                                        xs: '15px', // Font size for extra small screens
-                                        sm: '30px', // Font size for small screens
-                                        md: '35px', // Font size for medium screens
-                                        lg: '70px', // Font size for large screens
+                                        xs: '10px', // Font size for extra small screens
+                                        sm: '20px', // Font size for small screens
+                                        md: '25px', // Font size for medium screens
+                                        lg: '52px', // Font size for large screens
                                     },
-                                    fontWeight: 400,
+                                    fontWeight: 100,
                                     textAlign: 'start',
                                 }}
                             >
@@ -2096,9 +2097,9 @@ const AboutPage = () => {
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: '10px', // Font size for extra small screens
-                                        sm: '15px', // Font size for small screens
-                                        md: '18px', // Font size for medium screens
-                                        lg: '18px', // Font size for large screens
+                                        sm: '12px', // Font size for small screens
+                                        md: '14px', // Font size for medium screens
+                                        lg: '16px', // Font size for large screens
                                     },
                                     fontWeight: 300,
                                     lineHeight: 1.4,
@@ -2112,7 +2113,7 @@ const AboutPage = () => {
 
                     </Box>}
 
-                    {isMobile ? <></> : <Box className="px-16"><FullCustomBrownDivider /></Box>}
+                    {isMobile ? <></> : <Box className="px-16 -my-24"><FullCustomBrownDivider /></Box>}
 
                     {isMobile ? <LivingMobileCarousel /> : isTablet ? <Box className="w-full flex justify-between gap-x-8 px-16">
                         <Box className="w-1/3">
@@ -2124,7 +2125,7 @@ const AboutPage = () => {
                         <Box className="w-1/3">
                             <StoneProductCard product_image_src='images/About/Living/image3.jpg' product_name='SUSTAINABLE CHOICE' product_subname='' />
                         </Box>
-                    </Box> : <Box className="w-full flex justify-between gap-x-8 px-16">
+                    </Box> : <Box className="w-full flex justify-between gap-x-8 px-16 -mt-20">
                         <Box className="w-1/3">
                             <StoneProductCard product_image_src='images/About/Living/image1.jpg' product_name='DURABILITY AND LONGEVITY' product_subname='Are you tired of chipped floors or walls that show every mark? Stone offers unmatched resilience, built to endure daily wear and tear, saving you time and money on replacements.' />
                         </Box>
@@ -2140,7 +2141,7 @@ const AboutPage = () => {
                     {isMobile ? <ShortCustomBrownDivider /> : <></>}
 
                     {isMobile ? <Box
-                        className="px-3 py-6"
+                        className="px-3 py-6 overflow-hidden"
                         sx={{
                             position: 'relative',
                             width: '100%',
@@ -2151,9 +2152,9 @@ const AboutPage = () => {
                         <AnimatePresence initial={false}>
                             <motion.div
                                 key={currentImageIndex}
-                                initial={{ y: "100%" }}
-                                animate={{ y: 0 }}
-                                exit={{ y: "-100%" }}
+                                initial={{ x: "100%" }}
+                                animate={{ x: 0 }}
+                                exit={{ x: "-100%" }}
                                 transition={{
                                     duration: 1.2,
                                     ease: "easeInOut"
@@ -2178,9 +2179,10 @@ const AboutPage = () => {
                             <Box className="flex flex-col w-full gap-y-5">
                                 <Box className="flex flex-col pt-9">
                                     <Typography
+                                        variant="h3"
                                         component="span"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             fontSize: '40px',
                                             lineHeight: '1',
@@ -2192,9 +2194,10 @@ const AboutPage = () => {
                                         A GALLERY OF
                                     </Typography>
                                     <Typography
+                                        variant="h3"
                                         component="span"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             fontSize: '40px',
                                             lineHeight: '1',
@@ -2206,11 +2209,12 @@ const AboutPage = () => {
                                         SUCCESS: YOUR
                                     </Typography>
                                     <Typography
+                                        variant="h3"
                                         component="span"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
-                                            fontSize: '40px',
+                                            fontSize: '42px',
                                             lineHeight: '1',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
@@ -2220,11 +2224,12 @@ const AboutPage = () => {
                                         INSPIRATION
                                     </Typography>
                                     <Typography
+                                        variant="h3"
                                         component="span"
                                         sx={{
-                                            fontFamily: 'Chronicle Display',
+                                            // fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
-                                            fontSize: '40px',
+                                            fontSize: '42px',
                                             lineHeight: '1',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
@@ -2240,19 +2245,19 @@ const AboutPage = () => {
                                         sx={{
                                             fontFamily: 'var(--font-montserrat)',
                                             lineHeight: '1',
-                                            fontSize: '15px',
+                                            fontSize: '12px',
                                             fontWeight: 300,
                                             color: 'white', // Set text color
                                             textAlign: 'start',
                                         }}
                                     >
-                                        We take immense pride in collaborating with our clients to turn
-                                        their design dreams into reality. Explore our extensive gallery
-                                        showcasing a variety of projects, from modern kitchen renovations
-                                        to captivating outdoor living spaces. Let these success stories
-                                        inspire your stone design journey. To make your exploration more
-                                        realistic, visit our showroom and view captivating displays of
-                                        different natural stones.
+                                        We take immense pride in collaborating with our <br /> clients to turn
+                                        their design dreams into reality.<br /> Explore our extensive gallery
+                                        showcasing a variety of<br /> projects, from modern kitchen renovations
+                                        to<br /> captivating outdoor living spaces. Let these success<br /> stories
+                                        inspire your stone design journey.<br /> To make your exploration more
+                                        realistic, visit our<br /> showroom and view captivating displays of
+                                        different<br /> natural stones.
                                     </Typography>
                                 </Box>
                             </Box>
@@ -2270,7 +2275,7 @@ const AboutPage = () => {
                         </Box>
                     </Box>
                         : <Box
-                            className="flex w-full px-20 gap-x-12"
+                            className="flex w-full px-20 pb-0  gap-x-12"
                             sx={{
                                 position: 'relative',
                                 width: '100%',
@@ -2313,22 +2318,23 @@ const AboutPage = () => {
                             />
 
                             {/* Content */}
-                            <Box className="flex flex-col w-1/2 h-full" sx={{ zIndex: 2 }}>
+                            <Box className="flex flex-col w-1/2 h-full mt-20" sx={{ zIndex: 2 }}>
                                 <Box className="flex w-full h-1/2"></Box>
-                                <Box className="flex w-full flex-col h-1/2 justify-center gap-3">
+                                <Box className="flex w-full flex-col h-1/2 justify-end gap-3">
                                     <Typography
                                         variant="h4"
                                         color="white"
+                                        lineHeight="0.9"
                                         sx={{
                                             fontFamily: 'Chronicle Display',
                                             fontStyle: 'italic',
                                             fontSize: {
-                                                xs: '20px',
-                                                sm: '25px',
-                                                md: '35px',
-                                                lg: '70px',
+                                                xs: '10px',
+                                                sm: '15px',
+                                                md: '25px',
+                                                lg: '58px',
                                             },
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             textAlign: 'start',
                                         }}
                                     >
@@ -2336,15 +2342,15 @@ const AboutPage = () => {
                                     </Typography>
                                     <Box className="mt-5" sx={{ paddingBottom: '50px', display: "flex", alignItem: "start" }}>
                                         <AboutWhiteBtn
-                                            label={'ENQUIRE NOW!'}
-                                            icon={'/images/Vector.svg'}
+                                            label={'Enquire Now!'}
+                                            icon={'/images/Vectorn.svg'}
                                             onClick={handleOpenEnquiryForm}
                                         />
                                     </Box>
                                 </Box>
                             </Box>
 
-                            <Box className="flex flex-col w-1/2 h-full items-start" sx={{ zIndex: 2, paddingBottom: '50px' }}>
+                            <Box className="flex flex-col w-1/2 h-full items-start mt-20" sx={{ zIndex: 2, paddingBottom: '50px' }}>
                                 <Box className="flex w-full h-1/2"></Box>
                                 <Box className="flex w-full flex-col h-1/2 justify-center items-center">
                                     <Typography
@@ -2356,8 +2362,8 @@ const AboutPage = () => {
                                             fontSize: {
                                                 xs: '10px',
                                                 sm: '12px',
-                                                md: '20px',
-                                                lg: '28px',
+                                                md: '14px',
+                                                lg: '17px',
                                             },
                                             fontWeight: 300,
                                             textAlign: 'start',
@@ -2426,45 +2432,46 @@ const AboutPage = () => {
                             />
                         </Box>
                         <Box className="absolute z-10 text-center p-8 w-full flex flex-col">
-                            <Typography variant="h2" className="font-normal" color="#DBC6BC" sx={{
-                                fontFamily: 'Chronicle Display',
+                            <Typography variant="h2"  color="#DBC6BC" sx={{
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
-                                fontSize: '40px',
-                                fontWeight: 300,
+                                fontSize: '36px',
+                                fontWeight: 400,
                             }}>
                                 IF YOU FALL
                             </Typography>
-                            <Typography variant="h2" className="font-normal" color="#DBC6BC" sx={{
-                                fontFamily: 'Chronicle Display',
+                            <Typography variant="h2"  color="#DBC6BC" sx={{
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
-                                fontSize: '40px',
-                                fontWeight: 300,
+                                fontSize: '36px',
+                                fontWeight: 400,
                             }}>
                                 VICTIM TO THEIR
                             </Typography>
-                            <Typography variant="h2" className="font-normal" color="#DBC6BC" sx={{
-                                fontFamily: 'Chronicle Display',
+                            <Typography variant="h2"  color="#DBC6BC" sx={{
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
-                                fontSize: '40px',
-                                fontWeight: 300,
+                                fontSize: '36px',
+                                fontWeight: 400,
                             }}>
                                 BREATHTAKING
                             </Typography>
-                            <Typography variant="h2" className="font-normal" color="#DBC6BC" sx={{
-                                fontFamily: 'Chronicle Display',
+                            <Typography variant="h2"  color="#DBC6BC" sx={{
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
-                                fontSize: '40px',
-                                fontWeight: 300,
+                                fontSize: '36px',
+                                fontWeight: 400,
                             }}>
                                 BEAUTY
                             </Typography>
                             <CustomDivider />
                             <Typography variant="h5" className="mb-8" sx={{
                                 fontFamily: 'var(--font-montserrat)',
-                                fontSize: '15px',
-                                fontWeight: 300,
+                                fontSize: '12px',
+                                fontWeight: 400,
                             }}>
-                                as we do, we will be there to hold your hand as you make life-changing decisions about your living space.                        </Typography>
+                                We will be there to hold your <br /> hand as you make life-changing decisions<br /> about your living space.                        
+                            </Typography>
                         </Box>
                     </Box> : <Box className="flex w-full flex-col relative items-center justify-center text-white">
                         <Box className="flex justify-center items-center w-[33%]">
@@ -2483,12 +2490,12 @@ const AboutPage = () => {
                                 fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
                                 fontSize: {
-                                    xs: '40px', // Font size for extra small screens
-                                    sm: '60px', // Font size for small screens
-                                    md: '80px', // Font size for medium screens
-                                    lg: '100px', // Font size for large screens
+                                    xs: '20px', // Font size for extra small screens
+                                    sm: '40px', // Font size for small screens
+                                    md: '60px', // Font size for medium screens
+                                    lg: '75px', // Font size for large screens
                                 },
-                                fontWeight: 400,
+                                fontWeight: 200,
                             }}>
                                 IF YOU FALL VICTIM TO
                                 THEIR BREATHTAKING
@@ -2499,13 +2506,13 @@ const AboutPage = () => {
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: {
                                     xs: '12px', // Font size for extra small screens
-                                    sm: '14px', // Font size for small screens
-                                    md: '16px', // Font size for medium screens
-                                    lg: '18px', // Font size for large screens
+                                    sm: '12px', // Font size for small screens
+                                    md: '14px', // Font size for medium screens
+                                    lg: '14px', // Font size for large screens
                                 },
-                                fontWeight: 300,
+                                fontWeight: 100,
                             }}>
-                                as we do, we will be there to hold your hand as you make life-changing decisions about your living space.
+                                We will be there to hold your hand as you make life-changing decisions about your living space.
                             </Typography>
                         </Box>
                     </Box>
@@ -2518,35 +2525,35 @@ const AboutPage = () => {
                     {isMobile ? <Box className="flex w-full flex-col lg:flex-row justify-between">
                         <CustomDivider />
                         <Box className="flex flex-col w-full">
-                            <Typography variant="h1" className="mb-4 font-normal text-center" sx={{
+                            <Typography variant="h1" className="mb-8 font-normal text-center" sx={{
                                 color: '#DBC6BC',
-                                fontFamily: 'Chronicle Display',
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '1',
                                 fontSize: '40px',
-                                fontWeight: 300,
+                                fontWeight: 400,
                             }}>
                                 READY TO CRAFT YOUR <span style={{ fontWeight: 600 }}>STONE MASTERPIECE?</span>
                             </Typography>
                             <Box className="flex w-full justify-center px-3">
-                                <Typography variant="h3" className="mb-8 text-center" sx={{
+                                <Typography variant="h3" className="mb-12 text-center" sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     color: 'white',
                                     // width:'90%',
                                     textJustify: 'justify',
                                     lineHeight: '1.2',
-                                    fontSize: '13px',
+                                    fontSize: '12px',
                                     fontWeight: 300,
                                 }}>
-                                    Our commitment to providing outstanding services, expert advice, and a range of natural stone for your needs is our top priority. Feel free to engage with our experts today and let us mould your ideas into reality.
+                                    Our commitment to providing outstanding services,<br /> expert advice, and a range of natural stone for your<br /> needs is our top priority. Feel free to engage with our<br /> experts today and let us mould your ideas into reality.
 
                                 </Typography>
 
                             </Box>
                         </Box>
 
-                        <Box className="flex w-full justify-around">
-                            <WhiteCustomButton label={'ENQUIRE NOW!'} iconSrc={'/images/icons/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                            <Link href="/contact"><WhiteCustomButton label={'CONTACT US'} iconSrc={'/images/icons/Vector.svg'} /></Link>
+                        <Box className="flex w-full justify-around mt-4">
+                            <WhiteCustomButton label={'Enquire Now!'} iconSrc={'/images/icons/Vectorn.svg'} onClick={handleOpenEnquiryForm} />
+                            <Link href="/contact"><WhiteCustomButton label={'Contact Us'} iconSrc={'/images/icons/Vectorn.svg'} /></Link>
                         </Box>
 
                         <CustomDivider />
@@ -2560,32 +2567,32 @@ const AboutPage = () => {
                                     xs: '30px', // Font size for extra small screens
                                     sm: '40px', // Font size for small screens
                                     md: '60px', // Font size for medium screens
-                                    lg: '100px', // Font size for large screens
+                                    lg: '86px', // Font size for large screens
                                 },
                                 fontWeight: 300,
                             }}>
-                                READY TO CRAFT YOUR STONE MASTERPIECE?
+                                READY TO CRAFT YOUR <span style={{fontWeight:600}}>STONE MASTERPIECE?</span> 
                             </Typography>
                             <Box className="flex w-full justify-start  gap-6">
-                                <AboutWhiteBtn label={'ENQUIRE NOW!'} icon={'/images/Vector.svg'} onClick={handleOpenEnquiryForm} />
-                                <Link href="/contact"><AboutWhiteBtn label={'CONTACT US'} icon={'/images/Vector.svg'} /></Link>
+                                <AboutWhiteBtn label={'Enquire Now!'} icon={'/images/Vectorn.svg'} onClick={handleOpenEnquiryForm} />
+                                <Link href="/contact"><AboutWhiteBtn label={'Contact Us'} icon={'/images/Vectorn.svg'} /></Link>
                             </Box>
                         </Box>
 
-                        <Box className="flex lg:w-1/4 mt-10">
-                            <Typography variant="h1" className="mb-8" sx={{
+                        <Box className="flex lg:w-1/4 -mt-2 justify-start ">
+                            <Typography variant="h1" className="mb-8 " sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 color: 'white',
+                                lineHeight: '1.4',
                                 fontSize: {
-                                    xs: '12px', // Font size for extra small screens
-                                    sm: '14px', // Font size for small screens
-                                    md: '20px', // Font size for medium screens
-                                    lg: '28px', // Font size for large screens
+                                    xs: '10px', // Font size for extra small screens
+                                    sm: '12px', // Font size for small screens
+                                    md: '14px', // Font size for medium screens
+                                    lg: '14px', // Font size for large screens
                                 },
-                                fontWeight: 300,
+                                fontWeight: 100,
                             }}>
                                 Our commitment to providing outstanding services, expert advice, and a range of natural stone for your needs is our top priority. Feel free to engage with our experts today and let us mould your ideas into reality.
-
                             </Typography>
                         </Box>
                     </Box>}

@@ -28,7 +28,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           background: useMotionTemplate`
             radial-gradient(
               ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
-              #283C28,
               transparent 80%
             )
           `,
@@ -40,8 +39,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       >
         <textarea
           className={cn(
-            `flex w-full border-none bg-customColor dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-xs-custom leading-tight-custom 
-             file:border-0 file:bg-transparent file:text-xs-custom leading-tight-custom file:font-medium placeholder:text-color dark:placeholder-text-neutral-600 
+            `flex w-full border border-black bg-transparent dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-xs-custom leading-tight-custom 
+             file:border-0 file:bg-transparent file:text-xs-custom  file:font-medium placeholder:text-color dark:placeholder-text-neutral-600 
              focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
              disabled:cursor-not-allowed disabled:opacity-50 
              dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]

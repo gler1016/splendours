@@ -129,6 +129,24 @@ const NavbarMenu = () => {
                                     </Typography>
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/contact">
+                                    <Typography
+                                        variant="h3"
+                                        color="#DBC6BC"
+                                        sx={{
+                                            fontWeight: 500,
+                                            fontFamily: 'var(--font-montserrat)',
+                                            fontSize: '18px',
+                                            '&:hover': {
+                                                color: '#FFD700',
+                                            },
+                                        }}
+                                    >
+                                        FREE MEASURE & QUOTE
+                                    </Typography>
+                                </Link>
+                            </li>
                         </ul>
                     </motion.div>
                 </motion.div>

@@ -127,11 +127,11 @@ export default function StoneCareFaqAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 flexWrap: "wrap",
-                                fontFamily: "Chronicle Display",
-                                fontSize: "20px",
+                                // fontFamily: "Chronicle Display",
+                                fontSize: "22px",
                             }}
                         >
-                            IS NATURAL STONE ECO-FRIENDLY?
+                            HOW DO I CARE FOR NATURAL STONE?
                         </Typography>
                         {expanded ? (
                             <IndeterminateCheckBoxIcon

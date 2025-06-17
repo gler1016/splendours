@@ -100,7 +100,7 @@ export default function InstallationAccordion() {
                             color="#DCC5BD"
                             sx={{
                                 fontWeight: 300,
-                                fontFamily: 'Chronicle Display',
+                                // fontFamily: 'Chronicle Display',
                                 fontStyle: 'italic',
                                 fontSize: { xs: '22px', sm: '22px', md: '28px', lg: '35px' },
                                 marginBottom: "20px"

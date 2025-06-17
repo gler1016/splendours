@@ -1,23 +1,82 @@
 .embla {
-    position: relative;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* Navigation buttons styling */
+.embla__controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem;
+  z-index: 10;
+}
+
+/* Button styling */
+.embla__button_wall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+}
+
+.embla__button_wall:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+
+
+.embla__button--prev_wall {
+  left: 2px;
+}
+
+.embla__button--next_wall {
+  right: 2px;
+}
+
+.embla__button__svg_wall {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+/* Responsive adjustments for small screens */
+@media screen and (max-width: 640px) {
+  .embla__button_wall {
+    padding: 0.3rem 0.3rem;
   }
   
-  .embla__viewport {
-    overflow: hidden;
-    width: 100%;
+  .embla__button__svg_wall {
+    width: 15px;
+    height: 15px;
   }
-  
-  .embla__container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .embla__button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    color: white;
-    cursor: pointer;
-    z-index: 10;
-  }
+}

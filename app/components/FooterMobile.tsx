@@ -19,7 +19,7 @@ const FooterMobile = () => {
         >
             <Box className="flex w-full justify-center mt-6 mb-6">
                 <Image
-                    src="/images/Footer/Footer-logo-mobile.svg"
+                    src="/images/Footer/splendour logo rounded.svg"
                     alt="Logo"
                     width={182}
                     height={166}
@@ -33,7 +33,7 @@ const FooterMobile = () => {
                         sx={{
                             fontWeight: 400,
                             alignContent: 'flex-start',
-                            fontFamily: 'Chronicle Display',
+                            // fontFamily: 'Chronicle Display',
                             fontStyle: 'italic',
                             fontSize: '50px'
                         }}
@@ -50,7 +50,7 @@ const FooterMobile = () => {
                             sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: '20px',
-                                fontWeight: 700,
+                                fontWeight: 500,
                             }}
                         >HOME</Typography>
                     </Link>
@@ -62,7 +62,7 @@ const FooterMobile = () => {
                             sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: '20px',
-                                fontWeight: 700,
+                                fontWeight: 500,
                             }}
                         >WALLING</Typography>
                     </Link>
@@ -74,7 +74,7 @@ const FooterMobile = () => {
                             sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: '20px',
-                                fontWeight: 700,
+                                fontWeight: 500,
                             }}
                         >PAVING</Typography>
                     </Link>
@@ -86,9 +86,21 @@ const FooterMobile = () => {
                             sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: '20px',
-                                fontWeight: 700,
+                                fontWeight: 500,
                             }}
                         >BLOG</Typography>
+                    </Link>
+                    <Link href={'/portfolio'} className="flex w-full justify-center">
+                        <Typography
+                            variant="h4"
+                            color="#283C28"
+                            className="text-center"
+                            sx={{
+                                fontFamily: 'var(--font-montserrat)',
+                                fontSize: '20px',
+                                fontWeight: 500,
+                            }}
+                        >PORTFOLIO</Typography>
                     </Link>
                 </Box>
 
@@ -103,7 +115,7 @@ const FooterMobile = () => {
                         sx={{
                             fontWeight: 400,
                             alignContent: 'flex-start',
-                            fontFamily: 'Chronicle Display',
+                            // fontFamily: 'Chronicle Display',
                             fontStyle: 'italic',
                             fontSize: '50px'
                         }}
@@ -120,7 +132,7 @@ const FooterMobile = () => {
                             sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: '20px',
-                                fontWeight: 700,
+                                fontWeight: 500,
                             }}
                         >ABOUT</Typography>
                     </Link>
@@ -132,9 +144,21 @@ const FooterMobile = () => {
                             sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: '20px',
-                                fontWeight: 700,
+                                fontWeight: 500,
                             }}
                         >GALLERY</Typography>
+                    </Link>
+                    <Link href={'/services'} className="flex w-full justify-center">
+                        <Typography
+                            variant="h4"
+                            color="#283C28"
+                            className="text-center"
+                            sx={{
+                                fontFamily: 'var(--font-montserrat)',
+                                fontSize: '20px',
+                                fontWeight: 500,
+                            }}
+                        >SERVICES</Typography>
                     </Link>
                     <Link href={'/contact'} className="flex w-full justify-center">
                         <Typography
@@ -144,9 +168,21 @@ const FooterMobile = () => {
                             sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: '20px',
-                                fontWeight: 700,
+                                fontWeight: 500,
                             }}
                         >CONTACT</Typography>
+                    </Link>
+                    <Link href={'/faq'} className="flex w-full justify-center">
+                        <Typography
+                            variant="h4"
+                            color="#283C28"
+                            className="text-center"
+                            sx={{
+                                fontFamily: 'var(--font-montserrat)',
+                                fontSize: '20px',
+                                fontWeight: 500,
+                            }}
+                        >FAQ</Typography>
                     </Link>
                     <Link href={'https://staging.splendourinstone.com.au/consultation/'} className="flex w-full justify-center">
                         <Typography
@@ -156,7 +192,7 @@ const FooterMobile = () => {
                             sx={{
                                 fontFamily: 'var(--font-montserrat)',
                                 fontSize: '20px',
-                                fontWeight: 700,
+                                fontWeight: 500,
                             }}
                         >CONSULTATION</Typography>
                     </Link>
@@ -242,10 +278,10 @@ const FooterMobile = () => {
                 <Box className="flex w-full justify-center">
                     <Typography
                         variant="h3"
-                        className="text-center font-thin"
+                        className="text-center"
                         color="#283C28"
                         sx={{
-                            fontWeight: 700,
+                            fontWeight: 400,
                             fontFamily: 'Chronicle Display',
                             fontSize: '20px'
                         }}

@@ -16,7 +16,7 @@ const GreenCustomBookButton: React.FC<CustomButtonProps> = ({ label, iconSrc, on
 
     return (
         <Button
-            className="font-semibold"
+            className="font-semibold text-[#DCC5BD]"
             variant="outlined"
             onClick={onClick}
             sx={{
@@ -42,7 +42,7 @@ const GreenCustomBookButton: React.FC<CustomButtonProps> = ({ label, iconSrc, on
                 },
             }}
         >
-            <span>{label}</span>
+            <span className='text-[#DCC5BD]'>{label}</span>
             <Image
                 src={iconSrc}
                 alt="Button Icon"

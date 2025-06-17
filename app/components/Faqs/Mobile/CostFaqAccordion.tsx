@@ -127,11 +127,11 @@ export default function CostFaqAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 flexWrap: "wrap",
-                                fontFamily: "Chronicle Display",
-                                fontSize: "20px",
+                                // fontFamily: "Chronicle Display",
+                                fontSize: "22px",
                             }}
                         >
-                            CAN NATURAL STONE BE USED FOR BOTH INDOOR AND OUTDOOR PROJECTS?
+                            HOW MUCH DOES NATURAL STONE COST?
                         </Typography>
                         {expanded ? (
                             <IndeterminateCheckBoxIcon

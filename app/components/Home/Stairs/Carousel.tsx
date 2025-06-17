@@ -5,80 +5,81 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
 import useEmblaCarousel from "embla-carousel-react";
 
-interface Image {
-    src: string;
-  }
-  
-//   interface Props {
-//     images: Image[];
-//   }
-
 interface ImageCarouselProps {
     images: { src: string; alt: string; product_name: string }[];
 }
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: false });
+    
+    // Sync Embla carousel with our current index state
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); // Change image every 3 seconds
-
-        return () => clearInterval(interval);
-    }, [images.length]);
-
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-
-    const handlePrev = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? images.length - 1 : prevIndex - 1
-        );
-    };
-    
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });  
-    const autoplay = useCallback(() => {
-        if (!emblaApi) return;
-        const interval = setInterval(() => {
-          setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); // Adjust speed as needed
-    
-        return () => clearInterval(interval);
-      }, [emblaApi, images.length]);
-    
-      useEffect(() => {
         if (emblaApi) {
-          autoplay();
+            // Update our index state when carousel scrolls
+            const onSelect = () => {
+                setCurrentIndex(emblaApi.selectedScrollSnap());
+            };
+            emblaApi.on('select', onSelect);
+            
+            // Setup autoplay
+            const autoplayTimer = setInterval(() => {
+                if (emblaApi.canScrollNext()) {
+                    emblaApi.scrollNext();
+                }
+            }, 5000);
+            
+            return () => {
+                emblaApi.off('select', onSelect);
+                clearInterval(autoplayTimer);
+            };
         }
-      }, [emblaApi, autoplay]);
+    }, [emblaApi]);
 
+    const handleNext = useCallback(() => {
+        if (emblaApi) {
+            emblaApi.scrollNext();
+        }
+    }, [emblaApi]);
+
+    const handlePrev = useCallback(() => {
+        if (emblaApi) {
+            emblaApi.scrollPrev();
+        }
+    }, [emblaApi]);
 
     return (
-        <Box className="w-full flex flex-col aspect-[1/1] sm:aspect-[7/1] min-w-1 bg-[#DBC6BC] rounded-[20px] px-8 py-8" style={{ marginTop: '270px' }}>
-
-<div className="relative h-44 w-full" ref={emblaRef}>
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <Image
-            src={image.src}
-            alt="carousel"
-            width={300}
-            height={500}
-            className="object-cover w-[300px] mt-[-150px] mx-auto"
-          />
-        </div>
-      ))}
-    </div>
+        <Box className="w-full flex flex-col
+         aspect-[1/1] sm:aspect-[7/1] min-w-1 bg-[#DBC6BC] rounded-[20px] px-8 py-8" style={{ marginTop: '270px' }}>
+            {/* Fixed height container with proper positioning */}
+            <div className="relative h-52 w-full mb-4" ref={emblaRef}>
+                <div className="flex h-full">
+                    {images.map((image, index) => (
+                        <div
+                            key={index}
+                            className="relative flex-[0_0_100%] h-full flex items-center justify-center"
+                        >
+                            <div className="relative" style={{ marginTop: '-150px' }}>
+                                <Image
+                                    src={image.src}
+                                    alt={image.alt || "carousel image"}
+                                    width={230}
+                                    height={230}
+                                    className="object-contain"
+                                    style={{ 
+                                        width: 'auto',
+                                        height: '230px'
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            
             <Box className="flex flex-col w-full gap-y-4">
                 <Box className="flex items-center justify-between w-full gap-x-2">
-                    <Box className="h-full flex w-1/4">
+                    <Box className="h-full flex w-1/4 mr-2">
                         <Image
                             src="/images/Home/Interactive_part/card1.jpg"
                             alt="Plus"
@@ -95,7 +96,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                             sx={{
                                 fontWeight: 400,
                                 alignContent: 'flex-start',
-                                fontFamily: 'Chronicle Display',
+                                // fontFamily: 'Chronicle Display',
                                 fontSize: '20px'
                             }}
                         >
@@ -109,7 +110,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                                 lineHeight: '1',
                                 alignContent: 'flex-start',
                                 fontFamily: 'var(--font-montserrat)',
-                                fontSize: '22px'
+                                fontSize: '14px'
                             }}
                         >
                             Available in our freeform style, the Charlotte sandstone is made up of beautiful soft hues such as cream, yellow and pink.
@@ -121,17 +122,20 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                         fontWeight: 500,
                         alignContent: 'flex-start',
                         fontFamily: 'var(--font-montserrat)',
-                        fontSize: '18px'
+                        fontSize: '12px'
                     }}>Category: Stairs</Typography>
                     <Typography color="#283C28" sx={{
                         fontWeight: 500,
                         alignContent: 'flex-start',
                         fontFamily: 'var(--font-montserrat)',
-                        fontSize: '18px'
+                        fontSize: '12px'
                     }}>Tag:  Exclusive</Typography>
                 </Box>
                 <Box className="flex justify-between w-full">
-                    <Box className="flex items-center ml-[-5px]" onClick={handlePrev}>
+                    <Box 
+                        className="flex items-center ml-[-5px] cursor-pointer" 
+                        onClick={handlePrev}
+                    >
                         <ArrowBackIosNewIcon sx={{ color: '#283C28' }} />
                         <Typography
                             className="text-center"
@@ -154,13 +158,16 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                         sx={{
                             lineHeight: 0.8,
                             fontWeight: 500,
-                            fontFamily: 'Chronicle Display',
-                            fontSize: '20px'
+                            // fontFamily: 'Chronicle Display',
+                            fontSize: '23px'
                         }}
                     >
-                        {images[currentIndex].product_name}
+                        {images[currentIndex]?.product_name || ''}
                     </Typography>
-                    <Box className="flex items-center mr-[-5px]" onClick={handleNext}>
+                    <Box 
+                        className="flex items-center mr-[-5px] cursor-pointer" 
+                        onClick={handleNext}
+                    >
                         <Typography
                             className="text-center"
                             variant="h3"

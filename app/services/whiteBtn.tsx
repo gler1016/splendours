@@ -23,13 +23,13 @@ export function WhiteBtn({label,icon} : AnimatedModalDemoProps) {
                 {/* SVG Icon */}
       
                 {/* Label */}
-                <span className="group-hover/modal-btn:translate-x-40 flex justify-between gap-16 text-center transition duration-500">
+                <span className="group-hover/modal-btn:translate-x-40 flex text-[#283C28] justify-between gap-12 text-center transition duration-500">
                   {label}
-      
+                  {icon && <Image src={icon} width={24} height={24} alt="icon"  className="object-contain transition duration-500"/>}
                 </span>
       
                 {/* Description */}
-                <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-color-500 z-20">
+                <div className="-translate-x-40 group-hover/modal-btn:translate-x-0  flex items-center justify-center absolute inset-0 transition duration-500 text-color-500 z-20">
                 {icon && <Image src={icon} width={24} height={24} alt="icon"  className="object-contain transition duration-500"/>}
                 </div>
               </ModalTrigger>

@@ -73,10 +73,10 @@ export const PrevButton: React.FC<PropType> = (props) => {
           variant="h3"
           color="#FFFFFF"
           sx={{
-            fontWeight: 600,
+            fontWeight: 300,
             textAlign: 'center',
             fontFamily: 'var(--font-montserrat)',
-            fontSize: '15px',
+            fontSize: '14px',
             letterSpacing: '0.5em'
           }}
         >
@@ -102,10 +102,10 @@ export const NextButton: React.FC<PropType> = (props) => {
           variant="h3"
           color="#FFFFFF"
           sx={{
-            fontWeight: 600,
+            fontWeight: 300,
             textAlign: 'center',
             fontFamily: 'var(--font-montserrat)',
-            fontSize: '15px',
+            fontSize: '14px',
             letterSpacing: '0.5em'
           }}
         >

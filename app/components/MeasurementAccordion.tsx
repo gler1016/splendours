@@ -125,8 +125,8 @@ export default function CustomizedAccordions() {
                                     fontSize: {
                                         xs: "8px",
                                         sm: "12px",  // Small screens
-                                        md: "14px",  // Medium screens
-                                        lg: "16px"
+                                        md: "12px",  // Medium screens
+                                        lg: "12px"
                                     }
                                 }}
                             >

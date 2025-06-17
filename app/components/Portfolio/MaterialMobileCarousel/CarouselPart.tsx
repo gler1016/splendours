@@ -45,7 +45,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
                 sx={{
                   fontWeight: 400,
                   textAlign: 'start',
-                  fontFamily: 'Chronicle Display',
+                  // fontFamily: 'Chronicle Display',
                   fontSize: '40px'
                 }}
               >

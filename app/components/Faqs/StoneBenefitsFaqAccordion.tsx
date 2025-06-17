@@ -89,11 +89,11 @@ export default function StoneTypesFaqAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 fontFamily: 'Chronicle Display',
-                                fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '30px' },
+                                fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '28px' },
                             }}
                         >
 
-                            HOW DURABLE IS NATURAL STONE FOR HIGH-TRAFFIC AREAS?
+                            WHAT ARE THE BENEFITS OF USING NATURAL STONE?
                         </Typography>
                     </Box>
                 </AccordionSummary>

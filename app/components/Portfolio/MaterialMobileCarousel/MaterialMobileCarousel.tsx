@@ -4,10 +4,10 @@ import { Box } from '@mui/system';
 
 
 const items = [
-    { imageUrl: '/images/Portfolio/project/product1.jpg', name: 'OUTDOOR', alt: 'Image 1' },
-    { imageUrl: '/images/Portfolio/project/product2.jpg', name: 'FIREPLACE', alt: 'Image 2' },
-    { imageUrl: '/images/Portfolio/project/product3.jpg', name: 'DINNING ROOM', alt: 'Image 3' },
-    { imageUrl: '/images/Portfolio/project/product4.jpg', name: 'POOLSIDE', alt: 'Image 4' },
+    { imageUrl: '/images/Portfolio/materials/material1.png', name: 'OUTDOOR', alt: 'Image 1' },
+    { imageUrl: '/images/Portfolio/materials/material2.png', name: 'FIREPLACE', alt: 'Image 2' },
+    { imageUrl: '/images/Portfolio/materials/material3.png', name: 'DINNING ROOM', alt: 'Image 3' },
+    { imageUrl: '/images/Portfolio/materials/material4.png', name: 'POOLSIDE', alt: 'Image 4' },
 ];
 
 const MaterialMobileCarousel = () => {

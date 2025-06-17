@@ -9,6 +9,8 @@ import Link from 'next/link';
 
 import { useMediaQuery } from '@mui/material';
 import SplendoursOldHeader from './SplendoursOldHeader';
+import { FaMoneyBill } from 'react-icons/fa';
+import { Menu, Phone, Search } from 'lucide-react';
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const isMobile = useMediaQuery('(max-width: 768px)'); // Media query for mobile
@@ -22,37 +24,60 @@ const Header: React.FC = () => {
             {isMobile &&
                 <Box className={`flex justify-center w-full h-[100%] lg:flex`}>
                     <header className={`fixed left-0 w-screen z-50 top-0`}>
-                        <Box className="bg-color flex justify-between items-center">
+                        <Box className={"bg-color h-[65px] flex flex-col pt-2 justify-center items-center w-full "}>
+                                <h3 className="text-[10.5px]/3 pt-2 px-2 text-customColor font-bold text-center">
+                                  REGISTER YOUR INFORMATION FOR FREE STONE SAMPLES SENT <br /> EXPRESS TO YOU!
+                                </h3>
+                                <Box className="flex items-center text-[9px] mt-1 justify-center gap-2">
+
+                                <Link
+                                  href={"https://staging.splendourinstone.com.au/walling/#free-stone-samples"}
+                                  className="bg-customColor border border-customColor text-[#283c28] w-[90px] h-[29px] rounded-full text-[11px] leading-tight-custom font-semibold flex items-center justify-center hover:bg-white"
+                                >
+                                  Click here
+                                </Link>
+                                <Link
+                                  href={"https://www.splendourinstone.com.au/trade-credit/"}
+                                  className="border border-customColor h-[29px] px-5 text-customColor flex items-center justify-center gap-2 rounded-full text-[11px] leading-tight-custom font-normal transition duration-300 hover:text-color hover:bg-customColor">
+                                  <FaMoneyBill className="w-4 h-4" /> Trade Credit
+                                </Link>
+                                </Box>
+                              </Box>
+                        <Box className="bg-color py-2 flex justify-between items-center">
                             <Box sx={{
                                 marginLeft: "5px"
                             }}>
                                 <img
                                     className='px-3'
-                                    src={'/images/Header/mobile-main-logo.png'}
+                                    src={'/images/splendour logo.svg'}
                                     alt="Logo"
                                     style={{
-                                        "width": '450px',
+                                        "width": '150px',
                                     }}
                                 />
                             </Box>
-                            <div className={"h-[70px] flex items-center px-2 w-full relative"}>
-                                <Link
-                                    style={{
-                                        fontFamily: "inherit",
-                                        fontStyle: "inherit",
-                                        fontWeight: "550"
-                                    }}
-                                    href="https://www.splendourinstone.com.au/consultation/ "
-                                    className="bg-customColor flex text-center items-center justify-center text-[10px] font-semibold text-color px-2 w-[130px] h-[35px] py-2 rounded-[30px]"
-                                >
-                                    FREE MEASURE
-                                    <br></br>
-                                    & QUOTE!
-                                </Link>
-                            </div>
+                            {
+                                !isMobile && (
+                                    <div className={"h-[70px] flex items-center px-2 w-full relative"}>
+                                        <Link
+                                            style={{
+                                                fontFamily: "inherit",
+                                                fontStyle: "inherit",
+                                                fontWeight: "550"
+                                            }}
+                                            href="https://www.splendourinstone.com.au/consultation/ "
+                                            className="bg-customColor flex text-center items-center justify-center text-[10px] font-semibold text-color px-2 w-[130px] h-[35px] py-2 rounded-[30px]"
+                                        >
+                                            FREE MEASURE
+                                            <br></br>
+                                            & QUOTE!
+                                        </Link>
+                                    </div>
+                                )
+                            }
                             <Box className="flex items-center justify-center gap-x-2" sx={{ marginRight: '2vw' }}>
                                 <Box className="flex items-end w-1/7">
-                                    <Link href="/visualizer">
+                                    <Link href="/">
                                         <Box className="flex items-center justify-center">
                                             <Box
                                                 className="relative"
@@ -62,21 +87,54 @@ const Header: React.FC = () => {
                                                 }}
                                             >
                                                 <Box
-                                                    className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                    className="absolute text-customColor rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                                     sx={{
-                                                        width: 30,
-                                                        height: 30,
+                                                        width: 18,
+                                                        height: 18,
                                                         display: 'flex',
                                                         justifyContent: 'center',
                                                         alignItems: 'center',
                                                     }}
                                                 >
-                                                    <Image
+                                                    {/* <Image
                                                         src="/images/Header/search.svg"
                                                         alt="Hamburger Menu"
-                                                        width={30} // Adjust width as needed
-                                                        height={30} // Adjust height as needed
-                                                    />
+                                                        width={16} // Adjust width as needed
+                                                        height={16} // Adjust height as needed
+                                                    /> */}
+                                                    <Search />
+                                                </Box>
+                                            </Box>
+                                        </Box>
+                                    </Link>
+                                </Box>
+                                <Box className="flex items-end w-1/7">
+                                    <Link href="/contact">
+                                        <Box className="flex items-center justify-center">
+                                            <Box
+                                                className="relative"
+                                                sx={{
+                                                    width: 30,
+                                                    height: 30,
+                                                }}
+                                            >
+                                                <Box
+                                                    className="absolute text-customColor rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                    sx={{
+                                                        width: 18,
+                                                        height: 18,
+                                                        display: 'flex',
+                                                        justifyContent: 'center',
+                                                        alignItems: 'center',
+                                                    }}
+                                                >
+                                                    {/* <Image
+                                                        src="/images/Header/search.svg"
+                                                        alt="Hamburger Menu"
+                                                        width={16} // Adjust width as needed
+                                                        height={16} // Adjust height as needed
+                                                    /> */}
+                                                    <Phone />
                                                 </Box>
                                             </Box>
                                         </Box>
@@ -96,21 +154,22 @@ const Header: React.FC = () => {
                                             }}
                                         >
                                             <Box
-                                                className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                className="absolute text-customColor rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                                 sx={{
-                                                    width: 30,
-                                                    height: 30,
+                                                    width: 18,
+                                                    height: 18,
                                                     display: 'flex',
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                 }}
                                             >
-                                                <Image
+                                                {/* <Image
                                                     src="/images/Header/menu.svg"
                                                     alt="Hamburger Menu"
-                                                    width={30} // Adjust width as needed
-                                                    height={30} // Adjust height as needed
-                                                />
+                                                    width={16} // Adjust width as needed
+                                                    height={16} // Adjust height as needed
+                                                /> */}
+                                                <Menu />
                                             </Box>
                                         </Box>
                                     </Box>
@@ -212,6 +271,7 @@ const Header: React.FC = () => {
                                                     width={30} // Adjust width as needed
                                                     height={30} // Adjust height as needed
                                                 />
+                                                
                                             </Box>
                                         </Box>
                                     </Box>
@@ -227,10 +287,11 @@ const Header: React.FC = () => {
 
 
             {/* Navigation Links - For Desktop and Mobile */}
-            {
-                isMobile ? <Box className={`flex w-full justify-between ${isMenuOpen ? 'block' : 'hidden'} lg:flex`}>
+            { isMobile ? 
+                <Box className={`flex w-full justify-between ${isMenuOpen ? 'block' : 'hidden'} lg:flex`}>
                     <Box className="flex items-center justify-between w-full">
                         <Box className=" text-center">
+                            
                             <Link href="/">
                                 <Typography
                                     variant="h3"
@@ -483,8 +544,9 @@ const Header: React.FC = () => {
                 isMobile && isMenuOpen && (
                     <Box
                         className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-70"
-                        onClick={handleMenuToggle}
+                        
                     >
+                        <button onClick={handleMenuToggle} className='text-[#DBC6BC] text-lg relative flex items-end justify-end -mb-6 top-1 left-[21rem]'>X</button>
                         <Box
                             className="flex flex-col items-center justify-center p-6 bg-[#283c28] m-auto"
                             sx={{
@@ -710,6 +772,27 @@ const Header: React.FC = () => {
                                     }}
                                 >
                                     CONTACT
+                                </Typography>
+                            </Link>
+                            <Link href="https://staging.splendourinstone.com.au/quote/">
+                                <Typography
+                                    variant="h3"
+                                    // color="#DBC6BC"
+                                    sx={{
+                                        fontWeight: 500,
+                                        fontFamily: 'var(--font-montserrat)',
+                                        fontSize: "13px",
+                                        marginBottom: '20px',
+                                        padding: '10px',
+                                        // borderBottom: '2px solid #FFD700', // Gold underline
+                                        // '&:hover': {
+                                        //     color: '#FFD700',
+                                        //     transform: 'translateX(10px)', // Slide effect on hover
+                                        // }
+                                    }}
+                                    className=' p-3 rounded-3xl bg-customColor border border-customColor text-[#283c28]'
+                                >
+                                    FREE MEASURE & QUOTE!
                                 </Typography>
                             </Link>
                             {/* <Link href="/faq">

@@ -26,22 +26,20 @@ const ButtonHover = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttribut
           background: useMotionTemplate`
             radial-gradient(
               ${visible ? `${radius}px` : "0px"} circle at ${mouseX}px ${mouseY}px,
-              rgba(255, 255, 255, 0.2),
-              transparent 80%
             )
           `,
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="p-[1px] rounded-lg transition-all duration-300"
+        className="p-[1px] rounded-lg transition-all duration-300 flex justify-center items-center"
       >
         <button
           ref={ref}
           className={cn(
-            `relative ml-1 w-full mt-2 px-2 py-2 text-white font-medium text-xs-custom leading-tight-custom rounded-md 
-             bg-gradient-to-b from-[#d3b8aa] to-[#b89a8b] hover:from-[#c4a996] hover:to-[#a88a79]
-             shadow-md transition-all duration-300
+            `relative ml-1 w-[25%] mt-2 px-2 py-2 text-white font-semibold text-xs-custom leading-tight-custom text-xs 
+             flex items-center justify-center border rounded-2xl border-black
+             shadow-md transition-all duration-300 
              focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600
              disabled:opacity-50 disabled:cursor-not-allowed`,
             className

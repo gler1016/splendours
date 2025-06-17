@@ -1,14 +1,58 @@
 'use client';
-import * as THREE from 'three'; // Ensure to import THREE if not already imported
+import * as THREE from 'three';
 import { Camera } from 'three'
 import React, { useState, useEffect, useRef } from 'react';
-import { Canvas, useLoader } from '@react-three/fiber';
+import { Canvas, useLoader, useThree } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
 import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
 import { createColorTexture } from '@/lib/createColorTexture';
 
+// Component to handle window lighting
+const WindowLights = ({ 
+  windowPositions, 
+  intensity = 2,
+  color = '#FFFFFF', // Warm window light color
+  visible = true 
+}: {
+  windowPositions: Array<[number, number, number]>;
+  intensity?: number;
+  color?: string;
+  visible?: boolean;
+}) => {
+  return (
+    <>
+      {windowPositions.map((position, index) => (
+        <React.Fragment key={`window-light-${index}`}>
+          {/* Point light for general window illumination */}
+          <pointLight 
+            position={position} 
+            intensity={intensity} 
+            color={color} 
+            distance={3}
+            decay={2}
+            castShadow={true}
+            visible={visible}
+          />
+          
+          {/* Volumetric light effect (optional) */}
+          <mesh position={position}>
+            <sphereGeometry args={[0.15, 16, 16]} />
+            <meshBasicMaterial 
+              color={color} 
+              transparent={true}
+              opacity={0.15}
+              visible={visible}
+            />
+          </mesh>
+        </React.Fragment>
+      ))}
+    </>
+  );
+};
+
+// Main House component
 const House = ({
   modelPath,
   selectedBaseColor,
@@ -16,7 +60,10 @@ const House = ({
   selectedNormal,
   selectedHeight,
   zoomStatus,
-  rotateStatus
+  rotateStatus,
+  enableWindowLights = true,
+  windowLightIntensity = 4,
+  timeOfDay = 'day' // 'day', 'sunset', 'night'
 }: {
   modelPath: string;
   selectedBaseColor: string | null;
@@ -25,6 +72,9 @@ const House = ({
   selectedHeight: string | null;
   zoomStatus: boolean | false;
   rotateStatus: number | 0;
+  enableWindowLights?: boolean;
+  windowLightIntensity?: number;
+  timeOfDay?: 'day' | 'sunset' | 'night';
 }) => {
   const gltf = useLoader(GLTFLoader, modelPath);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -35,6 +85,28 @@ const House = ({
   const [intensity, setIntensity] = useState<number>(2.5);
   const [lightPoses, setLightPoses] = useState<[number, number, number]>([1, 1, 1]);
   const colorTexture = createColorTexture('#FFFF00');
+  const sceneRef = useRef<THREE.Group>(new THREE.Group());
+  
+  // Window positions (adjust these based on your model)
+  const [windowPositions, setWindowPositions] = useState<Array<[number, number, number]>>([
+    [0.5, 0, 0.5],   // Front right window
+    [-0.5, 0, 0.5],  // Front left window
+    [0.8, 0, -0.2],  // Side window
+    [-0.8, 0, -0.2], // Other side window
+    [0, 0, -0.8]     // Back window
+  ]);
+
+  console.log(intensity)
+
+  // Environment lighting settings based on time of day
+  const [environmentSettings, setEnvironmentSettings] = useState({
+    ambientIntensity: 0.5,
+    directionalIntensity: 1.0,
+    backgroundColor: '#000000',
+    windowLightColor: '#FFF9E5',
+    fogColor: '#ffffff',
+    fogDensity: 0.01
+  });
 
   // Load all potential textures at the top level
   const defaultBaseColor = useLoader(TextureLoader, '/Project_textures/01_beachport/textures/beachport_basecolor.jpg');
@@ -65,7 +137,6 @@ const House = ({
     });
   }, [selectedBaseColor, selectedArm, selectedNormal, selectedHeight, defaultBaseColor, defaultArm, defaultNormal, defaultHeight]);
 
-
   // Define type for settings
   type CameraSettings = {
     cameraPosition: [number, number, number]; // Explicitly defined as a tuple
@@ -94,6 +165,82 @@ const House = ({
 
   const cameraRef = useRef<Camera | null>(null);
 
+  // Update environment settings based on time of day
+  useEffect(() => {
+    switch (timeOfDay) {
+      case 'day':
+        setEnvironmentSettings({
+          ambientIntensity: 0.8,
+          directionalIntensity: 1.2,
+          backgroundColor: '#87CEEB', // Sky blue
+          windowLightColor: '#FFFFFF', // Bright white light
+          fogColor: '#F0F8FF',
+          fogDensity: 0.005
+        });
+        break;
+      case 'sunset':
+        setEnvironmentSettings({
+          ambientIntensity: 0.4,
+          directionalIntensity: 0.8,
+          backgroundColor: '#FF7F50', // Coral sunset
+          windowLightColor: '#FFA07A', // Light salmon
+          fogColor: '#FFA07A',
+          fogDensity: 0.02
+        });
+        break;
+      case 'night':
+        setEnvironmentSettings({
+          ambientIntensity: 0.1,
+          directionalIntensity: 0.2,
+          backgroundColor: '#000033', // Dark night blue
+          windowLightColor: '#FFF9E5', // Warm interior light
+          fogColor: '#000033',
+          fogDensity: 0.03
+        });
+        break;
+    }
+  }, [timeOfDay]);
+
+  // Find window meshes and update positions
+  useEffect(() => {
+    if (gltf) {
+      const newWindowPositions: Array<[number, number, number]> = [];
+      
+      // First attempt to find meshes with "window" in their name
+      gltf.scene.traverse((child: THREE.Object3D) => {
+        if (child instanceof THREE.Mesh && 
+           (child.name.toLowerCase().includes('window') || 
+            child.name.toLowerCase().includes('glass'))) {
+          
+          // Get world position of the window
+          const position = new THREE.Vector3();
+          child.getWorldPosition(position);
+          
+          // Store the position
+          newWindowPositions.push([position.x, position.y, position.z]);
+          
+          // Make window material emissive if it's night
+          if (timeOfDay === 'night' && enableWindowLights) {
+            if (child.material) {
+              // Clone the material to avoid affecting other objects
+              child.material = child.material.clone();
+              (child.material as THREE.MeshStandardMaterial).emissive = new THREE.Color(environmentSettings.windowLightColor);
+              (child.material as THREE.MeshStandardMaterial).emissiveIntensity = 0.8;
+            }
+          }
+        }
+      });
+      
+      // If we found windows, use those positions
+      if (newWindowPositions.length > 0) {
+        setWindowPositions(newWindowPositions);
+      }
+      
+      // Initialize the scene reference
+      sceneRef.current = gltf.scene;
+    }
+  }, [gltf, timeOfDay, enableWindowLights, environmentSettings.windowLightColor]);
+
   useEffect(() => {
     if (gltf && textures.baseColor) {
       gltf.scene.traverse((child: THREE.Object3D) => {
@@ -118,7 +265,7 @@ const House = ({
       });
 
       if (rotateStatus == 0) {
-        gltf.scene.rotation.y = 0; // Rotate 90 degrees
+        gltf.scene.rotation.y = 0;
         setLightPoses([1, 1, 1]);
       }
       if (rotateStatus == 1) {
@@ -126,10 +273,9 @@ const House = ({
         setLightPoses([0, 1, 1]);
       }
       if (rotateStatus == 2) {
-        gltf.scene.rotation.y = - Math.PI / 3.5;
+        gltf.scene.rotation.y = -Math.PI / 3.5;
         setLightPoses([0, 1, 1]);
       }
-
 
       // Apply model-specific transformations if needed
       setMinAzimuthAngle(-Math.PI);
@@ -140,14 +286,16 @@ const House = ({
 
       setSettings1((prevSet) => ({
         ...prevSet,
-        cameraPosition: [0, -1, zoomStatus ? 2.0 : -1]
+        cameraPosition: [0, -1, zoomStatus ? 2.0 : -1],
+        backgroundColor: environmentSettings.backgroundColor
       }));
       setSettings2((prevSet) => ({
         ...prevSet,
-        cameraPosition: [0, 0.4, zoomStatus ? 1.5 : 0.8]
+        cameraPosition: [0, 0.4, zoomStatus ? 1.5 : 0.8],
+        backgroundColor: environmentSettings.backgroundColor
       }));
     }
-  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus]);
+  }, [gltf, textures.baseColor, modelPath, zoomStatus, rotateStatus, environmentSettings.backgroundColor]);
 
   useEffect(() => {
     if (isMobile) {
@@ -161,37 +309,64 @@ const House = ({
     }
   }, [settings1.cameraPosition, settings2.cameraPosition, isMobile]);
 
+  // Scene setup component
+  const SceneSetup = () => {
+    const { scene } = useThree();
+    
+    useEffect(() => {
+      // Add fog to the scene
+      scene.fog = new THREE.FogExp2(
+        environmentSettings.fogColor, 
+        environmentSettings.fogDensity
+      );
+      
+      return () => {
+        scene.fog = null;
+      };
+    }, [scene, environmentSettings.fogColor, environmentSettings.fogDensity]);
+    
+    return null;
+  };
+
   return (
     <>
       {isMobile ? (
         <Canvas
           style={{ height: '100%', width: '100%' }} // Make Canvas full screen
-          key={modelPath} // Add this line to force re-mounting
+          key={`${modelPath}-${timeOfDay}`} // Add timeOfDay to force re-mounting when it changes
           camera={{ position: settings1.cameraPosition }}
           shadows
           onCreated={({ gl, camera }) => {
-            gl.setClearColor(settings1.backgroundColor); // Set background color dynamically
+            gl.setClearColor(environmentSettings.backgroundColor); // Set background color dynamically
             cameraRef.current = camera;
           }}
           className='relativeScene'
         >
-          <ambientLight intensity={0.5} color='#ffffff' />
-          <directionalLight position={lightPoses} intensity={intensity} castShadow />
-          <directionalLight position={[-1, -1, -1]} intensity={intensity} />
+          <SceneSetup />
+          <ambientLight intensity={environmentSettings.ambientIntensity} color='#ffffff' />
+          <directionalLight 
+            position={lightPoses} 
+            intensity={environmentSettings.directionalIntensity} 
+            castShadow 
+          />
+          <directionalLight 
+            position={[-1, -1, -1]} 
+            intensity={environmentSettings.directionalIntensity * 0.5} 
+          />
+          
+          {/* Add the house model */}
           <primitive object={gltf.scene} position={settings1.primitivePosition} castShadow />
-          {/* <Sphere position={[0, 0, 0]} args={[0.1, 32, 32]} castShadow>
-                  <meshStandardMaterial attach="material" color="blue" />
-              </Sphere>
-              <Sphere position={[1, 0, 0]} args={[0.1, 32, 32]} castShadow>
-                  <meshStandardMaterial attach="material" color="red" />
-              </Sphere>
-              <Sphere position={[0, 0, 1]} args={[0.1, 32, 32]} castShadow>
-                  <meshStandardMaterial attach="material" color="green" />
-              </Sphere>
-              <Sphere position={[0, 1, 0]} args={[0.1, 32, 32]} castShadow>
-                  <meshStandardMaterial attach="material" color="green" />
-              </Sphere> */}
-          {/* <OrbitControls target={settings.orbitTarget} /> */}
+          
+          {/* Add window lights */}
+          {enableWindowLights && (
+            <WindowLights 
+              windowPositions={windowPositions} 
+              intensity={windowLightIntensity} 
+              color={environmentSettings.windowLightColor}
+              visible={timeOfDay !== 'day'}
+            />
+          )}
+          
           <OrbitControls
             target={settings1.orbitTarget}
             enableZoom={true}
@@ -200,49 +375,67 @@ const House = ({
             maxDistance={5} // Maximum zoom level
             minPolarAngle={minPolarAngle} // Minimum vertical angle (limit upward rotation)
             maxPolarAngle={maxPolarAngle} // Maximum vertical angle (limit downward rotation)
-            minAzimuthAngle={minAzimuthAngle} // Limit left rotation (-25 degrees)
-            maxAzimuthAngle={maxAzimuthAngle} // Limit right rotation (245 degrees)
+            minAzimuthAngle={minAzimuthAngle} // Limit left rotation
+            maxAzimuthAngle={maxAzimuthAngle} // Limit right rotation
             enableDamping // Smooth the rotation for better UX
             dampingFactor={0.1}
           />
         </Canvas>
       ) : (
-        <>
-          {' '}
-          <Canvas
-            style={{ height: '100%', width: '100%' }} // Make Canvas full screen
-            key={modelPath} // Add this line to force re-mounting
-            camera={{ position: settings2.cameraPosition }}
-            shadows
-            dpr={[2, 3]}
-            gl={{
-              antialias: true,         // Enable anti-aliasing for smoother edges
-            }}
-            onCreated={({ gl, camera }) => {
-              gl.setClearColor(settings2.backgroundColor); // Set background color dynamically
-              cameraRef.current = camera;
-            }}
-            className='relativeScene'
-          >
-            <directionalLight position={lightPoses} intensity={intensity} castShadow />
-            <directionalLight position={[-1, -1, -1]} intensity={intensity} />
-            <primitive object={gltf.scene} position={settings2.primitivePosition} castShadow />
-            {/* <OrbitControls target={settings.orbitTarget} /> */}
-            <OrbitControls
-              target={settings2.orbitTarget}
-              enableZoom={true}
-              enablePan={false} // Disable panning if unnecessary
-              minDistance={0} // Minimum zoom level
-              maxDistance={4} // Maximum zoom level
-              minPolarAngle={Math.PI / 4} // Minimum vertical angle (limit upward rotation)
-              maxPolarAngle={Math.PI / 1.5} // Maximum vertical angle (limit downward rotation)
-              minAzimuthAngle={-Math.PI / 4} // Limit left rotation (-45 degrees)
-              maxAzimuthAngle={Math.PI / 4} // Limit right rotation (+45 degrees)
-              enableDamping // Smooth the rotation for better UX
-              dampingFactor={0.1}
+        <Canvas
+          style={{ height: '100%', width: '100%' }} // Make Canvas full screen
+          key={`${modelPath}-${timeOfDay}`} // Add timeOfDay to force re-mounting when it changes
+          camera={{ position: settings2.cameraPosition }}
+          shadows
+          dpr={[2, 3]}
+          gl={{
+            antialias: true, // Enable anti-aliasing for smoother edges
+          }}
+          onCreated={({ gl, camera }) => {
+            gl.setClearColor(environmentSettings.backgroundColor); // Set background color dynamically
+            cameraRef.current = camera;
+          }}
+          className='relativeScene'
+        >
+          <SceneSetup />
+          <ambientLight intensity={environmentSettings.ambientIntensity} color='#ffffff' />
+          <directionalLight 
+            position={lightPoses} 
+            intensity={environmentSettings.directionalIntensity} 
+            castShadow 
+          />
+          <directionalLight 
+            position={[-1, -1, -1]} 
+            intensity={environmentSettings.directionalIntensity * 0.5} 
+          />
+          
+          {/* Add the house model */}
+          <primitive object={gltf.scene} position={settings2.primitivePosition} castShadow />
+          
+          {/* Add window lights */}
+          {enableWindowLights && (
+            <WindowLights 
+              windowPositions={windowPositions} 
+              intensity={windowLightIntensity} 
+              color={environmentSettings.windowLightColor}
+              visible={timeOfDay !== 'day'}
             />
-          </Canvas>
-        </>
+          )}
+          
+          <OrbitControls
+            target={settings2.orbitTarget}
+            enableZoom={true}
+            enablePan={false} // Disable panning if unnecessary
+            minDistance={0} // Minimum zoom level
+            maxDistance={4} // Maximum zoom level
+            minPolarAngle={Math.PI / 4} // Minimum vertical angle (limit upward rotation)
+            maxPolarAngle={Math.PI / 1.5} // Maximum vertical angle (limit downward rotation)
+            minAzimuthAngle={-Math.PI / 4} // Limit left rotation (-45 degrees)
+            maxAzimuthAngle={Math.PI / 4} // Limit right rotation (+45 degrees)
+            enableDamping // Smooth the rotation for better UX
+            dampingFactor={0.1}
+          />
+        </Canvas>
       )}
     </>
   );

@@ -28,11 +28,6 @@ const ServicesPage = () => {
 
 
 
-
-
-
-
-
     return (
         <Box>
             <Box
@@ -94,8 +89,8 @@ const ServicesPage = () => {
                             color="#DCC5BD"
                             sx={{
                                 width: '100%',
-                                fontWeight: 400,
-                                fontFamily: 'Chronicle Display',
+                                fontWeight: 300,
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '0.8',
                                 fontSize: '40px'
                             }}
@@ -108,8 +103,8 @@ const ServicesPage = () => {
                             color="#DCC5BD"
                             sx={{
                                 width: '100%',
-                                fontWeight: 400,
-                                fontFamily: 'Chronicle Display',
+                                fontWeight: 300,
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '0.8',
                                 fontSize: '40px'
                             }}
@@ -122,8 +117,8 @@ const ServicesPage = () => {
                             color="#DCC5BD"
                             sx={{
                                 width: '100%',
-                                fontWeight: 400,
-                                fontFamily: 'Chronicle Display',
+                                fontWeight: 300,
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '0.8',
                                 fontSize: '40px'
                             }}
@@ -136,8 +131,8 @@ const ServicesPage = () => {
                             color="#DCC5BD"
                             sx={{
                                 width: '100%',
-                                fontWeight: 400,
-                                fontFamily: 'Chronicle Display',
+                                fontWeight: 300,
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '0.8',
                                 fontSize: '40px'
                             }}
@@ -150,7 +145,7 @@ const ServicesPage = () => {
                             className='text-center font-semibold'
                             sx={{
                                 fontWeight: 600,
-                                fontFamily: 'Chronicle Display',
+                                // fontFamily: 'Chronicle Display',
                                 lineHeight: '0.8',
                                 fontSize: '40px'
                             }}
@@ -162,7 +157,7 @@ const ServicesPage = () => {
                                 variant="h3"
                                 color="#DCC5BD"
                                 sx={{
-                                    fontWeight: 400,
+                                    fontWeight: 100,
                                     alignContent: 'flex-start',
                                     lineHeight: '1',
                                     fontFamily: 'Chronicle Display',
@@ -170,7 +165,7 @@ const ServicesPage = () => {
                                         xs: "15px",
                                         sm: "30px",  // Small screens
                                         md: "40px",  // Medium screens
-                                        lg: "65px"
+                                        lg: "48px"
                                     }
                                 }}
                             >
@@ -181,7 +176,7 @@ const ServicesPage = () => {
                                 color="#DCC5BD"
                                 sx={{
                                     // width: '80%',
-                                    fontWeight: 400,
+                                    fontWeight: 100,
                                     alignContent: 'flex-start',
                                     lineHeight: '1',
                                     fontFamily: 'Chronicle Display',
@@ -189,17 +184,17 @@ const ServicesPage = () => {
                                         xs: "15px",
                                         sm: "30px",  // Small screens
                                         md: "40px",  // Medium screens
-                                        lg: "65px"
+                                        lg: "48px"
                                     }
                                 }}
-                            > HOME DESERVES THE BRILLIANCE OF
+                            > HOME DESERVES <span className='font-bold'>THE BRILLIANCE OF</span>
                             </Typography>
                             <Typography
                                 variant="h3"
                                 color="#DCC5BD"
                                 sx={{
                                     width: '100%',
-                                    fontWeight: 400,
+                                    fontWeight: 600,
                                     alignContent: 'flex-start',
                                     lineHeight: '1',
                                     fontFamily: 'Chronicle Display',
@@ -207,7 +202,7 @@ const ServicesPage = () => {
                                         xs: "15px",
                                         sm: "30px",  // Small screens
                                         md: "40px",  // Medium screens
-                                        lg: "65px"
+                                        lg: "48px"
                                     }
                                 }}
                             >
@@ -231,7 +226,7 @@ const ServicesPage = () => {
                                         fontWeight: 300,
                                         alignContent: 'flex-start',
                                         fontFamily: 'var(--font-montserrat)',
-                                        fontSize: '13px'
+                                        fontSize: '12px'
                                     }}
                                 >
                                     Whether you're embarking on a grand renovation or seeking a touch of elegance for a specific space, our exquisite stone collection and exceptional design expertise are here to help.
@@ -246,7 +241,7 @@ const ServicesPage = () => {
                                         fontWeight: 300,
                                         alignContent: 'flex-start',
                                         fontFamily: 'var(--font-montserrat)',
-                                        fontSize: '13px'
+                                        fontSize: '12px'
                                     }}
                                 >
                                     We invite you to connect with our friendly and knowledgeable team to discuss your project and transform your vision into reality.
@@ -264,7 +259,7 @@ const ServicesPage = () => {
                                     fontWeight: 300,
                                     alignContent: 'flex-start',
                                     fontFamily: 'var(--font-montserrat)',
-                                    fontSize: '13px'
+                                    fontSize: '12px'
                                 }}
                             >
                                 Our dedicated team is passionate about natural stone and its potential to elevate your space. They're eager to discuss your project's specific needs and guide you through our extensive selection of stone cladding, walling, and paving options.
@@ -277,14 +272,15 @@ const ServicesPage = () => {
                                 variant="h3"
                                 color="white"
                                 sx={{
-                                    fontWeight: 300,
+                                    fontWeight: 100,
+                                    lineHeight: 1.4,
                                     alignContent: 'flex-start',
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: "10px",
                                         sm: "12px",  // Small screens
-                                        md: "15px",  // Medium screens
-                                        lg: "20px"
+                                        md: "13px",  // Medium screens
+                                        lg: "14px"
                                     }
                                 }}
                             >
@@ -296,14 +292,15 @@ const ServicesPage = () => {
                                 variant="h3"
                                 color="white"
                                 sx={{
-                                    fontWeight: 300,
+                                    fontWeight: 100,
+                                    lineHeight: 1.3,
                                     alignContent: 'flex-start',
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: "10px",
                                         sm: "12px",  // Small screens
-                                        md: "15px",  // Medium screens
-                                        lg: "20px"
+                                        md: "13px",  // Medium screens
+                                        lg: "14px"
                                     }
                                 }}
                             >
@@ -315,14 +312,15 @@ const ServicesPage = () => {
                                 variant="h3"
                                 color="white"
                                 sx={{
-                                    fontWeight: 300,
+                                    fontWeight: 100,
+                                    lineHeight: 1.4,
                                     alignContent: 'flex-start',
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: "10px",
                                         sm: "12px",  // Small screens
-                                        md: "15px",  // Medium screens
-                                        lg: "20px"
+                                        md: "13px",  // Medium screens
+                                        lg: "14px"
                                     }
                                 }}
                             >
@@ -509,7 +507,7 @@ const ServicesPage = () => {
                                 sx={{
                                     width: '100%',
                                     fontWeight: 600,
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     lineHeight: '0.8',
                                     fontSize: '40px'
                                 }}
@@ -524,7 +522,7 @@ const ServicesPage = () => {
                                     width: '100%',
                                     fontWeight: 600,
                                     lineHeight: '0.8',
-                                    fontFamily: 'Chronicle Display',
+                                    // fontFamily: 'Chronicle Display',
                                     fontSize: '40px'
                                 }}
                             >
@@ -556,7 +554,7 @@ const ServicesPage = () => {
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                 }}
                             >
                                 Feel free to browse our website for further
@@ -568,7 +566,7 @@ const ServicesPage = () => {
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                 }}
                             >
                                 information on our products and services.
@@ -583,7 +581,7 @@ const ServicesPage = () => {
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                 }}
                             >
                                 For project inspiration, explore our gallery
@@ -595,7 +593,7 @@ const ServicesPage = () => {
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                 }}
                             >
                                 showcasing a variety of stunning stone
@@ -607,7 +605,7 @@ const ServicesPage = () => {
                                 sx={{
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: '13px',
-                                    fontWeight: 300,
+                                    fontWeight: 400,
                                 }}
                             >
                                 applications.
@@ -661,7 +659,7 @@ const ServicesPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                         textAlign: 'start',
                                     }}
                                 >
@@ -674,7 +672,7 @@ const ServicesPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                         textAlign: 'start',
                                     }}
                                 >
@@ -687,7 +685,7 @@ const ServicesPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                         textAlign: 'start',
                                     }}
                                 >
@@ -752,7 +750,7 @@ const ServicesPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                     }}
                                 >
                                     Our team will respond to your
@@ -764,7 +762,7 @@ const ServicesPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                     }}
                                 >
                                     email inquiry within one
@@ -776,7 +774,7 @@ const ServicesPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                     }}
                                 >
                                     business day
@@ -880,7 +878,7 @@ const ServicesPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                     }}
                                 >
                                     Our showroom hours are the
@@ -892,7 +890,7 @@ const ServicesPage = () => {
                                     sx={{
                                         fontFamily: 'var(--font-montserrat)',
                                         fontSize: '13px',
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                     }}
                                 >
                                     same as our phone hours
@@ -981,8 +979,8 @@ const ServicesPage = () => {
                                             fontSize: {
                                                 xs: '10px',
                                                 sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                md: '16px',
+                                                lg: '16px',
                                             },
                                             fontWeight: 300,
                                             textAlign: 'start',
@@ -1000,8 +998,8 @@ const ServicesPage = () => {
                                             fontSize: {
                                                 xs: '10px',
                                                 sm: '15px',
-                                                md: '18px',
-                                                lg: '18px',
+                                                md: '16px',
+                                                lg: '16px',
                                             },
                                             fontWeight: 300,
                                             textAlign: 'start',
@@ -1034,8 +1032,8 @@ const ServicesPage = () => {
                                     fontSize: {
                                         xs: '15px',
                                         sm: '20px',
-                                        md: '25px',
-                                        lg: '28px',
+                                        md: '24px',
+                                        lg: '24px',
                                     },
                                     fontWeight: 500,
                                     textAlign: 'start',
@@ -1052,9 +1050,9 @@ const ServicesPage = () => {
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: '10px',
-                                        sm: '15px',
-                                        md: '18px',
-                                        lg: '18px',
+                                        sm: '13px',
+                                        md: '14px',
+                                        lg: '14px',
                                     },
                                     fontWeight: 300,
                                     textAlign: 'start',
@@ -1085,8 +1083,8 @@ const ServicesPage = () => {
                                     fontSize: {
                                         xs: '15px',
                                         sm: '20px',
-                                        md: '25px',
-                                        lg: '28px',
+                                        md: '24px',
+                                        lg: '24px',
                                     },
                                     fontWeight: 500,
                                     textAlign: 'start',
@@ -1103,9 +1101,9 @@ const ServicesPage = () => {
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: '10px',
-                                        sm: '15px',
-                                        md: '18px',
-                                        lg: '18px',
+                                        sm: '13px',
+                                        md: '14px',
+                                        lg: '14px',
                                     },
                                     fontWeight: 300,
                                     textAlign: 'start',
@@ -1136,8 +1134,8 @@ const ServicesPage = () => {
                                     fontSize: {
                                         xs: '15px',
                                         sm: '20px',
-                                        md: '25px',
-                                        lg: '28px',
+                                        md: '22px',
+                                        lg: '22px',
                                     },
                                     fontWeight: 500,
                                     textAlign: 'start',
@@ -1154,9 +1152,9 @@ const ServicesPage = () => {
                                     fontFamily: 'var(--font-montserrat)',
                                     fontSize: {
                                         xs: '10px',
-                                        sm: '15px',
-                                        md: '18px',
-                                        lg: '18px',
+                                        sm: '13px',
+                                        md: '14px',
+                                        lg: '14px',
                                     },
                                     fontWeight: 300,
                                     textAlign: 'start',
@@ -1188,10 +1186,10 @@ const ServicesPage = () => {
                     </Box>
                     <Box className="absolute z-10 text-center p-8 w-full justify-center items-center flex flex-col">
                         <Typography variant="h2" className="font-semibold" color='#DCC5BD' sx={{
-                            fontFamily: 'Chronicle Display',
+                            // fontFamily: 'Chronicle Display',
                             fontSize: '40px',
                             lineHeight: 0.9,
-                            fontWeight: 400,
+                            fontWeight: 300,
                         }}>
                             WE LOOK FORWARD TO CONNECTING WITH YOU
                         </Typography>
@@ -1200,7 +1198,7 @@ const ServicesPage = () => {
 
                         <Typography variant="h5" className="text-center" sx={{
                             fontFamily: 'var(--font-montserrat)',
-                            fontSize: '15px',
+                            fontSize: '13px',
                             width: '60%',
                             fontWeight: 300,
                         }}>
@@ -1226,12 +1224,12 @@ const ServicesPage = () => {
                         <Typography variant="h2" className="mb-4 font-bold" sx={{
                             fontFamily: 'Chronicle Display',
                             color: '#DCC5BD',
-                            lineHeight: 0.8,
+                            lineHeight: 1,
                             fontSize: {
                                 xs: '20px', // Font size for extra small screens
                                 sm: '30px', // Font size for small screens
                                 md: '40px', // Font size for medium screens
-                                lg: '100px', // Font size for large screens
+                                lg: '60px', // Font size for large screens
                             },
                             fontWeight: 300,
                         }}>
@@ -1248,7 +1246,7 @@ const ServicesPage = () => {
                                 xs: '12px', // Font size for extra small screens
                                 sm: '14px', // Font size for small screens
                                 md: '16px', // Font size for medium screens
-                                lg: '20px', // Font size for large screens
+                                lg: '16px', // Font size for large screens
                             },
                             fontWeight: 300,
                         }}>

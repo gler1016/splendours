@@ -35,9 +35,11 @@ export default function SplendoursOldHeader() {
         >
           Click Here
         </Link>
-        <button className="border border-customColor h-[30px] px-5 text-customColor flex items-center justify-center gap-2 rounded-full text-xs-custom leading-tight-custom font-semibold transition duration-300 hover:text-color hover:bg-customColor">
+        <Link
+          href={"https://www.splendourinstone.com.au/trade-credit/"}
+          className="border border-customColor h-[30px] px-5 text-customColor flex items-center justify-center gap-2 rounded-full text-xs-custom leading-tight-custom font-semibold transition duration-300 hover:text-color hover:bg-customColor">
           <FaMoneyBill className="w-4 h-4" /> Trade Credit
-        </button>
+        </Link>
       </div>
 
       {/* Main Navigation Bar - Positioned Below Upper Bar */}
@@ -46,9 +48,9 @@ export default function SplendoursOldHeader() {
       >
         <div className="flex items-center gap-6">
           <FaEnvelope className="text-customColor" />
-          <p className="text-xs-custom leading-tight-custom text-customColor">
+          <Link href={`http://46.202.166.36:3000/contact`} className="text-xs-custom leading-tight-custom text-customColor">
             AUSTRALIA'S NUMBER 1 HIGH-END STONE SUPPLIER - AUSTRALIA WIDE DELIVERY
-          </p>
+          </Link>
         </div>
         <div className="flex items-center gap-6">
           <FaMapMarkerAlt className="text-customColor" />
@@ -115,13 +117,15 @@ export default function SplendoursOldHeader() {
 
         {/* Center Logo */}
         <div className="flex justify-center items-center w-full absolute left-[50vw] transform -translate-x-1/2 z-0">
-          <Image src="/images/main.png" alt="Main Logo" style={{ width: "17vw" }} width={250} height={92} />
+          <Link href={`/`}>
+          <Image src="/images/splendour logo.svg" alt="Main Logo" style={{ width: "17vw" }} width={250} height={92} />
+          </Link>
         </div>
 
         {/* Right Side Links */}
         <div className="flex space-x-[2vw] text-xs-custom leading-tight-custom items-center p-[10px] z-10">
           <Link
-            href="https://staging.splendourinstone.com.au/about/"
+            href="/about"
             className={`relative text-xs-custom leading-tight-custom text-customColor after:content-[''] after:absolute after:left-0 after:top-full after:w-full after:h-[2px] after:bg-customColor after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 ${isActive("https://staging.splendourinstone.com.au/about/") ? "after:scale-x-100 font-bold" : ""
               }`}
           >
@@ -136,7 +140,7 @@ export default function SplendoursOldHeader() {
             GALLERY
           </Link>
           <Link
-            href="https://staging.splendourinstone.com.au/contact/"
+            href="/contact"
             className={`relative text-xs-custom leading-tight-custom text-customColor after:content-[''] after:absolute after:left-0 after:top-full after:w-full after:h-[2px] after:bg-customColor after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 ${isActive("https://staging.splendourinstone.com.au/contact/") ? "after:scale-x-100 font-bold" : ""
               }`}
           >

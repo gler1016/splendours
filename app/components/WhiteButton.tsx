@@ -14,7 +14,7 @@ interface CustomButtonProps {
 const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, isMobile, iconSrc, onClick }) => {
     return (
         <Button
-            className="font-semibold px-4"
+            className=" px-4 font-bold text-[14px] flex items-center justify-between"
             variant="outlined"
             endIcon={
                 <Box
@@ -44,17 +44,17 @@ const WhiteCustomButton: React.FC<CustomButtonProps> = ({ label, isMobile, iconS
                 justifyContent: "space-between",
                 alignItems: "center",
                 width: { xs: "170px", sm: "170px", md: "170px", lg: "170px" }, // Responsive width
-                height: { xs: "60px", sm: "60px", md: "60px", lg: "60px" }, // Responsive height
+                height: { xs: "50px", sm: "50px", md: "60px", lg: "60px" }, // Responsive height
                 borderRadius: "50px",
                 color: "#283C28",
-                fontSize: { xs: "20px", sm: "20px" }, // Responsive font size
+                fontSize: { xs: "12px", sm: "15px" }, // Responsive font size
                 fontWeight: 400,
                 fontFamily: "inherit",
                 fontSynthesisWeight: 600,
                 backgroundColor: "#DBC6BC", // Default background color
                 borderColor: "transparent", // Border color
                 textTransform: "none",
-                px: { xs: "15px", sm: "20px" }, // Responsive padding
+                px: { xs: "11px", sm: "15px" }, // Responsive padding
                 "&:hover": {
                     backgroundColor: "#283C28", // Hover background color
                     color: "#DBC6BC", // Hover font color

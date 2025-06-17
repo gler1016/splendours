@@ -1,22 +1,42 @@
 # Ignore Node.js dependencies
+
 node_modules/
 
+
+
 # Ignore build artifacts
+
 .next/
+
 dist/
+
 build/
+
 *.log
+
 *.tar
+
 *.zip
 
+
+
 # Ignore environment files
-.env
-.env.local
+
+
+
+
 
 # IDE/Editor files
+
 .vscode/
+
 .idea/
 
+
+
 # System files
+
 .DS_Store
+
 Thumbs.db
+config.bat

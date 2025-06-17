@@ -664,7 +664,7 @@ const App = ({ params }: {
                     <Box className='flex w-full gap-x-5 items-center'>
                       {/* Previous Image */}
                       <Box className="relative group">
-                        <Box className="flex flex-col items-center">
+                        <Box className="flex flex-col items-center cursor-pointer"  onClick={handlePrevClick}>
                           <Image
                             src={modelImages[(currentModelIndex - 1 + modelImages.length) % modelImages.length]}
                             alt="Previous Model"
@@ -686,7 +686,7 @@ const App = ({ params }: {
                       </Box>
                       {/* Next Image */}
                       <Box className="relative group">
-                        <Box className='flex flex-col items-center'>
+                        <Box className='flex flex-col items-center cursor-pointer'  onClick={handleNextClick}>
                           <Image
                             src={modelImages[(currentModelIndex + 1) % modelImages.length]}
                             alt="Next Model"

@@ -42,7 +42,7 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
                     <Box className="flex flex-col w-full h-full justify-end px-5 py-8">
                         <Box className="flex w-full flex-col">
                             <Box className="flex w-full justify-between">
-                                <Box className="w-1/3">
+                                <Box className="w-1/3 mt-16">
                                     <Typography
                                         variant="h4"
                                         color="white"
@@ -52,7 +52,7 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
                                                 xs: '10px', // Font size for extra small screens
                                                 sm: '20px', // Font size for small screens
                                                 md: '25px', // Font size for medium screens
-                                                lg: '30px', // Font size for large screens
+                                                lg: '25px', // Font size for large screens
                                             },
                                             fontWeight: 600,
                                             lineHeight: '1'
@@ -69,7 +69,7 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
                                                 xs: '10px', // Font size for extra small screens
                                                 sm: '20px', // Font size for small screens
                                                 md: '25px', // Font size for medium screens
-                                                lg: '30px', // Font size for large screens
+                                                lg: '25px', // Font size for large screens
                                             },
                                             fontWeight: 600,
                                             lineHeight: '1'
@@ -78,7 +78,7 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
                                         SUPPLY OF PREMIUM NATURAL STONE
                                     </Typography>
                                 </Box>
-                                <Box className="w-1/2">
+                                <Box className="w-1/2 opacity-50 mt-16">
                                     <Typography
                                         variant="h4"
                                         color="white"
@@ -87,10 +87,10 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
                                             fontSize: {
                                                 xs: '10px', // Font size for extra small screens
                                                 sm: '12px', // Font size for small screens
-                                                md: '15px', // Font size for medium screens
-                                                lg: '20px', // Font size for large screens
+                                                md: '14px', // Font size for medium screens
+                                                lg: '14px', // Font size for large screens
                                             },
-                                            fontWeight: 300,
+                                            fontWeight: 100,
                                             textAlign: 'start',
                                         }}
                                     >

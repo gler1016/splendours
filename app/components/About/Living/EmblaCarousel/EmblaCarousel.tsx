@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import { LazyLoadImage } from './EmblaCarouselLazyLoadImage';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import { Button, Typography } from '@mui/material';
-
 import data from "./EmblaData.json";
-import './embla.css'
+import './embla.css';
+import {
+  NextButton,
+  PrevButton
+} from './EmblaCarouselArrowButtons';
 
 interface Resource {
   imageUrl?: string;
@@ -20,9 +20,26 @@ type PropType = {
   options?: EmblaOptionsType;
 };
 
-const EmblaCarousel: React.FC<PropType> = ({ options }) => {
+const EmblaCarousel: React.FC<PropType> = (props) => {
+  const { options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [slidesInView, setSlidesInView] = useState<number[]>([]);
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setPrevBtnDisabled(!emblaApi.canScrollPrev());
+    setNextBtnDisabled(!emblaApi.canScrollNext());
+  }, [emblaApi]);
 
   const updateSlidesInView = useCallback((emblaApi: EmblaCarouselType) => {
     setSlidesInView((slidesInView) => {
@@ -39,21 +56,24 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
   useEffect(() => {
     if (!emblaApi) return;
 
+    onSelect();
     updateSlidesInView(emblaApi);
+    
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
     emblaApi.on('slidesInView', updateSlidesInView);
     emblaApi.on('reInit', updateSlidesInView);
-  }, [emblaApi, updateSlidesInView]);
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+    
+    return () => {
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
+      emblaApi.off('slidesInView', updateSlidesInView);
+      emblaApi.off('reInit', updateSlidesInView);
+    };
+  }, [emblaApi, onSelect, updateSlidesInView]);
 
   return (
-    <div className="embla">
+    <div className="embla relative w-full">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {data.resources
@@ -70,41 +90,15 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
             ))}
         </div>
       </div>
-      <Button
-        className="embla__button embla__button--prev ml-[-8px]"
-        onClick={scrollPrev}
-      >
-        <NavigateBeforeIcon fontSize="large" />
-        <Typography
-        className='mt-[3px]'
-          sx={{
-            fontSize: '13px',
-            fontWeight: 300,
-            letterSpacing:'0.3em',
-            color: 'white', // Set text color
-          }}
-        >
-          PREV
-        </Typography>
 
-      </Button>
-      <Button
-        className="embla__button embla__button--next mr-[-8px]"
-        onClick={scrollNext}
-      >
-        <Typography
-        className='mt-[3px]'
-          sx={{
-            fontSize: '13px',
-            fontWeight: 300,
-            letterSpacing:'0.3em',
-            color: 'white', // Set text color
-          }}
-        >
-          NEXT
-        </Typography>
-        <NavigateNextIcon fontSize="large" />
-      </Button>
+      <div className="embla__controls absolute w-full flex justify-between items-center px-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
+        <div className="pointer-events-auto">
+          <PrevButton onClick={scrollPrev} disabled={prevBtnDisabled} />
+        </div>
+        <div className="pointer-events-auto">
+          <NextButton onClick={scrollNext} disabled={nextBtnDisabled} />
+        </div>
+      </div>
     </div>
   );
 };

@@ -116,7 +116,7 @@ const Carousel = ({
                     className="px-4 py-2 font-normal flex items-center justify-center hover:opacity-75 transition-opacity"
                     disabled={isTransitioning}
                 >
-                    <ArrowBackIosNewIcon />
+                    <ArrowBackIosNewIcon sx={{ color: '#283C28' }} />
                     <Typography
                         className="font-semibold"
                         variant="h3"
@@ -176,7 +176,7 @@ const Carousel = ({
                     >
                         N E X T
                     </Typography>
-                    <ArrowForwardIosIcon />
+                    <ArrowForwardIosIcon sx={{ color: '#283C28' }} />
                 </button>
             </div>
         </div>

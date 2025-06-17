@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Chronicle Display';
+  src: url('/fonts/Chronicle Display Roman.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* --background: #ffffff; */
 
+  --font-chronicle-display: 'Chronicle Display', Georgia, serif;
+  --font-montserrat: 'Montserrat', Arial, sans-serif;
   --background:#283C28;
   --foreground: #171717;
 }

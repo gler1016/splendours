@@ -89,10 +89,10 @@ export default function StoneTypesFaqAccordion() {
                             sx={{
                                 fontWeight: 300,
                                 fontFamily: 'Chronicle Display',
-                                fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '30px' },
+                                fontSize: { xs: '15px', sm: '20px', md: '25px', lg: '28px' },
                             }}
                         >
-                            IS NATURAL STONE ECO-FRIENDLY?
+                            HOW DO I CARE FOR NATURAL STONE?
                         </Typography>
                     </Box>
                 </AccordionSummary>

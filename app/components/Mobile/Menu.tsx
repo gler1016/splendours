@@ -61,6 +61,12 @@ const ResponsiveMenu: React.FC = () => {
                 Contact
               </a>
             </li>
+            <li>
+              <a href="#contact" className="text-gray-800 hover:text-blue-500">
+              FREE MEASURE & QUOTE
+              </a>
+            </li>
+
           </ul>
         </div>
       )}

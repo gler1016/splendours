@@ -120,6 +120,7 @@ const chronicleDisplay = localFont({
     },
   ],
   variable: "--font-chronicle-display",
+  display: "swap",
 });
 
 export default function RootLayout({
@@ -132,7 +133,9 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${chronicleDisplay.variable}`}
       >
-        <ModelProvider><Providers>{children}</Providers></ModelProvider>
+        <ModelProvider>
+          <Providers>{children}</Providers>
+        </ModelProvider>
       </body>
     </html>
   );

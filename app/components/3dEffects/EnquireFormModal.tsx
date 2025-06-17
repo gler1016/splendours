@@ -10,7 +10,6 @@ import {
   Snackbar,
   Alert
 } from '@mui/material';
-import { Label } from './Label';
 import { Input } from './Input';
 import { cn } from '../../../lib/utils'
 import { Textarea } from '../3dEffects/Textarea';
@@ -87,7 +86,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
               variant="h4"
               color="#283C28"
               sx={{
-                fontWeight: 550,
+                fontWeight: 500,
                 textAlign: 'center',
                 fontFamily: 'Chronicle Display',
                 flexGrow: 1, // This allows the title to take up space so the button aligns to the right
@@ -101,16 +100,16 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
           </Box>
           <form onSubmit={handleSubmit}>
             <LabelInputContainer>
-              <Label htmlFor="firstname">First name</Label>
-              <Input id="firstname" placeholder="Enter Your Name" type="text" />
+              {/* <Label htmlFor="firstname">First name</Label> */}
+              <Input id="firstname" placeholder="*Name" type="text" />
             </LabelInputContainer>
             <LabelInputContainer >
-              <Label htmlFor="email">Email Address</Label>
-              <Input id="email" placeholder="example@email.com" type="email" />
+              {/* <Label htmlFor="email">Email Address</Label> */}
+              <Input id="email" placeholder="*Email" type="email" />
             </LabelInputContainer>
             <LabelInputContainer >
-              <Label htmlFor="phonenumber">Phone Number</Label>
-              <Input id="phonenumber" placeholder="••••••••" type="phonenumber" />
+              {/* <Label htmlFor="phonenumber">Phone Number</Label> */}
+              <Input id="phonenumber" placeholder="Phone No" type="phonenumber" />
             </LabelInputContainer>
             <LabelInputContainer>
               <Textarea
@@ -123,9 +122,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ open, handleClose }) => {
             </LabelInputContainer>
             <ButtonHover
               type="submit"
-            >
-              Sign up &rarr;
-            </ButtonHover>
+            > SEND           </ButtonHover>
           </form>
         </Box>
       </Modal>

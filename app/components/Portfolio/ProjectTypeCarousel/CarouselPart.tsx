@@ -27,7 +27,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
   return (
     <div className={styles.embla}>
       <button
-        className={`${styles.emblaButton} ${styles.emblaButtonPrev}`}
+        className={`${styles.emblaButton} ${styles.emblaButtonPrev} text-[10px]`}
         onClick={scrollPrev}
         aria-label="Previous"
       >
@@ -44,8 +44,8 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
                 sx={{
                   fontWeight: 400,
                   textAlign: 'start',
-                  fontFamily: 'Chronicle Display',
-                  fontSize: '40px'
+                  // fontFamily: 'Chronicle Display',
+                  fontSize: '38px'
                 }}
               >
                 {item.name}
@@ -62,7 +62,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, options }) => {
         </div>
       </div>
       <button
-        className={`${styles.emblaButton} ${styles.emblaButtonNext}`}
+        className={`${styles.emblaButton} ${styles.emblaButtonNext} text-[10px]`}
         onClick={scrollNext}
         aria-label="Next"
       >
